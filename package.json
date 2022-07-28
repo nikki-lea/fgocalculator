@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "netlify deploy --dir=build",
+    "deploy:prod": "netlify deploy --dir=build --prod"
   },
   "dependencies": {
     "next": "12.2.2",
