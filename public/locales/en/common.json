@@ -1,6 +1,23 @@
 {
-    "header": "FGO Probability Calculator",
+    "header": "Fate Grand Order Probability Calculator",
     "sqform": {
-        "current": "Current Saint Quartz"
+        "current.sq": "Current number of SQ",
+        "current.ticket": "Current number of tickets",
+        "begin.savings": "Savings start date",
+        "end.savings": "Savings end date",
+        "earned.sq": "SQ gained over time",
+        "master.mission": "Master Missions",
+        "quest": "Quests, Progress Rewards, Interludes",
+        "event": "Maintenance and Events",
+        "add.event.sq": "Add event SQ gained during savings window",
+        "rateup.chance": "Rate-up Probability",
+        "rateup.chance.at.least": "Probability of at least {n} copies of rate up",
+        "nonrateup.chance": "Probability of at least 1 {rarity} non rate up",
+        "future.sq": "Saint Quartz Available by Banner End",
+        "craft.essence": "Craft Essence",
+        "servant": "Servant",
+        "target": "Target Summon",
+        "target.count": "How many copies?",
+        "rateup.count": "How many {rarity} {type} are on rate up?"
     }
 }

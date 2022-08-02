@@ -7,12 +7,18 @@
         "end.savings": "貯金の終",
         "earned.sq": "聖晶石をかせいだ",
         "master.mission": "マスターミッション",
-        "quest": "クエスト",
-        "event": "イベント",
+        "quest": "幕間とクエスト",
+        "event": "メンテナンスとイベント",
+        "add.event.sq": "イベントの聖晶石を追加",
+        "how.many": "幾つか",
         "rateup.chance": "ピックアップの確率",
-        "rateup.chance.at.least": "少なくとも1ピックアップの確率",
-        "future.sq": "未来に聖晶石",
+        "rateup.chance.at.least": "少なくとも{n}ピックアップの確率",
+        "nonrateup.chance": "{rarity}と少なくとも1ピックアップ以外の確率",
+        "future.sq": "ピックアップに聖晶石",
         "craft.essence": "概念礼装",
         "servant": "サーヴァント",
-        "target": "対象サ"
+        "target": "対象サ",
+        "target.count": "対象サはいくつですか",
+        "rateup.count": "ピックアップ{rarity}{type}はいくつですか"
+    }
 }
