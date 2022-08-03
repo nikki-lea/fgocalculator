@@ -3,6 +3,7 @@
     "sqform": {
         "current.sq": "Current number of SQ",
         "current.ticket": "Current number of tickets",
+        "ticket.as.sq": "Add tickets as banner SQ",
         "begin.savings": "Savings start date",
         "end.savings": "Savings end date",
         "earned.sq": "SQ gained over time",
