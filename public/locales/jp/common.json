@@ -19,6 +19,9 @@
         "future.sq": "ピックアップに聖晶石",
         "craft.essence": "概念礼装",
         "servant": "サーヴァント",
+        "multiple.targets": "複数の対象",
+        "target.name": "{type}の名",
+        "saint.quartz": "聖晶石",
         "target": "対象",
         "target.count": "対象はいくつですか",
         "rateup.count": "ピックアップ{rarity}{type}はいくつですか"
