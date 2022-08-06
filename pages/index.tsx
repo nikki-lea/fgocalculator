@@ -1,12 +1,24 @@
 import type { NextPage } from 'next'
-import styles from '../styles/Home.module.css'
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 
 const Home: NextPage = () => {
-  return (
-    <div>
-      <p>placeholder</p>
-    </div>
-  )
+  const { t } =  useTranslation();
+    return (
+      <div>
+        <p>{t("header")}</p>
+      </div>
+    )
+  }
+
+export async function getStaticProps({ locale }: {locale: string}) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common', 'footer'])),
+    },
+  };
 }
+
 
 export default Home
