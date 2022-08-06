@@ -1,29 +1,38 @@
 {
     "header": "FGOガチャ電卓",
-    "sqform": {
-        "current.sq": "現在の聖晶石",
-        "current.ticket": "現在の呼符",
-        "ticket.as.sq": "ピックアップの聖晶石に呼符を込みますか",
-        "begin.savings": "貯金の開始",
-        "end.savings": "貯金の終",
-        "earned.sq": "聖晶石をかせいだ",
-        "master.mission": "マスターミッション",
-        "quest": "幕間とクエスト",
-        "event": "メンテナンスとイベント",
-        "add.event.sq": "イベントの聖晶石を込みますか",
-        "how.many": "{type}はいくつですか",
-        "rateup.chance": "ピックアップの確率",
-        "include.pity": "確率に確定召喚を込みますか",
-        "rateup.chance.at.least": "少なくとも{n}ピックアップの確率",
-        "nonrateup.chance": "{rarity}と少なくとも1ピックアップ以外の確率",
-        "future.sq": "ピックアップに聖晶石",
-        "craft.essence": "概念礼装",
-        "servant": "サーヴァント",
-        "multiple.targets": "複数の対象",
-        "target.name": "{type}の名",
-        "saint.quartz": "聖晶石",
-        "target": "対象",
-        "target.count": "対象はいくつですか",
-        "rateup.count": "ピックアップ{rarity}{type}はいくつですか"
-    }
+    "current": {
+        "sq": "現在の聖晶石",
+        "ticket": "現在の呼符"
+    },
+    "ticketassq": "ピックアップの聖晶石に呼符を込みますか",
+    "savings": {
+        "begin": "貯金の開始",
+        "end": "貯金の終"
+    },
+    "sq": {
+        "name": "聖晶石",
+        "earned": "聖晶石をかせいだ",
+        "addevent": "イベントの聖晶石を込みますか",
+        "future": "ピックアップに聖晶石"
+    },
+    "mastermission": "マスターミッション",
+    "quest": "幕間とクエスト",
+    "event": "メンテナンスとイベント",
+    "rateup": {
+        "chance": {
+            "title": "ピックアップの確率",
+            "atleast": "少なくとも{{n}}ピックアップの確率",
+            "nonrateup": "{{rarity}}と少なくとも1ピックアップ以外の確率"
+        },
+        "count": "ピックアップ{{rarity}}{{type}}はいくつですか"
+    },
+    "target": {
+        "name": "対象",
+        "type": "{{type}}の名",
+        "multiple": "複数の対象",
+        "count": "{{type}}はいくつですか"
+
+    },
+    "craftessence": "概念礼装",
+    "servant": "サーヴァント"
 }
