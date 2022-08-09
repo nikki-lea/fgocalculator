@@ -1,11 +1,14 @@
-html,
+
+@import "~antd/dist/antd.less";
+
+@background-color: #333332;
+@text-color: #FEFEFE;
+
+
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: #333332;
 }
+
 .header {
   height: 60px;
   background-color: #333332;
@@ -14,6 +17,7 @@ body {
   top: 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 h1 {
@@ -22,15 +26,22 @@ h1 {
   font-weight: 100;
   font-size: 24px;
   margin-left: 20px;
+  margin-bottom: 0;
 }
 
 .locale {
   display: inline-flex;
-  margin-top: 9px;
+  background-color: transparent;
   width: 90px;
   border: 1px solid #ABABAB;
   height: 40px;
   border-radius: 5px;
   margin-right: 20px;
+  align-items: center;
+  justify-content: center;
+  p {
+    margin-bottom: 0;
+    padding-left: 14px;
+  }
 }
 
