@@ -2,6 +2,7 @@
     "common": {
         "header": "FGOガチャ電卓",
         "current": {
+            "general": "現在",
             "sq": "現在の聖晶石",
             "ticket": "現在の呼符"
         },

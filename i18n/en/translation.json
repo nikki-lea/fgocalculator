@@ -2,6 +2,7 @@
     "common": {
         "header": "Fate Grand Order Probability Calculator",
         "current": {
+            "general": "Current Summon Currency",
             "sq": "Current number of SQ",
             "ticket": "Current number of tickets"
         },
@@ -12,13 +13,30 @@
         },
         "sq": {
             "name": "SQ",
-            "earned": "SQ gained over time",
+            "earned": "SQ Gained",
             "addevent": "Add event SQ gained during savings window",
             "future": "Saint Quartz Available by Banner End"
         },
-        "mastermission": "Master Missions",
+        "mission": {
+            "label": "Master Missions",
+            "detail": "3 SQ Weekly"
+        },
         "quest": "Quests, Progress Rewards, Interludes",
         "event": "Maintenance and Events",
+        "login": {
+            "total": {
+                "label": "Total Logins",
+                "detail": "Indicated under Master Profile"
+            },
+            "daily": {
+                "label": "Daily Logins",
+                "detail": "Avg 1 SQ per day"
+            }
+        },
+        "shop": {
+            "label": "Shop Summon Tickets",
+            "detail": "Avg shop tickets bought monthly"
+        },
         "rateup": {
             "chance": {
                 "title": "Rate-up Probability",
