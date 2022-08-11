@@ -1,0 +1,41 @@
+{
+    "common": {
+        "header": "FGOガチャ電卓",
+        "current": {
+            "general": "現在",
+            "sq": "現在の聖晶石",
+            "ticket": "現在の呼符"
+        },
+        "ticketassq": "ピックアップの聖晶石に呼符を込みますか",
+        "savings": {
+            "begin": "貯金の開始",
+            "end": "貯金の終"
+        },
+        "sq": {
+            "name": "聖晶石",
+            "earned": "聖晶石をかせいだ",
+            "addevent": "イベントの聖晶石を込みますか",
+            "future": "ピックアップに聖晶石"
+        },
+        "mastermission": "マスターミッション",
+        "quest": "幕間とクエスト",
+        "event": "メンテナンスとイベント",
+        "rateup": {
+            "chance": {
+                "title": "ピックアップの確率",
+                "atleast": "少なくとも{{n}}ピックアップの確率",
+                "nonrateup": "{{rarity}}と少なくとも1ピックアップ以外の確率"
+            },
+            "count": "ピックアップ{{rarity}}{{type}}はいくつですか"
+        },
+        "target": {
+            "name": "対象",
+            "type": "{{type}}の名",
+            "multiple": "複数の対象",
+            "count": "{{type}}はいくつですか"
+
+        },
+        "craftessence": "概念礼装",
+        "servant": "サーヴァント"
+    }
+}

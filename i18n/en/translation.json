@@ -1,0 +1,59 @@
+{
+    "common": {
+        "header": "Fate Grand Order Probability Calculator",
+        "current": {
+            "general": "Current Summon Currency",
+            "sq": "Current number of SQ",
+            "ticket": "Current number of tickets"
+        },
+        "ticketassq": "Include tickets toward summon SQ",
+        "savings": {
+            "begin": "Savings start date",
+            "end": "Savings end date"
+        },
+        "sq": {
+            "name": "SQ",
+            "earned": "SQ Gained",
+            "addevent": "Add event SQ gained during savings window",
+            "future": "Saint Quartz Available by Banner End"
+        },
+        "mission": {
+            "label": "Master Missions",
+            "detail": "3 SQ Weekly"
+        },
+        "quest": "Quests, Progress Rewards, Interludes",
+        "event": "Maintenance and Events",
+        "login": {
+            "total": {
+                "label": "Total Logins",
+                "detail": "Indicated under Master Profile"
+            },
+            "daily": {
+                "label": "Daily Logins",
+                "detail": "Avg 1 SQ per day"
+            }
+        },
+        "shop": {
+            "label": "Shop Summon Tickets",
+            "detail": "Avg shop tickets bought monthly"
+        },
+        "rateup": {
+            "chance": {
+                "title": "Rate-up Probability",
+                "atleast": "Probability of at least {{n}} copies of rate up",
+                "nonrateup": "Probability of at least 1 {{rarity}} non rate up"
+            },
+            "count": "How many {{rarity}} {{type}} are on rate up?",
+            "upcoming": "Upcoming summoning campaigns based on FGO JP"
+        },
+        "target": {
+            "name": "{{type}} name",
+            "type": "Target Summon",
+            "multiple": "Budget for multiple roll targets",
+            "count": "How many copies?"
+
+        },
+        "craftessence": "Craft Essence",
+        "servant": "Servant"
+    }
+}

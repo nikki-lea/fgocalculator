@@ -1,0 +1,85 @@
+
+@import "~antd/dist/antd.less";
+
+@background-color: #333332;
+@text-color: #FEFEFE;
+@box-color: #F5F5F7;
+
+
+body {
+  background-color: @background-color;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.header {
+  height: 60px;
+  background-color: @background-color;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h1 {
+  color: white;
+  font-weight: 200;
+  font-size: 24px;
+  margin-left: 20px;
+  margin-bottom: 0;
+}
+
+}
+
+.locale {
+  display: inline-flex;
+  background-color: transparent;
+  width: 90px;
+  border: 1px solid @text-color;
+  height: 40px;
+  border-radius: 5px;
+  margin-right: 20px;
+  align-items: center;
+  justify-content: center;
+  span {
+    margin-bottom: 0;
+    padding-left: 14px;
+  }
+}
+
+
+.hero-image {
+  position: absolute;
+}
+
+.main-content {
+  height: 99.4%;
+  width: 55%;
+  background-color: @box-color;
+  position: absolute;
+  top: 0;
+  padding-top: 60px;
+}
+
+.current-container {
+  padding: 40px;
+  color: black;
+  h1 {
+    font-weight: 600;
+  }
+}
+
+.currency-form {
+  display: flex;
+  gap: 15px;
+}
+
+.form-column {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  width: 50%;
+}
+
+.sq-earned {
+  margin-top: 60px;
+}
