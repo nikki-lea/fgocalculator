@@ -3,7 +3,7 @@ import { useTranslation } from 'next-i18next'
 import TextField from '@mui/material/TextField';
 
 
-const Home: NextPage = () => {
+const SummonCurrency: NextPage = () => {
   const { t } =  useTranslation();
     return (
       <div className="current-container">
@@ -35,4 +35,4 @@ const Home: NextPage = () => {
     )
   }
 
-export default Home
+export default SummonCurrency
