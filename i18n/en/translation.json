@@ -6,7 +6,7 @@
             "sq": "Current number of SQ",
             "ticket": "Current number of tickets"
         },
-        "ticketassq": "Include tickets toward summon SQ",
+        "ticketassq": "Don't include tickets toward summon SQ",
         "savings": {
             "begin": "Savings start date",
             "end": "Savings end date"
@@ -40,7 +40,7 @@
         "rateup": {
             "chance": {
                 "title": "Rate-up Probability",
-                "atleast": "Probability of at least {{n}} copies of rate up",
+                "atleast": "Probability of at least {{targetCopies}} copies of rate up",
                 "nonrateup": "Probability of at least 1 {{rarity}} non rate up"
             },
             "count": "How many {{rarity}} {{type}} are on rate up?",
@@ -54,6 +54,9 @@
 
         },
         "craftessence": "Craft Essence",
-        "servant": "Servant"
+        "servant": "Servant",
+        "progress": "Step {{stepNum}} of 3",
+        "next": "Next",
+        "back": "Back"
     }
 }

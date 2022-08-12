@@ -47,12 +47,14 @@ body {
 }
 
 
-.hero-image {
+.content-container {
   position: absolute;
+  width: 100vw;
+  height: 60vw;
 }
 
 .main-content {
-  height: 99.4%;
+  height: 99.9%;
   width: 55%;
   background-color: @box-color;
   position: absolute;
@@ -71,6 +73,11 @@ body {
 .currency-form {
   display: flex;
   gap: 15px;
+  .MuiFormControlLabel-root {
+    span {
+      width: unset;
+    }
+  }
 }
 
 .form-column {
@@ -82,4 +89,25 @@ body {
 
 .sq-earned {
   margin-top: 60px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 300px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-right: 80px;
+
+  .MuiButton-contained {
+    width: 150px;
+    height: 60px;
+  }
+
+  .next-button {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
 }

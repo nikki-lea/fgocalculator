@@ -1,7 +1,16 @@
 import type { NextPage } from 'next'
 import { useTranslation } from 'next-i18next'
-import TextField from '@mui/material/TextField';
+import { TextField, FormControlLabel, Checkbox } from '@mui/material';
+import Footer from './components/footer';
 
+const StyledCheckbox = () => (
+  <Checkbox
+    sx={{
+      '&.Mui-checked': {
+        color: "#DDA55B"
+      },}}
+  />
+);
 
 const SummonCurrency: NextPage = () => {
   const { t } =  useTranslation();
@@ -24,13 +33,16 @@ const SummonCurrency: NextPage = () => {
             <TextField id="outlined-basic" label={t("mission.label")} variant="outlined" color="info" helperText={t("mission.detail")} fullWidth/>
             <TextField id="outlined-basic" label={t("login.daily.label")} variant="outlined" color="info" helperText={t("login.daily.detail")} fullWidth/>
             <TextField id="outlined-basic" label={t("quest")} variant="outlined" color="info" fullWidth/>
+            <div><FormControlLabel control={<StyledCheckbox />} label={t("ticketassq")}/></div>
           </div>
           <div className="form-column">
             <TextField id="outlined-basic" label={t("login.total.label")} variant="outlined" color="info" helperText={t("login.total.detail")} fullWidth/>
             <TextField id="outlined-basic" label={t("shop.label")} variant="outlined" color="info" helperText={t("shop.detail")} fullWidth/>
             <TextField id="outlined-basic" label={t("event")} variant="outlined" color="info" fullWidth/>
+            <div><FormControlLabel control={<StyledCheckbox />} label={t("sq.addevent")}/></div>
           </div>
         </div>
+        <Footer stepNum={1} />
       </div>
     )
   }

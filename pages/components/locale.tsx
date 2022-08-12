@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import Image from 'next/image'
 
 
 const Locale: React.FC = () => {
@@ -19,7 +20,7 @@ const Locale: React.FC = () => {
         <>
             <button className="locale" onClick={updateLanguage}>
                 <div>
-                    <img src={flagIcon} alt={localeName} height={18} width={24}/>
+                    <Image src={flagIcon} alt={localeName} height={18} width={24}/>
                     <span>{localeName.toUpperCase()}</span>
                 </div>
             </button>
