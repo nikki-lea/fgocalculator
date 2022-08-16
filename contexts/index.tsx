@@ -1,5 +1,5 @@
 import { useReducer, createContext, Dispatch} from 'react';
-import { ActionsType, StateType } from '../types/contexts';
+import { createAction, createActionPayload, ActionsUnion, StateType} from '../types/contexts';
 import calcCumulativeLoginSQ from '../utils/calcCumulativeLoginSQ';
 import calcDaysDiffData from '../utils/calcDaysDiff';
 
@@ -7,20 +7,33 @@ type ProviderProps = {
     children: React.ReactNode;
 }
 
-export const Actions = {
-    setCurrentSQ: "SET_CURRENT_SQ",
-    setTicketSQ: "SET_TICKET_SQ",
-    setStartDate: "SET_START_DATE",
-    setEndDate: "SET_END_DATE",
-    setQuestSQ: "SET_QUEST_SQ",
-    removeTicketsFromSQ: "REMOVE_TICKETS_FROM_SQ",
-    setCumulativeLoginsData: "SET_CUMULATIVE_LOGINS_DATA",
-    setShopTickets: "SET_SHOP_TICKETS",
-    setEventSQ: "SET_EVENT_SQ",
-    handleFormSubmit: "HANDLE_FORM_SUBMIT",
-    setFormErrors: "SET_FORM_ERRORS"
-}
+export const SET_CURRENT_SQ = "SET_CURRENT_SQ";
+export const SET_TICKET_SQ = "SET_TICKET_SQ";
+export const SET_START_DATE = "SET_START_DATE";
+export const SET_END_DATE = "SET_END_DATE";
+export const SET_QUEST_SQ = "SET_QUEST_SQ";
+export const REMOVE_TICKETS_FROM_SQ = "REMOVE_TICKETS_FROM_SQ";
+export const SET_CUMULATIVE_LOGINS_DATA = "SET_CUMULATIVE_LOGINS_DATA";
+export const SET_SHOP_TICKETS = "SET_SHOP_TICKETS";
+export const SET_EVENT_SQ = "SET_EVENT_SQ";
+export const HANDLE_FORM_SUBMIT = "HANDLE_FORM_SUBMIT";
+export const SET_FORM_ERRORS = "SET_FORM_ERRORS";
 
+export const AppActions = {
+  setCurrentSQ: createActionPayload<typeof SET_CURRENT_SQ, number>(SET_CURRENT_SQ),
+  setTicketSQ: createActionPayload<typeof SET_TICKET_SQ, number>(SET_TICKET_SQ),
+  setStartDate: createActionPayload<typeof SET_START_DATE, string>(SET_START_DATE),
+  setEndDate: createActionPayload<typeof SET_END_DATE, string>(SET_END_DATE),
+  setQuestSQ: createActionPayload<typeof SET_QUEST_SQ, number>(SET_QUEST_SQ),
+  setCumulativeLoginsData: createActionPayload<typeof SET_CUMULATIVE_LOGINS_DATA, number>(SET_CUMULATIVE_LOGINS_DATA),
+  removeTicketsFromSQ:  createActionPayload<typeof REMOVE_TICKETS_FROM_SQ, boolean>(REMOVE_TICKETS_FROM_SQ),
+  setShopTickets: createActionPayload<typeof SET_SHOP_TICKETS, number>(SET_SHOP_TICKETS),
+  setEventSQ: createActionPayload<typeof SET_EVENT_SQ, number>(SET_EVENT_SQ),
+  handleFormSubmit: createAction<typeof HANDLE_FORM_SUBMIT>(HANDLE_FORM_SUBMIT),
+  setFormErrors: createActionPayload<typeof SET_FORM_ERRORS, boolean>(SET_FORM_ERRORS),
+};
+
+export type AcceptedActions = ActionsUnion<typeof AppActions>;
 
 const initialState = {
     currentSQ: 0,
@@ -41,7 +54,7 @@ const initialState = {
 
 const FgoContext = createContext<{
     state: StateType;
-    dispatch: Dispatch<ActionsType>;
+    dispatch: Dispatch<AcceptedActions>;
   }>({
     state: initialState,
     dispatch: () => null
@@ -49,7 +62,7 @@ const FgoContext = createContext<{
 
 
 // Formats payload to include date based calculations like daily login SQ and mission SQ
-const formatDatePayload = (state: StateType, date: string | undefined, isStartDate: boolean) => {
+const formatDatePayload = (state: StateType, date: string, isStartDate: boolean) => {
   let updatedState = isStartDate ? 
   {
     ...state,
@@ -70,72 +83,66 @@ const formatDatePayload = (state: StateType, date: string | undefined, isStartDa
 }
 
 
-const reducer = (state: StateType, action: ActionsType): StateType => {
+const reducer = (state: StateType, action: AcceptedActions): StateType => {
   switch (action.type) {
-    case Actions.setCurrentSQ:
+    case SET_CURRENT_SQ:
       return {
         ...state,
-        currentSQ: action.value.currentSQ
+        currentSQ: action.payload
       };
-      case Actions.setStartDate:
+      case SET_START_DATE:
         return {
-          ...formatDatePayload(state, action.value.startDate, true)
+          ...formatDatePayload(state, action.payload, true)
         };
-      case Actions.setEndDate:
+      case SET_END_DATE:
         return {
-          ...formatDatePayload(state, action.value.endDate, false)
+          ...formatDatePayload(state, action.payload, false)
         }
-      case Actions.setQuestSQ:
-        return {
-          ...state,
-          questSQ: action.value.questSQ
-        }
-      case Actions.removeTicketsFromSQ:
+      case SET_QUEST_SQ:
         return {
           ...state,
-          removeTicketsFromSQ: action.value.removeTicketsFromSQ
+          questSQ: action.payload
         }
-      case Actions.removeTicketsFromSQ:
+      case REMOVE_TICKETS_FROM_SQ:
         return {
           ...state,
-          removeTicketsFromSQ: action.value.removeTicketsFromSQ
+          removeTicketsFromSQ: action.payload
         }
-      case Actions.setCumulativeLoginsData:
+      case SET_CUMULATIVE_LOGINS_DATA:
         return {
           ...state,
-          cumulativeLoginsCount: action.value.cumulativeLoginsCount
+          cumulativeLoginsCount: action.payload
         }
-      case Actions.setShopTickets:
+      case SET_SHOP_TICKETS:
         return {
           ...state,
-          shopTickets: action.value.shopTickets
+          shopTickets: action.payload
         }
-      case Actions.setEventSQ:
+      case SET_EVENT_SQ:
         return {
           ...state,
-          eventSQ: action.value.eventSQ
+          eventSQ: action.payload
         }
-      case Actions.removeTicketsFromSQ:
-        return {
-          ...state,
-          removeTicketsFromSQ: action.value.removeTicketsFromSQ
-        }
-      case Actions.handleFormSubmit:
+
+      case HANDLE_FORM_SUBMIT:
         const cumulativeLoginsSQ = calcCumulativeLoginSQ(state.cumulativeLoginsCount, state.dailyLogins)
         const totalSQForBanner =
           cumulativeLoginsSQ +
-          (state.currentSQ ?? 0) +
-          (state.removeTicketsFromSQ ? 0) +
-          (state.masterMissions ?? 0) +
-          (state.ticketSQ ?? 0) +
+          state.currentSQ +
+          (state.removeTicketsFromSQ ? 0 : (3*state.ticketSQ)) +
+          state.masterMissions +
+          state.dailyLogins +
+          (3 * state.shopTickets) +
+          state.questSQ +
+          state.eventSQ;
         return {
           ...state,
           cumulativeLoginsSQ
         }
-      case Actions.setFormErrors:
+      case SET_FORM_ERRORS:
         return {
           ...state,
-          formErrors: true
+          formErrors: action.payload
         }
     default:
       return state;

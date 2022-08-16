@@ -1,6 +1,6 @@
 export type DiffPropsType = {
-    startDate: string | undefined; //State types are all optional
-    endDate: string | undefined;
+    startDate: string;
+    endDate: string;
 };
 
 export type DiffCalcsType = {

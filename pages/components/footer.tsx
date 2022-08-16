@@ -19,10 +19,10 @@ const Footer: React.FC<FooterProps> = ({stepNum, linkTo = "/", linkBack = "/"} :
     const onFormSubmit = () => {
         if (linkTo === "/rolltarget") {
             if (!state.startDate || !state.endDate) {
-                dispatch({type: "SET_FORM_ERRORS", value: {formErrors: true}});
+                dispatch({type: "SET_FORM_ERRORS", payload: true});
             } else {
-                dispatch({type: "SET_FORM_ERRORS", value: {formErrors: false}});
-                dispatch({type: "HANDLE_FORM_SUBMIT", value: {formErrors: false}});
+                dispatch({type: "SET_FORM_ERRORS", payload: false});
+                dispatch({type: "HANDLE_FORM_SUBMIT"});
                 router.push(linkTo)
             }
         }

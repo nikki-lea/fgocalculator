@@ -1,4 +1,4 @@
-const calcCumulativeLoginSQ = (cumulativeLoginsCount: number | undefined, dailyLogins: number | undefined) : number => {
+const calcCumulativeLoginSQ = (cumulativeLoginsCount: number, dailyLogins: number) : number => {
     const loginsCount = cumulativeLoginsCount ?? 0;
     const totalLogins = dailyLogins ?? 0;
     const finalCumulativeLogins = loginsCount + totalLogins;
