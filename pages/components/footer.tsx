@@ -10,7 +10,7 @@ const Footer: React.FC<{stepNum: number}> = ({stepNum} : {stepNum: number}) => {
             {stepNum < 3 && 
             (
                 <div className="next-button">
-                    <Button variant="contained" color="primary">{t("next")}</Button>
+                    <Button variant="contained" color="success">{t("next")}</Button>
                     <div>{t("progress", { stepNum })}</div>
                 </div>
             )}

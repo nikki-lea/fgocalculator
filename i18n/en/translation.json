@@ -14,7 +14,7 @@
         "sq": {
             "name": "SQ",
             "earned": "SQ Gained",
-            "addevent": "Add event SQ gained during savings window",
+            "addevent": "Add event SQ gained based on JP events",
             "future": "Saint Quartz Available by Banner End"
         },
         "mission": {
@@ -25,7 +25,7 @@
         "event": "Maintenance and Events",
         "login": {
             "total": {
-                "label": "Total Logins",
+                "label": "Cumulative Logins",
                 "detail": "Indicated under Master Profile"
             },
             "daily": {
