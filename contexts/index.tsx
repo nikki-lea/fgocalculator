@@ -137,7 +137,8 @@ const reducer = (state: StateType, action: AcceptedActions): StateType => {
           state.eventSQ;
         return {
           ...state,
-          cumulativeLoginsSQ
+          cumulativeLoginsSQ,
+          totalSQForBanner
         }
       case SET_FORM_ERRORS:
         return {

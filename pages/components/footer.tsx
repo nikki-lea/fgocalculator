@@ -16,7 +16,7 @@ const Footer: React.FC<FooterProps> = ({stepNum, linkTo = "/", linkBack = "/"} :
     const { state, dispatch } = useContext(FgoContext)
     const router = useRouter();
 
-    const onFormSubmit = () => {
+    const onFormSubmitHandler = () => {
         if (linkTo === "/rolltarget") {
             if (!state.startDate || !state.endDate) {
                 dispatch({type: "SET_FORM_ERRORS", payload: true});
@@ -34,7 +34,7 @@ const Footer: React.FC<FooterProps> = ({stepNum, linkTo = "/", linkBack = "/"} :
             {stepNum < 3 && 
             (
                 <div className="next-button">
-                    <Button variant="contained" color="success"><Link href={linkTo}>{t("next")}</Link></Button>
+                    <Button variant="contained" color="success" onClick={onFormSubmitHandler}>{t("next")}</Button>
                     <div>{t("progress", { stepNum })}</div>
                 </div>
             )}

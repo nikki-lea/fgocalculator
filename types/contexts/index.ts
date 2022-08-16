@@ -14,7 +14,8 @@ export interface StateType {
     shopTickets: number,
     eventSQ: number,
     removeTicketsFromSQ: boolean
-    formErrors: boolean
+    formErrors: boolean,
+    totalSQForBanner: number
 }
 
 

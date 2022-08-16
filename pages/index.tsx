@@ -1,9 +1,10 @@
 import type { NextPage } from 'next'
 import React, { useContext } from "react";
 import { useTranslation } from 'next-i18next'
-import { TextField, FormControlLabel, Checkbox } from '@mui/material';
+import { TextField, FormControlLabel, Checkbox, Alert} from '@mui/material';
 import Footer from './components/footer';
 import { FgoContext } from '../contexts'
+import { StateType } from '../types/contexts';
 
 const StyledCheckbox = ({onChangeHandler} :  {onChangeHandler: React.ChangeEventHandler<HTMLInputElement>}) => (
   <Checkbox
@@ -13,18 +14,30 @@ const StyledCheckbox = ({onChangeHandler} :  {onChangeHandler: React.ChangeEvent
         color: "#DDA55B"
       },}}
   />
-);  
+);
+
+const getExistingData = (state: StateType) => {
+  let existingData: any = {};
+  for (const [key, value] of Object.entries(state)) {
+    if (!!value) {
+      existingData[key] = value;
+    }
+  }
+  return existingData;
+}
 
 
 const SummonCurrency: NextPage = () => {
   const { state, dispatch } = useContext(FgoContext)
   const { t } =  useTranslation();
+  console.log(getExistingData(state))
     return (
       <div className="current-container">
+        {state.formErrors && <Alert severity="error">{t("error")}</Alert>}
         <h1>{t("current.general")}</h1>
         <div className="currency-form">
           <div className="form-column">
-            <TextField id="outlined-basic" inputProps={{type: "number"}} label={t("current.sq")} variant="outlined" color="primary" fullWidth onBlur={(e) => {dispatch({type: "SET_CURRENT_SQ", payload: parseInt(e.target.value)})}}/>
+            <TextField id="outlined-basic" inputProps={{type: "number"}} label={t("current.sq")} variant="outlined" color="primary" fullWidth defaultValue={state.currentSQ} onBlur={(e) => {dispatch({type: "SET_CURRENT_SQ", payload: parseInt(e.target.value)})}}/>
             <TextField id="outlined-basic" inputProps={{type: "number"}} label={t("current.ticket")} variant="outlined" color="primary" fullWidth onBlur={(e) => {dispatch({type: "SET_TICKET_SQ", payload: parseInt(e.target.value)})}}/>
           </div>
           <div className="form-column">

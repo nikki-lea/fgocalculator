@@ -57,6 +57,7 @@
         "servant": "Servant",
         "progress": "Step {{stepNum}} of 3",
         "next": "Next",
-        "back": "Back"
+        "back": "Back",
+        "error": "Savings start date and banner end date are required."
     }
 }
