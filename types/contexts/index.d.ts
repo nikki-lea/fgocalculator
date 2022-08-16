@@ -14,6 +14,7 @@ export interface StateType {
     shopTickets?: number,
     eventSQ?: number,
     removeTicketsFromSQ?: boolean
+    formErrors?: boolean
 }
 
 
@@ -27,3 +28,5 @@ export type ActionsType =
  | { type: Actions.setCumulativeLoginsData, value: StateType}
  | { type: Actions.setShopTickets, value: StateType}
  | { type: Actions.setEventSQ, value: StateType}
+ | { type: Actions.setFormErrors, value: StateType}
+ | { type: Actions.handleFormSubmit, value: StateType}

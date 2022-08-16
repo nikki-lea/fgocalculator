@@ -1,5 +1,6 @@
 import { useReducer, createContext, Dispatch} from 'react';
 import { ActionsType, StateType } from '../types/contexts';
+import calcCumulativeLoginSQ from '../utils/calcCumulativeLoginSQ';
 import calcDaysDiffData from '../utils/calcDaysDiff';
 
 type ProviderProps = {
@@ -15,7 +16,9 @@ export const Actions = {
     removeTicketsFromSQ: "REMOVE_TICKETS_FROM_SQ",
     setCumulativeLoginsData: "SET_CUMULATIVE_LOGINS_DATA",
     setShopTickets: "SET_SHOP_TICKETS",
-    setEventSQ: "SET_EVENT_SQ"
+    setEventSQ: "SET_EVENT_SQ",
+    handleFormSubmit: "HANDLE_FORM_SUBMIT",
+    setFormErrors: "SET_FORM_ERRORS"
 }
 
 
@@ -31,7 +34,9 @@ const initialState = {
     shopTickets: 0,
     questSQ: 0,
     eventSQ: 0,
-    removeTicketsFromSQ: false
+    removeTicketsFromSQ: false,
+    formErrors: false,
+    totalSQForBanner: 0
   };
 
 const FgoContext = createContext<{
@@ -109,6 +114,28 @@ const reducer = (state: StateType, action: ActionsType): StateType => {
         return {
           ...state,
           eventSQ: action.value.eventSQ
+        }
+      case Actions.removeTicketsFromSQ:
+        return {
+          ...state,
+          removeTicketsFromSQ: action.value.removeTicketsFromSQ
+        }
+      case Actions.handleFormSubmit:
+        const cumulativeLoginsSQ = calcCumulativeLoginSQ(state.cumulativeLoginsCount, state.dailyLogins)
+        const totalSQForBanner =
+          cumulativeLoginsSQ +
+          (state.currentSQ ?? 0) +
+          (state.removeTicketsFromSQ ? 0) +
+          (state.masterMissions ?? 0) +
+          (state.ticketSQ ?? 0) +
+        return {
+          ...state,
+          cumulativeLoginsSQ
+        }
+      case Actions.setFormErrors:
+        return {
+          ...state,
+          formErrors: true
         }
     default:
       return state;
