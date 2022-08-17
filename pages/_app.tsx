@@ -1,15 +1,13 @@
 import "../styles/antd.less";
-import React from 'react'
-import type { AppProps } from 'next/app'
-import Layout from './components/layout'
-import { ThemeProvider } from '@mui/material';
-import Ereshkigal from '../styles/ereshkigal'
+import React from "react";
+import type { AppProps } from "next/app";
+import Layout from "./components/layout";
+import { ThemeProvider } from "@mui/material";
+import Ereshkigal from "../styles/ereshkigal";
 import { FgoProvider } from "../contexts";
-import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import '../i18n/config';
-
-
+import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import "../i18n/config";
 
 function App({ Component, pageProps }: AppProps) {
   return (

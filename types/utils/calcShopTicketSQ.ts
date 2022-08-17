@@ -1,5 +1,5 @@
 export type ShopTicketPropTypes = {
-    startDate: string;
-    endDate: string;
-    monthlyShopTickets: number;
+  startDate: string;
+  endDate: string;
+  monthlyShopTickets: number;
 };
