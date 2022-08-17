@@ -6,6 +6,8 @@ const calcDaysDiffData = ({startDate, endDate} : DiffPropsType): DiffCalcsType=>
     const momentEnd = moment(endDate, "YYYY-MM-DD");
     const dailyLogins = momentEnd.diff(momentStart, "days");
     const masterMissions = (dailyLogins/7)*3;
+    console.log(startDate)
+    console.log(endDate)
     return { masterMissions, dailyLogins };
 };
 

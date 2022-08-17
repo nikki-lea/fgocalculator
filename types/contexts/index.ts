@@ -3,7 +3,7 @@
 */
 export interface StateType {
     currentSQ: number,
-    ticketSQ: number,
+    currentTickets: number,
     startDate: string,
     endDate: string,
     masterMissions: number,
@@ -11,11 +11,12 @@ export interface StateType {
     cumulativeLoginsCount: number,
     cumulativeLoginsSQ: number,
     dailyLogins: number,
-    shopTickets: number,
+    monthlyShopTickets: number,
     eventSQ: number,
     removeTicketsFromSQ: boolean
     formErrors: boolean,
-    totalSQForBanner: number
+    totalSQForBanner: number,
+    shopTicketSQ: number
 }
 
 
