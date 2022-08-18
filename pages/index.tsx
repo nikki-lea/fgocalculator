@@ -5,6 +5,7 @@ import { TextField, FormControlLabel, Checkbox, Alert } from "@mui/material";
 import Footer from "./components/footer";
 import { FgoContext } from "../contexts";
 import { StateType } from "../types/contexts";
+import { ExcludeOptions } from "../contexts";
 
 const StyledCheckbox = ({
   onChangeHandler
@@ -37,6 +38,14 @@ const SummonCurrency: NextPage = () => {
   const { state, dispatch } = useContext(FgoContext);
   const { t } = useTranslation();
   const previousState = getPreviousState(state); // Only set values if set by the user
+
+  const handleExclusionUpdate = (key: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    const actionType = e.target.checked ? "ADD_EXCLUDE_OPTION" : "REMOVE_EXCLUDE_OPTION";
+    dispatch({
+      type: actionType,
+      payload: key
+    });
+  }
   return (
     <div className="current-container">
       {state.formErrors && <Alert severity="error">{t("error")}</Alert>}
@@ -138,19 +147,31 @@ const SummonCurrency: NextPage = () => {
               });
             }}
           />
-          <div>
+          <div className="exclusions">
+            <p>{t("excludeoptions")}</p>
             <FormControlLabel
               control={
                 <StyledCheckbox
-                  onChangeHandler={(e) => {
-                    dispatch({
-                      type: "REMOVE_TICKETS_FROM_SQ",
-                      payload: e.target.checked
-                    });
-                  }}
+                  onChangeHandler={handleExclusionUpdate(ExcludeOptions.tickets)}
                 />
               }
-              label={t("ticketassq")}
+              label={t("alltickets")}
+            />
+              <FormControlLabel
+              control={
+                <StyledCheckbox
+                  onChangeHandler={handleExclusionUpdate(ExcludeOptions.tickets)}
+                />
+              }
+              label={t("login.both")}
+            />
+              <FormControlLabel
+              control={
+                <StyledCheckbox
+                  onChangeHandler={handleExclusionUpdate(ExcludeOptions.masterMissions)}
+                />
+              }
+              label={t("mission.label")}
             />
           </div>
         </div>

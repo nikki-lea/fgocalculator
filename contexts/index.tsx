@@ -13,17 +13,24 @@ type ProviderProps = {
   children: React.ReactNode;
 };
 
+export const ExcludeOptions = {
+  tickets: "TICKETS",
+  masterMissions: "MASTER_MISSIONS",
+  loginBonuses: "LOGIN_BONUSES"
+};
+
 export const SET_CURRENT_SQ = "SET_CURRENT_SQ";
 export const SET_CURRENT_TICKETS = "SET_CURRENT_TICKETS";
 export const SET_START_DATE = "SET_START_DATE";
 export const SET_END_DATE = "SET_END_DATE";
 export const SET_QUEST_SQ = "SET_QUEST_SQ";
-export const REMOVE_TICKETS_FROM_SQ = "REMOVE_TICKETS_FROM_SQ";
 export const SET_CUMULATIVE_LOGINS_DATA = "SET_CUMULATIVE_LOGINS_DATA";
 export const SET_MONTHLY_SHOP_TICKETS = "SET_MONTHLY_SHOP_TICKETS";
 export const SET_EVENT_SQ = "SET_EVENT_SQ";
 export const HANDLE_FORM_SUBMIT = "HANDLE_FORM_SUBMIT";
 export const SET_FORM_ERRORS = "SET_FORM_ERRORS";
+export const ADD_EXCLUDE_OPTION = "ADD_EXCLUDE_OPTION";
+export const REMOVE_EXCLUDE_OPTION = "REMOVE_EXCLUDE_OPTION";
 
 export const AppActions = {
   setCurrentSQ: createActionPayload<typeof SET_CURRENT_SQ, number>(
@@ -41,10 +48,6 @@ export const AppActions = {
     typeof SET_CUMULATIVE_LOGINS_DATA,
     number
   >(SET_CUMULATIVE_LOGINS_DATA),
-  removeTicketsFromSQ: createActionPayload<
-    typeof REMOVE_TICKETS_FROM_SQ,
-    boolean
-  >(REMOVE_TICKETS_FROM_SQ),
   setShopTickets: createActionPayload<typeof SET_MONTHLY_SHOP_TICKETS, number>(
     SET_MONTHLY_SHOP_TICKETS
   ),
@@ -52,7 +55,13 @@ export const AppActions = {
   handleFormSubmit: createAction<typeof HANDLE_FORM_SUBMIT>(HANDLE_FORM_SUBMIT),
   setFormErrors: createActionPayload<typeof SET_FORM_ERRORS, boolean>(
     SET_FORM_ERRORS
-  )
+  ),
+  addExcludeOption: createActionPayload<typeof ADD_EXCLUDE_OPTION, string>(
+    ADD_EXCLUDE_OPTION
+  ),
+  removeExcludeOption: createActionPayload<typeof REMOVE_EXCLUDE_OPTION, string>(
+    REMOVE_EXCLUDE_OPTION
+  ),
 };
 
 export type AcceptedActions = ActionsUnion<typeof AppActions>;
@@ -69,10 +78,10 @@ export const initialState = {
   monthlyShopTickets: 0,
   questSQ: 0,
   eventSQ: 0,
-  removeTicketsFromSQ: false,
   formErrors: false,
   totalSQForBanner: 0,
-  shopTicketSQ: 0
+  shopTicketSQ: 0,
+  excludeOptions: new Set('')
 };
 
 const FgoContext = createContext<{
@@ -137,11 +146,7 @@ export const reducer = (state: StateType, action: AcceptedActions): StateType =>
         ...state,
         questSQ: action.payload
       };
-    case REMOVE_TICKETS_FROM_SQ:
-      return {
-        ...state,
-        removeTicketsFromSQ: action.payload
-      };
+
     case SET_CUMULATIVE_LOGINS_DATA:
       return {
         ...state,
@@ -169,12 +174,12 @@ export const reducer = (state: StateType, action: AcceptedActions): StateType =>
         monthlyShopTickets: state.monthlyShopTickets
       });
       const totalSQForBanner =
-        cumulativeLoginsSQ +
+        (state.excludeOptions.has(ExcludeOptions.loginBonuses) ? 0: cumulativeLoginsSQ) +
         state.currentSQ +
-        (state.removeTicketsFromSQ ? 0 : 3 * state.currentTickets) +
-        state.masterMissions +
-        state.dailyLogins +
-        (state.removeTicketsFromSQ ? 0 : shopTicketSQ) +
+        (state.excludeOptions.has(ExcludeOptions.tickets) ? 0 : 3 * state.currentTickets) +
+        (state.excludeOptions.has(ExcludeOptions.masterMissions) ? 0 : state.masterMissions) +
+        (state.excludeOptions.has(ExcludeOptions.loginBonuses) ? 0 : state.dailyLogins) +
+        (state.excludeOptions.has(ExcludeOptions.tickets)? 0 : shopTicketSQ) +
         state.questSQ +
         state.eventSQ;
       return {
@@ -186,6 +191,19 @@ export const reducer = (state: StateType, action: AcceptedActions): StateType =>
       return {
         ...state,
         formErrors: action.payload
+      };
+    case ADD_EXCLUDE_OPTION:
+      const setCopy = new Set([...Array.from(state.excludeOptions), action.payload]);
+      return {
+        ...state,
+        excludeOptions: setCopy
+      };
+    case REMOVE_EXCLUDE_OPTION:
+      state.excludeOptions.delete(action.payload);
+      const setWithoutCopy = new Set([...Array.from(state.excludeOptions)]);
+      return {
+        ...state,
+        excludeOptions: setWithoutCopy
       };
     default:
       return state;

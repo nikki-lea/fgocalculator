@@ -6,7 +6,6 @@ import {
     SET_START_DATE,
     SET_END_DATE,
     SET_QUEST_SQ,
-    REMOVE_TICKETS_FROM_SQ,
     SET_CUMULATIVE_LOGINS_DATA,
     SET_MONTHLY_SHOP_TICKETS,
     SET_EVENT_SQ,
@@ -14,10 +13,13 @@ import {
     SET_FORM_ERRORS,
     reducer,
     AcceptedActions,
-    formatDatePayload
+    formatDatePayload,
+    ADD_EXCLUDE_OPTION,
+    ExcludeOptions,
+    REMOVE_EXCLUDE_OPTION
 } from '../contexts';
 import { StateType } from '../types/contexts';
-import MockStateData from './mockstatedata.json';
+import MockStateData from '../mockstatedata';
 
 describe('reducer', () => {
   const mockActions = [
@@ -27,7 +29,6 @@ describe('reducer', () => {
     {action: {type: SET_END_DATE, payload: "2022-10-20"}, value: 'endDate'},
     {action: {type: SET_QUEST_SQ, payload: 120}, value: 'questSQ'},
     {action: {type: SET_CUMULATIVE_LOGINS_DATA, payload: 331}, value: 'cumulativeLoginsCount'},
-    {action: {type: REMOVE_TICKETS_FROM_SQ, payload: true}, value: 'removeTicketsFromSQ'},
     {action: {type: SET_MONTHLY_SHOP_TICKETS, payload: 5}, value: 'monthlyShopTickets'},
     {action: {type: SET_EVENT_SQ, payload: 5}, value: 'eventSQ'},
     {action: {type: SET_FORM_ERRORS, payload: true}, value: 'formErrors'}
@@ -39,6 +40,18 @@ describe('reducer', () => {
       const result = reducer(initialStateCopy, item.action as AcceptedActions);
       expect(result[item.value as keyof StateType]).toEqual(item.action.payload);
     });
+  });
+  
+  it('adds exclude options', () => {
+    const mockStateCopy = {...MockStateData};
+    const result = reducer(mockStateCopy as StateType, {type: ADD_EXCLUDE_OPTION, payload: ExcludeOptions.tickets} as AcceptedActions);
+    expect(result.excludeOptions.has(ExcludeOptions.tickets)).toBe(true);
+  });
+
+  it('removes exclude options', () => {
+    const mockStateCopy = {...MockStateData, excludeOptions: new Set([ExcludeOptions.tickets])};
+    const result = reducer(mockStateCopy as StateType, {type: REMOVE_EXCLUDE_OPTION, payload: ExcludeOptions.tickets} as AcceptedActions);
+    expect(result.excludeOptions.has(ExcludeOptions.tickets)).toBe(false);
   });
 
   it('sets field values on form submit', () => {

@@ -6,7 +6,7 @@
             "sq": "Current number of SQ",
             "ticket": "Current number of tickets"
         },
-        "ticketassq": "Don't include tickets toward summon SQ",
+        "alltickets": "Shop and current tickets",
         "savings": {
             "begin": "Savings start date",
             "end": "Savings end date"
@@ -24,6 +24,7 @@
         "quest": "Quests, Progress Rewards, Interludes",
         "event": "Maintenance and Events",
         "login": {
+            "both": "Cumulative and daily login sq",
             "total": {
                 "label": "Cumulative Logins",
                 "detail": "Indicated under Master Profile"
@@ -58,6 +59,7 @@
         "progress": "Step {{stepNum}} of 3",
         "next": "Next",
         "back": "Back",
-        "error": "Savings start date and banner end date are required."
+        "error": "Savings start date and campaign end date are required.",
+        "excludeoptions": "Exclude from SQ applied for campaign:"
     }
 }

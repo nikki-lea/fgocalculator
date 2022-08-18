@@ -13,10 +13,10 @@ export interface StateType {
   dailyLogins: number;
   monthlyShopTickets: number;
   eventSQ: number;
-  removeTicketsFromSQ: boolean;
   formErrors: boolean;
   totalSQForBanner: number;
   shopTicketSQ: number;
+  excludeOptions: Set<string>;
 }
 
 export function createActionPayload<TypeAction, TypePayload>(
