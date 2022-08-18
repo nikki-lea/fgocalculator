@@ -16,6 +16,7 @@ import {
     AcceptedActions
 } from '../contexts';
 import { StateType } from '../types/contexts';
+import MockStateData from './mockstatedata.json';
 
 describe('reducer', () => {
   const mockActions = [
@@ -33,9 +34,16 @@ describe('reducer', () => {
 
   it('sets the correct value to state for each setter action', () => {
     mockActions.forEach(item => {
-      let initialStateCopy = {...initialState};
-      reducer(initialStateCopy, item.action as AcceptedActions);
-      expect(initialStateCopy[item.value as keyof StateType] === 100);
+      const initialStateCopy = {...initialState};
+      const result = reducer(initialStateCopy, item.action as AcceptedActions);
+      expect(result[item.value as keyof StateType] === item.action.payload);
     });
+  });
+
+  it('sets field values on form submit', () => {
+    const mockStateCopy = {...MockStateData};
+    const result = reducer(mockStateCopy as StateType, {type: HANDLE_FORM_SUBMIT} as AcceptedActions);
+    expect(result.totalSQForBanner === 588);
+    expect(result.cumulativeLoginsSQ === 50);
   });
 });
