@@ -13,7 +13,8 @@ import {
     HANDLE_FORM_SUBMIT,
     SET_FORM_ERRORS,
     reducer,
-    AcceptedActions
+    AcceptedActions,
+    formatDatePayload
 } from '../contexts';
 import { StateType } from '../types/contexts';
 import MockStateData from './mockstatedata.json';
@@ -36,14 +37,49 @@ describe('reducer', () => {
     mockActions.forEach(item => {
       const initialStateCopy = {...initialState};
       const result = reducer(initialStateCopy, item.action as AcceptedActions);
-      expect(result[item.value as keyof StateType] === item.action.payload);
+      expect(result[item.value as keyof StateType]).toEqual(item.action.payload);
     });
   });
 
   it('sets field values on form submit', () => {
     const mockStateCopy = {...MockStateData};
     const result = reducer(mockStateCopy as StateType, {type: HANDLE_FORM_SUBMIT} as AcceptedActions);
-    expect(result.totalSQForBanner === 588);
-    expect(result.cumulativeLoginsSQ === 50);
+    expect(result.totalSQForBanner).toEqual(708);
+    expect(result.cumulativeLoginsSQ).toEqual(30);
   });
 });
+
+describe('formatDatePayload', () => {
+  it('adds the master mission and total login data if start date is set and an end date exists', () => {
+    const mockStateCopy = {...MockStateData, startDate: "", endDate: "2022-11-25"};
+    const result = formatDatePayload(mockStateCopy, "2022-08-22", true);
+    expect(result.masterMissions).toEqual(41);
+    expect(result.dailyLogins).toEqual(95);
+    expect(result.startDate).toEqual("2022-08-22");
+  });
+
+  it('adds the master mission and total login data if end date is set and a start date exists', () => {
+    const mockStateCopy = {...MockStateData, endDate: "", startDate: "2022-08-22"};
+    const result = formatDatePayload(mockStateCopy, "2022-11-25", false);
+    expect(result.masterMissions).toEqual(41);
+    expect(result.dailyLogins).toEqual(95);
+    expect(result.endDate).toEqual("2022-11-25");
+  });
+
+  it('adds only the start date if the end date is not set', () => {
+    const mockStateCopy = {...MockStateData, dailyLogins: 0, endDate: ""};
+    const result = formatDatePayload(mockStateCopy, "2022-08-22", true  );
+    expect(result.startDate).toEqual("2022-08-22");
+    expect(result.masterMissions).toEqual(0);
+    expect(result.dailyLogins).toEqual(0);
+  });
+  
+  it('adds only the end date if the start date is not set', () => {
+    const mockStateCopy = {...MockStateData, dailyLogins: 0, startDate: ""};
+    const result = formatDatePayload(mockStateCopy, "2022-11-25", false);
+    expect(result.endDate).toEqual("2022-11-25");
+    expect(result.masterMissions).toEqual(0);
+    expect(result.dailyLogins).toEqual(0);
+  });
+});
+

@@ -13,7 +13,7 @@ const calcCumulativeLoginSQ = (
       cumulativeLoginSQ = cumulativeLoginSQ + 10;
     } else if (i === 100) {
       cumulativeLoginSQ = cumulativeLoginSQ + 30;
-    } else if (i % 50 === 0) {
+    } else if (i >= 150 && i % 50 === 0) {
       cumulativeLoginSQ = cumulativeLoginSQ + 30;
     }
   }

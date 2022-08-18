@@ -6,7 +6,7 @@ import {
   StateType
 } from "../types/contexts";
 import calcCumulativeLoginSQ from "../utils/calcCumulativeLoginSQ";
-import calcDaysDiffData from "../utils/calcDaysDiff";
+import calcDaysDiffData from "../utils/calcDaysDiffData";
 import calcShopTicketSQ from "../utils/calcShopTicketSQ";
 
 type ProviderProps = {
