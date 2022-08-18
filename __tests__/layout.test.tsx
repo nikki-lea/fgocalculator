@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import Layout from '../../../pages/components/layout'
-import English from '../../../i18n/en/translation.json';
+import Layout from '../pages/components/layout'
+import English from '../i18n/en/translation.json';
 
 const translations = English.common;
 

@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import Locale from '../../../pages/components/locale'
-import English from '../../../i18n/en/translation.json';
+import Locale from '../pages/components/locale'
+import English from '../i18n/en/translation.json';
 
 const translations = English.common;
 

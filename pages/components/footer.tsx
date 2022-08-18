@@ -32,27 +32,25 @@ const Footer: React.FC<FooterProps> = ({
     }
   };
   return (
-    <>
-      <div className="footer">
-        {true && (
-          <Button variant="contained" color="secondary">
-            <Link href={linkBack}>{t("back")}</Link>
+    <div className="footer">
+      {stepNum > 1 && (
+        <Button variant="contained" color="secondary">
+          <Link href={linkBack}>{t("back")}</Link>
+        </Button>
+      )}
+      {stepNum < 3 && (
+        <div className="next-button">
+          <Button
+            variant="contained"
+            color="success"
+            onClick={onFormSubmitHandler}
+          >
+            {t("next")}
           </Button>
-        )}
-        {stepNum < 3 && (
-          <div className="next-button">
-            <Button
-              variant="contained"
-              color="success"
-              onClick={onFormSubmitHandler}
-            >
-              {t("next")}
-            </Button>
-            <div>{t("progress", { stepNum })}</div>
-          </div>
-        )}
-      </div>
-    </>
+          <div>{t("progress", { stepNum })}</div>
+        </div>
+      )}
+    </div>
   );
 };
 

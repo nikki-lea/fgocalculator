@@ -57,7 +57,7 @@ export const AppActions = {
 
 export type AcceptedActions = ActionsUnion<typeof AppActions>;
 
-const initialState = {
+export const initialState = {
   currentSQ: 0,
   currentTickets: 0,
   startDate: "",
@@ -84,7 +84,7 @@ const FgoContext = createContext<{
 });
 
 // Formats payload to include date based calculations like daily login SQ and mission SQ
-const formatDatePayload = (
+export const formatDatePayload = (
   state: StateType,
   date: string,
   isStartDate: boolean
@@ -99,7 +99,6 @@ const formatDatePayload = (
         endDate: date
       };
 
-  console.log(updatedState);
   if ((isStartDate && state.endDate) || (!isStartDate && state.startDate)) {
     return {
       ...updatedState,
@@ -113,7 +112,7 @@ const formatDatePayload = (
   }
 };
 
-const reducer = (state: StateType, action: AcceptedActions): StateType => {
+export const reducer = (state: StateType, action: AcceptedActions): StateType => {
   switch (action.type) {
     case SET_CURRENT_SQ:
       return {

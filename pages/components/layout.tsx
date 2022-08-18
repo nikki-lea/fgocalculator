@@ -11,6 +11,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <div className="container">
         <div className="content-container">
           <Image
+            width={1870}
+            height={1153}
             src="https://i.imgur.com/N0ypp0d.webp"
             layout="responsive"
             alt="Cute Ereshkigal Background"
