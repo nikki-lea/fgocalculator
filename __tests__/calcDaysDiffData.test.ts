@@ -1,5 +1,4 @@
 import "@testing-library/jest-dom";
-import "../utils/calcCumulativeLoginSQ";
 import calcDaysDiffData from "../utils/calcDaysDiffData";
 
 describe("calcDaysDiffData", () => {
