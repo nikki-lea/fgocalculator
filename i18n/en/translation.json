@@ -14,7 +14,7 @@
         "sq": {
             "name": "SQ",
             "earned": "SQ Gained",
-            "addevent": "Add event SQ gained based on JP events",
+            "addevent": "Add event SQ gained based on JP event history end dates (through 2023)",
             "future": "Saint Quartz Available by Banner End"
         },
         "mission": {
