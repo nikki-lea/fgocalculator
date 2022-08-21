@@ -1,11 +1,11 @@
 import type { NextPage } from "next";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useTranslation } from "next-i18next";
 import { TextField, FormControlLabel, Checkbox, Alert } from "@mui/material";
 import Footer from "./components/footer";
 import { FgoContext } from "../contexts";
-import { StateType } from "../types/contexts";
 import { ExcludeOptions } from "../contexts";
+import calcJPEventSQ from "../utils/calcJPEventSQ";
 
 const StyledCheckbox = ({
   onChangeHandler
@@ -22,22 +22,28 @@ const StyledCheckbox = ({
   />
 );
 
-const getPreviousState = (state: StateType) => {
-  let previousState: any = {};
-  for (const [key, value] of Object.entries(state)) {
-    if (value) {
-      previousState[key] = value;
-    } else {
-      previousState[key] = undefined;
-    }
-  }
-  return previousState;
-};
-
 const SummonCurrency: NextPage = () => {
   const { state, dispatch } = useContext(FgoContext);
   const { t } = useTranslation();
-  const previousState = getPreviousState(state); // Only set values if set by the user
+
+  const handleCalcEventSQ = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { startDate, endDate } = state;
+    if (e.target.checked && startDate && endDate) {
+      dispatch({
+        type: "SET_FORM_ERRORS",
+        payload: false
+      });
+      dispatch({
+        type: "SET_EVENT_SQ",
+        payload: calcJPEventSQ({startDate, endDate})
+      });
+    } else if (e.target.checked) {
+      dispatch({
+        type: "SET_FORM_ERRORS",
+        payload: true
+      });
+    }
+  }
 
   const handleExclusionUpdate = (key: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
     const actionType = e.target.checked ? "ADD_EXCLUDE_OPTION" : "REMOVE_EXCLUDE_OPTION";
@@ -59,8 +65,8 @@ const SummonCurrency: NextPage = () => {
             variant="outlined"
             color="primary"
             fullWidth
-            defaultValue={previousState.currentSQ}
-            onBlur={(e) => {
+            defaultValue={state.currentSQ || ""}
+            onChange={(e) => {
               dispatch({
                 type: "SET_CURRENT_SQ",
                 payload: parseInt(e.target.value)
@@ -74,8 +80,8 @@ const SummonCurrency: NextPage = () => {
             variant="outlined"
             color="primary"
             fullWidth
-            defaultValue={previousState.currentTickets}
-            onBlur={(e) => {
+            defaultValue={state.currentTickets || ""}
+            onChange={(e) => {
               dispatch({
                 type: "SET_CURRENT_TICKETS",
                 payload: parseInt(e.target.value)
@@ -88,10 +94,10 @@ const SummonCurrency: NextPage = () => {
             id="date"
             label={t("savings.begin")}
             type="date"
-            value={previousState.startDate}
+            value={state.startDate || ""}
             fullWidth
             InputLabelProps={{ shrink: true }}
-            onBlur={(e) => {
+            onChange={(e) => {
               dispatch({ type: "SET_START_DATE", payload: e.target.value });
             }}
           />
@@ -100,9 +106,9 @@ const SummonCurrency: NextPage = () => {
             label={t("savings.end")}
             type="date"
             fullWidth
-            value={previousState.endDate}
+            value={state.endDate|| undefined}
             InputLabelProps={{ shrink: true }}
-            onBlur={(e) => {
+            onChange={(e) => {
               dispatch({ type: "SET_END_DATE", payload: e.target.value });
             }}
           />
@@ -118,7 +124,7 @@ const SummonCurrency: NextPage = () => {
             InputLabelProps={{ shrink: true }}
             sx={{ "&.Mui-disabled": { color: "black" } }}
             disabled
-            value={previousState.masterMissions}
+            value={state.masterMissions || undefined}
             helperText={t("mission.detail")}
             fullWidth
           />
@@ -128,7 +134,7 @@ const SummonCurrency: NextPage = () => {
             variant="outlined"
             InputLabelProps={{ shrink: true }}
             disabled
-            value={previousState.dailyLogins}
+            value={state.dailyLogins || undefined}
             helperText={t("login.daily.detail")}
             fullWidth
           />
@@ -139,8 +145,8 @@ const SummonCurrency: NextPage = () => {
             variant="outlined"
             color="primary"
             fullWidth
-            defaultValue={previousState.questSQ}
-            onBlur={(e) => {
+            defaultValue={state.questSQ || undefined}
+            onChange={(e) => {
               dispatch({
                 type: "SET_QUEST_SQ",
                 payload: parseInt(e.target.value)
@@ -184,8 +190,8 @@ const SummonCurrency: NextPage = () => {
             color="primary"
             helperText={t("login.total.detail")}
             fullWidth
-            defaultValue={previousState.cumulativeLoginsCount}
-            onBlur={(e) => {
+            defaultValue={state.cumulativeLoginsCount || undefined}
+            onChange={(e) => {
               dispatch({
                 type: "SET_CUMULATIVE_LOGINS_DATA",
                 payload: parseInt(e.target.value)
@@ -200,8 +206,8 @@ const SummonCurrency: NextPage = () => {
             color="primary"
             helperText={t("shop.detail")}
             fullWidth
-            defaultValue={previousState.monthlyShopTickets}
-            onBlur={(e) => {
+            defaultValue={state.monthlyShopTickets || ""}
+            onChange={(e) => {
               dispatch({
                 type: "SET_MONTHLY_SHOP_TICKETS",
                 payload: parseInt(e.target.value)
@@ -215,8 +221,8 @@ const SummonCurrency: NextPage = () => {
             variant="outlined"
             color="primary"
             fullWidth
-            defaultValue={previousState.eventSQ}
-            onBlur={(e) => {
+            value={state.eventSQ || ""}
+            onChange={(e) => {
               dispatch({
                 type: "SET_EVENT_SQ",
                 payload: parseInt(e.target.value)
@@ -226,7 +232,7 @@ const SummonCurrency: NextPage = () => {
           <div>
             <FormControlLabel
               control={
-                <StyledCheckbox onChangeHandler={() => console.log("TODO")} />
+                <StyledCheckbox onChangeHandler={handleCalcEventSQ} />
               }
               label={t("sq.addevent")}
             />

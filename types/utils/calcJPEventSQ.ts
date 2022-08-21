@@ -4,9 +4,7 @@ export type JPEventPropsType = {
 };
 
 export type TimeRangeType = {
-  [year: number]: {
-    [monthData: number]: number[];
-  };
+  [index: string]: number;
 };
 
 export type YearsRangeType = TimeRangeType[];
