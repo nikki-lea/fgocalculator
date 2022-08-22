@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import React, { useContext, useState } from "react";
+import React, { useContext} from "react";
 import { useTranslation } from "next-i18next";
 import { TextField, FormControlLabel, Checkbox, Alert } from "@mui/material";
 import Footer from "./components/footer";
@@ -60,7 +60,7 @@ const SummonCurrency: NextPage = () => {
         <div className="form-column">
           <TextField
             id="outlined-basic"
-            inputProps={{ type: "number" }}
+            inputProps={{ type: "number", "data-testid":"currentsq" }}
             label={t("current.sq")}
             variant="outlined"
             color="primary"
@@ -75,7 +75,7 @@ const SummonCurrency: NextPage = () => {
           />
           <TextField
             id="outlined-basic"
-            inputProps={{ type: "number" }}
+            inputProps={{ type: "number", "data-testid":"currentticket"}}
             label={t("current.ticket")}
             variant="outlined"
             color="primary"
@@ -92,6 +92,7 @@ const SummonCurrency: NextPage = () => {
         <div className="form-column">
           <TextField
             id="date"
+            inputProps={{ "data-testid":"savingsstart"}}
             label={t("savings.begin")}
             type="date"
             value={state.startDate || ""}
@@ -103,6 +104,7 @@ const SummonCurrency: NextPage = () => {
           />
           <TextField
             id="date"
+            inputProps={{ "data-testid":"savingsend"}}
             label={t("savings.end")}
             type="date"
             fullWidth
@@ -140,7 +142,7 @@ const SummonCurrency: NextPage = () => {
           />
           <TextField
             id="outlined-basic"
-            inputProps={{ type: "number" }}
+            inputProps={{ type: "number", "data-testid": "quest"}}
             label={t("quest")}
             variant="outlined"
             color="primary"
@@ -184,7 +186,7 @@ const SummonCurrency: NextPage = () => {
         <div className="form-column">
           <TextField
             id="outlined-basic"
-            inputProps={{ type: "number" }}
+            inputProps={{ type: "number", "data-testid": "cumulative"}}
             label={t("login.total.label")}
             variant="outlined"
             color="primary"
@@ -200,7 +202,7 @@ const SummonCurrency: NextPage = () => {
           />
           <TextField
             id="outlined-basic"
-            inputProps={{ type: "number" }}
+            inputProps={{ type: "number", "data-testid":"shopticket" }}
             label={t("shop.label")}
             variant="outlined"
             color="primary"
@@ -216,7 +218,7 @@ const SummonCurrency: NextPage = () => {
           />
           <TextField
             id="outlined-basic"
-            inputProps={{ type: "number" }}
+            inputProps={{ type: "number", "data-testid":"event"  }}
             label={t("event")}
             variant="outlined"
             color="primary"

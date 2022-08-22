@@ -19,7 +19,7 @@ import {
     REMOVE_EXCLUDE_OPTION
 } from '../contexts';
 import { StateType } from '../types/contexts';
-import MockStateData from '../mockstatedata';
+import MockStateData from '../data/mockstatedata';
 
 describe('reducer', () => {
   const mockActions = [

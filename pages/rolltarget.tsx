@@ -1,7 +1,12 @@
 import type { NextPage } from "next";
 
 const RollTarget: NextPage = () => {
-  return <h1>Roll Target</h1>;
+  const { t } = useTranslation();
+  return (
+    <div className="target-container">
+
+    </div>
+  )
 };
 
 export default RollTarget;
