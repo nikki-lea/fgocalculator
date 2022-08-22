@@ -20,13 +20,14 @@ import {
   ExcludeOptions,
   REMOVE_EXCLUDE_OPTION
 } from '../contexts';
-import English from '../i18n/en/translation.json';
+import MockStateData from '../data/mockstatedata';
 import MockFgoProvider from '../data/mockProvider';
+import { StateType } from '../types/contexts';
 
-const renderWithProvider = (mockDispatch: jest.Mock) => (
+const renderWithProvider = ({mockDispatch, mockState = initialState} : { mockDispatch: jest.Mock, mockState?: StateType}) => (
   render(
   <MockFgoProvider
-    state={initialState}
+    state={mockState}
     dispatch={mockDispatch}
     >
       <SummonCurrency />
@@ -37,7 +38,7 @@ const renderWithProvider = (mockDispatch: jest.Mock) => (
 jest.mock('react-i18next', () => ({
     useTranslation: () => {
       return {
-        t: () => {}
+        t: (value:string) => value
       };
     },
   }));
@@ -64,10 +65,28 @@ describe('SummonCurrency', () => {
   it('emits dispatch events to set values to state', () => {
     basicSetterValues.forEach((item) => {
       let dispatchSpy = jest.fn();
-      const { getByTestId } = renderWithProvider(dispatchSpy);
+      const { getByTestId } = renderWithProvider({mockDispatch: dispatchSpy});
       fireEvent.change(getByTestId(item[0]), {target: {value: item[1]}})
-      expect(dispatchSpy).toHaveBeenLastCalledWith(({type: item[2], payload: item[1] }))
+      expect(dispatchSpy).toHaveBeenCalledWith(({type: item[2], payload: item[1] }))
       cleanup();
     })
+  })
+
+  it('adds event SQ if checked', () => {
+    let dispatchSpy = jest.fn();
+    const { getByLabelText} = renderWithProvider({mockState: MockStateData, mockDispatch: dispatchSpy});
+    fireEvent.click(getByLabelText("sq.addevent"))
+    expect(dispatchSpy).toHaveBeenCalledWith(({type: SET_FORM_ERRORS, payload: false}))
+    expect(dispatchSpy).toHaveBeenCalledWith(({type: SET_EVENT_SQ, payload: 320 }))
+    cleanup();
+  })
+
+  it('removes options if checked', () => {
+    let dispatchSpy = jest.fn();
+    const { getByLabelText} = renderWithProvider({mockState: MockStateData, mockDispatch: dispatchSpy});
+    fireEvent.click(getByLabelText("alltickets"))
+    expect(dispatchSpy).toHaveBeenCalledWith(({type: ADD_EXCLUDE_OPTION, payload: ExcludeOptions.tickets}))
+    fireEvent.click(getByLabelText("alltickets"))
+    expect(dispatchSpy).toHaveBeenCalledWith(({type: REMOVE_EXCLUDE_OPTION, payload: ExcludeOptions.tickets}))
   })
 })
