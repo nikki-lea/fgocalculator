@@ -3,7 +3,7 @@ import React, { useContext} from "react";
 import { useTranslation } from "next-i18next";
 import { TextField, FormControlLabel, Checkbox, Alert } from "@mui/material";
 import Footer from "./components/footer";
-import { FgoContext } from "../contexts";
+import { ADD_EXCLUDE_OPTION, FgoContext, REMOVE_EXCLUDE_OPTION, SET_CUMULATIVE_LOGINS_DATA, SET_CURRENT_SQ, SET_CURRENT_TICKETS, SET_END_DATE, SET_EVENT_SQ, SET_FORM_ERRORS, SET_MONTHLY_SHOP_TICKETS, SET_QUEST_SQ, SET_START_DATE } from "../contexts";
 import { ExcludeOptions } from "../contexts";
 import calcJPEventSQ from "../utils/calcJPEventSQ";
 
@@ -30,23 +30,23 @@ const SummonCurrency: NextPage = () => {
     const { startDate, endDate } = state;
     if (e.target.checked && startDate && endDate) {
       dispatch({
-        type: "SET_FORM_ERRORS",
+        type: SET_FORM_ERRORS,
         payload: false
       });
       dispatch({
-        type: "SET_EVENT_SQ",
+        type: SET_EVENT_SQ,
         payload: calcJPEventSQ({startDate, endDate})
       });
     } else if (e.target.checked) {
       dispatch({
-        type: "SET_FORM_ERRORS",
+        type: SET_FORM_ERRORS,
         payload: true
       });
     }
   }
 
   const handleExclusionUpdate = (key: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
-    const actionType = e.target.checked ? "ADD_EXCLUDE_OPTION" : "REMOVE_EXCLUDE_OPTION";
+    const actionType = e.target.checked ? ADD_EXCLUDE_OPTION : REMOVE_EXCLUDE_OPTION
     dispatch({
       type: actionType,
       payload: key
@@ -54,7 +54,7 @@ const SummonCurrency: NextPage = () => {
   }
   return (
     <div className="current-container">
-      {state.formErrors && <Alert severity="error">{t("error")}</Alert>}
+      {state.formErrors && <Alert sx={{ mb: "10px" }} severity="error">{t("current.error")}</Alert>}
       <h1>{t("current.general")}</h1>
       <div className="currency-form">
         <div className="form-column">
@@ -68,7 +68,7 @@ const SummonCurrency: NextPage = () => {
             defaultValue={state.currentSQ || ""}
             onChange={(e) => {
               dispatch({
-                type: "SET_CURRENT_SQ",
+                type: SET_CURRENT_SQ,
                 payload: parseInt(e.target.value)
               });
             }}
@@ -83,7 +83,7 @@ const SummonCurrency: NextPage = () => {
             defaultValue={state.currentTickets || ""}
             onChange={(e) => {
               dispatch({
-                type: "SET_CURRENT_TICKETS",
+                type: SET_CURRENT_TICKETS,
                 payload: parseInt(e.target.value)
               });
             }}
@@ -99,7 +99,7 @@ const SummonCurrency: NextPage = () => {
             fullWidth
             InputLabelProps={{ shrink: true }}
             onChange={(e) => {
-              dispatch({ type: "SET_START_DATE", payload: e.target.value });
+              dispatch({ type: SET_START_DATE, payload: e.target.value });
             }}
           />
           <TextField
@@ -111,7 +111,7 @@ const SummonCurrency: NextPage = () => {
             value={state.endDate|| undefined}
             InputLabelProps={{ shrink: true }}
             onChange={(e) => {
-              dispatch({ type: "SET_END_DATE", payload: e.target.value });
+              dispatch({ type: SET_END_DATE, payload: e.target.value });
             }}
           />
         </div>
@@ -150,7 +150,7 @@ const SummonCurrency: NextPage = () => {
             defaultValue={state.questSQ || undefined}
             onChange={(e) => {
               dispatch({
-                type: "SET_QUEST_SQ",
+                type: SET_QUEST_SQ,
                 payload: parseInt(e.target.value)
               });
             }}
@@ -195,7 +195,7 @@ const SummonCurrency: NextPage = () => {
             defaultValue={state.cumulativeLoginsCount || undefined}
             onChange={(e) => {
               dispatch({
-                type: "SET_CUMULATIVE_LOGINS_DATA",
+                type: SET_CUMULATIVE_LOGINS_DATA,
                 payload: parseInt(e.target.value)
               });
             }}
@@ -211,7 +211,7 @@ const SummonCurrency: NextPage = () => {
             defaultValue={state.monthlyShopTickets || ""}
             onChange={(e) => {
               dispatch({
-                type: "SET_MONTHLY_SHOP_TICKETS",
+                type: SET_MONTHLY_SHOP_TICKETS,
                 payload: parseInt(e.target.value)
               });
             }}
@@ -226,7 +226,7 @@ const SummonCurrency: NextPage = () => {
             value={state.eventSQ || ""}
             onChange={(e) => {
               dispatch({
-                type: "SET_EVENT_SQ",
+                type: SET_EVENT_SQ,
                 payload: parseInt(e.target.value)
               });
             }}

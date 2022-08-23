@@ -4,7 +4,8 @@
         "current": {
             "general": "Current Summon Currency",
             "sq": "Current number of SQ",
-            "ticket": "Current number of tickets"
+            "ticket": "Current number of tickets",
+            "error": "Savings start date and campaign end date are required."
         },
         "alltickets": "Shop and current tickets",
         "savings": {
@@ -51,15 +52,17 @@
             "name": "{{type}} name",
             "type": "Target Summon",
             "multiple": "Budget for multiple roll targets",
-            "count": "How many copies?"
-
+            "count": "How many copies?",
+            "header": "Summon Targets",
+            "subheader": "Add up to 3 summon targets to calculate summon probabilities",
+            "error": "Type and rarity are required.",
+            "add": "Add"
         },
         "craftessence": "Craft Essence",
         "servant": "Servant",
         "progress": "Step {{stepNum}} of 3",
         "next": "Next",
         "back": "Back",
-        "error": "Savings start date and campaign end date are required.",
         "excludeoptions": "Exclude from SQ applied for campaign:"
     }
 }

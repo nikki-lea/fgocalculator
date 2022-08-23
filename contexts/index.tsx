@@ -3,7 +3,9 @@ import {
   createAction,
   createActionPayload,
   ActionsUnion,
-  StateType
+  StateType,
+  TargetDataType,
+  typeType
 } from "../types/contexts";
 import calcCumulativeLoginSQ from "../utils/calcCumulativeLoginSQ";
 import calcDaysDiffData from "../utils/calcDaysDiffData";
@@ -19,6 +21,11 @@ export const ExcludeOptions = {
   loginBonuses: "LOGIN_BONUSES"
 };
 
+export const TargetOptions = {
+  servant: "SERVANT" as typeType,
+  ce: "CE" as typeType
+};
+
 export const SET_CURRENT_SQ = "SET_CURRENT_SQ";
 export const SET_CURRENT_TICKETS = "SET_CURRENT_TICKETS";
 export const SET_START_DATE = "SET_START_DATE";
@@ -31,6 +38,7 @@ export const HANDLE_FORM_SUBMIT = "HANDLE_FORM_SUBMIT";
 export const SET_FORM_ERRORS = "SET_FORM_ERRORS";
 export const ADD_EXCLUDE_OPTION = "ADD_EXCLUDE_OPTION";
 export const REMOVE_EXCLUDE_OPTION = "REMOVE_EXCLUDE_OPTION";
+export const ADD_TARGET_DATA = "ADD_TARGET_DATA";
 
 export const AppActions = {
   setCurrentSQ: createActionPayload<typeof SET_CURRENT_SQ, number>(
@@ -62,6 +70,9 @@ export const AppActions = {
   removeExcludeOption: createActionPayload<typeof REMOVE_EXCLUDE_OPTION, string>(
     REMOVE_EXCLUDE_OPTION
   ),
+  addTargetData: createActionPayload<typeof ADD_TARGET_DATA, TargetDataType>(
+    ADD_TARGET_DATA
+  ),
 };
 
 export type AcceptedActions = ActionsUnion<typeof AppActions>;
@@ -81,7 +92,8 @@ export const initialState = {
   formErrors: false,
   totalSQForBanner: 0,
   shopTicketSQ: 0,
-  excludeOptions: new Set('')
+  excludeOptions: new Set(''),
+  targetData: []
 };
 
 const FgoContext = createContext<{
@@ -204,6 +216,13 @@ export const reducer = (state: StateType, action: AcceptedActions): StateType =>
       return {
         ...state,
         excludeOptions: setWithoutCopy
+      };
+    case ADD_TARGET_DATA:
+      const targetDataCopy = [...state.targetData];
+      targetDataCopy.push(action.payload)
+      return {
+        ...state,
+        targetData: targetDataCopy
       };
     default:
       return state;

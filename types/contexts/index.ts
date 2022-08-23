@@ -1,6 +1,17 @@
 /*
  * Boilerplate reducer typing lifted from Ryan Desjardins Blog
  */
+
+export type typeType = "CE" | "SERVANT" | "";
+export type rarityType = 5 | 4 | 3 | 0;
+export type sharedType = 2 | 1;
+
+export type TargetDataType = {
+  type: typeType;
+  rarity: rarityType;
+  shared?: sharedType;
+};
+
 export interface StateType {
   currentSQ: number;
   currentTickets: number;
@@ -17,6 +28,7 @@ export interface StateType {
   totalSQForBanner: number;
   shopTicketSQ: number;
   excludeOptions: Set<string>;
+  targetData: TargetDataType[];
 }
 
 export function createActionPayload<TypeAction, TypePayload>(
