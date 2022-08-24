@@ -5,7 +5,6 @@ import {
   ActionsUnion,
   StateType,
   TargetDataType,
-  typeType
 } from "../types/contexts";
 import calcCumulativeLoginSQ from "../utils/calcCumulativeLoginSQ";
 import calcDaysDiffData from "../utils/calcDaysDiffData";
@@ -22,8 +21,8 @@ export const ExcludeOptions = {
 };
 
 export const TargetOptions = {
-  servant: "SERVANT" as typeType,
-  ce: "CE" as typeType
+  servant: "SERVANT",
+  ce: "CE",
 };
 
 export const SET_CURRENT_SQ = "SET_CURRENT_SQ";

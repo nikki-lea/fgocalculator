@@ -45,18 +45,19 @@
                 "atleast": "Probability of at least {{targetCopies}} copies of rate up",
                 "nonrateup": "Probability of at least 1 {{rarity}} non rate up"
             },
-            "count": "How many {{rarity}} {{type}} are on rate up?",
             "upcoming": "Upcoming summoning campaigns based on FGO JP"
         },
         "target": {
-            "name": "{{type}} name",
             "type": "Target Summon",
             "multiple": "Budget for multiple roll targets",
-            "count": "How many copies?",
             "header": "Summon Targets",
             "subheader": "Add up to 3 summon targets to calculate summon probabilities",
             "error": "Type and rarity are required.",
-            "add": "Add"
+            "add": "Add",
+            "rarity": "Rarity",
+            "sharedtext": "Number of same type and rarity on rate up",
+            "shared": "{{shared}} total {{rarity}}*",
+            "solo": "Solo {{rarity}}* rate up"
         },
         "craftessence": "Craft Essence",
         "servant": "Servant",

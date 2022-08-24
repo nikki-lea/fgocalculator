@@ -2,14 +2,10 @@
  * Boilerplate reducer typing lifted from Ryan Desjardins Blog
  */
 
-export type typeType = "CE" | "SERVANT" | "";
-export type rarityType = 5 | 4 | 3 | 0;
-export type sharedType = 2 | 1;
-
 export type TargetDataType = {
-  type: typeType;
-  rarity: rarityType;
-  shared?: sharedType;
+  type: string;
+  rarity: number;
+  shared?: number;
 };
 
 export interface StateType {
