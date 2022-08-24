@@ -62,7 +62,7 @@ body {
   padding-top: 60px;
 }
 
-.current-container, .target-container {
+.current-container, .target-container, .probability-container {
   padding: 40px;
   color: black;
   h1 {
@@ -90,6 +90,12 @@ body {
 
 .sq-earned {
   margin-top: 60px;
+}
+
+.current-container, .probability-container {
+  .footer {
+    justify-content: flex-end;
+  }
 }
 
 .footer {
@@ -140,9 +146,40 @@ body {
   display: flex;
   justify-content: space-between;
   font-weight: 200;
+  margin-bottom: 80px;
 }
 
 .add-button {
   margin-left: calc(100% - 80px);
   margin-top: 30px;
+}
+
+.target-type, .target-rarity {
+  p {
+    margin-bottom: 37px;
+  }
+}
+
+.target-shared {
+  max-width: 250px;
+}
+
+.probability-container {
+  .subheader {
+    font-weight: 200;
+  }
+}
+
+.total-sq {
+  display: flex;
+  margin-top: 25px;
+  h2 {
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
+
+  span {
+    font-size: 24px;
+    font-weight: 600;
+  }
 }

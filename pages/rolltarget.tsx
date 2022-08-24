@@ -1,18 +1,19 @@
-import { Alert, Avatar, Button, ButtonGroup, List, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
+import { Alert, Avatar, List, ListItem, ListItemAvatar, ListItemText, ToggleButton, ToggleButtonGroup, Button} from "@mui/material";
 import type { NextPage } from "next";
 import { useTranslation } from "next-i18next";
 import { useContext, useState } from "react";
 import { ADD_TARGET_DATA, FgoContext, TargetOptions } from "../contexts";
 import { TargetDataType } from "../types/contexts";
+import Footer from "./components/footer";
 
 const RollTarget: NextPage = () => {
   const {state, dispatch} = useContext(FgoContext)
   const [error, setError] = useState(false);
-  const [currentTargetData, setCurrentTargetData] = useState({type: "", rarity: 0 });
+  const [currentTargetData, setCurrentTargetData] = useState({type: "", rarity: 0 } as TargetDataType);
   const { t } = useTranslation();
   const { targetData } = state;
   
-  const genericClickHandler = (key: string) => (value: string | number) => {
+  const genericClickHandler = (key: string) => (e: React.MouseEvent<HTMLElement, MouseEvent>, value: string | number) => {
     setCurrentTargetData({...currentTargetData, [key]: value})
   };
   const typeHandler = genericClickHandler("type");
@@ -59,30 +60,31 @@ const RollTarget: NextPage = () => {
       {error && <Alert sx={{ mb: "10px" }} severity="error">{t("target.error")}</Alert>}
         <div className="target-type">
           <p>{t("target.type")}</p>
-          <ButtonGroup variant="contained" color="success" size="large" aria-label="large outlined success button group">
-            <Button onClick={() => typeHandler(TargetOptions.ce)}>{t("craftessence")}</Button>
-            <Button onClick={() => typeHandler(TargetOptions.servant)}>{t("servant")}</Button>
-          </ButtonGroup>
+          <ToggleButtonGroup value={currentTargetData.type} exclusive color="success" size="large" aria-label="large toggle button group" onChange={typeHandler}>
+            <ToggleButton value={TargetOptions.ce}>{t("craftessence")}</ToggleButton>
+            <ToggleButton value={TargetOptions.servant}>{t("servant")}</ToggleButton>
+          </ToggleButtonGroup>
         </div>
         <div className="target-rarity">
           <p>{t("target.rarity")}</p>
-        <ButtonGroup  variant="contained" color="success" size="large" aria-label="outlined success button group">
-          <Button onClick={() => rarityHandler(5)}>5*</Button>
-          <Button onClick={() => rarityHandler(4)}>4*</Button>
-          <Button onClick={() => rarityHandler(3)}>3*</Button>
-        </ButtonGroup>
+        <ToggleButtonGroup  value={currentTargetData.rarity} exclusive color="success" size="large" aria-label="large toggle button group" onChange={rarityHandler}>
+          <ToggleButton value={5}>5*</ToggleButton>
+          <ToggleButton value={4}>4*</ToggleButton>
+          <ToggleButton value={3}>3*</ToggleButton>
+        </ToggleButtonGroup>
         </div>
         <div className="target-shared">
           <p>{t("target.sharedtext")}</p>
-          <ButtonGroup variant="contained" color="success" size="large" aria-label="outlined success button group">
-            <Button onClick={() => sharedHandler(2)}>2</Button>
-            <Button onClick={() => sharedHandler(1)}>1</Button>
-          </ButtonGroup>
+          <ToggleButtonGroup  value={currentTargetData.shared} exclusive color="success" size="large" aria-label="large toggle button group" onChange={sharedHandler}>
+            <ToggleButton value={2}>2</ToggleButton>
+            <ToggleButton value={1}>1</ToggleButton>
+          </ToggleButtonGroup >
         </div>
       <div className="add-button">
         <Button variant="contained" color="info" size="large" onClick={() => onSubmitHandler()}>{t("add")}</Button>
         </div>
       </div>
+      <Footer stepNum={2} linkTo="/probability" linkBack="/" />
     </div>
   )
 };

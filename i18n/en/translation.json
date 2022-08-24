@@ -59,6 +59,11 @@
             "shared": "{{shared}} total {{rarity}}*",
             "solo": "Solo {{rarity}}* rate up"
         },
+        "probability": {
+            "header": "Summon Probabilities",
+            "subheader": "Adjust the sliders to allocate a budget for each campaign",
+            "sq": "Saint Quartz By End of Campaign"
+        },
         "craftessence": "Craft Essence",
         "servant": "Servant",
         "progress": "Step {{stepNum}} of 3",
