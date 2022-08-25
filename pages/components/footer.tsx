@@ -28,7 +28,7 @@ const Footer: React.FC<FooterProps> = ({
         dispatch({ type: "SET_FORM_ERRORS", payload: false });
         dispatch({ type: "HANDLE_FORM_SUBMIT" });
         router.push(linkTo);
-      } 
+      }
     } else {
       router.push(linkTo);
     }

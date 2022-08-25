@@ -10,7 +10,7 @@
     "deploy": "netlify deploy --dir=build",
     "deploy:prod": "netlify deploy --dir=build --prod",
     "test": "jest --watch",
-    "prettier-format": "prettier --config .prettierrc 'contexts/*.tsx' 'data/*.json' 'pages/*.tsx' 'pages/components/*.tsx' 'types/**/*.ts' 'utils/*.ts' --write"
+    "prettier-format": "prettier --config .prettierrc 'contexts/*.tsx' 'data/*.ts' 'pages/*.tsx' 'pages/components/*.tsx' 'types/**/*.ts' 'utils/*.ts' --write"
   },
   "dependencies": {
     "@emotion/react": "^11.10.0",

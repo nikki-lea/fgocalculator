@@ -41,9 +41,9 @@
         },
         "rateup": {
             "chance": {
-                "title": "Rate-up Probability",
-                "atleast": "Probability of at least {{targetCopies}} copies of rate up",
-                "nonrateup": "Probability of at least 1 {{rarity}} non rate up"
+                "header": "Rate-up Probability",
+                "subheader": "Adjust the sliders to allocate a budget for each campaign. Calculated probabilities are for at least 1 copy of the rate up target.",
+                "probability": "Probability"
             },
             "upcoming": "Upcoming summoning campaigns based on FGO JP"
         },
@@ -58,11 +58,6 @@
             "sharedtext": "Number of same type and rarity on rate up",
             "shared": "{{shared}} total {{rarity}}*",
             "solo": "Solo {{rarity}}* rate up"
-        },
-        "probability": {
-            "header": "Summon Probabilities",
-            "subheader": "Adjust the sliders to allocate a budget for each campaign",
-            "sq": "Saint Quartz By End of Campaign"
         },
         "craftessence": "Craft Essence",
         "servant": "Servant",

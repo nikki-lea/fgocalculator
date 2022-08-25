@@ -4,7 +4,7 @@ import {
   createActionPayload,
   ActionsUnion,
   StateType,
-  TargetDataType,
+  TargetDataType
 } from "../types/contexts";
 import calcCumulativeLoginSQ from "../utils/calcCumulativeLoginSQ";
 import calcDaysDiffData from "../utils/calcDaysDiffData";
@@ -22,7 +22,7 @@ export const ExcludeOptions = {
 
 export const TargetOptions = {
   servant: "SERVANT",
-  ce: "CE",
+  ce: "CE"
 };
 
 export const SET_CURRENT_SQ = "SET_CURRENT_SQ";
@@ -66,12 +66,13 @@ export const AppActions = {
   addExcludeOption: createActionPayload<typeof ADD_EXCLUDE_OPTION, string>(
     ADD_EXCLUDE_OPTION
   ),
-  removeExcludeOption: createActionPayload<typeof REMOVE_EXCLUDE_OPTION, string>(
-    REMOVE_EXCLUDE_OPTION
-  ),
+  removeExcludeOption: createActionPayload<
+    typeof REMOVE_EXCLUDE_OPTION,
+    string
+  >(REMOVE_EXCLUDE_OPTION),
   addTargetData: createActionPayload<typeof ADD_TARGET_DATA, TargetDataType>(
     ADD_TARGET_DATA
-  ),
+  )
 };
 
 export type AcceptedActions = ActionsUnion<typeof AppActions>;
@@ -91,7 +92,7 @@ export const initialState = {
   formErrors: false,
   totalSQForBanner: 0,
   shopTicketSQ: 0,
-  excludeOptions: new Set(''),
+  excludeOptions: new Set(""),
   targetData: []
 };
 
@@ -132,7 +133,10 @@ export const formatDatePayload = (
   }
 };
 
-export const reducer = (state: StateType, action: AcceptedActions): StateType => {
+export const reducer = (
+  state: StateType,
+  action: AcceptedActions
+): StateType => {
   switch (action.type) {
     case SET_CURRENT_SQ:
       return {
@@ -185,12 +189,20 @@ export const reducer = (state: StateType, action: AcceptedActions): StateType =>
         monthlyShopTickets: state.monthlyShopTickets
       });
       const totalSQForBanner =
-        (state.excludeOptions.has(ExcludeOptions.loginBonuses) ? 0: cumulativeLoginsSQ) +
+        (state.excludeOptions.has(ExcludeOptions.loginBonuses)
+          ? 0
+          : cumulativeLoginsSQ) +
         state.currentSQ +
-        (state.excludeOptions.has(ExcludeOptions.tickets) ? 0 : 3 * state.currentTickets) +
-        (state.excludeOptions.has(ExcludeOptions.masterMissions) ? 0 : state.masterMissions) +
-        (state.excludeOptions.has(ExcludeOptions.loginBonuses) ? 0 : state.dailyLogins) +
-        (state.excludeOptions.has(ExcludeOptions.tickets)? 0 : shopTicketSQ) +
+        (state.excludeOptions.has(ExcludeOptions.tickets)
+          ? 0
+          : 3 * state.currentTickets) +
+        (state.excludeOptions.has(ExcludeOptions.masterMissions)
+          ? 0
+          : state.masterMissions) +
+        (state.excludeOptions.has(ExcludeOptions.loginBonuses)
+          ? 0
+          : state.dailyLogins) +
+        (state.excludeOptions.has(ExcludeOptions.tickets) ? 0 : shopTicketSQ) +
         state.questSQ +
         state.eventSQ;
       return {
@@ -204,7 +216,10 @@ export const reducer = (state: StateType, action: AcceptedActions): StateType =>
         formErrors: action.payload
       };
     case ADD_EXCLUDE_OPTION:
-      const setCopy = new Set([...Array.from(state.excludeOptions), action.payload]);
+      const setCopy = new Set([
+        ...Array.from(state.excludeOptions),
+        action.payload
+      ]);
       return {
         ...state,
         excludeOptions: setCopy
@@ -218,7 +233,7 @@ export const reducer = (state: StateType, action: AcceptedActions): StateType =>
       };
     case ADD_TARGET_DATA:
       const targetDataCopy = [...state.targetData];
-      targetDataCopy.push(action.payload)
+      targetDataCopy.push(action.payload);
       return {
         ...state,
         targetData: targetDataCopy

@@ -1,9 +1,22 @@
 import type { NextPage } from "next";
-import React, { useContext} from "react";
+import React, { useContext } from "react";
 import { useTranslation } from "next-i18next";
 import { TextField, FormControlLabel, Checkbox, Alert } from "@mui/material";
 import Footer from "./components/footer";
-import { ADD_EXCLUDE_OPTION, FgoContext, REMOVE_EXCLUDE_OPTION, SET_CUMULATIVE_LOGINS_DATA, SET_CURRENT_SQ, SET_CURRENT_TICKETS, SET_END_DATE, SET_EVENT_SQ, SET_FORM_ERRORS, SET_MONTHLY_SHOP_TICKETS, SET_QUEST_SQ, SET_START_DATE } from "../contexts";
+import {
+  ADD_EXCLUDE_OPTION,
+  FgoContext,
+  REMOVE_EXCLUDE_OPTION,
+  SET_CUMULATIVE_LOGINS_DATA,
+  SET_CURRENT_SQ,
+  SET_CURRENT_TICKETS,
+  SET_END_DATE,
+  SET_EVENT_SQ,
+  SET_FORM_ERRORS,
+  SET_MONTHLY_SHOP_TICKETS,
+  SET_QUEST_SQ,
+  SET_START_DATE
+} from "../contexts";
 import { ExcludeOptions } from "../contexts";
 import calcJPEventSQ from "../utils/calcJPEventSQ";
 
@@ -35,7 +48,7 @@ const SummonCurrency: NextPage = () => {
       });
       dispatch({
         type: SET_EVENT_SQ,
-        payload: calcJPEventSQ({startDate, endDate})
+        payload: calcJPEventSQ({ startDate, endDate })
       });
     } else if (e.target.checked) {
       dispatch({
@@ -43,24 +56,31 @@ const SummonCurrency: NextPage = () => {
         payload: true
       });
     }
-  }
+  };
 
-  const handleExclusionUpdate = (key: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
-    const actionType = e.target.checked ? ADD_EXCLUDE_OPTION : REMOVE_EXCLUDE_OPTION
-    dispatch({
-      type: actionType,
-      payload: key
-    });
-  }
+  const handleExclusionUpdate =
+    (key: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
+      const actionType = e.target.checked
+        ? ADD_EXCLUDE_OPTION
+        : REMOVE_EXCLUDE_OPTION;
+      dispatch({
+        type: actionType,
+        payload: key
+      });
+    };
   return (
     <div className="current-container">
-      {state.formErrors && <Alert sx={{ mb: "10px" }} severity="error">{t("current.error")}</Alert>}
+      {state.formErrors && (
+        <Alert sx={{ mb: "10px" }} severity="error">
+          {t("current.error")}
+        </Alert>
+      )}
       <h1>{t("current.general")}</h1>
       <div className="currency-form">
         <div className="form-column">
           <TextField
             id="outlined-basic"
-            inputProps={{ type: "number", "data-testid":"currentsq" }}
+            inputProps={{ type: "number", "data-testid": "currentsq" }}
             label={t("current.sq")}
             variant="outlined"
             color="primary"
@@ -75,7 +95,7 @@ const SummonCurrency: NextPage = () => {
           />
           <TextField
             id="outlined-basic"
-            inputProps={{ type: "number", "data-testid":"currentticket"}}
+            inputProps={{ type: "number", "data-testid": "currentticket" }}
             label={t("current.ticket")}
             variant="outlined"
             color="primary"
@@ -92,7 +112,7 @@ const SummonCurrency: NextPage = () => {
         <div className="form-column">
           <TextField
             id="date"
-            inputProps={{ "data-testid":"savingsstart"}}
+            inputProps={{ "data-testid": "savingsstart" }}
             label={t("savings.begin")}
             type="date"
             value={state.startDate || ""}
@@ -104,11 +124,11 @@ const SummonCurrency: NextPage = () => {
           />
           <TextField
             id="date"
-            inputProps={{ "data-testid":"savingsend"}}
+            inputProps={{ "data-testid": "savingsend" }}
             label={t("savings.end")}
             type="date"
             fullWidth
-            value={state.endDate|| undefined}
+            value={state.endDate || undefined}
             InputLabelProps={{ shrink: true }}
             onChange={(e) => {
               dispatch({ type: SET_END_DATE, payload: e.target.value });
@@ -142,7 +162,7 @@ const SummonCurrency: NextPage = () => {
           />
           <TextField
             id="outlined-basic"
-            inputProps={{ type: "number", "data-testid": "quest"}}
+            inputProps={{ type: "number", "data-testid": "quest" }}
             label={t("quest")}
             variant="outlined"
             color="primary"
@@ -160,23 +180,29 @@ const SummonCurrency: NextPage = () => {
             <FormControlLabel
               control={
                 <StyledCheckbox
-                  onChangeHandler={handleExclusionUpdate(ExcludeOptions.tickets)}
+                  onChangeHandler={handleExclusionUpdate(
+                    ExcludeOptions.tickets
+                  )}
                 />
               }
               label={t("alltickets")}
             />
-              <FormControlLabel
+            <FormControlLabel
               control={
                 <StyledCheckbox
-                  onChangeHandler={handleExclusionUpdate(ExcludeOptions.tickets)}
+                  onChangeHandler={handleExclusionUpdate(
+                    ExcludeOptions.tickets
+                  )}
                 />
               }
               label={t("login.both")}
             />
-              <FormControlLabel
+            <FormControlLabel
               control={
                 <StyledCheckbox
-                  onChangeHandler={handleExclusionUpdate(ExcludeOptions.masterMissions)}
+                  onChangeHandler={handleExclusionUpdate(
+                    ExcludeOptions.masterMissions
+                  )}
                 />
               }
               label={t("mission.label")}
@@ -186,7 +212,7 @@ const SummonCurrency: NextPage = () => {
         <div className="form-column">
           <TextField
             id="outlined-basic"
-            inputProps={{ type: "number", "data-testid": "cumulative"}}
+            inputProps={{ type: "number", "data-testid": "cumulative" }}
             label={t("login.total.label")}
             variant="outlined"
             color="primary"
@@ -202,7 +228,7 @@ const SummonCurrency: NextPage = () => {
           />
           <TextField
             id="outlined-basic"
-            inputProps={{ type: "number", "data-testid":"shopticket" }}
+            inputProps={{ type: "number", "data-testid": "shopticket" }}
             label={t("shop.label")}
             variant="outlined"
             color="primary"
@@ -218,7 +244,7 @@ const SummonCurrency: NextPage = () => {
           />
           <TextField
             id="outlined-basic"
-            inputProps={{ type: "number", "data-testid":"event"  }}
+            inputProps={{ type: "number", "data-testid": "event" }}
             label={t("event")}
             variant="outlined"
             color="primary"
@@ -233,9 +259,7 @@ const SummonCurrency: NextPage = () => {
           />
           <div>
             <FormControlLabel
-              control={
-                <StyledCheckbox onChangeHandler={handleCalcEventSQ} />
-              }
+              control={<StyledCheckbox onChangeHandler={handleCalcEventSQ} />}
               label={t("sq.addevent")}
             />
           </div>
