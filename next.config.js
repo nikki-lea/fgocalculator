@@ -6,8 +6,8 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    loader: 'imgix',
-    path: 'https://i.imgur.com',
+    formats: ['image/webp'],
+    domains: ['i.imgur.com']
   }
 }
 

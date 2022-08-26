@@ -23,8 +23,9 @@
         "rateup": {
             "chance": {
                 "title": "ピックアップの確率",
-                "atleast": "少なくとも{{n}}ピックアップの確率",
-                "nonrateup": "{{rarity}}と少なくとも1ピックアップ以外の確率"
+                "atleast": "少なくとも{{targetCopies}}ピックアップの確率",
+                "nonrateup": "{{rarity}}と少なくとも1ピックアップ以外の確率",
+                "probability": "確率"
             },
             "count": "ピックアップ{{rarity}}{{type}}はいくつですか"
         },
