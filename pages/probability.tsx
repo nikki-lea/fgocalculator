@@ -1,14 +1,14 @@
 import { NextPage } from "next";
 import Image from "next/image";
-import { useTranslation } from "next-i18next";
 import { useContext, useState } from "react";
 import { FgoContext, TargetOptions } from "../contexts";
 import { Slider } from "@mui/material";
 import { TargetDataType } from "../types/contexts";
 import calcProbability from "../utils/calcProbability";
+import copy from "../data/copy";
+import servantData from "../data/servantData";
 
 const Probability: NextPage = () => {
-  const { t } = useTranslation();
   const { state } = useContext(FgoContext);
   const { totalSQForBanner, targetData } = state;
   const startingBudget = totalSQForBanner / targetData.length;
@@ -29,10 +29,10 @@ const Probability: NextPage = () => {
 
   return (
     <div className="probability-container">
-      <h1>{t("rateup.chance.header")}</h1>
-      <h2 className="subheader">{t("rateup.chance.subheader")}</h2>
+      <h1>{copy["rateup"]["chance"]["header"]}</h1>
+      <h2 className="subheader">{copy["rateup"]["chance"]["subheader"]}</h2>
       <div className="total-sq">
-        <h2>{t("sq.future")}</h2>
+        <h2>{copy["sq"]["future"]}</h2>
         <Image
           src="/saintquartz.svg"
           alt="saintquartz"
@@ -45,9 +45,11 @@ const Probability: NextPage = () => {
         {
         targetData.map((item, index) => {
             const typeCopy =
-            item.type === TargetOptions.ce ? t("craftessence") : t("servant");
+            item.type === TargetOptions.ce ? copy["craftessence"] : copy["servant"];
+            const servantName = item.name || "";
             return (
             <>
+              <h3>{item.name}</h3>
               <h3>{`${item.rarity}* ${typeCopy}`}</h3>
               <Slider
                 aria-label="calculatedprobability"
@@ -56,8 +58,16 @@ const Probability: NextPage = () => {
                 valueLabelDisplay="on"
                 max={totalSQForBanner}
               />
-              <h3>{t("rateup.chance.probability")}</h3>
+              <h3>{copy["rateup"]["chance"]["probability"]}</h3>
               <h3>{probabilities[index]}</h3>
+              <div className="banners">
+                <h3>{copy["bannerlist"]}</h3>
+                {servantData[servantName as keyof typeof servantData] &&
+                servantData[servantName as keyof typeof servantData].map((banner) => (
+                  <div key={banner[0]}>{`${banner[0]}: ${banner[1]}`}</div>
+                ))
+                }
+              </div>
             </>)
             })
         }

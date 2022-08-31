@@ -1,8 +1,4 @@
-import moment from "moment";
-import { JPEventPropsType } from "../types/utils/calcJPEventSQ";
-import EventSQData from "../data/events";
 import { TargetDataType } from "../types/contexts";
-import { TargetOptions } from "../contexts";
 
 // The index of the array indicates the rarity of the target, i.e. fgoProbabilities.SERVANT[5] = 0.008
 const fgoProbabilities = {

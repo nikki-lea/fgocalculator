@@ -5,6 +5,7 @@
 export type TargetDataType = {
   type: string;
   rarity: number;
+  name?: string;
   shared?: number;
 };
 

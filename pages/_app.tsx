@@ -7,7 +7,6 @@ import Ereshkigal from "../styles/ereshkigal";
 import { FgoProvider } from "../contexts";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import { LocalizationProvider } from "@mui/x-date-pickers";
-import "../i18n/config";
 
 function App({ Component, pageProps }: AppProps) {
   return (

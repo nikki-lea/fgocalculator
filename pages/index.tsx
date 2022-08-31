@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import React, { useContext } from "react";
-import { useTranslation } from "next-i18next";
 import { TextField, FormControlLabel, Checkbox, Alert } from "@mui/material";
 import Footer from "./components/footer";
 import {
@@ -19,6 +18,7 @@ import {
 } from "../contexts";
 import { ExcludeOptions } from "../contexts";
 import calcJPEventSQ from "../utils/calcJPEventSQ";
+import copy from '../data/copy';
 
 const StyledCheckbox = ({
   onChangeHandler
@@ -37,7 +37,6 @@ const StyledCheckbox = ({
 
 const SummonCurrency: NextPage = () => {
   const { state, dispatch } = useContext(FgoContext);
-  const { t } = useTranslation();
 
   const handleCalcEventSQ = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { startDate, endDate } = state;
@@ -72,16 +71,16 @@ const SummonCurrency: NextPage = () => {
     <div className="current-container">
       {state.formErrors && (
         <Alert sx={{ mb: "10px" }} severity="error">
-          {t("current.error")}
+          {copy["current"]["error"]}
         </Alert>
       )}
-      <h1>{t("current.general")}</h1>
+      <h1>{copy["current"]["general"]}</h1>
       <div className="currency-form">
         <div className="form-column">
           <TextField
             id="outlined-basic"
             inputProps={{ type: "number", "data-testid": "currentsq" }}
-            label={t("current.sq")}
+            label={copy["current"]["sq"]}
             variant="outlined"
             color="primary"
             fullWidth
@@ -96,7 +95,7 @@ const SummonCurrency: NextPage = () => {
           <TextField
             id="outlined-basic"
             inputProps={{ type: "number", "data-testid": "currentticket" }}
-            label={t("current.ticket")}
+            label={copy["current"]["ticket"]}
             variant="outlined"
             color="primary"
             fullWidth
@@ -113,7 +112,7 @@ const SummonCurrency: NextPage = () => {
           <TextField
             id="date"
             inputProps={{ "data-testid": "savingsstart" }}
-            label={t("savings.begin")}
+            label={copy["savings"]["begin"]}
             type="date"
             value={state.startDate || ""}
             fullWidth
@@ -125,7 +124,7 @@ const SummonCurrency: NextPage = () => {
           <TextField
             id="date"
             inputProps={{ "data-testid": "savingsend" }}
-            label={t("savings.end")}
+            label={copy["savings"]["end"]}
             type="date"
             fullWidth
             value={state.endDate || undefined}
@@ -136,34 +135,34 @@ const SummonCurrency: NextPage = () => {
           />
         </div>
       </div>
-      <h1 className="sq-earned">{t("sq.earned")}</h1>
+      <h1 className="sq-earned">{copy["sq"]["earned"]}</h1>
       <div className="currency-form">
         <div className="form-column">
           <TextField
             id="outlined-basic"
-            label={t("mission.label")}
+            label={copy["mission"]["label"]}
             variant="outlined"
             InputLabelProps={{ shrink: true }}
             sx={{ "&.Mui-disabled": { color: "black" } }}
             disabled
             value={state.masterMissions || undefined}
-            helperText={t("mission.detail")}
+            helperText={copy["mission"]["detail"]}
             fullWidth
           />
           <TextField
             id="outlined-basic"
-            label={t("login.daily.label")}
+            label={copy["login"]["daily"]["label"]}
             variant="outlined"
             InputLabelProps={{ shrink: true }}
             disabled
             value={state.dailyLogins || undefined}
-            helperText={t("login.daily.detail")}
+            helperText={copy["login"]["daily"]["detail"]}
             fullWidth
           />
           <TextField
             id="outlined-basic"
             inputProps={{ type: "number", "data-testid": "quest" }}
-            label={t("quest")}
+            label={copy["quest"]}
             variant="outlined"
             color="primary"
             fullWidth
@@ -176,7 +175,7 @@ const SummonCurrency: NextPage = () => {
             }}
           />
           <div className="exclusions">
-            <p>{t("excludeoptions")}</p>
+            <p>{copy["excludeoptions"]}</p>
             <FormControlLabel
               control={
                 <StyledCheckbox
@@ -185,7 +184,7 @@ const SummonCurrency: NextPage = () => {
                   )}
                 />
               }
-              label={t("alltickets")}
+              label={copy["alltickets"]}
             />
             <FormControlLabel
               control={
@@ -195,7 +194,7 @@ const SummonCurrency: NextPage = () => {
                   )}
                 />
               }
-              label={t("login.both")}
+              label={copy["login"]["both"]}
             />
             <FormControlLabel
               control={
@@ -205,7 +204,7 @@ const SummonCurrency: NextPage = () => {
                   )}
                 />
               }
-              label={t("mission.label")}
+              label={copy["mission"]["label"]}
             />
           </div>
         </div>
@@ -213,10 +212,10 @@ const SummonCurrency: NextPage = () => {
           <TextField
             id="outlined-basic"
             inputProps={{ type: "number", "data-testid": "cumulative" }}
-            label={t("login.total.label")}
+            label={copy["login"]["total"]["label"]}
             variant="outlined"
             color="primary"
-            helperText={t("login.total.detail")}
+            helperText={copy["login"]["total"]["detail"]}
             fullWidth
             defaultValue={state.cumulativeLoginsCount || undefined}
             onChange={(e) => {
@@ -229,10 +228,10 @@ const SummonCurrency: NextPage = () => {
           <TextField
             id="outlined-basic"
             inputProps={{ type: "number", "data-testid": "shopticket" }}
-            label={t("shop.label")}
+            label={copy["shop"]["label"]}
             variant="outlined"
             color="primary"
-            helperText={t("shop.detail")}
+            helperText={copy["shop"]["detail"]}
             fullWidth
             defaultValue={state.monthlyShopTickets || ""}
             onChange={(e) => {
@@ -245,7 +244,7 @@ const SummonCurrency: NextPage = () => {
           <TextField
             id="outlined-basic"
             inputProps={{ type: "number", "data-testid": "event" }}
-            label={t("event")}
+            label={copy["event"]}
             variant="outlined"
             color="primary"
             fullWidth
@@ -260,7 +259,7 @@ const SummonCurrency: NextPage = () => {
           <div>
             <FormControlLabel
               control={<StyledCheckbox onChangeHandler={handleCalcEventSQ} />}
-              label={t("sq.addevent")}
+              label={copy["sq"]["addevent"]}
             />
           </div>
         </div>

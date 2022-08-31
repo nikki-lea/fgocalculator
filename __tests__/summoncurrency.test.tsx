@@ -11,11 +11,7 @@ import {
   SET_CUMULATIVE_LOGINS_DATA,
   SET_MONTHLY_SHOP_TICKETS,
   SET_EVENT_SQ,
-  HANDLE_FORM_SUBMIT,
   SET_FORM_ERRORS,
-  reducer,
-  AcceptedActions,
-  formatDatePayload,
   ADD_EXCLUDE_OPTION,
   ExcludeOptions,
   REMOVE_EXCLUDE_OPTION
@@ -34,14 +30,6 @@ const renderWithProvider = ({mockDispatch, mockState = initialState} : { mockDis
   </MockFgoProvider>
   )
 )
-
-jest.mock('react-i18next', () => ({
-    useTranslation: () => {
-      return {
-        t: (value:string) => value
-      };
-    },
-  }));
 
 describe('SummonCurrency', () => {
   const basicSetterValues = [

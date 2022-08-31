@@ -1,11 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import Locale from "./locale";
-import { useTranslation } from "react-i18next";
+import copy from '../../data/copy';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { t } = useTranslation();
-  const headerText = t("header");
   return (
     <>
       <div className="container">
@@ -20,8 +17,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           <main className="main-content">{children}</main>
         </div>
         <div className="header">
-          <h1>{headerText}</h1>
-          <Locale />
+          <h1>{copy["header"]}</h1>
         </div>
       </div>
     </>

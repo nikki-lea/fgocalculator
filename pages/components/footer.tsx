@@ -1,9 +1,9 @@
-import { useTranslation } from "react-i18next";
 import React, { useContext } from "react";
 import { Button } from "@mui/material";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { FgoContext } from "../../contexts";
+import copy from '../../data/copy';
 
 type FooterProps = {
   stepNum: number;
@@ -16,7 +16,6 @@ const Footer: React.FC<FooterProps> = ({
   linkTo = "/",
   linkBack = "/"
 }: FooterProps) => {
-  const { t } = useTranslation();
   const { state, dispatch } = useContext(FgoContext);
   const router = useRouter();
 
@@ -37,7 +36,7 @@ const Footer: React.FC<FooterProps> = ({
     <div className="footer">
       {stepNum > 1 && (
         <Button variant="contained" color="secondary">
-          <Link href={linkBack}>{t("back")}</Link>
+          <Link href={linkBack}>{copy["back"]}</Link>
         </Button>
       )}
       {stepNum < 3 && (
@@ -47,9 +46,9 @@ const Footer: React.FC<FooterProps> = ({
             color="success"
             onClick={onFormSubmitHandler}
           >
-            {t("next")}
+           {copy["next"]}
           </Button>
-          <div>{t("progress", { stepNum })}</div>
+          <div>{`Step ${stepNum} of 3`}</div>
         </div>
       )}
     </div>
