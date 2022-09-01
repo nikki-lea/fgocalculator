@@ -19,6 +19,7 @@ import {
 import { ExcludeOptions } from "../contexts";
 import calcJPEventSQ from "../utils/calcJPEventSQ";
 import copy from '../data/copy';
+import { start } from "repl";
 
 const StyledCheckbox = ({
   onChangeHandler
@@ -74,17 +75,18 @@ const SummonCurrency: NextPage = () => {
           {copy["current"]["error"]}
         </Alert>
       )}
-      <h1>{copy["current"]["general"]}</h1>
+      <h2>{copy["subheader"]}</h2>
       <div className="currency-form">
         <div className="form-column">
           <TextField
             id="outlined-basic"
             inputProps={{ type: "number", "data-testid": "currentsq" }}
+            InputLabelProps={{ shrink: true}}
             label={copy["current"]["sq"]}
             variant="outlined"
             color="primary"
             fullWidth
-            defaultValue={state.currentSQ || ""}
+            value={state.currentSQ ? state.currentSQ : undefined}
             onChange={(e) => {
               dispatch({
                 type: SET_CURRENT_SQ,
@@ -95,11 +97,12 @@ const SummonCurrency: NextPage = () => {
           <TextField
             id="outlined-basic"
             inputProps={{ type: "number", "data-testid": "currentticket" }}
+            InputLabelProps={{ shrink: true }}
             label={copy["current"]["ticket"]}
             variant="outlined"
             color="primary"
             fullWidth
-            defaultValue={state.currentTickets || ""}
+            value={state.currentTickets ? state.currentTickets : undefined}
             onChange={(e) => {
               dispatch({
                 type: SET_CURRENT_TICKETS,
@@ -114,7 +117,7 @@ const SummonCurrency: NextPage = () => {
             inputProps={{ "data-testid": "savingsstart" }}
             label={copy["savings"]["begin"]}
             type="date"
-            value={state.startDate || ""}
+            value={state.startDate ? state.startDate : undefined}
             fullWidth
             InputLabelProps={{ shrink: true }}
             onChange={(e) => {
@@ -127,7 +130,7 @@ const SummonCurrency: NextPage = () => {
             label={copy["savings"]["end"]}
             type="date"
             fullWidth
-            value={state.endDate || undefined}
+            value={state.endDate ? state.endDate : undefined}
             InputLabelProps={{ shrink: true }}
             onChange={(e) => {
               dispatch({ type: SET_END_DATE, payload: e.target.value });
@@ -135,7 +138,7 @@ const SummonCurrency: NextPage = () => {
           />
         </div>
       </div>
-      <h1 className="sq-earned">{copy["sq"]["earned"]}</h1>
+      <h2 className="sq-earned">{copy["sq"]["earned"]}</h2>
       <div className="currency-form">
         <div className="form-column">
           <TextField
@@ -145,7 +148,7 @@ const SummonCurrency: NextPage = () => {
             InputLabelProps={{ shrink: true }}
             sx={{ "&.Mui-disabled": { color: "black" } }}
             disabled
-            value={state.masterMissions || undefined}
+            value={state.masterMissions}
             helperText={copy["mission"]["detail"]}
             fullWidth
           />
@@ -155,18 +158,19 @@ const SummonCurrency: NextPage = () => {
             variant="outlined"
             InputLabelProps={{ shrink: true }}
             disabled
-            value={state.dailyLogins || undefined}
+            value={state.dailyLogins}
             helperText={copy["login"]["daily"]["detail"]}
             fullWidth
           />
           <TextField
             id="outlined-basic"
             inputProps={{ type: "number", "data-testid": "quest" }}
+            InputLabelProps={{ shrink: true }}
             label={copy["quest"]}
             variant="outlined"
             color="primary"
             fullWidth
-            defaultValue={state.questSQ || undefined}
+            value={state.questSQ ? state.questSQ : undefined}
             onChange={(e) => {
               dispatch({
                 type: SET_QUEST_SQ,
@@ -213,11 +217,12 @@ const SummonCurrency: NextPage = () => {
             id="outlined-basic"
             inputProps={{ type: "number", "data-testid": "cumulative" }}
             label={copy["login"]["total"]["label"]}
+            InputLabelProps={{ shrink: true }}
             variant="outlined"
             color="primary"
             helperText={copy["login"]["total"]["detail"]}
             fullWidth
-            defaultValue={state.cumulativeLoginsCount || undefined}
+            value={state.cumulativeLoginsCount ? state.cumulativeLoginsCount : undefined}
             onChange={(e) => {
               dispatch({
                 type: SET_CUMULATIVE_LOGINS_DATA,
@@ -229,11 +234,12 @@ const SummonCurrency: NextPage = () => {
             id="outlined-basic"
             inputProps={{ type: "number", "data-testid": "shopticket" }}
             label={copy["shop"]["label"]}
+            InputLabelProps={{ shrink: true }}
             variant="outlined"
             color="primary"
             helperText={copy["shop"]["detail"]}
             fullWidth
-            defaultValue={state.monthlyShopTickets || ""}
+            value={state.monthlyShopTickets ? state.monthlyShopTickets : undefined}
             onChange={(e) => {
               dispatch({
                 type: SET_MONTHLY_SHOP_TICKETS,
@@ -245,10 +251,11 @@ const SummonCurrency: NextPage = () => {
             id="outlined-basic"
             inputProps={{ type: "number", "data-testid": "event" }}
             label={copy["event"]}
+            InputLabelProps={{ shrink: true }}
             variant="outlined"
             color="primary"
             fullWidth
-            value={state.eventSQ || ""}
+            value={state.eventSQ ? state.eventSQ : undefined}
             onChange={(e) => {
               dispatch({
                 type: SET_EVENT_SQ,

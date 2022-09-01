@@ -1,5 +1,7 @@
 const copy = {
-  header: "Fate Grand Order Probability Calculator",
+  header: "Fate Grand Savings",
+  subheader:
+    "Set your spending and calculate probability for one or more targets",
   current: {
     general: "Current Summon Currency",
     sq: "Current number of SQ",
@@ -9,11 +11,11 @@ const copy = {
   alltickets: "Shop and current tickets",
   savings: {
     begin: "Savings start date",
-    end: "Savings end date"
+    end: "End date of last target campaign"
   },
   sq: {
     name: "SQ",
-    earned: "SQ Gained",
+    earned: "Sources for Earning SQ",
     addevent:
       "Add event SQ gained based on JP event history end dates (through 2023)",
     future: "Saint Quartz Available by Banner End"

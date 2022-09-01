@@ -11,7 +11,7 @@ import servantData from "../data/servantData";
 const Probability: NextPage = () => {
   const { state } = useContext(FgoContext);
   const { totalSQForBanner, targetData } = state;
-  const startingBudget = totalSQForBanner / targetData.length;
+  const startingBudget = Math.floor(totalSQForBanner / targetData.length);
   const initialProbability: number[] = [];
   targetData.forEach((item) => initialProbability.push(calcProbability({...item, sq: startingBudget})));
   const [targetSQ, setTargetSQ] = useState<number[]>(Array(targetData.length).fill(startingBudget));
@@ -49,8 +49,8 @@ const Probability: NextPage = () => {
             const servantName = item.name || "";
             return (
             <>
-              <h3>{item.name}</h3>
-              <h3>{`${item.rarity}* ${typeCopy}`}</h3>
+              <div>{item.name}</div>
+              <div>{`${item.rarity}* ${typeCopy}`}</div>
               <Slider
                 aria-label="calculatedprobability"
                 defaultValue={startingBudget}
@@ -58,10 +58,10 @@ const Probability: NextPage = () => {
                 valueLabelDisplay="on"
                 max={totalSQForBanner}
               />
-              <h3>{copy["rateup"]["chance"]["probability"]}</h3>
-              <h3>{probabilities[index]}</h3>
+              <div>{copy["rateup"]["chance"]["probability"]}</div>
+              <div>{probabilities[index]}</div>
               <div className="banners">
-                <h3>{copy["bannerlist"]}</h3>
+                <div>{copy["bannerlist"]}</div>
                 {servantData[servantName as keyof typeof servantData] &&
                 servantData[servantName as keyof typeof servantData].map((banner) => (
                   <div key={banner[0]}>{`${banner[0]}: ${banner[1]}`}</div>
