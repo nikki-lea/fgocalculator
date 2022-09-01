@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Button } from "@mui/material";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import { FgoContext } from "../../contexts";
 import copy from '../../data/copy';
 
@@ -32,11 +31,12 @@ const Footer: React.FC<FooterProps> = ({
       router.push(linkTo);
     }
   };
+
   return (
     <div className="footer">
       {stepNum > 1 && (
-        <Button variant="contained" color="secondary">
-          <Link href={linkBack}>{copy["back"]}</Link>
+        <Button variant="contained" color="secondary" onClick={() => router.push(linkBack)}>
+          {copy["back"]}
         </Button>
       )}
       {stepNum < 3 && (

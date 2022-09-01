@@ -19,7 +19,6 @@ import {
 import { ExcludeOptions } from "../contexts";
 import calcJPEventSQ from "../utils/calcJPEventSQ";
 import copy from '../data/copy';
-import { start } from "repl";
 
 const StyledCheckbox = ({
   onChangeHandler

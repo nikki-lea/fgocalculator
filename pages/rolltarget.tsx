@@ -24,7 +24,8 @@ const RollTarget: NextPage = () => {
   const [error, setError] = useState(false);
   const [currentTargetData, setCurrentTargetData] = useState({
     type: "",
-    rarity: 0
+    rarity: 0,
+    shared: 0
   } as TargetDataType);
   const { targetData } = state;
 
@@ -62,10 +63,10 @@ const RollTarget: NextPage = () => {
   };
 
   const onSubmitHandler = () => {
-    if (currentTargetData.type && currentTargetData.rarity) {
+    if (currentTargetData?.type && currentTargetData?.rarity) {
       setError(false);
       dispatch({ type: ADD_TARGET_DATA, payload: currentTargetData });
-      setCurrentTargetData({ type: "", rarity: 0 });
+      setCurrentTargetData({ type: "", rarity: 0, shared: 0 });
     } else {
       setError(true);
     }
@@ -107,7 +108,7 @@ const RollTarget: NextPage = () => {
         <div className="target-type">
           <p>{copy["target"]["type"]}</p>
           <ToggleButtonGroup
-            value={currentTargetData.type}
+            value={currentTargetData?.type}
             exclusive
             color="success"
             size="large"
@@ -125,7 +126,7 @@ const RollTarget: NextPage = () => {
         <div className="target-rarity">
           <p>{copy["target"]["rarity"]}</p>
           <ToggleButtonGroup
-            value={currentTargetData.rarity}
+            value={currentTargetData?.rarity}
             exclusive
             color="success"
             size="large"
@@ -140,7 +141,7 @@ const RollTarget: NextPage = () => {
         <div className="target-shared">
           <p>{copy["target"]["sharedtext"]}</p>
           <ToggleButtonGroup
-            value={currentTargetData.shared}
+            value={currentTargetData?.shared}
             exclusive
             color="success"
             size="large"
