@@ -12,7 +12,7 @@ const calcProbability = ({ sq, type, rarity, shared = 1 }: TargetDataType & {sq:
   const rolls = sq/3;
   const exponent = (rolls+(rolls/10));
   const result = 1-Math.pow((1-summonProbability), exponent);
-  return Math.round((result*100 + Number.EPSILON)*100)/100;
+  return Math.round(result*100);
 };
 
 export default calcProbability;

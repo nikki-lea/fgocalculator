@@ -91,6 +91,10 @@ body {
   margin-top: 60px;
 }
 
+.add-event {
+  display: flex;
+}
+
 .current-container, .probability-container {
   .footer {
     justify-content: flex-end;
@@ -168,18 +172,18 @@ body {
 }
 
 .probability-container {
-  h1 {
-    padding-bottom: 0;
+  .header {
+    margin-bottom: 0;
   }
   .subheader {
     font-weight: 200;
-    font-size: 1.2em;
+    font-size: 1em;
+    line-height: 1.3;
   }
 }
 
 .total-sq {
   display: flex;
-  margin-top: 25px;
   h2 {
     margin-right: 20px;
     margin-bottom: 0;
@@ -189,4 +193,69 @@ body {
     font-size: 24px;
     font-weight: 600;
   }
+}
+
+.probability-calculations {
+  margin-top: 20px;
+  background-color: @text-color;
+  border: 1px solid #ABABAB;
+  border-radius: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+.target-name {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.target-prob-container {
+  display: flex;
+  padding-top: 30px;
+}
+
+.target-prob-box {
+  padding-left: 20px;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.target-prob-percent {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.banner-copy {
+  font-weight: 600;
+}
+
+.are-you-a-whale {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.spendings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 16px;
+}
+
+.sq-spent {
+  display: flex;
+  font-size: 24px;
+  margin-bottom: 0;
+  line-height: 1;
+  font-weight: 600;
+  align-items: center;
+}
+
+.yea-a-whale {
+  color: #d32f2f;
+}
+
+.not-a-whale {
+  color: #2e7d32;
 }

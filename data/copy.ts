@@ -45,7 +45,7 @@ const copy = {
     chance: {
       header: "Rate-up Probability",
       subheader:
-        "Adjust the sliders to allocate a budget for each campaign. Calculated probabilities are for at least 1 copy of the rate up target.",
+        "Adjust the sliders to allocate a budget for each campaign. Calculated probabilities are for at least 1 copy of the rate up target. NP markers indicate the number of SQ required for a 50% chance of obtaining the NP value",
       probability: "Probability"
     },
     upcoming: "Upcoming summoning campaigns based on FGO JP"
@@ -66,7 +66,8 @@ const copy = {
   back: "Back",
   excludeoptions: "Exclude from SQ applied for campaign:",
   servantname: "Servant Name",
-  bannerlist: "Upcoming Banners based on JP"
+  bannerlist: "Upcoming Banners based on JP",
+  totalspent: "Total SQ Spent"
 };
 
 export default copy;

@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import React, { useContext } from "react";
-import { TextField, FormControlLabel, Checkbox, Alert } from "@mui/material";
+import { TextField, FormControlLabel, Checkbox, Alert, IconButton } from "@mui/material";
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import Footer from "./components/footer";
 import {
   ADD_EXCLUDE_OPTION,
@@ -20,27 +21,12 @@ import { ExcludeOptions } from "../contexts";
 import calcJPEventSQ from "../utils/calcJPEventSQ";
 import copy from '../data/copy';
 
-const StyledCheckbox = ({
-  onChangeHandler
-}: {
-  onChangeHandler: React.ChangeEventHandler<HTMLInputElement>;
-}) => (
-  <Checkbox
-    onChange={onChangeHandler}
-    sx={{
-      "&.Mui-checked": {
-        color: "#DDA55B"
-      }
-    }}
-  />
-);
-
 const SummonCurrency: NextPage = () => {
   const { state, dispatch } = useContext(FgoContext);
 
-  const handleCalcEventSQ = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleCalcEventSQ = () => {
     const { startDate, endDate } = state;
-    if (e.target.checked && startDate && endDate) {
+    if (startDate && endDate) {
       dispatch({
         type: SET_FORM_ERRORS,
         payload: false
@@ -49,7 +35,7 @@ const SummonCurrency: NextPage = () => {
         type: SET_EVENT_SQ,
         payload: calcJPEventSQ({ startDate, endDate })
       });
-    } else if (e.target.checked) {
+    } else {
       dispatch({
         type: SET_FORM_ERRORS,
         payload: true
@@ -181,30 +167,48 @@ const SummonCurrency: NextPage = () => {
             <p>{copy["excludeoptions"]}</p>
             <FormControlLabel
               control={
-                <StyledCheckbox
-                  onChangeHandler={handleExclusionUpdate(
+                <Checkbox
+                  defaultChecked={state.excludeOptions?.has(ExcludeOptions.tickets)}
+                  onChange={handleExclusionUpdate(
                     ExcludeOptions.tickets
                   )}
+                  sx={{
+                    "&.Mui-checked": {
+                      color: "#DDA55B"
+                    }
+                  }}
                 />
               }
               label={copy["alltickets"]}
             />
             <FormControlLabel
               control={
-                <StyledCheckbox
-                  onChangeHandler={handleExclusionUpdate(
-                    ExcludeOptions.tickets
+                <Checkbox
+                  defaultChecked={state.excludeOptions?.has(ExcludeOptions.loginBonuses)}
+                  onChange={handleExclusionUpdate(
+                    ExcludeOptions.loginBonuses
                   )}
+                  sx={{
+                    "&.Mui-checked": {
+                      color: "#DDA55B"
+                    }
+                  }}
                 />
               }
               label={copy["login"]["both"]}
             />
             <FormControlLabel
               control={
-                <StyledCheckbox
-                  onChangeHandler={handleExclusionUpdate(
+                <Checkbox
+                  defaultChecked={state.excludeOptions?.has(ExcludeOptions.masterMissions)}
+                  onChange={handleExclusionUpdate(
                     ExcludeOptions.masterMissions
                   )}
+                  sx={{
+                    "&.Mui-checked": {
+                      color: "#DDA55B"
+                    }
+                  }}
                 />
               }
               label={copy["mission"]["label"]}
@@ -262,11 +266,14 @@ const SummonCurrency: NextPage = () => {
               });
             }}
           />
-          <div>
-            <FormControlLabel
-              control={<StyledCheckbox onChangeHandler={handleCalcEventSQ} />}
-              label={copy["sq"]["addevent"]}
-            />
+          <div className="add-event">
+            <IconButton
+              color="success"
+              onClick={handleCalcEventSQ}
+            >
+              <AddCircleOutlineIcon/>
+            </IconButton>
+            {copy["sq"]["addevent"]}
           </div>
         </div>
       </div>
