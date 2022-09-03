@@ -9,6 +9,7 @@ import {
 import calcCumulativeLoginSQ from "../utils/calcCumulativeLoginSQ";
 import calcDaysDiffData from "../utils/calcDaysDiffData";
 import calcShopTicketSQ from "../utils/calcShopTicketSQ";
+import { getLocalStorageItem, setLocalStorageItem } from "./localStorage";
 
 type ProviderProps = {
   children: React.ReactNode;
@@ -77,23 +78,24 @@ export const AppActions = {
 
 export type AcceptedActions = ActionsUnion<typeof AppActions>;
 
+
 export const initialState = {
-  currentSQ: 0,
-  currentTickets: 0,
-  startDate: "",
-  endDate: "",
-  masterMissions: 0,
-  cumulativeLoginsCount: 0,
-  cumulativeLoginsSQ: 0,
-  dailyLogins: 0,
-  monthlyShopTickets: 0,
-  questSQ: 0,
-  eventSQ: 0,
+  currentSQ: parseInt(getLocalStorageItem("currentSQ") || "0"),
+  currentTickets: parseInt(getLocalStorageItem("currentTickets") || "0"),
+  startDate: getLocalStorageItem("startDate") || "",
+  endDate: getLocalStorageItem("endDate") || "",
+  masterMissions: parseInt(getLocalStorageItem("masterMissions") || "0"),
+  cumulativeLoginsCount: parseInt(getLocalStorageItem("cumulativeLoginsCount") || "0"),
+  cumulativeLoginsSQ: parseInt(getLocalStorageItem("cumulativeLoginsSQ") || "0"),
+  dailyLogins: parseInt(getLocalStorageItem("dailyLogins") || "0"),
+  monthlyShopTickets: parseInt(getLocalStorageItem("monthlyShopTickets") || "0"),
+  questSQ: parseInt(getLocalStorageItem("questSQ") || "0"),
+  eventSQ: parseInt(getLocalStorageItem("eventSQ") || "0"),
   formErrors: false,
-  totalSQForBanner: 0,
-  shopTicketSQ: 0,
-  excludeOptions: new Set(""),
-  targetData: []
+  totalSQForBanner: parseInt(getLocalStorageItem("totalSQForBanner") || "0"),
+  shopTicketSQ: parseInt(getLocalStorageItem("shopTicketSQ") || "0"),
+  excludeOptions: getLocalStorageItem("excludeOptions") ? JSON.parse(getLocalStorageItem("excludeItems") as string) : new Set(""),
+  targetData: getLocalStorageItem("targetData") ? JSON.parse(getLocalStorageItem("targetData") as string) : [],
 };
 
 const FgoContext = createContext<{
@@ -139,40 +141,58 @@ export const reducer = (
 ): StateType => {
   switch (action.type) {
     case SET_CURRENT_SQ:
+      setLocalStorageItem("currentSQ", action.payload.toString());
       return {
         ...state,
         currentSQ: action.payload
       };
     case SET_CURRENT_TICKETS:
+      setLocalStorageItem("currentTickets", action.payload.toString())
       return {
         ...state,
         currentTickets: action.payload
       };
     case SET_START_DATE:
+      const startDateData = formatDatePayload(state, action.payload, true);
+      setLocalStorageItem("startDate", action.payload);
+      if (startDateData.masterMissions) {
+        setLocalStorageItem("masterMissions", startDateData.masterMissions.toString());
+        setLocalStorageItem("dailyLogins", startDateData.dailyLogins.toString());
+      }
       return {
-        ...formatDatePayload(state, action.payload, true)
+        ...startDateData
       };
     case SET_END_DATE:
+      const endDateData = formatDatePayload(state, action.payload, false);
+      setLocalStorageItem("endDate", action.payload);
+      if (endDateData.masterMissions) {
+        setLocalStorageItem("masterMissions", endDateData.masterMissions.toString());
+        setLocalStorageItem("dailyLogins", endDateData.dailyLogins.toString());
+      }
       return {
-        ...formatDatePayload(state, action.payload, false)
+        ...endDateData
       };
     case SET_QUEST_SQ:
+      setLocalStorageItem("questSQ", action.payload.toString());
       return {
         ...state,
         questSQ: action.payload
       };
 
     case SET_CUMULATIVE_LOGINS_DATA:
+      setLocalStorageItem("cumulativeLoginsCount", action.payload.toString());
       return {
         ...state,
         cumulativeLoginsCount: action.payload
       };
     case SET_MONTHLY_SHOP_TICKETS:
+      setLocalStorageItem("monthlyShopTickets", action.payload.toString());
       return {
         ...state,
         monthlyShopTickets: action.payload
       };
     case SET_EVENT_SQ:
+      setLocalStorageItem("eventSQ", action.payload.toString());
       return {
         ...state,
         eventSQ: action.payload
@@ -205,6 +225,8 @@ export const reducer = (
         (state.excludeOptions.has(ExcludeOptions.tickets) ? 0 : shopTicketSQ) +
         state.questSQ +
         state.eventSQ;
+        setLocalStorageItem("cumulativeLoginsSQ", cumulativeLoginsSQ.toString());
+        setLocalStorageItem("totalSQForBanner", totalSQForBanner.toString());
       return {
         ...state,
         cumulativeLoginsSQ,
@@ -220,6 +242,7 @@ export const reducer = (
         ...Array.from(state.excludeOptions),
         action.payload
       ]);
+      setLocalStorageItem("excludeOptions", JSON.stringify(setCopy));
       return {
         ...state,
         excludeOptions: setCopy
@@ -227,6 +250,7 @@ export const reducer = (
     case REMOVE_EXCLUDE_OPTION:
       state.excludeOptions.delete(action.payload);
       const setWithoutCopy = new Set([...Array.from(state.excludeOptions)]);
+      setLocalStorageItem("excludeOptions", JSON.stringify(setWithoutCopy));
       return {
         ...state,
         excludeOptions: setWithoutCopy
@@ -234,6 +258,7 @@ export const reducer = (
     case ADD_TARGET_DATA:
       const targetDataCopy = [...state.targetData];
       targetDataCopy.push(action.payload);
+      setLocalStorageItem("targetData", JSON.stringify(targetDataCopy));
       return {
         ...state,
         targetData: targetDataCopy

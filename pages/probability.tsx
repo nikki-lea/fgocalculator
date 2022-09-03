@@ -1,21 +1,24 @@
 import { NextPage } from "next";
 import Image from "next/image";
-import { useTranslation } from "next-i18next";
 import { useContext, useState } from "react";
 import { FgoContext, TargetOptions } from "../contexts";
 import { Slider } from "@mui/material";
 import { TargetDataType } from "../types/contexts";
 import calcProbability from "../utils/calcProbability";
+import copy from "../data/copy";
+import servantData from "../data/servantData";
+import { fiveStarMarks, fourStarMarks } from "../data/servantnpdata";
+import classNames from 'classnames';
 
 const Probability: NextPage = () => {
-  const { t } = useTranslation();
   const { state } = useContext(FgoContext);
   const { totalSQForBanner, targetData } = state;
-  const startingBudget = totalSQForBanner / targetData.length;
+  const startingBudget = Math.floor(totalSQForBanner / targetData.length);
   const initialProbability: number[] = [];
   targetData.forEach((item) => initialProbability.push(calcProbability({...item, sq: startingBudget})));
   const [targetSQ, setTargetSQ] = useState<number[]>(Array(targetData.length).fill(startingBudget));
   const [probabilities, setProbabilities] = useState<number[]>(initialProbability);
+  const totalSpent = targetSQ.reduce((acc, current) => (acc + current), 0);
 
   const handleChange = (index: number, targetData: TargetDataType) => (_event: Event, newValue: number | number[]) => {
     const targetCopy = [...targetSQ];
@@ -27,12 +30,21 @@ const Probability: NextPage = () => {
     setProbabilities(newProbabilities);
   };
 
+  const getNpMarks = (rarity: number) => {
+    if (rarity === 5) {
+      return fiveStarMarks;
+    } else if (rarity === 4) {
+      return fourStarMarks;
+    } else {
+      return []
+    }
+  }
+
   return (
     <div className="probability-container">
-      <h1>{t("rateup.chance.header")}</h1>
-      <h2 className="subheader">{t("rateup.chance.subheader")}</h2>
+      <h1 className="header">{copy["rateup"]["chance"]["header"]}</h1>
       <div className="total-sq">
-        <h2>{t("sq.future")}</h2>
+        <h2>{copy["sq"]["future"]}</h2>
         <Image
           src="/saintquartz.svg"
           alt="saintquartz"
@@ -41,29 +53,56 @@ const Probability: NextPage = () => {
         />
         <span>{totalSQForBanner.toLocaleString('en-US')}</span>
       </div>
+      <div className="subheader">{copy["rateup"]["chance"]["subheader"]}</div>
       <div className="probability-calculations">
         {
         targetData.map((item, index) => {
             const typeCopy =
-            item.type === TargetOptions.ce ? t("craftessence") : t("servant");
+            item.type === TargetOptions.ce ? copy["craftessence"] : copy["servant"];
+            const servantName = item.name || "";
             return (
-            <>
-              <h3>{`${item.rarity}* ${typeCopy}`}</h3>
-              <Slider
-                aria-label="calculatedprobability"
-                defaultValue={startingBudget}
-                onChange={handleChange(index, item)}
-                valueLabelDisplay="on"
-                max={totalSQForBanner}
-              />
-              <h3>{t("rateup.chance.probability")}</h3>
-              <h3>{probabilities[index]}</h3>
-            </>)
+            <div key={item.name} className="target-calc">
+              <div className="target-name">{item.name}</div>
+              <div>{`${item.rarity}* ${typeCopy}`}</div>
+              <div className="target-prob-container">
+                <Slider
+                  aria-label="calculatedprobability"
+                  defaultValue={startingBudget}
+                  onChange={handleChange(index, item)}
+                  valueLabelDisplay="on"
+                  max={totalSQForBanner}
+                  marks={getNpMarks(item.rarity)}
+                />
+                <div className="target-prob-box">
+                  {copy["rateup"]["chance"]["probability"]}
+                  <div className="target-prob-percent">{`${probabilities[index]}%`}</div>
+                </div>
+              </div>
+              <div className="banners">
+                <div className="banner-copy">{copy["bannerlist"]}</div>
+                {servantData[servantName as keyof typeof servantData] &&
+                servantData[servantName as keyof typeof servantData].map((banner) => (
+                  <div key={banner[0]}>{`${banner[0]}: ${banner[1]}`}</div>
+                ))
+                }
+              </div>
+            </div>)
             })
         }
-        <div className="are-you-whale">
-          <h1>{targetSQ.length && targetSQ.reduce((acc, current) => (acc + current), 0)}</h1>
-          <h3>{targetSQ.length &&  totalSQForBanner - (targetSQ.reduce((acc, current) => (acc + current)))}</h3>
+        <div className="are-you-a-whale">
+          <div className="spendings">
+            <div>{copy["totalspent"]}</div>
+            <div className="sq-spent">
+              <Image
+                src="/saintquartz.svg"
+                alt="saintquartz"
+                height={36}
+                width={36}
+              />
+              <span className="total-spent">{targetSQ.length && targetSQ.reduce((acc, current) => (acc + current), 0)}</span>
+            </div>
+            <div className={classNames({'yea-a-whale': targetSQ.length && ((totalSQForBanner - totalSpent) < 0), 'not-a-whale': targetSQ.length && ((totalSQForBanner - totalSpent) > 0)})}>{`(${targetSQ.length &&  totalSQForBanner - totalSpent})`}</div>
+          </div>
         </div>
       </div>
     </div>

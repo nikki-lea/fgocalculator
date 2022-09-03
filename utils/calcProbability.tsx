@@ -1,8 +1,4 @@
-import moment from "moment";
-import { JPEventPropsType } from "../types/utils/calcJPEventSQ";
-import EventSQData from "../data/events";
 import { TargetDataType } from "../types/contexts";
-import { TargetOptions } from "../contexts";
 
 // The index of the array indicates the rarity of the target, i.e. fgoProbabilities.SERVANT[5] = 0.008
 const fgoProbabilities = {
@@ -16,8 +12,7 @@ const calcProbability = ({ sq, type, rarity, shared = 1 }: TargetDataType & {sq:
   const rolls = sq/3;
   const exponent = (rolls+(rolls/10));
   const result = 1-Math.pow((1-summonProbability), exponent);
-  console.log(`Type ${type} rarity ${rarity} shared ${shared}, sq ${sq} exponent ${exponent} probability ${summonProbability} result ${result}`)
-  return result;
+  return Math.round(result*100);
 };
 
 export default calcProbability;

@@ -7,23 +7,26 @@ import {
   ListItemText,
   ToggleButton,
   ToggleButtonGroup,
-  Button
+  Button,
+  Autocomplete,
+  TextField
 } from "@mui/material";
 import type { NextPage } from "next";
-import { useTranslation } from "next-i18next";
 import { useContext, useState } from "react";
 import { ADD_TARGET_DATA, FgoContext, TargetOptions } from "../contexts";
 import { TargetDataType } from "../types/contexts";
 import Footer from "./components/footer";
+import servantData from "../data/servantData";
+import copy from "../data/copy";
 
 const RollTarget: NextPage = () => {
   const { state, dispatch } = useContext(FgoContext);
   const [error, setError] = useState(false);
   const [currentTargetData, setCurrentTargetData] = useState({
     type: "",
-    rarity: 0
+    rarity: 0,
+    shared: 0
   } as TargetDataType);
-  const { t } = useTranslation();
   const { targetData } = state;
 
   const genericClickHandler =
@@ -35,16 +38,15 @@ const RollTarget: NextPage = () => {
   const rarityHandler = genericClickHandler("rarity");
   const sharedHandler = genericClickHandler("shared");
 
-  const renderListItem = ({ type, rarity, shared }: TargetDataType) => {
+  const autoCompleteOptions = Object.keys(servantData);
+
+  const renderListItem = ({ type, rarity, name, shared }: TargetDataType) => {
     const typeCopy =
-      type === TargetOptions.ce ? t("craftessence") : t("servant");
+      type === TargetOptions.ce ? copy["craftessence"] : copy["servant"];
     const sharedCopy =
       shared && shared > 1
-        ? t("target.shared", {
-            shared: shared.toString(),
-            rarity: rarity.toString()
-          })
-        : t("target.solo", { rarity: rarity.toString() });
+        ? `${shared.toString()} total ${rarity.toString()}*`
+        : `Solo ${rarity.toString()}* rate up`;
     return (
       <>
         <ListItem>
@@ -52,8 +54,8 @@ const RollTarget: NextPage = () => {
             <Avatar src="/saintquartz.svg" />
           </ListItemAvatar>
           <ListItemText
-            primary={`${rarity}* ${typeCopy}`}
-            secondary={sharedCopy}
+            primary={name}
+            secondary={`${rarity}* ${typeCopy} - ${sharedCopy}`}
           />
         </ListItem>
       </>
@@ -61,10 +63,10 @@ const RollTarget: NextPage = () => {
   };
 
   const onSubmitHandler = () => {
-    if (currentTargetData.type && currentTargetData.rarity) {
+    if (currentTargetData?.type && currentTargetData?.rarity) {
       setError(false);
       dispatch({ type: ADD_TARGET_DATA, payload: currentTargetData });
-      setCurrentTargetData({ type: "", rarity: 0 });
+      setCurrentTargetData({ type: "", rarity: 0, shared: 0 });
     } else {
       setError(true);
     }
@@ -72,8 +74,8 @@ const RollTarget: NextPage = () => {
 
   return (
     <div className="target-container">
-      <h1>{t("target.header")}</h1>
-      <h2>{t("target.subheader")}</h2>
+      <h1>{copy["target"]["header"]}</h1>
+      <h2>{copy["target"]["subheader"]}</h2>
       {targetData.length > 0 ? (
         <div className="targets-added">
           <List
@@ -88,7 +90,8 @@ const RollTarget: NextPage = () => {
               renderListItem({
                 type: item.type,
                 rarity: item.rarity,
-                shared: item.shared
+                shared: item.shared,
+                name: item.name
               })
             )}
           </List>
@@ -99,13 +102,13 @@ const RollTarget: NextPage = () => {
       <div className="target-selections">
         {error && (
           <Alert sx={{ mb: "10px" }} severity="error">
-            {t("target.error")}
+            {copy["target"]["error"]}
           </Alert>
         )}
         <div className="target-type">
-          <p>{t("target.type")}</p>
+          <p>{copy["target"]["type"]}</p>
           <ToggleButtonGroup
-            value={currentTargetData.type}
+            value={currentTargetData?.type}
             exclusive
             color="success"
             size="large"
@@ -113,17 +116,17 @@ const RollTarget: NextPage = () => {
             onChange={typeHandler}
           >
             <ToggleButton value={TargetOptions.ce}>
-              {t("craftessence")}
+              {copy["craftessence"]}
             </ToggleButton>
             <ToggleButton value={TargetOptions.servant}>
-              {t("servant")}
+              {copy["servant"]}
             </ToggleButton>
           </ToggleButtonGroup>
         </div>
         <div className="target-rarity">
-          <p>{t("target.rarity")}</p>
+          <p>{copy["target"]["rarity"]}</p>
           <ToggleButtonGroup
-            value={currentTargetData.rarity}
+            value={currentTargetData?.rarity}
             exclusive
             color="success"
             size="large"
@@ -136,9 +139,9 @@ const RollTarget: NextPage = () => {
           </ToggleButtonGroup>
         </div>
         <div className="target-shared">
-          <p>{t("target.sharedtext")}</p>
+          <p>{copy["target"]["sharedtext"]}</p>
           <ToggleButtonGroup
-            value={currentTargetData.shared}
+            value={currentTargetData?.shared}
             exclusive
             color="success"
             size="large"
@@ -149,6 +152,19 @@ const RollTarget: NextPage = () => {
             <ToggleButton value={1}>1</ToggleButton>
           </ToggleButtonGroup>
         </div>
+        {
+          currentTargetData.type === TargetOptions.servant &&
+          <div className="target-name">
+                <Autocomplete
+                  disablePortal
+                  onChange={(event: any, newValue: string | null) => setCurrentTargetData({ ...currentTargetData, name: newValue || ""})}
+                  id="combo-box-demo"
+                  options={autoCompleteOptions}
+                  sx={{ width: 300 }}
+                  renderInput={(params) => <TextField {...params} label={copy["servantname"]} />}
+                />
+          </div>
+        }
         <div className="add-button">
           <Button
             variant="contained"
@@ -156,7 +172,7 @@ const RollTarget: NextPage = () => {
             size="large"
             onClick={() => onSubmitHandler()}
           >
-            {t("add")}
+            {copy["target"]["add"]}
           </Button>
         </div>
       </div>
