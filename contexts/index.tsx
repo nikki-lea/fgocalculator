@@ -209,20 +209,20 @@ export const reducer = (
         monthlyShopTickets: state.monthlyShopTickets
       });
       const totalSQForBanner =
-        (state.excludeOptions.has(ExcludeOptions.loginBonuses)
+        (state.excludeOptions?.has(ExcludeOptions.loginBonuses)
           ? 0
           : cumulativeLoginsSQ) +
         state.currentSQ +
-        (state.excludeOptions.has(ExcludeOptions.tickets)
+        (state.excludeOptions?.has(ExcludeOptions.tickets)
           ? 0
           : 3 * state.currentTickets) +
-        (state.excludeOptions.has(ExcludeOptions.masterMissions)
+        (state.excludeOptions?.has(ExcludeOptions.masterMissions)
           ? 0
           : state.masterMissions) +
-        (state.excludeOptions.has(ExcludeOptions.loginBonuses)
+        (state.excludeOptions?.has(ExcludeOptions.loginBonuses)
           ? 0
           : state.dailyLogins) +
-        (state.excludeOptions.has(ExcludeOptions.tickets) ? 0 : shopTicketSQ) +
+        (state.excludeOptions?.has(ExcludeOptions.tickets) ? 0 : shopTicketSQ) +
         state.questSQ +
         state.eventSQ;
         setLocalStorageItem("cumulativeLoginsSQ", cumulativeLoginsSQ.toString());

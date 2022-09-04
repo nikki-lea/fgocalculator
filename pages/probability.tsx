@@ -42,7 +42,6 @@ const Probability: NextPage = () => {
 
   return (
     <div className="probability-container">
-      <h1 className="header">{copy["rateup"]["chance"]["header"]}</h1>
       <div className="total-sq">
         <h2>{copy["sq"]["future"]}</h2>
         <Image

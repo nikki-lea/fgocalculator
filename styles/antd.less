@@ -46,20 +46,15 @@ body {
   }
 }
 
-
-.content-container {
-  position: absolute;
-  width: 100vw;
-  height: 60vw;
-}
-
 .main-content {
-  height: 102.6%;
   width: 55%;
   background-color: @box-color;
   position: absolute;
   top: 0;
-  padding-top: 60px;
+  margin-top: 80px;
+  margin-left: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
 .current-container, .target-container, .probability-container {
@@ -102,7 +97,6 @@ body {
 }
 
 .footer {
-  padding-bottom: 300px;
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -258,4 +252,11 @@ body {
 
 .not-a-whale {
   color: #2e7d32;
+}
+
+.background-container {
+  position: fixed;
+  width: 100%;
+  height: 110vh;
+  background-size: cover;
 }
