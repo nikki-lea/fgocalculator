@@ -8,6 +8,11 @@ const nextConfig = {
   images: {
     formats: ['image/webp'],
     domains: ['i.imgur.com']
+  },
+  experimental: {
+    images: {
+      allowFutureImage: true,
+    }
   }
 }
 
