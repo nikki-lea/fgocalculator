@@ -9,6 +9,7 @@ import copy from "../data/copy";
 import servantData from "../data/servantData";
 import { fiveStarMarks, fourStarMarks } from "../data/servantnpdata";
 import classNames from 'classnames';
+import Footer from "./components/footer";
 
 const Probability: NextPage = () => {
   const { state } = useContext(FgoContext);
@@ -52,7 +53,7 @@ const Probability: NextPage = () => {
         />
         <span>{totalSQForBanner.toLocaleString('en-US')}</span>
       </div>
-      <div className="subheader">{copy["rateup"]["chance"]["subheader"]}</div>
+      <div className="subheader">{copy["rateup"]["chance"]["subheader"]}<span className="probabilityDisclaimer">{copy["rateup"]["chance"]["subheaderDisclaimer"]}</span></div>
       <div className="probability-calculations">
         {
         targetData.map((item, index) => {
@@ -103,6 +104,31 @@ const Probability: NextPage = () => {
             <div className={classNames({'yea-a-whale': targetSQ.length && ((totalSQForBanner - totalSpent) < 0), 'not-a-whale': targetSQ.length && ((totalSQForBanner - totalSpent) > 0)})}>{`(${targetSQ.length &&  totalSQForBanner - totalSpent})`}</div>
           </div>
         </div>
+      </div>
+      <Footer stepNum={3} linkTo="/" linkBack="/rolltarget" />
+      <div className="credits-container">
+        <Image
+          layout="fixed"
+          src="/eresh-cropped.png"
+          alt="smol-ereshkigal"
+          height={157}
+          width={125}
+        />
+      <div className="credits">
+          <span>{copy["credits"]["banners"]}</span>
+          <a href="https://docs.google.com/spreadsheets/d/1rKtRX3WK9ZpbEHhDTy7yGSxYWIav1Hr_KhNM0jWN2wc/edit#gid=0">{copy["credits"]["bannersLink"]}</a>
+          <span>{copy["credits"]["event"]}</span>
+          <a href="https://docs.google.com/spreadsheets/d/1qvxLU407QwiFaCvItqR16SqqAVlLD5u5nBzY_bCFYvs/edit#gid=2111060397">{copy["credits"]["eventLink"]}</a>
+          <span>{copy["credits"]["wiki"]}</span>
+          <a href="https://fategrandorder.fandom.com/wiki/Fate/Grand_Order_Wikia">{copy["credits"]["wikiLink"]}</a>
+
+        </div>
+      </div>
+      <div className="disclaimer">
+        <span>{copy["disclaimer"]}</span>
+        <a href="mailto:fategrandsavings@gmail.com">
+          {copy["contact"]}
+        </a>
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ const Document: React.FC<{ children: React.ReactNode }> = () => {
     <Html lang="en">
       <Head>
         <link
-          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=optional"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap"
           rel="stylesheet"
         />
         <meta

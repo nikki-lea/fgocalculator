@@ -48,7 +48,7 @@ const Footer: React.FC<FooterProps> = ({
           >
            {copy["next"]}
           </Button>
-          <div>{`Step ${stepNum} of 3`}</div>
+          <div>{`Step ${stepNum} of 2`}</div>
         </div>
       )}
     </div>

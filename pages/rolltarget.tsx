@@ -75,7 +75,7 @@ const RollTarget: NextPage = () => {
   return (
     <div className="target-container">
       <h1>{copy["target"]["header"]}</h1>
-      <h2>{copy["target"]["subheader"]}</h2>
+      <div>{copy["target"]["subheader"]}</div>
       {targetData.length > 0 ? (
         <div className="targets-added">
           <List
@@ -83,6 +83,8 @@ const RollTarget: NextPage = () => {
               width: "100%",
               maxWidth: 500,
               m: "30px",
+              border: "1px solid gray",
+              borderRadius: "5px",
               bgcolor: "background.paper"
             }}
           >
