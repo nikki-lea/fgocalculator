@@ -45,7 +45,9 @@ const copy = {
     chance: {
       header: "Rate-up Probability",
       subheader:
-        "Adjust the sliders to allocate a budget for each campaign. Calculated probabilities are for at least 1 copy of the rate up target. NP markers indicate the number of SQ required for a 50% chance of obtaining the NP value",
+        "Adjust the sliders to allocate a budget for each campaign. Calculated probabilities are for at least 1 copy of the rate up target. ",
+      subheaderDisclaimer:
+        "These calculations DO NOT incorporate ten pull guaranteed 4*. Campaigns with multiple rate ups of the same rarity assume that percentages are split equally.",
       probability: "Probability"
     },
     upcoming: "Upcoming summoning campaigns based on FGO JP"
@@ -54,7 +56,8 @@ const copy = {
     type: "Target Summon",
     multiple: "Budget for multiple roll targets",
     header: "Summon Targets",
-    subheader: "Add up to 3 summon targets to calculate summon probabilities",
+    subheader:
+      "Add your summon targets to calculate probabilities for getting each",
     error: "Type and rarity are required.",
     add: "Add",
     rarity: "Rarity",
@@ -67,7 +70,18 @@ const copy = {
   excludeoptions: "Exclude from SQ applied for campaign:",
   servantname: "Servant Name",
   bannerlist: "Upcoming Banners based on JP",
-  totalspent: "Total SQ Spent"
+  totalspent: "Total SQ Spent",
+  credits: {
+    banners: "Banner data from ",
+    bannersLink: "Officer and Rat's Upcoming Banners Sheet. ",
+    event: "Event saint quartz data from ",
+    eventLink: "Zuth's FGO Event Compendium. ",
+    wiki: "All images sourced from the most excellent",
+    wikiLink: "Fate/Grand Order Fandom Wiki."
+  },
+  disclaimer:
+    "fgosavings.com is in no way affiliated with Lasengle or Type-Moon. ",
+  contact: "Contact for feature requests and bug reports."
 };
 
 export default copy;

@@ -4,57 +4,58 @@
 @background-color: #333332;
 @text-color: #FEFEFE;
 @box-color: #F5F5F7;
-
+@screen-xs: 480px;
+@screen-sm: 768px;
+@screen-md: 1024px;
+@screen-lg: 1200px;
 
 body {
   background-color: @background-color;
   font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .header {
   height: 60px;
   background-color: @background-color;
-  position: absolute;
+  position: fixed;
   width: 100%;
   top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   h1 {
-  color: white;
-  font-weight: 200;
-  font-size: 24px;
-  margin-left: 20px;
-  margin-bottom: 0;
-}
-
-}
-
-.locale {
-  display: inline-flex;
-  background-color: transparent;
-  width: 90px;
-  border: 1px solid @text-color;
-  height: 40px;
-  border-radius: 5px;
-  margin-right: 20px;
-  align-items: center;
-  justify-content: center;
-  span {
+    color: white;
+    font-weight: 200;
+    font-size: 24px;
+    margin-left: 20px;
     margin-bottom: 0;
-    padding-left: 14px;
   }
 }
 
 .main-content {
-  width: 800px;
+  width: 700px;
   background-color: @box-color;
   position: absolute;
   top: 0;
   margin-top: 80px;
-  margin-left: 20px;
+  margin-left: 10%;
   border: 1px solid black;
   border-radius: 5px;
+  @media screen and (max-width: @screen-lg) {
+    position: relative;
+    margin-top: 0;
+    margin-left: 0;
+    border: unset;
+    width: 100%;
+    margin-top: -300px;
+    border-radius: unset;
+  }
+  @media screen and (max-width: @screen-md) {
+    margin-top: -190px;
+  }
+
 }
 
 .current-container, .target-container, .probability-container {
@@ -90,9 +91,16 @@ body {
   display: flex;
 }
 
-.current-container, .probability-container {
+.current-container {
   .footer {
     justify-content: flex-end;
+  }
+}
+
+.probability-container {
+  .footer {
+    padding-top: 20px;
+    justify-content: flex-start;
   }
 }
 
@@ -100,7 +108,6 @@ body {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding-right: 80px;
 
   a {
     color: @background-color;
@@ -140,6 +147,7 @@ body {
   width: 80%;
   margin-top: 30px;
   flex-wrap: wrap;
+  row-gap: 20px;
   display: flex;
   justify-content: space-between;
   font-weight: 200;
@@ -153,7 +161,7 @@ body {
 
 .target-type, .target-rarity {
   p {
-    margin-bottom: 37px;
+    margin-bottom: 20px;
   }
 }
 
@@ -178,6 +186,7 @@ body {
 
 .total-sq {
   display: flex;
+  align-items: center;
   h2 {
     margin-right: 20px;
     margin-bottom: 0;
@@ -211,8 +220,6 @@ body {
 
 .target-prob-box {
   padding-left: 20px;
-  font-weight: 400;
-  font-size: 14px;
 }
 
 .target-prob-percent {
@@ -254,9 +261,29 @@ body {
   color: #2e7d32;
 }
 
-.background-container {
-  position: fixed;
-  width: 100%;
-  height: 110vh;
-  background-size: cover;
+.credits-container {
+  display: flex;
+}
+
+.credits {
+  width: 70%;
+  margin: 20px;
+  background-color: white;
+  border: 1px solid gray;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.disclaimer {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+a {
+  color: #761B24;
+}
+
+.probabilityDisclaimer {
+  font-weight: 600;
 }
