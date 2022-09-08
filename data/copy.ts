@@ -80,7 +80,7 @@ const copy = {
     wikiLink: "Fate/Grand Order Fandom Wiki."
   },
   disclaimer:
-    "fgosavings.com is in no way affiliated with Lasengle or Type-Moon. - ",
+    "fgosavings.com is in no way affiliated with Lasengle or Type-Moon. ",
   contact: "Contact for feature requests and bug reports."
 };
 
