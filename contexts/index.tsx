@@ -9,7 +9,7 @@ import {
 import calcCumulativeLoginSQ from "../utils/calcCumulativeLoginSQ";
 import calcDaysDiffData from "../utils/calcDaysDiffData";
 import calcShopTicketSQ from "../utils/calcShopTicketSQ";
-import { getLocalStorageItem, setLocalStorageItem } from "./localStorage";
+import { getLocalStorageItem, hasParseableLocalStorageItem, setLocalStorageItem } from "./localStorage";
 
 type ProviderProps = {
   children: React.ReactNode;
@@ -39,6 +39,7 @@ export const SET_FORM_ERRORS = "SET_FORM_ERRORS";
 export const ADD_EXCLUDE_OPTION = "ADD_EXCLUDE_OPTION";
 export const REMOVE_EXCLUDE_OPTION = "REMOVE_EXCLUDE_OPTION";
 export const ADD_TARGET_DATA = "ADD_TARGET_DATA";
+export const REMOVE_TARGET_DATA = "REMOVE_TARGET_DATA";
 
 export const AppActions = {
   setCurrentSQ: createActionPayload<typeof SET_CURRENT_SQ, number>(
@@ -73,6 +74,9 @@ export const AppActions = {
   >(REMOVE_EXCLUDE_OPTION),
   addTargetData: createActionPayload<typeof ADD_TARGET_DATA, TargetDataType>(
     ADD_TARGET_DATA
+  ),
+  removeTargetData: createActionPayload<typeof REMOVE_TARGET_DATA, string>(
+    REMOVE_TARGET_DATA
   )
 };
 
@@ -94,8 +98,8 @@ export const initialState = {
   formErrors: false,
   totalSQForBanner: parseInt(getLocalStorageItem("totalSQForBanner") || "0"),
   shopTicketSQ: parseInt(getLocalStorageItem("shopTicketSQ") || "0"),
-  excludeOptions: getLocalStorageItem("excludeOptions") ? JSON.parse(getLocalStorageItem("excludeItems") as string) : new Set(""),
-  targetData: getLocalStorageItem("targetData") ? JSON.parse(getLocalStorageItem("targetData") as string) : [],
+  excludeOptions: hasParseableLocalStorageItem("excludeOptions") ? JSON.parse(getLocalStorageItem("excludeItems") as string) : [],
+  targetData: hasParseableLocalStorageItem("targetData") ? JSON.parse(getLocalStorageItem("targetData") as string) : [],
 };
 
 const FgoContext = createContext<{
@@ -209,20 +213,20 @@ export const reducer = (
         monthlyShopTickets: state.monthlyShopTickets
       });
       const totalSQForBanner =
-        (state.excludeOptions?.has(ExcludeOptions.loginBonuses)
+        (state.excludeOptions?.indexOf(ExcludeOptions.loginBonuses) !== -1
           ? 0
           : cumulativeLoginsSQ) +
         state.currentSQ +
-        (state.excludeOptions?.has(ExcludeOptions.tickets)
+        (state.excludeOptions?.indexOf(ExcludeOptions.tickets) !== -1
           ? 0
           : 3 * state.currentTickets) +
-        (state.excludeOptions?.has(ExcludeOptions.masterMissions)
+        (state.excludeOptions?.indexOf(ExcludeOptions.masterMissions) !== -1
           ? 0
           : state.masterMissions) +
-        (state.excludeOptions?.has(ExcludeOptions.loginBonuses)
+        (state.excludeOptions?.indexOf(ExcludeOptions.loginBonuses) !== -1
           ? 0
           : state.dailyLogins) +
-        (state.excludeOptions?.has(ExcludeOptions.tickets) ? 0 : shopTicketSQ) +
+        (state.excludeOptions?.indexOf(ExcludeOptions.tickets) !== -1 ? 0 : shopTicketSQ) +
         state.questSQ +
         state.eventSQ;
         setLocalStorageItem("cumulativeLoginsSQ", cumulativeLoginsSQ.toString());
@@ -238,30 +242,33 @@ export const reducer = (
         formErrors: action.payload
       };
     case ADD_EXCLUDE_OPTION:
-      const setCopy = new Set([
-        ...Array.from(state.excludeOptions),
-        action.payload
-      ]);
-      setLocalStorageItem("excludeOptions", JSON.stringify(setCopy));
+      const excludeOptionsCopy =  state.excludeOptions ? [...state.excludeOptions, action.payload] : [action.payload];
+      setLocalStorageItem("excludeOptions", JSON.stringify(excludeOptionsCopy));
       return {
         ...state,
-        excludeOptions: setCopy
+        excludeOptions: excludeOptionsCopy
       };
     case REMOVE_EXCLUDE_OPTION:
-      state.excludeOptions.delete(action.payload);
-      const setWithoutCopy = new Set([...Array.from(state.excludeOptions)]);
-      setLocalStorageItem("excludeOptions", JSON.stringify(setWithoutCopy));
+      const excludeOptionsWithRemoval = state.excludeOptions.filter(item => item !== action.payload);
+      setLocalStorageItem("excludeOptions", JSON.stringify(excludeOptionsWithRemoval));
       return {
         ...state,
-        excludeOptions: setWithoutCopy
+        excludeOptions: excludeOptionsWithRemoval
       };
     case ADD_TARGET_DATA:
-      const targetDataCopy = [...state.targetData];
-      targetDataCopy.push(action.payload);
+      const targetDataCopy = state.targetData ? [...state.targetData, action.payload] : state.targetData;
       setLocalStorageItem("targetData", JSON.stringify(targetDataCopy));
       return {
         ...state,
         targetData: targetDataCopy
+      };
+    case REMOVE_TARGET_DATA:
+      const { targetData } = state;
+      const listWithRemoval = targetData.filter(item => item.name !== action.payload);
+      setLocalStorageItem("targetData", JSON.stringify(listWithRemoval));
+      return {
+        ...state,
+        targetData: listWithRemoval
       };
     default:
       return state;

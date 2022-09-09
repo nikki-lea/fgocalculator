@@ -9,11 +9,13 @@ import {
   ToggleButtonGroup,
   Button,
   Autocomplete,
-  TextField
+  TextField,
+  IconButton
 } from "@mui/material";
+import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import type { NextPage } from "next";
 import { useContext, useState } from "react";
-import { ADD_TARGET_DATA, FgoContext, TargetOptions } from "../contexts";
+import { ADD_TARGET_DATA, REMOVE_TARGET_DATA, FgoContext, TargetOptions } from "../contexts";
 import { TargetDataType } from "../types/contexts";
 import Footer from "./components/footer";
 import servantData from "../data/servantData";
@@ -49,7 +51,12 @@ const RollTarget: NextPage = () => {
         : `Solo ${rarity.toString()}* rate up`;
     return (
       <>
-        <ListItem>
+        <ListItem
+          secondaryAction={
+            <IconButton edge="end" aria-label="remove" onClick={(_e) => {dispatch({ type: REMOVE_TARGET_DATA, payload: name ?? "" });}}>
+              <RemoveCircleOutlineIcon color="success" fontSize="large"/>
+            </IconButton>
+          }>
           <ListItemAvatar>
             <Avatar src="/saintquartz.svg" />
           </ListItemAvatar>

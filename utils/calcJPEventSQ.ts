@@ -16,7 +16,6 @@ const calcJPEventSQ = ({ startDate, endDate }: JPEventPropsType): number => {
     const year = momentStart.year();
     const monthString = month < 10 ? `0${month}` : month;
     const dateString = `${year}-${monthString}`;
-    console.log(dateString);
     if (EventSQData[dateString]) {
       eventSQ = eventSQ + EventSQData[dateString];
     }
