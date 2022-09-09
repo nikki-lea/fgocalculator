@@ -24,12 +24,27 @@ import copy from '../data/copy';
 const SummonCurrency: NextPage = () => {
   const { state, dispatch } = useContext(FgoContext);
   const [ticketChecked, setTicketChecked] = useState(false);
+  const [masterMissionsChecked, setMasterMissionsChecked] = useState(false);
+  const [loginBonusesChecked, setLoginBonusesChecked] = useState(false);
+  const { excludeOptions } = state;
 
   useEffect(() => {
-    if (state.excludeOptions?.indexOf(ExcludeOptions.tickets) !== -1) {
+    if (excludeOptions?.has(ExcludeOptions.tickets)) {
       setTicketChecked(true);
-    } 
-  },[]);
+    } else if (!excludeOptions?.has(ExcludeOptions.tickets)) {
+      setTicketChecked(false);
+    }
+    if (excludeOptions?.has(ExcludeOptions.masterMissions)) {
+      setMasterMissionsChecked(true);
+    } else if (!excludeOptions?.has(ExcludeOptions.masterMissions)) {
+      setMasterMissionsChecked(false);
+    }
+    if (excludeOptions?.has(ExcludeOptions.loginBonuses)) {
+      setLoginBonusesChecked(true);
+    } else if (!excludeOptions?.has(ExcludeOptions.loginBonuses)) {
+      setLoginBonusesChecked(false);
+    }
+  },[excludeOptions]);
 
   const handleCalcEventSQ = () => {
     const { startDate, endDate } = state;
@@ -61,7 +76,6 @@ const SummonCurrency: NextPage = () => {
       });
     };
   
-  console.log(state.excludeOptions?.indexOf(ExcludeOptions.tickets) !== -1)
   return (
     <div className="current-container">
       {state.formErrors && (
@@ -193,7 +207,7 @@ const SummonCurrency: NextPage = () => {
             <FormControlLabel
               control={
                 <Checkbox
-                  checked={state.excludeOptions?.indexOf(ExcludeOptions.loginBonuses) !== -1}
+                  checked={loginBonusesChecked}
                   onChange={handleExclusionUpdate(
                     ExcludeOptions.loginBonuses
                   )}
@@ -209,7 +223,7 @@ const SummonCurrency: NextPage = () => {
             <FormControlLabel
               control={
                 <Checkbox
-                  checked={state.excludeOptions?.indexOf(ExcludeOptions.masterMissions) !== -1}
+                  checked={masterMissionsChecked}
                   onChange={handleExclusionUpdate(
                     ExcludeOptions.masterMissions
                   )}

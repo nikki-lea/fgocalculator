@@ -98,8 +98,8 @@ export const initialState = {
   formErrors: false,
   totalSQForBanner: parseInt(getLocalStorageItem("totalSQForBanner") || "0"),
   shopTicketSQ: parseInt(getLocalStorageItem("shopTicketSQ") || "0"),
-  excludeOptions: hasParseableLocalStorageItem("excludeOptions") ? JSON.parse(getLocalStorageItem("excludeItems") as string) : [],
-  targetData: hasParseableLocalStorageItem("targetData") ? JSON.parse(getLocalStorageItem("targetData") as string) : [],
+  excludeOptions: hasParseableLocalStorageItem("excludeOptions") ? new Set(JSON.parse(getLocalStorageItem("excludeOptions"))):  new Set(""),
+  targetData: hasParseableLocalStorageItem("targetData") ? JSON.parse(getLocalStorageItem("targetData")): [],
 };
 
 const FgoContext = createContext<{
@@ -213,20 +213,20 @@ export const reducer = (
         monthlyShopTickets: state.monthlyShopTickets
       });
       const totalSQForBanner =
-        (state.excludeOptions?.indexOf(ExcludeOptions.loginBonuses) !== -1
+        (state.excludeOptions?.has(ExcludeOptions.loginBonuses)
           ? 0
           : cumulativeLoginsSQ) +
         state.currentSQ +
-        (state.excludeOptions?.indexOf(ExcludeOptions.tickets) !== -1
+        (state.excludeOptions?.has(ExcludeOptions.tickets)
           ? 0
           : 3 * state.currentTickets) +
-        (state.excludeOptions?.indexOf(ExcludeOptions.masterMissions) !== -1
+        (state.excludeOptions?.has(ExcludeOptions.masterMissions)
           ? 0
           : state.masterMissions) +
-        (state.excludeOptions?.indexOf(ExcludeOptions.loginBonuses) !== -1
+        (state.excludeOptions?.has(ExcludeOptions.loginBonuses)
           ? 0
           : state.dailyLogins) +
-        (state.excludeOptions?.indexOf(ExcludeOptions.tickets) !== -1 ? 0 : shopTicketSQ) +
+        (state.excludeOptions?.has(ExcludeOptions.tickets) ? 0 : shopTicketSQ) +
         state.questSQ +
         state.eventSQ;
         setLocalStorageItem("cumulativeLoginsSQ", cumulativeLoginsSQ.toString());
@@ -241,20 +241,24 @@ export const reducer = (
         ...state,
         formErrors: action.payload
       };
-    case ADD_EXCLUDE_OPTION:
-      const excludeOptionsCopy =  state.excludeOptions ? [...state.excludeOptions, action.payload] : [action.payload];
-      setLocalStorageItem("excludeOptions", JSON.stringify(excludeOptionsCopy));
-      return {
-        ...state,
-        excludeOptions: excludeOptionsCopy
-      };
-    case REMOVE_EXCLUDE_OPTION:
-      const excludeOptionsWithRemoval = state.excludeOptions.filter(item => item !== action.payload);
-      setLocalStorageItem("excludeOptions", JSON.stringify(excludeOptionsWithRemoval));
-      return {
-        ...state,
-        excludeOptions: excludeOptionsWithRemoval
-      };
+      case ADD_EXCLUDE_OPTION:
+        const setArray= [
+          ...Array.from(state.excludeOptions),
+          action.payload
+        ];
+        setLocalStorageItem("excludeOptions", JSON.stringify(setArray));
+        return {
+          ...state,
+          excludeOptions: new Set(setArray)
+        };
+      case REMOVE_EXCLUDE_OPTION:
+        state.excludeOptions.delete(action.payload);
+        const setWithoutArray = [...Array.from(state.excludeOptions)];
+        setLocalStorageItem("excludeOptions", JSON.stringify(setWithoutArray));
+        return {
+          ...state,
+          excludeOptions: new Set(setWithoutArray)
+        };
     case ADD_TARGET_DATA:
       const targetDataCopy = state.targetData ? [...state.targetData, action.payload] : state.targetData;
       setLocalStorageItem("targetData", JSON.stringify(targetDataCopy));

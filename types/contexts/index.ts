@@ -24,7 +24,7 @@ export interface StateType {
   formErrors: boolean;
   totalSQForBanner: number;
   shopTicketSQ: number;
-  excludeOptions: String[];
+  excludeOptions: Set<any>;
   targetData: TargetDataType[];
 }
 
