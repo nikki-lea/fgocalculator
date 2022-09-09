@@ -10,19 +10,19 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <div className="container" ref={ref}>
         <div className="content-container">
           <div className="background-container">
-            {width && width > 1200 &&
+            {width && width > 1186 &&
               <Image
                 src="/ereshkigal-background.jpg"
                 alt="Cute Ereshkigal Background"
                 style={{
                   position: "fixed",
                   height: "auto",
-                  width: "100vw",
+                  width: "120vw",
                   marginTop: "-100px"
                 }}
               />
             }
-            {width && width <= 1200 &&
+            {width && width <= 1186 &&
               <Image
                 src="/ereshkigal-background.jpg"
                 alt="Cute Ereshkigal Background"
