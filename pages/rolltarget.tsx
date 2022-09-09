@@ -82,7 +82,7 @@ const RollTarget: NextPage = () => {
             sx={{
               width: "100%",
               maxWidth: 500,
-              m: "30px",
+              m: "0 auto",
               border: "1px solid gray",
               borderRadius: "5px",
               bgcolor: "background.paper"

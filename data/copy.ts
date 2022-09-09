@@ -4,8 +4,8 @@ const copy = {
     "Set your spending and calculate probability for one or more targets",
   current: {
     general: "Current Summon Currency",
-    sq: "Current number of SQ",
-    ticket: "Current number of tickets",
+    sq: "Current SQ",
+    ticket: "Current tickets",
     error: "Savings start date and campaign end date are required."
   },
   alltickets: "Shop and current tickets",
@@ -45,7 +45,7 @@ const copy = {
     chance: {
       header: "Rate-up Probability",
       subheader:
-        "Adjust the sliders to allocate a budget for each campaign. Calculated probabilities are for at least 1 copy of the rate up target. ",
+        "Adjust the sliders to allocate a budget for each campaign. Calculated probabilities are for at least 1 copy of the rate up target.  NP markers indicate the number of SQ required for a 50% chance of obtaining the NP value. ",
       subheaderDisclaimer:
         "These calculations DO NOT incorporate ten pull guaranteed 4*. Campaigns with multiple rate ups of the same rarity assume that percentages are split equally.",
       probability: "Probability"
@@ -76,11 +76,11 @@ const copy = {
     bannersLink: "Officer and Rat's Upcoming Banners Sheet. ",
     event: "Event saint quartz data from ",
     eventLink: "Zuth's FGO Event Compendium. ",
-    wiki: "All images sourced from the most excellent",
+    wiki: "All images sourced from the most excellent ",
     wikiLink: "Fate/Grand Order Fandom Wiki."
   },
   disclaimer:
-    "fgosavings.com is in no way affiliated with Lasengle or Type-Moon. ",
+    "fgosavings.com is in no way affiliated with Lasengle, Aniplex or Type-Moon. ",
   contact: "Contact for feature requests and bug reports."
 };
 

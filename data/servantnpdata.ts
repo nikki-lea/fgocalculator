@@ -1,45 +1,45 @@
 export const fiveStarMarks = [
   {
     value: 240,
-    label: "NP1"
+    label: "1"
   },
   {
     value: 570,
-    label: "NP2"
+    label: "2"
   },
   {
     value: 900,
-    label: "NP3"
+    label: "3"
   },
   {
     value: 1260,
-    label: "NP4"
+    label: "4"
   },
   {
     value: 1590,
-    label: "NP5"
+    label: "5"
   }
 ];
 
 export const fourStarMarks = [
   {
     value: 120,
-    label: "NP1"
+    label: "1"
   },
   {
     value: 300,
-    label: "NP2"
+    label: "2"
   },
   {
     value: 480,
-    label: "NP3"
+    label: "3"
   },
   {
     value: 660,
-    label: "NP4"
+    label: "4"
   },
   {
     value: 840,
-    label: "NP5"
+    label: "5"
   }
 ];

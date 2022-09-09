@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import Image from "next/image";
+import Image from "next/future/image";
 import { useContext, useState } from "react";
 import { FgoContext, TargetOptions } from "../contexts";
 import { Slider } from "@mui/material";
@@ -10,6 +10,7 @@ import servantData from "../data/servantData";
 import { fiveStarMarks, fourStarMarks } from "../data/servantnpdata";
 import classNames from 'classnames';
 import Footer from "./components/footer";
+import { useResizeDetector } from 'react-resize-detector';
 
 const Probability: NextPage = () => {
   const { state } = useContext(FgoContext);
@@ -20,6 +21,7 @@ const Probability: NextPage = () => {
   const [targetSQ, setTargetSQ] = useState<number[]>(Array(targetData.length).fill(startingBudget));
   const [probabilities, setProbabilities] = useState<number[]>(initialProbability);
   const totalSpent = targetSQ.reduce((acc, current) => (acc + current), 0);
+  const { width, ref } = useResizeDetector();
 
   const handleChange = (index: number, targetData: TargetDataType) => (_event: Event, newValue: number | number[]) => {
     const targetCopy = [...targetSQ];
@@ -32,13 +34,8 @@ const Probability: NextPage = () => {
   };
 
   const getNpMarks = (rarity: number) => {
-    if (rarity === 5) {
-      return fiveStarMarks;
-    } else if (rarity === 4) {
-      return fourStarMarks;
-    } else {
-      return []
-    }
+    const marksToUse = rarity === 5 ? fiveStarMarks : fourStarMarks;
+    return width && width < 350 ? marksToUse : marksToUse.map((item) => ({...item, label: `NP ${item.label}`}));
   }
 
   return (
@@ -48,13 +45,16 @@ const Probability: NextPage = () => {
         <Image
           src="/saintquartz.svg"
           alt="saintquartz"
-          height={36}
-          width={36}
+          style={{
+            flexShrink: 0,
+            height: "24px",
+            width: "24px"
+          }}
         />
         <span>{totalSQForBanner.toLocaleString('en-US')}</span>
       </div>
       <div className="subheader">{copy["rateup"]["chance"]["subheader"]}<span className="probabilityDisclaimer">{copy["rateup"]["chance"]["subheaderDisclaimer"]}</span></div>
-      <div className="probability-calculations">
+      <div className="probability-calculations" ref={ref}>
         {
         targetData.map((item, index) => {
             const typeCopy =
@@ -96,8 +96,8 @@ const Probability: NextPage = () => {
               <Image
                 src="/saintquartz.svg"
                 alt="saintquartz"
-                height={36}
-                width={36}
+                height={24}
+                width={24}
               />
               <span className="total-spent">{targetSQ.length && targetSQ.reduce((acc, current) => (acc + current), 0)}</span>
             </div>
@@ -108,11 +108,13 @@ const Probability: NextPage = () => {
       <Footer stepNum={3} linkTo="/" linkBack="/rolltarget" />
       <div className="credits-container">
         <Image
-          layout="fixed"
           src="/eresh-cropped.png"
           alt="smol-ereshkigal"
-          height={157}
-          width={125}
+          style={{
+            flexShrink: 0,
+            height: "157px",
+            width: "125px"
+          }}
         />
       <div className="credits">
           <span>{copy["credits"]["banners"]}</span>
