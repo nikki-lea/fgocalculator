@@ -92,6 +92,7 @@ export const initialState = {
   cumulativeLoginsCount: parseInt(getLocalStorageItem("cumulativeLoginsCount") || "0"),
   cumulativeLoginsSQ: parseInt(getLocalStorageItem("cumulativeLoginsSQ") || "0"),
   dailyLogins: parseInt(getLocalStorageItem("dailyLogins") || "0"),
+  dailyLoginTickets: parseInt(getLocalStorageItem("dailyLoginTickets") || "0"),
   monthlyShopTickets: parseInt(getLocalStorageItem("monthlyShopTickets") || "0"),
   questSQ: parseInt(getLocalStorageItem("questSQ") || "0"),
   eventSQ: parseInt(getLocalStorageItem("eventSQ") || "0"),
@@ -162,6 +163,7 @@ export const reducer = (
       if (startDateData.masterMissions) {
         setLocalStorageItem("masterMissions", startDateData.masterMissions.toString());
         setLocalStorageItem("dailyLogins", startDateData.dailyLogins.toString());
+        setLocalStorageItem("dailyLoginTickets", startDateData.dailyLoginTickets.toString());
       }
       return {
         ...startDateData
@@ -171,7 +173,7 @@ export const reducer = (
       setLocalStorageItem("endDate", action.payload);
       if (endDateData.masterMissions) {
         setLocalStorageItem("masterMissions", endDateData.masterMissions.toString());
-        setLocalStorageItem("dailyLogins", endDateData.dailyLogins.toString());
+        setLocalStorageItem("dailyLoginTickets", endDateData.dailyLoginTickets.toString());
       }
       return {
         ...endDateData
@@ -223,9 +225,12 @@ export const reducer = (
         (state.excludeOptions?.has(ExcludeOptions.masterMissions)
           ? 0
           : state.masterMissions) +
-        (state.excludeOptions?.has(ExcludeOptions.loginBonuses)
+        (state.excludeOptions?.has(ExcludeOptions.loginBonuses) && !state.excludeOptions?.has(ExcludeOptions.tickets) 
           ? 0
-          : state.dailyLogins) +
+          : (state.dailyLoginTickets*2 + 3*state.dailyLoginTickets)) +
+        (!state.excludeOptions?.has(ExcludeOptions.loginBonuses) && state.excludeOptions?.has(ExcludeOptions.tickets) 
+          ? 0
+          : (state.dailyLoginTickets*2)) +
         (state.excludeOptions?.has(ExcludeOptions.tickets) ? 0 : shopTicketSQ) +
         state.questSQ +
         state.eventSQ;

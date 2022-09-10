@@ -7,6 +7,7 @@ const mockStateData = {
   cumulativeLoginsCount: 0,
   cumulativeLoginsSQ: 0,
   dailyLogins: 90,
+  dailyLoginTickets: 0,
   monthlyShopTickets: 0,
   questSQ: 0,
   eventSQ: 0,

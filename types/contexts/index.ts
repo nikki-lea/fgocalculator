@@ -19,6 +19,7 @@ export interface StateType {
   cumulativeLoginsCount: number;
   cumulativeLoginsSQ: number;
   dailyLogins: number;
+  dailyLoginTickets: number;
   monthlyShopTickets: number;
   eventSQ: number;
   formErrors: boolean;

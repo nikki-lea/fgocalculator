@@ -6,4 +6,5 @@ export type DiffPropsType = {
 export type DiffCalcsType = {
   masterMissions: number;
   dailyLogins: number;
+  dailyLoginTickets: number;
 };
