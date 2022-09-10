@@ -75,7 +75,7 @@ export const AppActions = {
   addTargetData: createActionPayload<typeof ADD_TARGET_DATA, TargetDataType>(
     ADD_TARGET_DATA
   ),
-  removeTargetData: createActionPayload<typeof REMOVE_TARGET_DATA, string>(
+  removeTargetData: createActionPayload<typeof REMOVE_TARGET_DATA, number>(
     REMOVE_TARGET_DATA
   )
 };
@@ -273,7 +273,7 @@ export const reducer = (
       };
     case REMOVE_TARGET_DATA:
       const { targetData } = state;
-      const listWithRemoval = targetData.filter(item => item.name !== action.payload);
+      const listWithRemoval = targetData.filter(item => item.id !== action.payload);
       setLocalStorageItem("targetData", JSON.stringify(listWithRemoval));
       return {
         ...state,

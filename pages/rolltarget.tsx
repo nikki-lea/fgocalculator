@@ -27,7 +27,8 @@ const RollTarget: NextPage = () => {
   const [currentTargetData, setCurrentTargetData] = useState({
     type: "",
     rarity: 0,
-    shared: 0
+    shared: 0,
+    id: -1
   } as TargetDataType);
   const { targetData } = state;
 
@@ -42,7 +43,8 @@ const RollTarget: NextPage = () => {
 
   const autoCompleteOptions = Object.keys(servantData);
 
-  const renderListItem = ({ type, rarity, name, shared }: TargetDataType) => {
+  const renderListItem = (targetData: TargetDataType) => {
+    const {name, type, shared, rarity, id} = targetData;
     const typeCopy =
       type === TargetOptions.ce ? copy["craftessence"] : copy["servant"];
     const sharedCopy =
@@ -53,8 +55,8 @@ const RollTarget: NextPage = () => {
       <>
         <ListItem
           secondaryAction={
-            <IconButton edge="end" aria-label="remove" onClick={(_e) => {dispatch({ type: REMOVE_TARGET_DATA, payload: name ?? "" });}}>
-              <RemoveCircleOutlineIcon color="success" fontSize="large"/>
+            <IconButton edge="end" aria-label="remove" onClick={(_e) => {dispatch({ type: REMOVE_TARGET_DATA, payload: id });}}>
+              <RemoveCircleOutlineIcon />
             </IconButton>
           }>
           <ListItemAvatar>
@@ -72,8 +74,8 @@ const RollTarget: NextPage = () => {
   const onSubmitHandler = () => {
     if (currentTargetData?.type && currentTargetData?.rarity) {
       setError(false);
-      dispatch({ type: ADD_TARGET_DATA, payload: currentTargetData });
-      setCurrentTargetData({ type: "", rarity: 0, shared: 0 });
+      dispatch({ type: ADD_TARGET_DATA, payload: {...currentTargetData, id: Math.floor(Math.random() * 1000)}});
+      setCurrentTargetData({ type: "", rarity: 0, shared: 0, id: -1 });
     } else {
       setError(true);
     }
@@ -81,7 +83,7 @@ const RollTarget: NextPage = () => {
 
   return (
     <div className="target-container">
-      <h1>{copy["target"]["header"]}</h1>
+      <h2>{copy["target"]["header"]}</h2>
       <div>{copy["target"]["subheader"]}</div>
       {targetData.length > 0 ? (
         <div className="targets-added">
@@ -96,12 +98,7 @@ const RollTarget: NextPage = () => {
             }}
           >
             {targetData.map((item) =>
-              renderListItem({
-                type: item.type,
-                rarity: item.rarity,
-                shared: item.shared,
-                name: item.name
-              })
+              renderListItem(item)
             )}
           </List>
         </div>
