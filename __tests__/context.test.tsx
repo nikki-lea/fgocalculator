@@ -55,10 +55,35 @@ describe('reducer', () => {
   });
 
   it('sets field values on form submit', () => {
-    const mockStateCopy = {...MockStateData};
+    const mockStateCopy = {...MockStateData, dailyLoginTickets: 12, shopTicketSQ: 15, currentTickets: 10};
     const result = reducer(mockStateCopy as StateType, {type: HANDLE_FORM_SUBMIT} as AcceptedActions);
     expect(result.totalSQForBanner).toEqual(708);
     expect(result.cumulativeLoginsSQ).toEqual(30);
+  });
+
+  it('calculates the right amount when tickets are excluded but login bonuses are not', () => {
+    const mockStateCopy = {...MockStateData, dailyLoginTickets: 12, shopTicketSQ: 15, currentTickets: 10, excludeOptions: new Set([ExcludeOptions.tickets])};
+    const result = reducer(mockStateCopy as StateType, {type: HANDLE_FORM_SUBMIT} as AcceptedActions);
+    expect(result.totalSQForBanner).toEqual(642);
+    expect(result.cumulativeLoginsSQ).toEqual(30);
+  });
+
+  it('calculates the right amount when tickets are excluded', () => {
+    const mockStateCopy = {...MockStateData, dailyLoginsTickets: 12, shopTicketSQ: 15, currentTickets: 10, excludeOptions: new Set([ExcludeOptions.tickets])};
+    const result = reducer(mockStateCopy as StateType, {type: HANDLE_FORM_SUBMIT} as AcceptedActions);
+    expect(result.totalSQForBanner).toEqual(618);
+  });
+
+  it('calculates the right amount when login bonuses are excluded', () => {
+    const mockStateCopy = {...MockStateData, dailyLoginsTickets: 12, excludeOptions: new Set([ExcludeOptions.loginBonuses])};
+    const result = reducer(mockStateCopy as StateType, {type: HANDLE_FORM_SUBMIT} as AcceptedActions);
+    expect(result.totalSQForBanner).toEqual(588);
+  });
+
+  it('calculates the right amount when master mission bonuses are excluded', () => {
+    const mockStateCopy = {...MockStateData, masterMissions: 500, excludeOptions: new Set([ExcludeOptions.masterMissions])};
+    const result = reducer(mockStateCopy as StateType, {type: HANDLE_FORM_SUBMIT} as AcceptedActions);
+    expect(result.totalSQForBanner).toEqual(618);
   });
 });
 

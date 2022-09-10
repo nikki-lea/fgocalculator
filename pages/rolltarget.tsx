@@ -27,7 +27,7 @@ const RollTarget: NextPage = () => {
   const [currentTargetData, setCurrentTargetData] = useState({
     type: "",
     rarity: 0,
-    shared: 0,
+    shared: 1,
     id: -1
   } as TargetDataType);
   const { targetData } = state;
@@ -75,7 +75,7 @@ const RollTarget: NextPage = () => {
     if (currentTargetData?.type && currentTargetData?.rarity) {
       setError(false);
       dispatch({ type: ADD_TARGET_DATA, payload: {...currentTargetData, id: Math.floor(Math.random() * 1000)}});
-      setCurrentTargetData({ type: "", rarity: 0, shared: 0, id: -1 });
+      setCurrentTargetData({ type: "", rarity: 0, shared: 1, id: -1 });
     } else {
       setError(true);
     }
