@@ -78,14 +78,16 @@ const Probability: NextPage = () => {
                   <div className="target-prob-percent">{`${probabilities[index]}%`}</div>
                 </div>
               </div>
-              <div className="banners">
-                <div className="banner-copy">{copy["bannerlist"]}</div>
-                {servantData[servantName as keyof typeof servantData] &&
-                servantData[servantName as keyof typeof servantData].map((banner) => (
-                  <div key={banner[0]}>{`${banner[0]}: ${banner[1]}`}</div>
-                ))
-                }
-              </div>
+              {item.type === TargetOptions.servant && 
+                <div className="banners">
+                  <div className="banner-copy">{copy["bannerlist"]}</div>
+                  {servantData[servantName as keyof typeof servantData] &&
+                  servantData[servantName as keyof typeof servantData].map((banner) => (
+                    <div key={banner[0]}>{`${banner[0]}: ${banner[1]}`}</div>
+                  ))
+                  }
+                </div>
+              }
             </div>)
             })
         }
