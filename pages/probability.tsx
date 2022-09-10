@@ -71,7 +71,7 @@ const Probability: NextPage = () => {
                   onChange={handleChange(index, item)}
                   valueLabelDisplay="on"
                   max={totalSQForBanner}
-                  marks={getNpMarks(item.rarity)}
+                  marks={item.type === TargetOptions.servant ? getNpMarks(item.rarity): []}
                 />
                 <div className="target-prob-box">
                   {copy["rateup"]["chance"]["probability"]}
