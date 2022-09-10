@@ -56,7 +56,7 @@ const copy = {
     header: "Summon Targets",
     subheader:
       "Add your summon targets to calculate probabilities for getting each",
-    error: "Type and rarity are required.",
+    error: "Type, rarity and shared rate up are required.",
     add: "Add",
     rarity: "Rarity",
     sharedtext: "Number of same type and rarity on rate up"
