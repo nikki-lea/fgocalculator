@@ -7,6 +7,7 @@ export type TargetDataType = {
   rarity: number;
   name?: string;
   shared?: number;
+  id: number;
 };
 
 export interface StateType {

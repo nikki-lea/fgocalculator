@@ -1,7 +1,6 @@
 const copy = {
-  header: "Fate Grand Savings",
-  subheader:
-    "Set your spending and calculate probability for one or more targets",
+  header: "Fate/Grand Savings",
+  subheader: "Current Saint Quartz and Savings Window",
   current: {
     general: "Current Summon Currency",
     sq: "Current SQ",
@@ -16,16 +15,15 @@ const copy = {
   sq: {
     name: "SQ",
     earned: "Sources for Earning SQ",
-    addevent:
-      "Add event SQ gained based on JP event history end dates (through 2023)",
+    addevent: "Add event SQ gained based on JP event history",
     future: "Saint Quartz Available by Banner End"
   },
   mission: {
     label: "Master Missions",
     detail: "3 SQ Weekly"
   },
-  quest: "Quests, Progress Rewards, Interludes",
-  event: "Maintenance and Events",
+  quest: "Quests, Maintenance, etc",
+  event: "Events",
   login: {
     both: "Cumulative and daily login sq",
     total: {
@@ -81,7 +79,10 @@ const copy = {
   },
   disclaimer:
     "fgosavings.com is in no way affiliated with Lasengle, Aniplex or Type-Moon. ",
-  contact: "Contact for feature requests and bug reports."
+  contact: "Contact for feature requests and bug reports.",
+  welcome: "Ready to figure out how best to spend your SQ?",
+  description:
+    "Add your current summon currency, your summon targets, and figure out how much you need to save for the targets you want most."
 };
 
 export default copy;

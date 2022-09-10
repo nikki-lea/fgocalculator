@@ -83,6 +83,10 @@ const SummonCurrency: NextPage = () => {
           {copy["current"]["error"]}
         </Alert>
       )}
+      <div className="welcome-box">
+        <h2>{copy["welcome"]}</h2>
+        <div>{copy["description"]}</div>
+      </div>
       <h2>{copy["subheader"]}</h2>
       <div className="currency-form">
         <div className="form-column">
