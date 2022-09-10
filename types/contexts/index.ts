@@ -19,12 +19,13 @@ export interface StateType {
   cumulativeLoginsCount: number;
   cumulativeLoginsSQ: number;
   dailyLogins: number;
+  dailyLoginTickets: number;
   monthlyShopTickets: number;
   eventSQ: number;
   formErrors: boolean;
   totalSQForBanner: number;
   shopTicketSQ: number;
-  excludeOptions: Set<string>;
+  excludeOptions: Set<any>;
   targetData: TargetDataType[];
 }
 

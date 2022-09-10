@@ -71,21 +71,23 @@ const Probability: NextPage = () => {
                   onChange={handleChange(index, item)}
                   valueLabelDisplay="on"
                   max={totalSQForBanner}
-                  marks={getNpMarks(item.rarity)}
+                  marks={item.type === TargetOptions.servant ? getNpMarks(item.rarity): []}
                 />
                 <div className="target-prob-box">
                   {copy["rateup"]["chance"]["probability"]}
                   <div className="target-prob-percent">{`${probabilities[index]}%`}</div>
                 </div>
               </div>
-              <div className="banners">
-                <div className="banner-copy">{copy["bannerlist"]}</div>
-                {servantData[servantName as keyof typeof servantData] &&
-                servantData[servantName as keyof typeof servantData].map((banner) => (
-                  <div key={banner[0]}>{`${banner[0]}: ${banner[1]}`}</div>
-                ))
-                }
-              </div>
+              {item.type === TargetOptions.servant && 
+                <div className="banners">
+                  <div className="banner-copy">{copy["bannerlist"]}</div>
+                  {servantData[servantName as keyof typeof servantData] &&
+                  servantData[servantName as keyof typeof servantData].map((banner) => (
+                    <div key={banner[0]}>{`${banner[0]}: ${banner[1]}`}</div>
+                  ))
+                  }
+                </div>
+              }
             </div>)
             })
         }

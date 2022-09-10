@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { TextField, FormControlLabel, Checkbox, Alert, IconButton } from "@mui/material";
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import AddBoxIcon from '@mui/icons-material/AddBox';
 import Footer from "./components/footer";
 import {
   ADD_EXCLUDE_OPTION,
@@ -23,6 +23,28 @@ import copy from '../data/copy';
 
 const SummonCurrency: NextPage = () => {
   const { state, dispatch } = useContext(FgoContext);
+  const [ticketChecked, setTicketChecked] = useState(false);
+  const [masterMissionsChecked, setMasterMissionsChecked] = useState(false);
+  const [loginBonusesChecked, setLoginBonusesChecked] = useState(false);
+  const { excludeOptions } = state;
+
+  useEffect(() => {
+    if (excludeOptions?.has(ExcludeOptions.tickets)) {
+      setTicketChecked(true);
+    } else if (!excludeOptions?.has(ExcludeOptions.tickets)) {
+      setTicketChecked(false);
+    }
+    if (excludeOptions?.has(ExcludeOptions.masterMissions)) {
+      setMasterMissionsChecked(true);
+    } else if (!excludeOptions?.has(ExcludeOptions.masterMissions)) {
+      setMasterMissionsChecked(false);
+    }
+    if (excludeOptions?.has(ExcludeOptions.loginBonuses)) {
+      setLoginBonusesChecked(true);
+    } else if (!excludeOptions?.has(ExcludeOptions.loginBonuses)) {
+      setLoginBonusesChecked(false);
+    }
+  },[excludeOptions]);
 
   const handleCalcEventSQ = () => {
     const { startDate, endDate } = state;
@@ -53,6 +75,7 @@ const SummonCurrency: NextPage = () => {
         payload: key
       });
     };
+  
   return (
     <div className="current-container">
       {state.formErrors && (
@@ -168,7 +191,7 @@ const SummonCurrency: NextPage = () => {
             <FormControlLabel
               control={
                 <Checkbox
-                  defaultChecked={state.excludeOptions?.has(ExcludeOptions.tickets)}
+                  checked={ticketChecked}
                   onChange={handleExclusionUpdate(
                     ExcludeOptions.tickets
                   )}
@@ -184,7 +207,7 @@ const SummonCurrency: NextPage = () => {
             <FormControlLabel
               control={
                 <Checkbox
-                  defaultChecked={state.excludeOptions?.has(ExcludeOptions.loginBonuses)}
+                  checked={loginBonusesChecked}
                   onChange={handleExclusionUpdate(
                     ExcludeOptions.loginBonuses
                   )}
@@ -200,7 +223,7 @@ const SummonCurrency: NextPage = () => {
             <FormControlLabel
               control={
                 <Checkbox
-                  defaultChecked={state.excludeOptions?.has(ExcludeOptions.masterMissions)}
+                  checked={masterMissionsChecked}
                   onChange={handleExclusionUpdate(
                     ExcludeOptions.masterMissions
                   )}
@@ -268,10 +291,11 @@ const SummonCurrency: NextPage = () => {
           />
           <div className="add-event">
             <IconButton
+              data-testid="add-event"
               color="success"
               onClick={handleCalcEventSQ}
             >
-              <AddCircleOutlineIcon/>
+              <AddBoxIcon />
             </IconButton>
             {copy["sq"]["addevent"]}
           </div>

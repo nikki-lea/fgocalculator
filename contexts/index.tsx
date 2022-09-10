@@ -9,7 +9,7 @@ import {
 import calcCumulativeLoginSQ from "../utils/calcCumulativeLoginSQ";
 import calcDaysDiffData from "../utils/calcDaysDiffData";
 import calcShopTicketSQ from "../utils/calcShopTicketSQ";
-import { getLocalStorageItem, setLocalStorageItem } from "./localStorage";
+import { getLocalStorageItem, hasParseableLocalStorageItem, setLocalStorageItem } from "./localStorage";
 
 type ProviderProps = {
   children: React.ReactNode;
@@ -39,6 +39,7 @@ export const SET_FORM_ERRORS = "SET_FORM_ERRORS";
 export const ADD_EXCLUDE_OPTION = "ADD_EXCLUDE_OPTION";
 export const REMOVE_EXCLUDE_OPTION = "REMOVE_EXCLUDE_OPTION";
 export const ADD_TARGET_DATA = "ADD_TARGET_DATA";
+export const REMOVE_TARGET_DATA = "REMOVE_TARGET_DATA";
 
 export const AppActions = {
   setCurrentSQ: createActionPayload<typeof SET_CURRENT_SQ, number>(
@@ -73,6 +74,9 @@ export const AppActions = {
   >(REMOVE_EXCLUDE_OPTION),
   addTargetData: createActionPayload<typeof ADD_TARGET_DATA, TargetDataType>(
     ADD_TARGET_DATA
+  ),
+  removeTargetData: createActionPayload<typeof REMOVE_TARGET_DATA, string>(
+    REMOVE_TARGET_DATA
   )
 };
 
@@ -88,14 +92,15 @@ export const initialState = {
   cumulativeLoginsCount: parseInt(getLocalStorageItem("cumulativeLoginsCount") || "0"),
   cumulativeLoginsSQ: parseInt(getLocalStorageItem("cumulativeLoginsSQ") || "0"),
   dailyLogins: parseInt(getLocalStorageItem("dailyLogins") || "0"),
+  dailyLoginTickets: parseInt(getLocalStorageItem("dailyLoginTickets") || "0"),
   monthlyShopTickets: parseInt(getLocalStorageItem("monthlyShopTickets") || "0"),
   questSQ: parseInt(getLocalStorageItem("questSQ") || "0"),
   eventSQ: parseInt(getLocalStorageItem("eventSQ") || "0"),
   formErrors: false,
   totalSQForBanner: parseInt(getLocalStorageItem("totalSQForBanner") || "0"),
   shopTicketSQ: parseInt(getLocalStorageItem("shopTicketSQ") || "0"),
-  excludeOptions: getLocalStorageItem("excludeOptions") ? JSON.parse(getLocalStorageItem("excludeItems") as string) : new Set(""),
-  targetData: getLocalStorageItem("targetData") ? JSON.parse(getLocalStorageItem("targetData") as string) : [],
+  excludeOptions: hasParseableLocalStorageItem("excludeOptions") ? new Set(JSON.parse(getLocalStorageItem("excludeOptions"))):  new Set(""),
+  targetData: hasParseableLocalStorageItem("targetData") ? JSON.parse(getLocalStorageItem("targetData")): [],
 };
 
 const FgoContext = createContext<{
@@ -158,6 +163,7 @@ export const reducer = (
       if (startDateData.masterMissions) {
         setLocalStorageItem("masterMissions", startDateData.masterMissions.toString());
         setLocalStorageItem("dailyLogins", startDateData.dailyLogins.toString());
+        setLocalStorageItem("dailyLoginTickets", startDateData.dailyLoginTickets.toString());
       }
       return {
         ...startDateData
@@ -167,7 +173,7 @@ export const reducer = (
       setLocalStorageItem("endDate", action.payload);
       if (endDateData.masterMissions) {
         setLocalStorageItem("masterMissions", endDateData.masterMissions.toString());
-        setLocalStorageItem("dailyLogins", endDateData.dailyLogins.toString());
+        setLocalStorageItem("dailyLoginTickets", endDateData.dailyLoginTickets.toString());
       }
       return {
         ...endDateData
@@ -219,9 +225,12 @@ export const reducer = (
         (state.excludeOptions?.has(ExcludeOptions.masterMissions)
           ? 0
           : state.masterMissions) +
-        (state.excludeOptions?.has(ExcludeOptions.loginBonuses)
-          ? 0
-          : state.dailyLogins) +
+        (!state.excludeOptions?.has(ExcludeOptions.loginBonuses) && !state.excludeOptions?.has(ExcludeOptions.tickets) && state.dailyLoginTickets
+          ? (state.dailyLoginTickets*2 + 3*state.dailyLoginTickets)
+          :  0) +
+        (!state.excludeOptions?.has(ExcludeOptions.loginBonuses) && state.excludeOptions?.has(ExcludeOptions.tickets) 
+          ? (state.dailyLoginTickets*2)
+          : 0) +
         (state.excludeOptions?.has(ExcludeOptions.tickets) ? 0 : shopTicketSQ) +
         state.questSQ +
         state.eventSQ;
@@ -237,31 +246,38 @@ export const reducer = (
         ...state,
         formErrors: action.payload
       };
-    case ADD_EXCLUDE_OPTION:
-      const setCopy = new Set([
-        ...Array.from(state.excludeOptions),
-        action.payload
-      ]);
-      setLocalStorageItem("excludeOptions", JSON.stringify(setCopy));
-      return {
-        ...state,
-        excludeOptions: setCopy
-      };
-    case REMOVE_EXCLUDE_OPTION:
-      state.excludeOptions.delete(action.payload);
-      const setWithoutCopy = new Set([...Array.from(state.excludeOptions)]);
-      setLocalStorageItem("excludeOptions", JSON.stringify(setWithoutCopy));
-      return {
-        ...state,
-        excludeOptions: setWithoutCopy
-      };
+      case ADD_EXCLUDE_OPTION:
+        const setArray= [
+          ...Array.from(state.excludeOptions),
+          action.payload
+        ];
+        setLocalStorageItem("excludeOptions", JSON.stringify(setArray));
+        return {
+          ...state,
+          excludeOptions: new Set(setArray)
+        };
+      case REMOVE_EXCLUDE_OPTION:
+        state.excludeOptions.delete(action.payload);
+        const setWithoutArray = [...Array.from(state.excludeOptions)];
+        setLocalStorageItem("excludeOptions", JSON.stringify(setWithoutArray));
+        return {
+          ...state,
+          excludeOptions: new Set(setWithoutArray)
+        };
     case ADD_TARGET_DATA:
-      const targetDataCopy = [...state.targetData];
-      targetDataCopy.push(action.payload);
+      const targetDataCopy = state.targetData ? [...state.targetData, action.payload] : state.targetData;
       setLocalStorageItem("targetData", JSON.stringify(targetDataCopy));
       return {
         ...state,
         targetData: targetDataCopy
+      };
+    case REMOVE_TARGET_DATA:
+      const { targetData } = state;
+      const listWithRemoval = targetData.filter(item => item.name !== action.payload);
+      setLocalStorageItem("targetData", JSON.stringify(listWithRemoval));
+      return {
+        ...state,
+        targetData: listWithRemoval
       };
     default:
       return state;
