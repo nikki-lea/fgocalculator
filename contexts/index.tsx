@@ -225,12 +225,12 @@ export const reducer = (
         (state.excludeOptions?.has(ExcludeOptions.masterMissions)
           ? 0
           : state.masterMissions) +
-        (state.excludeOptions?.has(ExcludeOptions.loginBonuses) && !state.excludeOptions?.has(ExcludeOptions.tickets) 
-          ? 0
-          : (state.dailyLoginTickets*2 + 3*state.dailyLoginTickets)) +
+        (!state.excludeOptions?.has(ExcludeOptions.loginBonuses) && !state.excludeOptions?.has(ExcludeOptions.tickets) && state.dailyLoginTickets
+          ? (state.dailyLoginTickets*2 + 3*state.dailyLoginTickets)
+          :  0) +
         (!state.excludeOptions?.has(ExcludeOptions.loginBonuses) && state.excludeOptions?.has(ExcludeOptions.tickets) 
-          ? 0
-          : (state.dailyLoginTickets*2)) +
+          ? (state.dailyLoginTickets*2)
+          : 0) +
         (state.excludeOptions?.has(ExcludeOptions.tickets) ? 0 : shopTicketSQ) +
         state.questSQ +
         state.eventSQ;
