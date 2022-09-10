@@ -72,7 +72,7 @@ const RollTarget: NextPage = () => {
   };
 
   const onSubmitHandler = () => {
-    if (currentTargetData?.type && currentTargetData?.rarity) {
+    if (currentTargetData?.type && currentTargetData?.rarity && currentTargetData?.shared) {
       setError(false);
       dispatch({ type: ADD_TARGET_DATA, payload: {...currentTargetData, id: Math.floor(Math.random() * 1000)}});
       setCurrentTargetData({ type: "", rarity: 0, shared: 0, id: -1 });

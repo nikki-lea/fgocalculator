@@ -173,6 +173,7 @@ export const reducer = (
       setLocalStorageItem("endDate", action.payload);
       if (endDateData.masterMissions) {
         setLocalStorageItem("masterMissions", endDateData.masterMissions.toString());
+        setLocalStorageItem("dailyLogins", endDateData.dailyLogins.toString());
         setLocalStorageItem("dailyLoginTickets", endDateData.dailyLoginTickets.toString());
       }
       return {
@@ -214,6 +215,7 @@ export const reducer = (
         endDate: state.endDate,
         monthlyShopTickets: state.monthlyShopTickets
       });
+      
       const totalSQForBanner =
         (state.excludeOptions?.has(ExcludeOptions.loginBonuses)
           ? 0
@@ -225,8 +227,8 @@ export const reducer = (
         (state.excludeOptions?.has(ExcludeOptions.masterMissions)
           ? 0
           : state.masterMissions) +
-        (!state.excludeOptions?.has(ExcludeOptions.loginBonuses) && !state.excludeOptions?.has(ExcludeOptions.tickets) && state.dailyLoginTickets
-          ? (state.dailyLoginTickets*2 + 3*state.dailyLoginTickets)
+        (!state.excludeOptions?.has(ExcludeOptions.loginBonuses) && !state.excludeOptions?.has(ExcludeOptions.tickets)
+          ? (state.dailyLoginTickets*5)
           :  0) +
         (!state.excludeOptions?.has(ExcludeOptions.loginBonuses) && state.excludeOptions?.has(ExcludeOptions.tickets) 
           ? (state.dailyLoginTickets*2)
