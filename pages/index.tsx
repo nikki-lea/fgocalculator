@@ -291,6 +291,7 @@ const SummonCurrency: NextPage = () => {
           />
           <div className="add-event">
             <IconButton
+              data-testid="add-event"
               color="success"
               onClick={handleCalcEventSQ}
             >

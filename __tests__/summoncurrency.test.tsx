@@ -14,11 +14,11 @@ import {
   SET_FORM_ERRORS,
   ADD_EXCLUDE_OPTION,
   ExcludeOptions,
-  REMOVE_EXCLUDE_OPTION
 } from '../contexts';
 import MockStateData from '../data/mockstatedata';
 import MockFgoProvider from '../data/mockProvider';
 import { StateType } from '../types/contexts';
+import copy from '../data/copy';
 
 const renderWithProvider = ({mockDispatch, mockState = initialState} : { mockDispatch: jest.Mock, mockState?: StateType}) => (
   render(
@@ -43,10 +43,9 @@ describe('SummonCurrency', () => {
     ["event", 120, SET_EVENT_SQ]
   ]
 
-  it('renders a total of 10 fields and headers', () => {
+  it('renders a total of 8 fields', () => {
     render(<SummonCurrency />);
     expect(document.querySelectorAll("#outlined-basic").length).toBe(8);
-    expect(document.querySelectorAll("h1").length).toBe(2);
     cleanup();
   })
 
@@ -62,19 +61,17 @@ describe('SummonCurrency', () => {
 
   it('adds event SQ if checked', () => {
     let dispatchSpy = jest.fn();
-    const { getByLabelText} = renderWithProvider({mockState: MockStateData, mockDispatch: dispatchSpy});
-    fireEvent.click(getByLabelText("sq.addevent"))
+    const { getByTestId } = renderWithProvider({mockState: MockStateData, mockDispatch: dispatchSpy});
+    fireEvent.click(getByTestId("add-event"));
     expect(dispatchSpy).toHaveBeenCalledWith(({type: SET_FORM_ERRORS, payload: false}))
-    expect(dispatchSpy).toHaveBeenCalledWith(({type: SET_EVENT_SQ, payload: 320 }))
+    expect(dispatchSpy).toHaveBeenCalledWith(({type: SET_EVENT_SQ, payload: 687 }))
     cleanup();
   })
 
-  it('removes options if checked', () => {
+  it('add options if checked', () => {
     let dispatchSpy = jest.fn();
-    const { getByLabelText} = renderWithProvider({mockState: MockStateData, mockDispatch: dispatchSpy});
-    fireEvent.click(getByLabelText("alltickets"))
+    const { getByText} = renderWithProvider({mockState: MockStateData, mockDispatch: dispatchSpy});
+    fireEvent.click(getByText(copy["alltickets"]))
     expect(dispatchSpy).toHaveBeenCalledWith(({type: ADD_EXCLUDE_OPTION, payload: ExcludeOptions.tickets}))
-    fireEvent.click(getByLabelText("alltickets"))
-    expect(dispatchSpy).toHaveBeenCalledWith(({type: REMOVE_EXCLUDE_OPTION, payload: ExcludeOptions.tickets}))
   })
 })

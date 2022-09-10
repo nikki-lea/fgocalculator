@@ -8,6 +8,9 @@ const fgoProbabilities = {
 
 
 const calcProbability = ({ sq, type, rarity, shared = 1 }: TargetDataType & {sq: number}): number => {
+  if (!sq || !type || !rarity) {
+    return 0;
+  }
   const summonProbability = fgoProbabilities[type as keyof typeof fgoProbabilities][rarity]/shared;
   const rolls = sq/3;
   const exponent = (rolls+(rolls/10));

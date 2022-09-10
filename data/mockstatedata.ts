@@ -2,7 +2,7 @@ const mockStateData = {
   currentSQ: 588,
   currentTickets: 0,
   startDate: "2022-09-15",
-  endDate: "2022-12-14",
+  endDate: "2023-08-14",
   masterMissions: 0,
   cumulativeLoginsCount: 0,
   cumulativeLoginsSQ: 0,
@@ -13,7 +13,8 @@ const mockStateData = {
   formErrors: false,
   totalSQForBanner: 0,
   shopTicketSQ: 0,
-  excludeOptions: new Set("")
+  excludeOptions: new Set(""),
+  targetData: []
 };
 
 export default mockStateData;
