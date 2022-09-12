@@ -7,4 +7,5 @@ export type DiffCalcsType = {
   masterMissions: number;
   dailyLogins: number;
   dailyLoginTickets: number;
+  eventSQ: number;
 };

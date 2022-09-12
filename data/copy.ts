@@ -1,6 +1,6 @@
 const copy = {
   header: "Fate/Grand Savings",
-  subheader: "Current Saint Quartz and Savings Window",
+  subheader: "Current SQ and Savings Timeframe",
   current: {
     general: "Current Summon Currency",
     sq: "Current SQ",
@@ -10,7 +10,7 @@ const copy = {
   alltickets: "Shop and current tickets",
   savings: {
     begin: "Savings start date",
-    end: "End date of last target campaign"
+    end: "End of savings timeframe"
   },
   sq: {
     name: "SQ",
@@ -23,7 +23,10 @@ const copy = {
     detail: "3 SQ Weekly"
   },
   quest: "Quests, Maintenance, etc",
-  event: "Events",
+  event: {
+    label: "Events",
+    detail: "SQ gained from events"
+  },
   login: {
     both: "Cumulative and daily login sq",
     total: {
@@ -80,9 +83,9 @@ const copy = {
   disclaimer:
     "fgosavings.com is in no way affiliated with Lasengle, Aniplex or Type-Moon. ",
   contact: "Contact for feature requests and bug reports.",
-  welcome: "Ready to figure out how best to spend your SQ?",
+  welcome: "An FGO SQ Savings Calculator with NA 2022 Summon Rates",
   description:
-    "Add your current summon currency, your summon targets, and figure out how much you need to save for the targets you want most."
+    "Add your current summon currency, your summon targets, and figure out how much you need to save for multiple summon targets."
 };
 
 export default copy;

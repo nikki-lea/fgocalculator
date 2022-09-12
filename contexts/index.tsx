@@ -18,7 +18,8 @@ type ProviderProps = {
 export const ExcludeOptions = {
   tickets: "TICKETS",
   masterMissions: "MASTER_MISSIONS",
-  loginBonuses: "LOGIN_BONUSES"
+  loginBonuses: "LOGIN_BONUSES",
+  events: "EVENTS"
 };
 
 export const TargetOptions = {
@@ -146,16 +147,18 @@ export const reducer = (
 ): StateType => {
   switch (action.type) {
     case SET_CURRENT_SQ:
-      setLocalStorageItem("currentSQ", action.payload.toString());
+      const currentSQValue = action.payload ? action.payload : 0;
+      setLocalStorageItem("currentSQ", currentSQValue.toString());
       return {
         ...state,
-        currentSQ: action.payload
+        currentSQ: currentSQValue
       };
     case SET_CURRENT_TICKETS:
-      setLocalStorageItem("currentTickets", action.payload.toString())
+      const currentTicketsValue = action.payload ? action.payload : 0;
+      setLocalStorageItem("currentTickets", currentTicketsValue.toString())
       return {
         ...state,
-        currentTickets: action.payload
+        currentTickets: currentTicketsValue
       };
     case SET_START_DATE:
       const startDateData = formatDatePayload(state, action.payload, true);
@@ -180,62 +183,80 @@ export const reducer = (
         ...endDateData
       };
     case SET_QUEST_SQ:
-      setLocalStorageItem("questSQ", action.payload.toString());
+      const currentQuestSQValue = action.payload ? action.payload : 0;
+      setLocalStorageItem("questSQ", currentQuestSQValue.toString());
       return {
         ...state,
-        questSQ: action.payload
+        questSQ: currentQuestSQValue
       };
 
     case SET_CUMULATIVE_LOGINS_DATA:
+      const currentCumulativeLoginsValue = action.payload ? action.payload : 0;
       setLocalStorageItem("cumulativeLoginsCount", action.payload.toString());
       return {
         ...state,
         cumulativeLoginsCount: action.payload
       };
     case SET_MONTHLY_SHOP_TICKETS:
-      setLocalStorageItem("monthlyShopTickets", action.payload.toString());
+      const currentMonthlyShopTicketsValue = action.payload ? action.payload : 0;
+      setLocalStorageItem("monthlyShopTickets", currentMonthlyShopTicketsValue.toString());
       return {
         ...state,
-        monthlyShopTickets: action.payload
+        monthlyShopTickets: currentMonthlyShopTicketsValue
       };
     case SET_EVENT_SQ:
-      setLocalStorageItem("eventSQ", action.payload.toString());
+      const currentEventSQValue = action.payload ? action.payload : 0;
+      setLocalStorageItem("eventSQ", currentEventSQValue.toString());
       return {
         ...state,
-        eventSQ: action.payload
+        eventSQ: currentEventSQValue
       };
 
     case HANDLE_FORM_SUBMIT:
+      const {
+        cumulativeLoginsCount,
+        dailyLogins,
+        startDate,
+        endDate,
+        monthlyShopTickets,
+        excludeOptions,
+        currentTickets,
+        currentSQ,
+        masterMissions,
+        dailyLoginTickets,
+        eventSQ,
+        questSQ
+      } = state;
       const cumulativeLoginsSQ = calcCumulativeLoginSQ(
-        state.cumulativeLoginsCount,
-        state.dailyLogins
+        cumulativeLoginsCount,
+        dailyLogins
       );
       const shopTicketSQ = calcShopTicketSQ({
-        startDate: state.startDate,
-        endDate: state.endDate,
-        monthlyShopTickets: state.monthlyShopTickets
+        startDate,
+        endDate,
+        monthlyShopTickets
       });
       
       const totalSQForBanner =
-        (state.excludeOptions?.has(ExcludeOptions.loginBonuses)
+        (excludeOptions?.has(ExcludeOptions.loginBonuses)
           ? 0
           : cumulativeLoginsSQ) +
-        state.currentSQ +
-        (state.excludeOptions?.has(ExcludeOptions.tickets)
+        currentSQ +
+        (excludeOptions?.has(ExcludeOptions.tickets)
           ? 0
-          : 3 * state.currentTickets) +
-        (state.excludeOptions?.has(ExcludeOptions.masterMissions)
+          : 3 * currentTickets) +
+        (excludeOptions?.has(ExcludeOptions.masterMissions)
           ? 0
-          : state.masterMissions) +
-        (!state.excludeOptions?.has(ExcludeOptions.loginBonuses) && !state.excludeOptions?.has(ExcludeOptions.tickets)
-          ? (state.dailyLoginTickets*5)
+          : masterMissions) +
+        (!excludeOptions?.has(ExcludeOptions.loginBonuses) && !excludeOptions?.has(ExcludeOptions.tickets)
+          ? (dailyLoginTickets*5)
           :  0) +
-        (!state.excludeOptions?.has(ExcludeOptions.loginBonuses) && state.excludeOptions?.has(ExcludeOptions.tickets) 
-          ? (state.dailyLoginTickets*2)
+        (!excludeOptions?.has(ExcludeOptions.loginBonuses) && excludeOptions?.has(ExcludeOptions.tickets) 
+          ? (dailyLoginTickets*2)
           : 0) +
-        (state.excludeOptions?.has(ExcludeOptions.tickets) ? 0 : shopTicketSQ) +
-        state.questSQ +
-        state.eventSQ;
+        (excludeOptions?.has(ExcludeOptions.tickets) ? 0 : shopTicketSQ) +
+        questSQ +
+        (excludeOptions?.has(ExcludeOptions.events) ? 0 : eventSQ);
         setLocalStorageItem("cumulativeLoginsSQ", cumulativeLoginsSQ.toString());
         setLocalStorageItem("totalSQForBanner", totalSQForBanner.toString());
       return {

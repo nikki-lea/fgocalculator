@@ -44,7 +44,7 @@ const Probability: NextPage = () => {
         <h2>{copy["sq"]["future"]}</h2>
         <Image
           src="/saintquartz.svg"
-          alt="saintquartz"
+          alt="fgo saint quartz calculator sq image"
           style={{
             flexShrink: 0,
             height: "24px",
@@ -60,6 +60,9 @@ const Probability: NextPage = () => {
             const typeCopy =
             item.type === TargetOptions.ce ? copy["craftessence"] : copy["servant"];
             const servantName = item.name || "";
+            const targetBannerDate = servantData[servantName as keyof typeof servantData] ?
+            servantData[servantName as keyof typeof servantData][0] : "";
+
             return (
             <div key={item.name} className="target-calc">
               <div className="target-name">{item.name}</div>
@@ -97,7 +100,7 @@ const Probability: NextPage = () => {
             <div className="sq-spent">
               <Image
                 src="/saintquartz.svg"
-                alt="saintquartz"
+                alt="fgo saint quartz calculator sq image"
                 height={24}
                 width={24}
               />
