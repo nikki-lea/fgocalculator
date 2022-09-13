@@ -166,7 +166,7 @@ const RollTarget: NextPage = () => {
                   onChange={(event: any, newValue: string | null) => setCurrentTargetData({ ...currentTargetData, name: newValue || ""})}
                   id="combo-box-demo"
                   options={autoCompleteOptions}
-                  sx={{ width: 300 }}
+                  sx={{ width: 200 }}
                   renderInput={(params) => <TextField {...params} label={copy["servantname"]} />}
                 />
           </div>
