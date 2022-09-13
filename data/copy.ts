@@ -85,7 +85,9 @@ const copy = {
   contact: "Contact for feature requests and bug reports.",
   welcome: "An FGO SQ Savings Calculator with NA 2022 Summon Rates",
   description:
-    "Add your current summon currency, your summon targets, and figure out how much you need to save for multiple summon targets."
+    "Add your current summon currency, your summon targets, and figure out how much you need to save for multiple summon targets.",
+  dateinvalid:
+    "This servant doesn't have any banners during your savings timeframe."
 };
 
 export default copy;
