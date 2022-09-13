@@ -18,9 +18,14 @@ const calcDaysDiffData = ({
   const momentEnd = moment(endDate, "YYYY-MM-DD");
   const dailyLogins = momentEnd.diff(momentStart, "days");
   const dailyLoginTickets = momentEnd.diff(momentStart, "weeks");
-  const masterMissions = Math.round((dailyLogins / 7) * 3);
+  const masterMissions = dailyLoginTickets * 3;
   const eventSQ = calcJPEventSQ({ startDate, endDate });
-  return { masterMissions, dailyLogins, dailyLoginTickets, eventSQ };
+  return {
+    masterMissions,
+    dailyLogins,
+    dailyLoginTickets,
+    eventSQ
+  };
 };
 
 export default calcDaysDiffData;
