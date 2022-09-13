@@ -77,11 +77,13 @@ const Probability: NextPage = () => {
             let maxSQForBanner = totalSQForBanner;
             let targetBannerDate;
             let startDateAsMoment: moment.Moment;
+            let endDateAsMoment = moment(endDate, "YYYY-MM-DD");
+            let bannerDate;
             if (item.type === TargetOptions.servant) {
               startDateAsMoment = moment(startDate, "YYYY-MM-DD");
               const targetBanner = servantData[servantName as keyof typeof servantData] ?
               servantData[servantName as keyof typeof servantData].find(banner => {
-                const bannerDate = moment(banner[1], "YYYY/MM/DD");
+                bannerDate = moment(banner[1], "YYYY/MM/DD");
                 return bannerDate.isAfter(startDateAsMoment)
               }) : "";
               targetBannerDate = targetBanner ? targetBanner[1] : "";
@@ -99,9 +101,10 @@ const Probability: NextPage = () => {
             return (
             <div key={item.name} className="target-calc">
               <div className="target-name">{item.name}</div>
-              {item.type === TargetOptions.servant && <div>{`${item.rarity}* ${typeCopy} - ${maxSQForBanner} SQ available by ${targetBannerDate}`}</div>}
+              {item.type === TargetOptions.servant && <div>{`${item.rarity}* ${typeCopy} - Max ${maxSQForBanner} SQ available by ${targetBannerDate}`}</div>}
               {item.type === TargetOptions.ce && <div>{`${item.rarity}* ${typeCopy}`}</div>}
-              <div className="target-prob-container">
+              { item.type === TargetOptions.ce || (item.type === TargetOptions.servant && (endDateAsMoment.add(2, "days")).isAfter(bannerDate)) ?
+              (<div className="target-prob-container">
                 <Slider
                   aria-label="calculatedprobability"
                   defaultValue={startingBudget}
@@ -115,6 +118,7 @@ const Probability: NextPage = () => {
                   <div className="target-prob-percent">{`${probabilities[index]}%`}</div>
                 </div>
               </div>
+              ) : (<div className="invalid-date">{copy["dateinvalid"]}</div>)}
               {item.type === TargetOptions.servant &&
                 <div className="banners">
                   <div className="banner-copy">{copy["bannerlist"]}</div>
