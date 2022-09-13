@@ -48,7 +48,7 @@ const copy = {
       subheader:
         "Adjust the sliders to allocate a budget for each campaign. Calculated probabilities are for at least 1 copy of the rate up target.  NP markers indicate the number of SQ required for a 50% chance of obtaining the NP value. ",
       subheaderDisclaimer:
-        "These calculations DO NOT incorporate ten pull guaranteed 4*. Campaigns with multiple rate ups of the same rarity assume that percentages are split equally. For servants, the sliders by default end at the amount of SQ you would have by the end of the campaign. To accommodate for purchased SQ, modify your current SQ on step 1.",
+        "These calculations DO NOT incorporate ten pull guaranteed 4*. Campaigns with multiple rate ups of the same rarity assume that percentages are split equally. For servants, the sliders by default end at the MAXIMUM amount of SQ you could have by the end of the campaign if you have spent none beforehand. Therefore, if you budget (and then spend) for a servant prior, you will not have the maximum listed. To accommodate for purchased SQ, modify your current SQ on step 1.",
       probability: "Probability"
     },
     upcoming: "Upcoming summoning campaigns based on FGO JP"

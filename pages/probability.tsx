@@ -99,7 +99,7 @@ const Probability: NextPage = () => {
             return (
             <div key={item.name} className="target-calc">
               <div className="target-name">{item.name}</div>
-              {item.type === TargetOptions.servant && <div>{`${item.rarity}* ${typeCopy} - ${maxSQForBanner} SQ available by ${targetBannerDate}`}</div>}
+              {item.type === TargetOptions.servant && <div>{`${item.rarity}* ${typeCopy} - Max ${maxSQForBanner} SQ available by ${targetBannerDate}`}</div>}
               {item.type === TargetOptions.ce && <div>{`${item.rarity}* ${typeCopy}`}</div>}
               <div className="target-prob-container">
                 <Slider
