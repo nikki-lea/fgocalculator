@@ -162,9 +162,16 @@ body {
   row-gap: 20px;
   display: flex;
   justify-content: space-between;
-  font-weight: 200;
-  padding-top: 20px;
-  padding-bottom: 30px;
+  margin-top: 20px;
+  background-color: white;
+  padding: 25px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  @media screen and (max-width: @screen-lg) {
+    width: 100%;
+    padding: 15px;
+  }
 }
 
 .add-button {
