@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import React, { useContext, useEffect, useState } from "react";
 import { TextField, FormControlLabel, Checkbox, Alert, IconButton } from "@mui/material";
-import AddBoxIcon from '@mui/icons-material/AddBox';
 import Footer from "./components/footer";
 import {
   ADD_EXCLUDE_OPTION,
@@ -89,7 +88,7 @@ const SummonCurrency: NextPage = () => {
           <TextField
             id="outlined-basic"
             inputProps={{ type: "number", "data-testid": "currentticket" }}
-            InputLabelProps={{ shrink: true }}
+            InputLabelProps={{ shrink: true, sx:{"&.MuiInputLabel-shrink": {color: "black"}} }}
             label={copy["current"]["ticket"]}
             variant="outlined"
             color="primary"
