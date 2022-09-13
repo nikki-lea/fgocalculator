@@ -35,11 +35,11 @@ const calcTotalSQForDate = ({
     (excludeOptions?.has(ExcludeOptions.masterMissions) ? 0 : masterMissions) +
     (!excludeOptions?.has(ExcludeOptions.loginBonuses) &&
     !excludeOptions?.has(ExcludeOptions.tickets)
-      ? dailyLoginTickets * 5
+      ? dailyLoginTickets * 7
       : 0) +
     (!excludeOptions?.has(ExcludeOptions.loginBonuses) &&
     excludeOptions?.has(ExcludeOptions.tickets)
-      ? dailyLoginTickets * 2
+      ? dailyLoginTickets * 4
       : 0) +
     (excludeOptions?.has(ExcludeOptions.tickets) ? 0 : shopTicketSQ) +
     questSQ +
