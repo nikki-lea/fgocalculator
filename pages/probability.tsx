@@ -11,10 +11,23 @@ import { fiveStarMarks, fourStarMarks } from "../data/servantnpdata";
 import classNames from 'classnames';
 import Footer from "./components/footer";
 import { useResizeDetector } from 'react-resize-detector';
+import calcTotalSQForDate from "../utils/calcTotalSQForDate";
+import moment from "moment";
 
 const Probability: NextPage = () => {
   const { state } = useContext(FgoContext);
-  const { totalSQForBanner, targetData } = state;
+  const {
+    totalSQForBanner,
+    targetData,
+    excludeOptions,
+    cumulativeLoginsCount,
+    currentTickets,
+    monthlyShopTickets,
+    startDate,
+    endDate,
+    questSQ,
+    currentSQ
+   } = state;
   const startingBudget = Math.floor(totalSQForBanner / targetData.length);
   const initialProbability: number[] = [];
   targetData.forEach((item) => initialProbability.push(calcProbability({...item, sq: startingBudget})));
@@ -38,13 +51,14 @@ const Probability: NextPage = () => {
     return width && width < 350 ? marksToUse : marksToUse.map((item) => ({...item, label: `NP ${item.label}`}));
   }
 
+
   return (
     <div className="probability-container">
       <div className="total-sq">
         <h2>{copy["sq"]["future"]}</h2>
         <Image
           src="/saintquartz.svg"
-          alt="saintquartz"
+          alt="fgo saint quartz calculator sq image"
           style={{
             flexShrink: 0,
             height: "24px",
@@ -53,24 +67,47 @@ const Probability: NextPage = () => {
         />
         <span>{totalSQForBanner.toLocaleString('en-US')}</span>
       </div>
-      <div className="subheader">{copy["rateup"]["chance"]["subheader"]}<span className="probabilityDisclaimer">{copy["rateup"]["chance"]["subheaderDisclaimer"]}</span></div>
+      <div className="subheader">{copy["rateup"]["chance"]["subheader"]}</div>
       <div className="probability-calculations" ref={ref}>
         {
         targetData.map((item, index) => {
             const typeCopy =
             item.type === TargetOptions.ce ? copy["craftessence"] : copy["servant"];
             const servantName = item.name || "";
+            let maxSQForBanner = totalSQForBanner;
+            let targetBannerDate;
+            let startDateAsMoment: moment.Moment;
+            if (item.type === TargetOptions.servant) {
+              startDateAsMoment = moment(startDate, "YYYY-MM-DD");
+              const targetBanner = servantData[servantName as keyof typeof servantData] ?
+              servantData[servantName as keyof typeof servantData].find(banner => {
+                const bannerDate = moment(banner[1], "YYYY/MM/DD");
+                return bannerDate.isAfter(startDateAsMoment)
+              }) : "";
+              targetBannerDate = targetBanner ? targetBanner[1] : "";
+              maxSQForBanner = targetBannerDate ? calcTotalSQForDate({
+                excludeOptions,
+                currentSQ,
+                currentTickets,
+                cumulativeLoginsCount,
+                monthlyShopTickets,
+                startDate,
+                endDate: targetBannerDate,
+                questSQ
+              }) : 0;
+            }
             return (
             <div key={item.name} className="target-calc">
               <div className="target-name">{item.name}</div>
-              <div>{`${item.rarity}* ${typeCopy}`}</div>
+              {item.type === TargetOptions.servant && <div>{`${item.rarity}* ${typeCopy} - ${maxSQForBanner} SQ available by ${targetBannerDate}`}</div>}
+              {item.type === TargetOptions.ce && <div>{`${item.rarity}* ${typeCopy}`}</div>}
               <div className="target-prob-container">
                 <Slider
                   aria-label="calculatedprobability"
                   defaultValue={startingBudget}
                   onChange={handleChange(index, item)}
                   valueLabelDisplay="on"
-                  max={totalSQForBanner}
+                  max={maxSQForBanner}
                   marks={item.type === TargetOptions.servant ? getNpMarks(item.rarity): []}
                 />
                 <div className="target-prob-box">
@@ -78,13 +115,18 @@ const Probability: NextPage = () => {
                   <div className="target-prob-percent">{`${probabilities[index]}%`}</div>
                 </div>
               </div>
-              {item.type === TargetOptions.servant && 
+              {item.type === TargetOptions.servant &&
                 <div className="banners">
                   <div className="banner-copy">{copy["bannerlist"]}</div>
                   {servantData[servantName as keyof typeof servantData] &&
-                  servantData[servantName as keyof typeof servantData].map((banner) => (
-                    <div key={banner[0]}>{`${banner[0]}: ${banner[1]}`}</div>
-                  ))
+                  servantData[servantName as keyof typeof servantData].map((banner) => {
+                        const bannerDateAsMoment = moment(banner[1], "YYYY/MM/DD");
+                        if (bannerDateAsMoment.isAfter(startDateAsMoment))
+                        return (
+                          <div key={banner[0]}>{`${banner[0]}: ${banner[1]}`}</div>
+                        )
+                      }
+                    )
                   }
                 </div>
               }
@@ -97,7 +139,7 @@ const Probability: NextPage = () => {
             <div className="sq-spent">
               <Image
                 src="/saintquartz.svg"
-                alt="saintquartz"
+                alt="fgo saint quartz calculator sq image"
                 height={24}
                 width={24}
               />
@@ -108,14 +150,15 @@ const Probability: NextPage = () => {
         </div>
       </div>
       <Footer stepNum={3} linkTo="/" linkBack="/rolltarget" />
+      <div className="probabilityDisclaimer">{copy["rateup"]["chance"]["subheaderDisclaimer"]}</div>
       <div className="credits-container">
         <Image
           src="/eresh-cropped.png"
-          alt="smol-ereshkigal"
+          alt="fgo sq savings calculator small ereshkigal"
           style={{
             flexShrink: 0,
-            height: "157px",
-            width: "125px"
+            height: "100px",
+            width: "80px"
           }}
         />
       <div className="credits">

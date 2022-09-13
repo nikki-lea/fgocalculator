@@ -13,6 +13,9 @@ const Ereshkigal = createTheme({
     },
     info: {
       main: "#761B24"
+    },
+    warning: {
+      main: "#000000"
     }
   },
   typography: {

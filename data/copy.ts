@@ -1,6 +1,6 @@
 const copy = {
   header: "Fate/Grand Savings",
-  subheader: "Current Saint Quartz and Savings Window",
+  subheader: "Current SQ and Savings Timeframe",
   current: {
     general: "Current Summon Currency",
     sq: "Current SQ",
@@ -10,20 +10,23 @@ const copy = {
   alltickets: "Shop and current tickets",
   savings: {
     begin: "Savings start date",
-    end: "End date of last target campaign"
+    end: "End of savings timeframe"
   },
   sq: {
     name: "SQ",
     earned: "Sources for Earning SQ",
     addevent: "Add event SQ gained based on JP event history",
-    future: "Saint Quartz Available by Banner End"
+    future: "SQ Available by Timeframe End"
   },
   mission: {
     label: "Master Missions",
     detail: "3 SQ Weekly"
   },
   quest: "Quests, Maintenance, etc",
-  event: "Events",
+  event: {
+    label: "Events",
+    detail: "SQ gained from events"
+  },
   login: {
     both: "Cumulative and daily login sq",
     total: {
@@ -45,7 +48,7 @@ const copy = {
       subheader:
         "Adjust the sliders to allocate a budget for each campaign. Calculated probabilities are for at least 1 copy of the rate up target.  NP markers indicate the number of SQ required for a 50% chance of obtaining the NP value. ",
       subheaderDisclaimer:
-        "These calculations DO NOT incorporate ten pull guaranteed 4*. Campaigns with multiple rate ups of the same rarity assume that percentages are split equally.",
+        "These calculations DO NOT incorporate ten pull guaranteed 4*. Campaigns with multiple rate ups of the same rarity assume that percentages are split equally. For servants, the sliders by default end at the amount of SQ you would have by the end of the campaign. To accommodate for purchased SQ, modify your current SQ on step 1.",
       probability: "Probability"
     },
     upcoming: "Upcoming summoning campaigns based on FGO JP"
@@ -80,9 +83,9 @@ const copy = {
   disclaimer:
     "fgosavings.com is in no way affiliated with Lasengle, Aniplex or Type-Moon. ",
   contact: "Contact for feature requests and bug reports.",
-  welcome: "Ready to figure out how best to spend your SQ?",
+  welcome: "An FGO SQ Savings Calculator with NA 2022 Summon Rates",
   description:
-    "Add your current summon currency, your summon targets, and figure out how much you need to save for the targets you want most."
+    "Add your current summon currency, your summon targets, and figure out how much you need to save for multiple summon targets."
 };
 
 export default copy;
