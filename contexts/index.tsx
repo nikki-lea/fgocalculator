@@ -9,6 +9,7 @@ import {
 import calcCumulativeLoginSQ from "../utils/calcCumulativeLoginSQ";
 import calcDaysDiffData from "../utils/calcDaysDiffData";
 import calcShopTicketSQ from "../utils/calcShopTicketSQ";
+import calcTotalSQForDate from "../utils/calcTotalSQForDate";
 import { getLocalStorageItem, hasParseableLocalStorageItem, setLocalStorageItem } from "./localStorage";
 
 type ProviderProps = {
@@ -49,9 +50,7 @@ export const AppActions = {
   setTicketSQ: createActionPayload<typeof SET_CURRENT_TICKETS, number>(
     SET_CURRENT_TICKETS
   ),
-  setStartDate: createActionPayload<typeof SET_START_DATE, string>(
-    SET_START_DATE
-  ),
+  setStartDate: createActionPayload<typeof SET_START_DATE, string>(SET_START_DATE),
   setEndDate: createActionPayload<typeof SET_END_DATE, string>(SET_END_DATE),
   setQuestSQ: createActionPayload<typeof SET_QUEST_SQ, number>(SET_QUEST_SQ),
   setCumulativeLoginsData: createActionPayload<
@@ -222,41 +221,22 @@ export const reducer = (
         excludeOptions,
         currentTickets,
         currentSQ,
-        masterMissions,
-        dailyLoginTickets,
-        eventSQ,
         questSQ
       } = state;
-      const cumulativeLoginsSQ = calcCumulativeLoginSQ(
-        cumulativeLoginsCount,
-        dailyLogins
-      );
-      const shopTicketSQ = calcShopTicketSQ({
-        startDate,
-        endDate,
-        monthlyShopTickets
-      });
-      
-      const totalSQForBanner =
-        (excludeOptions?.has(ExcludeOptions.loginBonuses)
-          ? 0
-          : cumulativeLoginsSQ) +
-        currentSQ +
-        (excludeOptions?.has(ExcludeOptions.tickets)
-          ? 0
-          : 3 * currentTickets) +
-        (excludeOptions?.has(ExcludeOptions.masterMissions)
-          ? 0
-          : masterMissions) +
-        (!excludeOptions?.has(ExcludeOptions.loginBonuses) && !excludeOptions?.has(ExcludeOptions.tickets)
-          ? (dailyLoginTickets*5)
-          :  0) +
-        (!excludeOptions?.has(ExcludeOptions.loginBonuses) && excludeOptions?.has(ExcludeOptions.tickets) 
-          ? (dailyLoginTickets*2)
-          : 0) +
-        (excludeOptions?.has(ExcludeOptions.tickets) ? 0 : shopTicketSQ) +
-        questSQ +
-        (excludeOptions?.has(ExcludeOptions.events) ? 0 : eventSQ);
+        const cumulativeLoginsSQ = calcCumulativeLoginSQ(
+          cumulativeLoginsCount,
+          dailyLogins
+        );
+        const totalSQForBanner = calcTotalSQForDate({
+          excludeOptions,
+          cumulativeLoginsCount,
+          currentTickets,
+          monthlyShopTickets,
+          startDate,
+          endDate,
+          questSQ,
+          currentSQ
+        })
         setLocalStorageItem("cumulativeLoginsSQ", cumulativeLoginsSQ.toString());
         setLocalStorageItem("totalSQForBanner", totalSQForBanner.toString());
       return {

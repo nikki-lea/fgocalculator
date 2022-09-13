@@ -6,4 +6,8 @@ export type TotalSQProps = {
   startDate: string;
   endDate: string;
   questSQ: number;
+  currentSQ: number;
+  masterMissions?: number;
+  dailyLoginTickets?: number;
+  eventSQ?: number;
 };

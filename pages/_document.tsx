@@ -22,7 +22,7 @@ const Document: React.FC<{ children: React.ReactNode }> = () => {
                       `}
         </Script>
         <link
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap"
           rel="stylesheet"
         />
         <title>2022 Updated FGO SQ Savings Calculator</title>

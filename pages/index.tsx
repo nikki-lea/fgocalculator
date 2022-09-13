@@ -142,7 +142,7 @@ const SummonCurrency: NextPage = () => {
             disabled
             value={state.masterMissions}
             helperText={copy["mission"]["detail"]}
-            FormHelperTextProps={{sx: { color: "black"}}}
+            FormHelperTextProps={{sx: {"&.Mui-disabled": { color: "black"}}}}
             fullWidth
           />
           <TextField
@@ -153,7 +153,7 @@ const SummonCurrency: NextPage = () => {
             disabled
             value={state.dailyLogins}
             helperText={copy["login"]["daily"]["detail"]}
-            FormHelperTextProps={{sx: { color: "black"}}}
+            FormHelperTextProps={{sx: {"&.Mui-disabled": { color: "black"}}}}
             fullWidth
           />
           <TextField
@@ -254,7 +254,7 @@ const SummonCurrency: NextPage = () => {
             variant="outlined"
             color="primary"
             helperText={copy["login"]["total"]["detail"]}
-            FormHelperTextProps={{sx: {"&.Mui-disabled": { color: "black"}}}}
+            FormHelperTextProps={{sx: { color: "black"}}}
             fullWidth
             sx={{fontWeight: 600}}
             value={state.cumulativeLoginsCount ? state.cumulativeLoginsCount : undefined}
@@ -273,7 +273,7 @@ const SummonCurrency: NextPage = () => {
             variant="outlined"
             color="primary"
             helperText={copy["shop"]["detail"]}
-            FormHelperTextProps={{sx: {"&.Mui-disabled": { color: "black"}}}}
+            FormHelperTextProps={{sx:  { color: "black"}}}
             fullWidth
             sx={{fontWeight: 600}}
             value={state.monthlyShopTickets ? state.monthlyShopTickets : undefined}
