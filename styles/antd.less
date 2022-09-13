@@ -17,6 +17,9 @@ body {
   @media screen and (max-width: @screen-lg) {
     font-size: 14px;
   }
+  @media screen and (max-width: @screen-md) {
+    font-size: 12px;
+  }
 }
 
 .header {
@@ -82,6 +85,9 @@ body {
   .MuiFormControlLabel-root {
     span {
       width: unset;
+      @media screen and (max-width: @screen-md) {
+        font-size: 12px;
+      }
     }
   }
 }
@@ -142,12 +148,14 @@ body {
 
 .exclusions {
   display: flex;
-
   flex-direction: column;
 
   p {
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: 400;
+    @media screen and (max-width: @screen-md) {
+      font-size: 12px;
+    }
   }
 }
 
@@ -300,11 +308,14 @@ a {
 }
 
 .probabilityDisclaimer {
-  font-weight: 600;
   text-align: center;
   margin: 10px;
 }
 
 .invalid-date {
   margin-bottom: 20px;
+}
+
+.updates {
+  font-weight: 600;
 }

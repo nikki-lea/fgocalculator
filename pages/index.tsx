@@ -65,6 +65,7 @@ const SummonCurrency: NextPage = () => {
       <div className="welcome-box">
         <h2>{copy["welcome"]}</h2>
         <div>{copy["description"]}</div>
+        <span className="updates">{copy["updates"]}</span>
       </div>
       <h2>{copy["subheader"]}</h2>
       <div className="currency-form">
@@ -199,7 +200,6 @@ const SummonCurrency: NextPage = () => {
                     ExcludeOptions.loginBonuses
                   )}
                   sx={{
-                    fontSize: "12px",
                     "&.Mui-checked": {
                       color: "#DDA55B"
                     }
@@ -216,7 +216,6 @@ const SummonCurrency: NextPage = () => {
                     ExcludeOptions.masterMissions
                   )}
                   sx={{
-                    fontSize: "12px",
                     "&.Mui-checked": {
                       color: "#DDA55B"
                     }

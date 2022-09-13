@@ -87,7 +87,9 @@ const copy = {
   description:
     "Add your current summon currency, your summon targets, and figure out how much you need to save for multiple summon targets.",
   dateinvalid:
-    "This servant doesn't have any banners during your savings timeframe."
+    "This servant doesn't have any banners during your savings timeframe.",
+  updates:
+    "Updates: Site last updated 09/13/2022 with per target SQ projections. If you encounter any issues you may need to fill out steps 1 and 2 again."
 };
 
 export default copy;
