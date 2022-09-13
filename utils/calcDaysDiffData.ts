@@ -22,7 +22,7 @@ const calcDaysDiffData = ({
   const eventSQ = calcJPEventSQ({ startDate, endDate });
   return {
     masterMissions,
-    dailyLogins: dailyLoginTickets * 7,
+    dailyLogins,
     dailyLoginTickets,
     eventSQ
   };
