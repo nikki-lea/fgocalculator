@@ -31,6 +31,7 @@ const Document: React.FC<{ children: React.ReactNode }> = () => {
           content="Add your current summon currency, your summon targets, and figure out how much you need to save for the targets you want most."
         />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href="https://fgosavings.com/"/>
       </Head>
       <body>
         <Main />
