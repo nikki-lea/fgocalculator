@@ -20,7 +20,7 @@ describe('Layout', () => {
     render(<Layout><div data-testid="child"/></Layout>)
 
     const heading = screen.getByText('Fate/Grand Savings');
-    const image = screen.getByAltText('Cute Ereshkigal Background');
+    const image = screen.getByAltText('FGO SQ Savings Calculator BG Mobile');
 
     expect(heading).toBeInTheDocument()
     expect(image).toBeInTheDocument()

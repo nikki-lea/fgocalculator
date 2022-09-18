@@ -10,8 +10,6 @@ import {
   SET_QUEST_SQ,
   SET_CUMULATIVE_LOGINS_DATA,
   SET_MONTHLY_SHOP_TICKETS,
-  SET_EVENT_SQ,
-  SET_FORM_ERRORS,
   ADD_EXCLUDE_OPTION,
   ExcludeOptions,
 } from '../contexts';
@@ -39,8 +37,7 @@ describe('SummonCurrency', () => {
     ["savingsend", "2022-12-10", SET_END_DATE],
     ["quest", 12, SET_QUEST_SQ],
     ["cumulative", 331, SET_CUMULATIVE_LOGINS_DATA],
-    ["shopticket", 5, SET_MONTHLY_SHOP_TICKETS],
-    ["event", 120, SET_EVENT_SQ]
+    ["shopticket", 5, SET_MONTHLY_SHOP_TICKETS]
   ]
 
   it('renders a total of 8 fields', () => {
@@ -57,15 +54,6 @@ describe('SummonCurrency', () => {
       expect(dispatchSpy).toHaveBeenCalledWith(({type: item[2], payload: item[1] }))
       cleanup();
     })
-  })
-
-  it('adds event SQ if checked', () => {
-    let dispatchSpy = jest.fn();
-    const { getByTestId } = renderWithProvider({mockState: MockStateData, mockDispatch: dispatchSpy});
-    fireEvent.click(getByTestId("add-event"));
-    expect(dispatchSpy).toHaveBeenCalledWith(({type: SET_FORM_ERRORS, payload: false}))
-    expect(dispatchSpy).toHaveBeenCalledWith(({type: SET_EVENT_SQ, payload: 687 }))
-    cleanup();
   })
 
   it('add options if checked', () => {

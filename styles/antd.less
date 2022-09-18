@@ -38,6 +38,12 @@ body {
     margin-left: 20px;
     margin-bottom: 0;
   }
+  @media screen and (max-width: @screen-lg) {
+    justify-content: flex-start;
+    h1 {
+      font-size: 18px;
+    }
+  }
 }
 
 .main-content {
@@ -55,16 +61,8 @@ body {
     margin-left: 0;
     border: unset;
     width: 100%;
-    margin-top: -400px;
-    border-radius: unset;
+    border-radius: 0px;
   }
-  @media screen and (max-width: @screen-md) {
-    margin-top: -300px;
-  }
-  @media screen and (max-width: @screen-sm) {
-    margin-top: -115px;
-  }
-
 }
 
 .current-container, .target-container, .probability-container {
@@ -72,6 +70,9 @@ body {
   color: black;
   h1 {
     font-weight: 600;
+  }
+  @media screen and (max-width: @screen-md) {
+    padding: 20px;
   }
 }
 
@@ -201,7 +202,6 @@ body {
     margin-bottom: 0;
   }
   .subheader {
-    font-weight: 200;
     font-size: 1em;
     line-height: 1.3;
   }
@@ -318,4 +318,10 @@ a {
 
 .updates {
   font-weight: 600;
+}
+
+@media screen and (max-width: @screen-lg) {
+  .background-container {
+    margin-top: 60px;
+  }
 }

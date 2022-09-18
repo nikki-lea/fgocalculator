@@ -14,13 +14,14 @@ const calcTotalSQForDate = ({
   questSQ,
   currentSQ
 }: TotalSQProps) => {
-  console.log(endDate);
   const { masterMissions, dailyLogins, dailyLoginTickets, eventSQ } =
     calcDaysDiffData({ startDate, endDate });
+
   const cumulativeLoginsSQ = calcCumulativeLoginSQ(
     cumulativeLoginsCount,
     dailyLogins
   );
+
   const shopTicketSQ = calcShopTicketSQ({
     startDate,
     endDate,
