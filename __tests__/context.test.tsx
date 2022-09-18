@@ -55,35 +55,29 @@ describe('reducer', () => {
   });
 
   it('sets field values on form submit', () => {
-    const mockStateCopy = {...MockStateData, dailyLoginTickets: 12, shopTicketSQ: 15, currentTickets: 10};
+    const mockStateCopy = {...MockStateData, monthlyShopTickets: 5, currentTickets: 10};
     const result = reducer(mockStateCopy as StateType, {type: HANDLE_FORM_SUBMIT} as AcceptedActions);
-    expect(result.totalSQForBanner).toEqual(708);
-    expect(result.cumulativeLoginsSQ).toEqual(30);
+    expect(result.totalSQForBanner).toEqual(2105);
+    expect(result.cumulativeLoginsSQ).toEqual(180);
   });
 
   it('calculates the right amount when tickets are excluded but login bonuses are not', () => {
-    const mockStateCopy = {...MockStateData, dailyLoginTickets: 12, shopTicketSQ: 15, currentTickets: 10, excludeOptions: new Set([ExcludeOptions.tickets])};
+    const mockStateCopy = {...MockStateData, monthlyShopTickets: 5, currentTickets: 10, excludeOptions: new Set([ExcludeOptions.tickets])};
     const result = reducer(mockStateCopy as StateType, {type: HANDLE_FORM_SUBMIT} as AcceptedActions);
-    expect(result.totalSQForBanner).toEqual(642);
-    expect(result.cumulativeLoginsSQ).toEqual(30);
-  });
-
-  it('calculates the right amount when tickets are excluded', () => {
-    const mockStateCopy = {...MockStateData, dailyLoginsTickets: 12, shopTicketSQ: 15, currentTickets: 10, excludeOptions: new Set([ExcludeOptions.tickets])};
-    const result = reducer(mockStateCopy as StateType, {type: HANDLE_FORM_SUBMIT} as AcceptedActions);
-    expect(result.totalSQForBanner).toEqual(618);
+    expect(result.totalSQForBanner).toEqual(1784);
+    expect(result.cumulativeLoginsSQ).toEqual(180);
   });
 
   it('calculates the right amount when login bonuses are excluded', () => {
-    const mockStateCopy = {...MockStateData, dailyLoginsTickets: 12, excludeOptions: new Set([ExcludeOptions.loginBonuses])};
+    const mockStateCopy = {...MockStateData, excludeOptions: new Set([ExcludeOptions.loginBonuses])};
     const result = reducer(mockStateCopy as StateType, {type: HANDLE_FORM_SUBMIT} as AcceptedActions);
-    expect(result.totalSQForBanner).toEqual(588);
+    expect(result.totalSQForBanner).toEqual(1416);
   });
 
   it('calculates the right amount when master mission bonuses are excluded', () => {
-    const mockStateCopy = {...MockStateData, masterMissions: 500, excludeOptions: new Set([ExcludeOptions.masterMissions])};
+    const mockStateCopy = {...MockStateData, excludeOptions: new Set([ExcludeOptions.masterMissions])};
     const result = reducer(mockStateCopy as StateType, {type: HANDLE_FORM_SUBMIT} as AcceptedActions);
-    expect(result.totalSQForBanner).toEqual(618);
+    expect(result.totalSQForBanner).toEqual(1784);
   });
 });
 
@@ -91,7 +85,7 @@ describe('formatDatePayload', () => {
   it('adds the master mission and total login data if start date is set and an end date exists', () => {
     const mockStateCopy = {...MockStateData, startDate: "", endDate: "2022-11-25"};
     const result = formatDatePayload(mockStateCopy, "2022-08-22", true);
-    expect(result.masterMissions).toEqual(41);
+    expect(result.masterMissions).toEqual(39);
     expect(result.dailyLogins).toEqual(95);
     expect(result.startDate).toEqual("2022-08-22");
   });
@@ -99,7 +93,7 @@ describe('formatDatePayload', () => {
   it('adds the master mission and total login data if end date is set and a start date exists', () => {
     const mockStateCopy = {...MockStateData, endDate: "", startDate: "2022-08-22"};
     const result = formatDatePayload(mockStateCopy, "2022-11-25", false);
-    expect(result.masterMissions).toEqual(41);
+    expect(result.masterMissions).toEqual(39);
     expect(result.dailyLogins).toEqual(95);
     expect(result.endDate).toEqual("2022-11-25");
   });

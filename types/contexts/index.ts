@@ -25,7 +25,6 @@ export interface StateType {
   eventSQ: number;
   formErrors: boolean;
   totalSQForBanner: number;
-  shopTicketSQ: number;
   excludeOptions: Set<any>;
   targetData: TargetDataType[];
 }

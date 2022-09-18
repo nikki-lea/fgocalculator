@@ -6,14 +6,13 @@ const mockStateData = {
   masterMissions: 0,
   cumulativeLoginsCount: 0,
   cumulativeLoginsSQ: 0,
-  dailyLogins: 90,
+  dailyLogins: 331,
   dailyLoginTickets: 0,
   monthlyShopTickets: 0,
   questSQ: 0,
   eventSQ: 0,
   formErrors: false,
   totalSQForBanner: 0,
-  shopTicketSQ: 0,
   excludeOptions: new Set(""),
   targetData: []
 };

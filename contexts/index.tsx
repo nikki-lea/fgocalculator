@@ -8,7 +8,6 @@ import {
 } from "../types/contexts";
 import calcCumulativeLoginSQ from "../utils/calcCumulativeLoginSQ";
 import calcDaysDiffData from "../utils/calcDaysDiffData";
-import calcShopTicketSQ from "../utils/calcShopTicketSQ";
 import calcTotalSQForDate from "../utils/calcTotalSQForDate";
 import { getLocalStorageItem, hasParseableLocalStorageItem, setLocalStorageItem } from "./localStorage";
 
@@ -98,7 +97,6 @@ export const initialState = {
   eventSQ: parseInt(getLocalStorageItem("eventSQ") || "0"),
   formErrors: false,
   totalSQForBanner: parseInt(getLocalStorageItem("totalSQForBanner") || "0"),
-  shopTicketSQ: parseInt(getLocalStorageItem("shopTicketSQ") || "0"),
   excludeOptions: hasParseableLocalStorageItem("excludeOptions") ? new Set(JSON.parse(getLocalStorageItem("excludeOptions"))):  new Set(""),
   targetData: hasParseableLocalStorageItem("targetData") ? JSON.parse(getLocalStorageItem("targetData")): [],
 };
@@ -194,7 +192,7 @@ export const reducer = (
       setLocalStorageItem("cumulativeLoginsCount", action.payload.toString());
       return {
         ...state,
-        cumulativeLoginsCount: action.payload
+        cumulativeLoginsCount: currentCumulativeLoginsValue
       };
     case SET_MONTHLY_SHOP_TICKETS:
       const currentMonthlyShopTicketsValue = action.payload ? action.payload : 0;
