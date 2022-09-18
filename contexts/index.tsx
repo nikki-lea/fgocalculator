@@ -189,7 +189,7 @@ export const reducer = (
 
     case SET_CUMULATIVE_LOGINS_DATA:
       const currentCumulativeLoginsValue = action.payload ? action.payload : 0;
-      setLocalStorageItem("cumulativeLoginsCount", action.payload.toString());
+      setLocalStorageItem("cumulativeLoginsCount", currentCumulativeLoginsValue.toString());
       return {
         ...state,
         cumulativeLoginsCount: currentCumulativeLoginsValue
