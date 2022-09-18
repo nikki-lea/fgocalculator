@@ -89,7 +89,7 @@ const copy = {
   dateinvalid:
     "This servant doesn't have any banners during your savings timeframe.",
   updates:
-    "Updates: Site last updated 09/13/2022 with per target SQ projections. If you encounter any issues you may need to fill out steps 1 and 2 again."
+    "Updates: 9/18/22 mobile layout updates. If you encounter any issues you may need to clear and fill out steps 1 and 2 again."
 };
 
 export default copy;
