@@ -13,7 +13,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             {width && width > 1186 &&
               <Image
                 src="/ereshkigal-background-desktop.jpg"
-                alt="FGO SQ Savings Calculator BG Desktop"
+                alt="FGO SQ Calculator BG Desktop"
                 style={{
                   position: "fixed",
                   height: "auto",
@@ -29,7 +29,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         {width && width <= 1186 &&
               <Image
                 src="/eresh-mobile.png"
-                alt="FGO SQ Savings Calculator BG Mobile"
+                alt="FGO SQ Calculator BG Mobile"
                 style={{
                   height: "100%"
                 }}

@@ -58,7 +58,7 @@ const Probability: NextPage = () => {
         <h2>{copy["sq"]["future"]}</h2>
         <Image
           src="/saintquartz.svg"
-          alt="fgo saint quartz calculator sq image"
+          alt="fgo sq calculator sq image"
           style={{
             flexShrink: 0,
             height: "24px",
@@ -143,7 +143,7 @@ const Probability: NextPage = () => {
             <div className="sq-spent">
               <Image
                 src="/saintquartz.svg"
-                alt="fgo saint quartz calculator sq image"
+                alt="fgo sq calculator sq image"
                 height={24}
                 width={24}
               />

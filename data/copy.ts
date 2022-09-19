@@ -1,5 +1,5 @@
 const copy = {
-  header: "Fate/Grand Savings",
+  header: "FGO SQ Calculator",
   subheader: "Current SQ and Savings Timeframe",
   current: {
     general: "Current Summon Currency",
@@ -83,7 +83,7 @@ const copy = {
   disclaimer:
     "fgosavings.com is in no way affiliated with Lasengle, Aniplex or Type-Moon. ",
   contact: "Contact for feature requests and bug reports.",
-  welcome: "An FGO SQ Savings Calculator with NA 2022 Summon Rates",
+  welcome: "Save SQ Using NA 2022 Summon Rates",
   description:
     "Add your current summon currency, your summon targets, and figure out how much you need to save for multiple summon targets.",
   dateinvalid:
