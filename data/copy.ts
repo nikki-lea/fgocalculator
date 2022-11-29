@@ -28,9 +28,9 @@ const copy = {
     detail: "SQ gained from events"
   },
   login: {
-    both: "Cumulative and daily login sq",
+    both: "Total and daily login sq",
     total: {
-      label: "Cumulative Logins",
+      label: "Total Logins",
       detail: "Indicated under Master Profile"
     },
     daily: {
@@ -46,7 +46,7 @@ const copy = {
     chance: {
       header: "Rate-up Probability",
       subheader:
-        "Adjust the sliders to allocate a budget for each campaign. Calculated probabilities are for at least 1 copy of the rate up target.  NP markers indicate the number of SQ required for a 50% chance of obtaining the NP value. ",
+        "Adjust the sliders to allocate a budget for each campaign. Calculated probabilities are for at least 1 copy of the rate up target with pity at 900 for SSR servants.  NP markers indicate the number of SQ required for a 50% chance of obtaining the NP value. ",
       subheaderDisclaimer:
         "These calculations DO NOT incorporate ten pull guaranteed 4*. Campaigns with multiple rate ups of the same rarity assume that percentages are split equally. For servants, the sliders by default end at the MAXIMUM amount of SQ you could have by the end of the campaign if you have spent none beforehand. To accommodate for purchased SQ, modify your current SQ on step 1. Note that these are only estimates. Master missions and login bonuses are based on weeks elapsed in your timeframe. Event SQ is calculated on a monthly basis, so it assumes that you have access to all event SQ for the month regardless of start/end date of the savings timeframe.",
       probability: "Probability"
@@ -88,8 +88,7 @@ const copy = {
     "Add your current summon currency, your summon targets, and figure out how much you need to save for multiple summon targets.",
   dateinvalid:
     "This servant doesn't have any banners during your savings timeframe.",
-  updates:
-    "Updates: 9/18/22 mobile layout updates. If you encounter any issues you may need to clear and fill out steps 1 and 2 again."
+  updates: "Updates: 11/28/22 addition of pity."
 };
 
 export default copy;
