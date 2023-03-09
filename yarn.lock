@@ -1125,6 +1125,18 @@
   "resolved" "https://registry.npmjs.org/@types/json5/-/json5-0.0.29.tgz"
   "version" "0.0.29"
 
+"@types/lodash.debounce@^4.0.7":
+  "integrity" "sha512-X1T4wMZ+gT000M2/91SYj0d/7JfeNZ9PeeOldSNoE/lunLeQXKvkmIumI29IaKMotU/ln/McOIvgzZcQ/3TrSA=="
+  "resolved" "https://registry.npmjs.org/@types/lodash.debounce/-/lodash.debounce-4.0.7.tgz"
+  "version" "4.0.7"
+  dependencies:
+    "@types/lodash" "*"
+
+"@types/lodash@*":
+  "integrity" "sha512-5iJ3FBJBvQHQ8sFhEhJfjUP+G+LalhavTkYyrAYqz5MEJG+erSv0k9KJLb6q7++17Lafk1scaTIFXcMJlwK8Mw=="
+  "resolved" "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.190.tgz"
+  "version" "4.14.190"
+
 "@types/node@*", "@types/node@18.0.6":
   "integrity" "sha512-/xUq6H2aQm261exT6iZTMifUySEt4GR5KX8eYyY+C4MSNPqSh9oNIP7tz2GLKTlFaiBbgZNxffoR3CVRG+cljw=="
   "resolved" "https://registry.npmjs.org/@types/node/-/node-18.0.6.tgz"
@@ -1703,28 +1715,10 @@
   "resolved" "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz"
   "version" "1.0.2"
 
-"big-factorial@^1.0.6":
-  "integrity" "sha512-kVbGqeq9gFeb4tMrOv7C7jG54HHmAd60h6Eucm4enb54bLwaxExuwFPKPjTx/6CnKDo7b/1gvMqkcYyfBxDOxw=="
-  "resolved" "https://registry.npmjs.org/big-factorial/-/big-factorial-1.0.6.tgz"
-  "version" "1.0.6"
-  dependencies:
-    "big-integer" "~1.6.51"
-    "bilby" "~0.0.2"
-
-"big-integer@~1.6.51":
-  "integrity" "sha512-GPEid2Y9QU1Exl1rpO9B2IPJGHPSupF5GnVIP0blYvNOMer2bTvSWs1jGOUg04hTmu67nmLsQ9TBo1puaotBHg=="
-  "resolved" "https://registry.npmjs.org/big-integer/-/big-integer-1.6.51.tgz"
-  "version" "1.6.51"
-
 "big.js@^6.2.1":
   "integrity" "sha512-bCtHMwL9LeDIozFn+oNhhFoq+yQ3BNdnsLSASUxLciOb1vgvpHsIO1dsENiGMgbb4SkP5TrzWzRiLddn8ahVOQ=="
   "resolved" "https://registry.npmjs.org/big.js/-/big.js-6.2.1.tgz"
   "version" "6.2.1"
-
-"bilby@~0.0.2":
-  "integrity" "sha512-q14+285aA7/eZHZ75Lk5DflbDWGlx/ieG1m4DGmDNzrala47xFEhOCcUK3u3KOke6XinMYGQLl/O2pMv9m46+Q=="
-  "resolved" "https://registry.npmjs.org/bilby/-/bilby-0.0.2.tgz"
-  "version" "0.0.2"
 
 "brace-expansion@^1.1.7":
   "integrity" "sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA=="
@@ -3705,6 +3699,11 @@
   "version" "6.0.0"
   dependencies:
     "p-locate" "^5.0.0"
+
+"lodash.debounce@^4.0.8":
+  "integrity" "sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow=="
+  "resolved" "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz"
+  "version" "4.0.8"
 
 "lodash.isequal@^4.5.0":
   "integrity" "sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ=="
