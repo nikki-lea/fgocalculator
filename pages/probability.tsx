@@ -120,11 +120,11 @@ const Probability: NextPage = () => {
                     onChange={handleNpChange(index, item)}
                     sx={{marginLeft: "20px", height: "20px", fontSize: "12px"}}
                   >
-                    <MenuItem value={1}>NP1</MenuItem>
-                    <MenuItem value={2}>NP2</MenuItem>
-                    <MenuItem value={3}>NP3</MenuItem>
-                    <MenuItem value={4}>NP4</MenuItem>
-                    <MenuItem value={5}>NP5</MenuItem>
+                    <MenuItem sx={{fontSize: "12px", height: "20px"}} value={1}>NP1</MenuItem>
+                    <MenuItem sx={{fontSize: "12px", height: "20px"}} value={2}>NP2</MenuItem>
+                    <MenuItem sx={{fontSize: "12px", height: "20px"}} value={3}>NP3</MenuItem>
+                    <MenuItem sx={{fontSize: "12px", height: "20px"}} value={4}>NP4</MenuItem>
+                    <MenuItem sx={{fontSize: "12px", height: "20px"}} value={5}>NP5</MenuItem>
                   </Select>
                 }
               </div>
