@@ -137,7 +137,7 @@ const Probability: NextPage = () => {
                   defaultValue={startingBudget}
                   onChange={debounce(handleProbabilityChange(index, item), 100)}
                   valueLabelDisplay="on"
-                  max={maxSQForBanner}
+                  max={maxSQForBanner < 3000 ? maxSQForBanner : 2999}
                 />
                 <div className="target-prob-box">
                   {copy["rateup"]["chance"]["probability"]}
