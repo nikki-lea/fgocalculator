@@ -37,7 +37,7 @@ const calcProbability = ({ sq, type, rarity, shared = 1, np = 1 }: TargetDataTyp
     const rarityKey = rarity === 5 ? "SSR" : "SR";
     const npKey = `np${np}`;
     console.log(probabilityMemo[rarityKey as keyof ProbabilityMemoType][npKey as keyof NPType][sq])
-    if (probabilityMemo[rarityKey as keyof ProbabilityMemoType][npKey as keyof NPType][sq]) {
+    if (shared === 1 && probabilityMemo[rarityKey as keyof ProbabilityMemoType][npKey as keyof NPType][sq]) {
       cumulativeProbability =  probabilityMemo[rarityKey as keyof ProbabilityMemoType][npKey as keyof NPType][sq];
     } else {
       for (let i = np; i < rolls; i++) {

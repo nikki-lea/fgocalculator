@@ -46,9 +46,9 @@ const copy = {
     chance: {
       header: "Rate-up Probability",
       subheader:
-        "Adjust the sliders to allocate a budget for each campaign. The maximum allocation supported is 3000 SQ for a given servant due to CPU precompute limitations and bundle size.",
+        "Adjust the sliders to allocate a budget for each campaign. The maximum allocation supported is 4000 SQ for a given servant due to CPU precompute limitations and bundle size. The probability calculated is for getting at LEAST the NP specified. Shared banners aren't precomputed so they may take some time, especially for large SQ.",
       subheaderDisclaimer:
-        "These calculations DO NOT incorporate ten pull guaranteed 4*. Campaigns with multiple rate ups of the same rarity assume that percentages are split equally. For servants, the sliders by default end at the MAXIMUM amount of SQ you could have by the end of the campaign if you have spent none beforehand. To accommodate for purchased SQ, modify your current SQ on step 1. Note that these are only estimates. Master missions and login bonuses are based on weeks elapsed in your timeframe. Event SQ is calculated on a monthly basis, so it assumes that you have access to all event SQ for the month regardless of start/end date of the savings timeframe.",
+        "These calculations DO NOT incorporate ten pull guaranteed 4*. Pity is not included in the NP2+ calculations. Campaigns with multiple rate ups of the same rarity assume that percentages are split equally. For servants, the sliders by default end at the MAXIMUM amount of SQ you could have by the end of the campaign if you have spent none beforehand. To accommodate for purchased SQ, modify your current SQ on step 1. Note that these are only estimates. Master missions and login bonuses are based on weeks elapsed in your timeframe. Event SQ is calculated on a monthly basis, so it assumes that you have access to all event SQ for the month regardless of start/end date of the savings timeframe.",
       probability: "Probability"
     },
     upcoming: "Upcoming summoning campaigns based on FGO JP"
