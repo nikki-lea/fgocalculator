@@ -28,7 +28,7 @@ const Document: React.FC<{ children: React.ReactNode }> = () => {
         <title>FGO SQ Calculator</title>
         <meta
           name="description"
-          content="An SQ calculator that forecasts your estimated savings and calculates probability for multiple targets at any NP level."
+          content="An SQ calculator that forecasts your estimated savings from upcoming events, missions and bonsues, then calculates probability for multiple targets at any NP level."
         />
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href="https://fgosavings.com"/>
