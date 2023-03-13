@@ -25,10 +25,10 @@ const Document: React.FC<{ children: React.ReactNode }> = () => {
           href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap"
           rel="stylesheet"
         />
-        <title>2022 Updated FGO SQ Calculator</title>
+        <title>FGO SQ Calculator</title>
         <meta
           name="description"
-          content="An SQ calculator that uses your current summon currency and summon targets to help you save SQ."
+          content="An SQ calculator that forecasts your estimated savings from upcoming events, missions and bonsues, then calculates probability for multiple targets at any NP level."
         />
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href="https://fgosavings.com"/>
