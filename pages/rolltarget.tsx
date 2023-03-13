@@ -25,9 +25,9 @@ const RollTarget: NextPage = () => {
   const { state, dispatch } = useContext(FgoContext);
   const [error, setError] = useState(false);
   const [currentTargetData, setCurrentTargetData] = useState({
-    type: "",
-    rarity: 0,
-    shared: 0,
+    type: TargetOptions.servant,
+    rarity: 5,
+    shared: 1,
     id: -1
   } as TargetDataType);
   const { targetData } = state;
@@ -75,7 +75,7 @@ const RollTarget: NextPage = () => {
     if (currentTargetData?.type && currentTargetData?.rarity && currentTargetData?.shared) {
       setError(false);
       dispatch({ type: ADD_TARGET_DATA, payload: {...currentTargetData, id: Math.floor(Math.random() * 1000)}});
-      setCurrentTargetData({ type: "", rarity: 0, shared: 0, id: -1 });
+      setCurrentTargetData({ type: TargetOptions.servant, rarity: 5, shared: 1, id: -1 });
     } else {
       setError(true);
     }

@@ -1,13 +1,13 @@
 import { NextPage } from "next";
 import Image from "next/future/image";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import debounce from 'lodash.debounce';
 import { FgoContext, TargetOptions } from "../contexts";
-import { Slider } from "@mui/material";
+import { MenuItem, Select, SelectChangeEvent, Slider } from "@mui/material";
 import { TargetDataType } from "../types/contexts";
 import calcProbability from "../utils/calcProbability";
 import copy from "../data/copy";
 import servantData from "../data/servantData";
-import { fiveStarMarks, fourStarMarks } from "../data/servantnpdata";
 import classNames from 'classnames';
 import Footer from "./components/footer";
 import { useResizeDetector } from 'react-resize-detector';
@@ -33,24 +33,33 @@ const Probability: NextPage = () => {
   targetData.forEach((item) => initialProbability.push(calcProbability({...item, sq: startingBudget})));
   const [targetSQ, setTargetSQ] = useState<number[]>(Array(targetData.length).fill(startingBudget));
   const [probabilities, setProbabilities] = useState<number[]>(initialProbability);
+  const [npSettings, setNpSettings] = useState<number[]>([]);
   const totalSpent = targetSQ.reduce((acc, current) => (acc + current), 0);
-  const { width, ref } = useResizeDetector();
+  const { ref } = useResizeDetector();
 
-  const handleChange = (index: number, targetData: TargetDataType) => (_event: Event, newValue: number | number[]) => {
+  const handleProbabilityChange = (index: number, targetData: TargetDataType, npUpdate: number = 0) => (_event: Event, newValue: number | number[]) => {
     const targetCopy = [...targetSQ];
     const SQUsed = newValue as number;
     targetCopy[index] = SQUsed; // We will always be passing a number to state here
     setTargetSQ(targetCopy);
     const newProbabilities = [...probabilities];
-    newProbabilities[index] = calcProbability({...targetData, sq: SQUsed});
+    let npSetting = npUpdate ? npUpdate : npSettings[index];
+    newProbabilities[index] = calcProbability({...targetData, sq: SQUsed, np: npSetting});
     setProbabilities(newProbabilities);
   };
 
-  const getNpMarks = (rarity: number) => {
-    const marksToUse = rarity === 5 ? fiveStarMarks : fourStarMarks;
-    return width && width < 350 ? marksToUse : marksToUse.map((item) => ({...item, label: `NP ${item.label}`}));
+  const handleNpChange = (index: number, targetData: TargetDataType) => (event: SelectChangeEvent) => {
+    let npSetting = 1;
+    try {
+      npSetting = parseInt(event.target.value)
+    } catch (e) {
+      console.log('Np set to invalid value');
+    }
+    let npSettingsCopy = [...npSettings];
+    npSettingsCopy[index] = npSetting;
+    setNpSettings(npSettingsCopy);
+    handleProbabilityChange(index, targetData, npSetting)(new Event(''), targetSQ[index]);
   }
-
 
   return (
     <div className="probability-container">
@@ -100,7 +109,25 @@ const Probability: NextPage = () => {
             }
             return (
             <div key={item.name} className="target-calc">
+              <div className="target-settings">
               <div className="target-name">{item.name}</div>
+                {item.type === TargetOptions.servant &&
+                  <Select
+                    labelId="np-setting"
+                    id="np-setting"
+                    value={npSettings[index] ? npSettings[index].toString() : '1'}
+                    label="Np Setting"
+                    onChange={handleNpChange(index, item)}
+                    sx={{marginLeft: "20px", height: "20px", fontSize: "12px"}}
+                  >
+                    <MenuItem sx={{fontSize: "12px", height: "20px"}} value={1}>NP1</MenuItem>
+                    <MenuItem sx={{fontSize: "12px", height: "20px"}} value={2}>NP2</MenuItem>
+                    <MenuItem sx={{fontSize: "12px", height: "20px"}} value={3}>NP3</MenuItem>
+                    <MenuItem sx={{fontSize: "12px", height: "20px"}} value={4}>NP4</MenuItem>
+                    <MenuItem sx={{fontSize: "12px", height: "20px"}} value={5}>NP5</MenuItem>
+                  </Select>
+                }
+              </div>
               {item.type === TargetOptions.servant && <div>{`${item.rarity}* ${typeCopy} - Max ${maxSQForBanner} SQ available by ${targetBannerDate}`}</div>}
               {item.type === TargetOptions.ce && <div>{`${item.rarity}* ${typeCopy}`}</div>}
               { item.type === TargetOptions.ce || (item.type === TargetOptions.servant && (endDateAsMoment.add(2, "days")).isAfter(bannerDate)) ?
@@ -108,14 +135,13 @@ const Probability: NextPage = () => {
                 <Slider
                   aria-label="calculatedprobability"
                   defaultValue={startingBudget}
-                  onChange={handleChange(index, item)}
+                  onChange={debounce(handleProbabilityChange(index, item), 100)}
                   valueLabelDisplay="on"
-                  max={maxSQForBanner}
-                  marks={item.type === TargetOptions.servant ? getNpMarks(item.rarity): []}
+                  max={maxSQForBanner < 4000 ? maxSQForBanner : 4000}
                 />
                 <div className="target-prob-box">
                   {copy["rateup"]["chance"]["probability"]}
-                  <div className="target-prob-percent">{`${probabilities[index]}%`}</div>
+                  <div className="target-prob-percent">{`${Math.floor(probabilities[index])}%`}</div>
                 </div>
               </div>
               ) : (<div className="invalid-date">{copy["dateinvalid"]}</div>)}

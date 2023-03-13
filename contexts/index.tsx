@@ -161,6 +161,7 @@ export const reducer = (
       const startDateData = formatDatePayload(state, action.payload, true);
       setLocalStorageItem("startDate", action.payload);
       if (startDateData.masterMissions) {
+        setLocalStorageItem("eventSQ", startDateData.eventSQ.toString());
         setLocalStorageItem("masterMissions", startDateData.masterMissions.toString());
         setLocalStorageItem("dailyLogins", startDateData.dailyLogins.toString());
         setLocalStorageItem("dailyLoginTickets", startDateData.dailyLoginTickets.toString());
@@ -172,6 +173,7 @@ export const reducer = (
       const endDateData = formatDatePayload(state, action.payload, false);
       setLocalStorageItem("endDate", action.payload);
       if (endDateData.masterMissions) {
+        setLocalStorageItem("eventSQ", endDateData.eventSQ.toString());
         setLocalStorageItem("masterMissions", endDateData.masterMissions.toString());
         setLocalStorageItem("dailyLogins", endDateData.dailyLogins.toString());
         setLocalStorageItem("dailyLoginTickets", endDateData.dailyLoginTickets.toString());
@@ -203,6 +205,7 @@ export const reducer = (
       };
     case SET_EVENT_SQ:
       const currentEventSQValue = action.payload ? action.payload : 0;
+      console.log(`Set local Storage item with ${currentEventSQValue.toString()}`)
       setLocalStorageItem("eventSQ", currentEventSQValue.toString());
       return {
         ...state,
