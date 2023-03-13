@@ -83,12 +83,12 @@ const copy = {
   disclaimer:
     "fgosavings.com is in no way affiliated with Lasengle, Aniplex or Type-Moon. ",
   contact: "Contact for feature requests and bug reports.",
-  welcome: "Save SQ Using NA 2022 Summon Rates",
+  welcome: "Save SQ Using NA 2023 Summon Rates",
   description:
-    "Add your current summon currency, your summon targets, and figure out how much you need to save for multiple summon targets.",
+    "Add your current summon currency, your summon targets, and figure out how much you need to save for multiple summon targets at varying NP levels.",
   dateinvalid:
     "This servant doesn't have any banners during your savings timeframe.",
-  updates: "Updates: 3/8/23 Add NP calculation, bug fixes."
+  updates: "Updates: 3/12/23 Probability for NP2+, bug fixes."
 };
 
 export default copy;
