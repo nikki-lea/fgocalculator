@@ -5,7 +5,8 @@ const copy = {
     general: "Current Summon Currency",
     sq: "Current SQ",
     ticket: "Current tickets",
-    error: "Savings start date and campaign end date are required."
+    error:
+      "Savings start date and campaign end date are required, and savings start date must be equal or after today's date."
   },
   alltickets: "Shop and current tickets",
   savings: {
@@ -25,7 +26,7 @@ const copy = {
   quest: "Quests, Maintenance, etc",
   event: {
     label: "Events",
-    detail: "Based on SQ data up until 02/2025"
+    detail: "Based on SQ data up until 08/2025"
   },
   login: {
     both: "Total and daily login sq",
@@ -88,7 +89,7 @@ const copy = {
     "Add your current summon currency, your summon targets, and figure out how much you need to save for multiple summon targets at varying NP levels.",
   dateinvalid:
     "This servant doesn't have any banners during your savings timeframe.",
-  updates: "Updates: 3/12/23 Probability for NP2+, bug fixes."
+  updates: "Updates: 9/6/23 for events and servants. Saving for summer skadi.."
 };
 
 export default copy;

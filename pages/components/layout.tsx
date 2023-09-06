@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/future/image";
+import Image from "next/image";
 import copy from '../../data/copy';
 import { useResizeDetector } from 'react-resize-detector';
 
@@ -14,12 +14,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               <Image
                 src="/ereshkigal-background-desktop.jpg"
                 alt="FGO SQ Calculator BG Desktop"
-                style={{
-                  position: "fixed",
-                  height: "auto",
-                  width: "120vw",
-                  marginTop: "-100px"
-                }}
+                layout="fill"
+                loading="lazy"
               />
             }
           </div>

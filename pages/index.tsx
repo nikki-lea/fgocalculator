@@ -16,6 +16,7 @@ import {
 } from "../contexts";
 import { ExcludeOptions } from "../contexts";
 import copy from '../data/copy';
+import moment from "moment";
 
 const SummonCurrency: NextPage = () => {
   const { state, dispatch } = useContext(FgoContext);
@@ -41,6 +42,12 @@ const SummonCurrency: NextPage = () => {
       setLoginBonusesChecked(true);
     } else if (!excludeOptions?.has(ExcludeOptions.loginBonuses)) {
       setLoginBonusesChecked(false);
+    }
+
+    if (excludeOptions?.has(ExcludeOptions.events)) {
+      setEventChecked(true);
+    } else if (!excludeOptions?.has(ExcludeOptions.events)) {
+      setEventChecked(false);
     }
   },[excludeOptions]);
 
@@ -113,7 +120,16 @@ const SummonCurrency: NextPage = () => {
             fullWidth
             InputLabelProps={{ shrink: true, sx:{"&.MuiInputLabel-shrink": {color: "black"}} }}
             onChange={(e) => {
-              dispatch({ type: SET_START_DATE, payload: e.target.value });
+              const momentStart = moment(e.target?.value, "YYYY-MM-DD");
+              const momentToday = moment();
+              if (!e.target.value) {
+                dispatch({ type: "SET_FORM_ERRORS", payload: true });
+              } else if (momentStart.diff(momentToday, "days") < 0) {
+                dispatch({ type: "SET_FORM_ERRORS", payload: true });
+              } else {
+                dispatch({ type: "SET_FORM_ERRORS", payload: false })
+                dispatch({ type: SET_START_DATE, payload: e.target.value });
+              }
             }}
           />
           <TextField

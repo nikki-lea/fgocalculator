@@ -3,6 +3,7 @@ import { Button } from "@mui/material";
 import { useRouter } from "next/router";
 import { FgoContext } from "../../contexts";
 import copy from '../../data/copy';
+import moment from "moment";
 
 type FooterProps = {
   stepNum: number;
@@ -18,7 +19,7 @@ const Footer: React.FC<FooterProps> = ({
   const { state, dispatch } = useContext(FgoContext);
   const router = useRouter();
 
-  const onFormSubmitHandler = () => {
+  const onFormSubmitHandler = () => {    
     if (linkTo === "/rolltarget") {
       if (!state.startDate || !state.endDate) {
         dispatch({ type: "SET_FORM_ERRORS", payload: true });
