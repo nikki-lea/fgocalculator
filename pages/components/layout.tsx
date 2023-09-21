@@ -26,6 +26,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               <Image
                 src="/eresh-mobile.png"
                 alt="FGO SQ Calculator BG Mobile"
+                width={155}
+                height={60}
                 style={{
                   height: "100%"
                 }}

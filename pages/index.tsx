@@ -124,8 +124,6 @@ const SummonCurrency: NextPage = () => {
               const momentToday = moment();
               if (!e.target.value) {
                 dispatch({ type: "SET_FORM_ERRORS", payload: true });
-              } else if (momentStart.diff(momentToday, "days") < 0) {
-                dispatch({ type: "SET_FORM_ERRORS", payload: true });
               } else {
                 dispatch({ type: "SET_FORM_ERRORS", payload: false })
                 dispatch({ type: SET_START_DATE, payload: e.target.value });

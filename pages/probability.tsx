@@ -67,11 +67,11 @@ const Probability: NextPage = () => {
         <h2>{copy["sq"]["future"]}</h2>
         <Image
           src="/saintquartz.svg"
+          height={24}
+          width={24}
           alt="fgo sq calculator sq image"
           style={{
-            flexShrink: 0,
-            height: "24px",
-            width: "24px"
+            flexShrink: 0
           }}
         />
         <span>{totalSQForBanner.toLocaleString('en-US')}</span>
@@ -185,10 +185,10 @@ const Probability: NextPage = () => {
         <Image
           src="/eresh-cropped.png"
           alt="fgo sq savings calculator small ereshkigal"
+          height={100}
+          width={80}
           style={{
-            flexShrink: 0,
-            height: "100px",
-            width: "80px"
+            flexShrink: 0
           }}
         />
       <div className="credits">

@@ -19,9 +19,11 @@ const Footer: React.FC<FooterProps> = ({
   const { state, dispatch } = useContext(FgoContext);
   const router = useRouter();
 
-  const onFormSubmitHandler = () => {    
+  const onFormSubmitHandler = () => {  
+    const momentStart = moment(state.startDate, "YYYY-MM-DD");
+    const momentToday = moment();  
     if (linkTo === "/rolltarget") {
-      if (!state.startDate || !state.endDate) {
+      if (!state.startDate || !state.endDate || momentStart.diff(momentToday, "days") < 0) {
         dispatch({ type: "SET_FORM_ERRORS", payload: true });
       } else {
         dispatch({ type: "SET_FORM_ERRORS", payload: false });

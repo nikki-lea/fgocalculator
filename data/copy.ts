@@ -89,7 +89,7 @@ const copy = {
     "Add your current summon currency, your summon targets, and figure out how much you need to save for multiple summon targets at varying NP levels.",
   dateinvalid:
     "This servant doesn't have any banners during your savings timeframe.",
-  updates: "Updates: 9/6/23 for events and servants. Saving for summer skadi.."
+  updates: "Updates: 9/6/23 for updated servant/event data including Summer 8"
 };
 
 export default copy;
