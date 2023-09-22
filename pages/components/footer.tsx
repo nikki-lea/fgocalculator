@@ -25,9 +25,25 @@ const Footer: React.FC<FooterProps> = ({
     if (linkTo === "/rolltarget") {
       if (!state.startDate || !state.endDate || momentStart.diff(momentToday, "days") < 0) {
         dispatch({ type: "SET_FORM_ERRORS", payload: true });
+        if (document && document.body && document.documentElement) {
+          document.body.scrollTop = 0; // For Safari
+          document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
       } else {
         dispatch({ type: "SET_FORM_ERRORS", payload: false });
         dispatch({ type: "HANDLE_FORM_SUBMIT" });
+        router.push(linkTo);
+      }
+    } else if (linkTo ==="/probability") {
+      console.log(state.targetData.length)
+      if (state.targetData.length <= 0) {
+        dispatch({ type: "SET_FORM_ERRORS", payload: true });
+        if (document && document.body && document.documentElement) {
+          document.body.scrollTop = 0; // For Safari
+          document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+      } else {
+        dispatch({ type: "SET_FORM_ERRORS", payload: false });
         router.push(linkTo);
       }
     } else {

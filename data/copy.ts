@@ -6,7 +6,9 @@ const copy = {
     sq: "Current SQ",
     ticket: "Current tickets",
     error:
-      "Savings start date and campaign end date are required, and savings start date must be equal or after today's date."
+      "Savings start date and campaign end date are required, and savings start date must be equal or after today's date.",
+    targeterror:
+      "At least one savings target is required to calculate probability."
   },
   alltickets: "Shop and current tickets",
   savings: {
