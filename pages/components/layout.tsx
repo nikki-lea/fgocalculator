@@ -12,7 +12,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           <div className="background-container">
             {width && width > 1186 &&
               <Image
-                src="/ereshkigal-background-desktop.jpg"
+                src="/lb6.jpg"
                 alt="FGO SQ Calculator BG Desktop"
                 layout="fill"
                 loading="lazy"
@@ -24,9 +24,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <div className="header">
         {width && width <= 1186 &&
               <Image
-                src="/eresh-mobile.png"
+                src="/castoria.png"
                 alt="FGO SQ Calculator BG Mobile"
-                width={155}
+                width={180}
                 height={60}
                 style={{
                   height: "100%"

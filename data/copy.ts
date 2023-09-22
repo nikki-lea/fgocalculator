@@ -6,11 +6,13 @@ const copy = {
     sq: "Current SQ",
     ticket: "Current tickets",
     error:
-      "Savings start date and campaign end date are required, and savings start date must be equal or after today's date."
+      "Savings start date and campaign end date are required, and savings start date must be equal or after today's date.",
+    targeterror:
+      "At least one savings target is required to calculate probability."
   },
   alltickets: "Shop and current tickets",
   savings: {
-    begin: "Savings start date",
+    begin: "Savings start date (today's date or after)",
     end: "End of savings timeframe"
   },
   sq: {
@@ -89,7 +91,7 @@ const copy = {
     "Add your current summon currency, your summon targets, and figure out how much you need to save for multiple summon targets at varying NP levels.",
   dateinvalid:
     "This servant doesn't have any banners during your savings timeframe.",
-  updates: "Updates: 9/6/23 for updated servant/event data including Summer 8"
+  updates: "Updates: 9/21/23 layout updates, servants through summer 8"
 };
 
 export default copy;

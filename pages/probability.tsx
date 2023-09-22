@@ -183,10 +183,10 @@ const Probability: NextPage = () => {
       <div className="probabilityDisclaimer">{copy["rateup"]["chance"]["subheaderDisclaimer"]}</div>
       <div className="credits-container">
         <Image
-          src="/eresh-cropped.png"
-          alt="fgo sq savings calculator small ereshkigal"
-          height={100}
-          width={80}
+          src="/habbycat.png"
+          alt="fgo sq savings calculator small habbycat"
+          height={145}
+          width={130}
           style={{
             flexShrink: 0
           }}

@@ -10,6 +10,7 @@ import calcCumulativeLoginSQ from "../utils/calcCumulativeLoginSQ";
 import calcDaysDiffData from "../utils/calcDaysDiffData";
 import calcTotalSQForDate from "../utils/calcTotalSQForDate";
 import { getLocalStorageItem, hasParseableLocalStorageItem, setLocalStorageItem } from "./localStorage";
+import moment from "moment";
 
 type ProviderProps = {
   children: React.ReactNode;
@@ -81,11 +82,17 @@ export const AppActions = {
 
 export type AcceptedActions = ActionsUnion<typeof AppActions>;
 
-
+const getTodaysDate = () => {
+  const today = moment();
+  if (today) {
+    return today.format("YYYY-MM-DD").toString();
+  }
+  return "";
+}
 export const initialState = {
   currentSQ: parseInt(getLocalStorageItem("currentSQ") || "0"),
   currentTickets: parseInt(getLocalStorageItem("currentTickets") || "0"),
-  startDate: getLocalStorageItem("startDate") || "",
+  startDate: getLocalStorageItem("startDate") || getTodaysDate(),
   endDate: getLocalStorageItem("endDate") || "",
   masterMissions: parseInt(getLocalStorageItem("masterMissions") || "0"),
   cumulativeLoginsCount: parseInt(getLocalStorageItem("cumulativeLoginsCount") || "0"),

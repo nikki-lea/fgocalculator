@@ -72,17 +72,17 @@ const RollTarget: NextPage = () => {
   };
 
   const onSubmitHandler = () => {
-    if (currentTargetData?.type && currentTargetData?.rarity && currentTargetData?.shared) {
-      setError(false);
-      dispatch({ type: ADD_TARGET_DATA, payload: {...currentTargetData, id: Math.floor(Math.random() * 1000)}});
-      setCurrentTargetData({ type: TargetOptions.servant, rarity: 5, shared: 1, id: -1 });
-    } else {
-      setError(true);
-    }
+    dispatch({ type: ADD_TARGET_DATA, payload: {...currentTargetData, id: Math.floor(Math.random() * 1000)}});
+    setCurrentTargetData({ type: TargetOptions.servant, rarity: 5, shared: 1, id: -1 });
   };
 
   return (
     <div className="target-container">
+      {state.formErrors && (
+        <Alert sx={{ mb: "10px" }} severity="error">
+          {copy["current"]["targeterror"]}
+        </Alert>
+      )}
       <h2>{copy["target"]["header"]}</h2>
       <div>{copy["target"]["subheader"]}</div>
       {targetData.length > 0 ? (
