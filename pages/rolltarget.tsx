@@ -78,6 +78,7 @@ const RollTarget: NextPage = () => {
       setCurrentTargetData({ type: TargetOptions.servant, rarity: 5, shared: 1, id: -1 });
     } else {
       setError(true);
+      window?.moveTo(0,0);
     }
   };
 

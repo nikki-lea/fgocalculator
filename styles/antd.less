@@ -47,12 +47,11 @@ body {
 }
 
 .main-content {
-  width: 700px;
+  width: 1000px;
   background-color: @box-color;
-  position: absolute;
-  top: 0;
-  margin-top: 80px;
-  margin-left: 10%;
+  position: relative;
+  top: 85px;
+  margin: 0 auto;
   border: 1px solid black;
   border-radius: 5px;
   @media screen and (max-width: @screen-lg) {
@@ -60,6 +59,7 @@ body {
     margin-top: 0;
     margin-left: 0;
     border: unset;
+    top: unset;
     width: 100%;
     border-radius: 0px;
   }
@@ -165,7 +165,6 @@ body {
 }
 
 .target-selections {
-  width: 80%;
   margin: 0 auto;
   flex-wrap: wrap;
   row-gap: 20px;
@@ -177,6 +176,9 @@ body {
   border: 1px solid grey;
   border-radius: 5px;
   margin-bottom: 20px;
+  .MuiAutocomplete-root {
+    width: 300px;
+  }
   @media screen and (max-width: @screen-lg) {
     width: 100%;
     padding: 15px;
@@ -194,7 +196,10 @@ body {
 }
 
 .target-shared {
-  width: 75%;
+  width: 60%;
+  @media screen and (max-width: @screen-lg) {
+    width: 100%;
+  }
 }
 
 .target-settings {
@@ -327,10 +332,10 @@ a {
 
 @media screen and (min-width: @screen-lg) {
   .background-container {
-    width: 120vw;
-    height: 85vw;
+    width: 100vw;
+    height: 75vw;
     position: fixed;
-    margin-top: -100px;
+    margin-top: -130px;
   }
 }
 

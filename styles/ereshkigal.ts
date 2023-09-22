@@ -3,16 +3,16 @@ import { createTheme } from "@mui/material";
 const Ereshkigal = createTheme({
   palette: {
     success: {
-      main: "#B72524"
+      main: "#CB2448"
     },
     secondary: {
       main: "#CCCCCC"
     },
     primary: {
-      main: "#DDA55B"
+      main: "#DDB466"
     },
     info: {
-      main: "#761B24"
+      main: "#7F0219"
     },
     warning: {
       main: "#000000"
