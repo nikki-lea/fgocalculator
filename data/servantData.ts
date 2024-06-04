@@ -276,7 +276,7 @@ const servantData = {
 "Mysterious Heroine X": [["7th Anniversary Banner 2","2024/08/11"],["Evocation Festival Part 2","2025/05/21"]],
 "Emiya (Assassin)": [["Evocation Festival Part 4","2025/09/24"]],
 "Shuten-Douji": [["Evocation Festival Part 1 Banner 1","2025/04/13"]],
-"Fuuma “Evil-wind” Kotarou": [["Fuun Karakuri Illya's Castle Banner 1","2025/06/07"],["Fuun Karakuri Illya's Castle Banner 2","2025/06/02"]],
+"Fuuma Kotarou": [["Fuun Karakuri Illya's Castle Banner 1","2025/06/07"],["Fuun Karakuri Illya's Castle Banner 2","2025/06/02"]],
 "Cleopatra": [["Wandjina World Tour! Banner 2","2025/10/03"]],
 "“First Hassan”": [["FGO Arcade Collaboration Pre-Release Campaign","2025/05/10"]],
 "Yan Qing": [["Summer 2024 Banner 2","2024/08/31"],["Halloween Rebellion of 108 People Banner 2","2024/10/20"]],
