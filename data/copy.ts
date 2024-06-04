@@ -28,7 +28,7 @@ const copy = {
   quest: "Quests, Maintenance, etc",
   event: {
     label: "Events",
-    detail: "Based on SQ data up until 05/2025"
+    detail: "Estimates SQ until 05/2026"
   },
   login: {
     both: "Total and daily login sq",
@@ -86,7 +86,7 @@ const copy = {
   disclaimer:
     "fgosavings.com is in no way affiliated with Lasengle, Aniplex or Type-Moon. ",
   contact: "Contact for feature requests and bug reports.",
-  welcome: "Save SQ Using NA 2023 Summon Rates",
+  welcome: "Calculate your chances of getting upcoming targets!",
   description:
     "Add your current summon currency, your summon targets, and figure out how much you need to save for multiple summon targets at varying NP levels.",
   dateinvalid:

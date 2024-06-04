@@ -12,7 +12,7 @@ def sqHelper(row):
   if(row[1] or row[2]):
     # if event has both tickets and sq
     if (row[1] and row[2]):
-      return 3*int(row[2])
+      return int(row[1])+3*int(row[2])
       totalsq = totalsq + sq
     # if event only has sq
     elif (row[1]):
