@@ -6,7 +6,7 @@ const Document: React.FC<{ children: React.ReactNode }> = () => {
   return (
     <Html lang="en">
       <Head>
-      <Script
+        <Script
           strategy="lazyOnload"
           src={`https://www.googletagmanager.com/gtag/js?id=G-TB3CH6FH5G`}
         />
@@ -31,7 +31,7 @@ const Document: React.FC<{ children: React.ReactNode }> = () => {
           content="An SQ calculator that forecasts your estimated savings from upcoming events, missions and bonsues, then calculates probability for multiple targets at any NP level."
         />
         <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href="https://fgosavings.com"/>
+        <link rel="canonical" href="https://fgosavings.com" />
       </Head>
       <body>
         <Main />
