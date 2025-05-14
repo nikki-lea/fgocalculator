@@ -12,10 +12,15 @@ import {
   TextField,
   IconButton
 } from "@mui/material";
-import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
+import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import type { NextPage } from "next";
 import { useContext, useState } from "react";
-import { ADD_TARGET_DATA, REMOVE_TARGET_DATA, FgoContext, TargetOptions } from "../contexts";
+import {
+  ADD_TARGET_DATA,
+  REMOVE_TARGET_DATA,
+  FgoContext,
+  TargetOptions
+} from "../contexts";
 import { TargetDataType } from "../types/contexts";
 import Footer from "./components/footer";
 import servantData from "../data/servantData";
@@ -44,7 +49,7 @@ const RollTarget: NextPage = () => {
   const autoCompleteOptions = Object.keys(servantData);
 
   const renderListItem = (targetData: TargetDataType) => {
-    const {name, type, shared, rarity, id} = targetData;
+    const { name, type, shared, rarity, id } = targetData;
     const typeCopy =
       type === TargetOptions.ce ? copy["craftessence"] : copy["servant"];
     const sharedCopy =
@@ -55,10 +60,17 @@ const RollTarget: NextPage = () => {
       <>
         <ListItem
           secondaryAction={
-            <IconButton edge="end" aria-label="remove" onClick={(_e) => {dispatch({ type: REMOVE_TARGET_DATA, payload: id });}}>
+            <IconButton
+              edge="end"
+              aria-label="remove"
+              onClick={(_e) => {
+                dispatch({ type: REMOVE_TARGET_DATA, payload: id });
+              }}
+            >
               <RemoveCircleOutlineIcon />
             </IconButton>
-          }>
+          }
+        >
           <ListItemAvatar>
             <Avatar src="/saintquartz.svg" />
           </ListItemAvatar>
@@ -72,8 +84,16 @@ const RollTarget: NextPage = () => {
   };
 
   const onSubmitHandler = () => {
-    dispatch({ type: ADD_TARGET_DATA, payload: {...currentTargetData, id: Math.floor(Math.random() * 1000)}});
-    setCurrentTargetData({ type: TargetOptions.servant, rarity: 5, shared: 1, id: -1 });
+    dispatch({
+      type: ADD_TARGET_DATA,
+      payload: { ...currentTargetData, id: Math.floor(Math.random() * 1000) }
+    });
+    setCurrentTargetData({
+      type: TargetOptions.servant,
+      rarity: 5,
+      shared: 1,
+      id: -1
+    });
   };
 
   return (
@@ -97,9 +117,7 @@ const RollTarget: NextPage = () => {
               bgcolor: "background.paper"
             }}
           >
-            {targetData.map((item) =>
-              renderListItem(item)
-            )}
+            {targetData.map((item) => renderListItem(item))}
           </List>
         </div>
       ) : (
@@ -158,19 +176,25 @@ const RollTarget: NextPage = () => {
             <ToggleButton value={1}>1</ToggleButton>
           </ToggleButtonGroup>
         </div>
-        {
-          currentTargetData.type === TargetOptions.servant &&
+        {currentTargetData.type === TargetOptions.servant && (
           <div className="target-name">
-                <Autocomplete
-                  disablePortal
-                  onChange={(event: any, newValue: string | null) => setCurrentTargetData({ ...currentTargetData, name: newValue || ""})}
-                  id="combo-box-demo"
-                  options={autoCompleteOptions}
-                  sx={{ width: 200 }}
-                  renderInput={(params) => <TextField {...params} label={copy["servantname"]} />}
-                />
+            <Autocomplete
+              disablePortal
+              onChange={(event: any, newValue: string | null) =>
+                setCurrentTargetData({
+                  ...currentTargetData,
+                  name: newValue || ""
+                })
+              }
+              id="combo-box-demo"
+              options={autoCompleteOptions}
+              sx={{ width: 200 }}
+              renderInput={(params) => (
+                <TextField {...params} label={copy["servantname"]} />
+              )}
+            />
           </div>
-        }
+        )}
         <div className="add-button">
           <Button
             variant="contained"

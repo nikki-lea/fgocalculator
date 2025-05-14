@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Button } from "@mui/material";
 import { useRouter } from "next/router";
 import { FgoContext } from "../../contexts";
-import copy from '../../data/copy';
+import copy from "../../data/copy";
 import moment from "moment";
 
 type FooterProps = {
@@ -19,11 +19,15 @@ const Footer: React.FC<FooterProps> = ({
   const { state, dispatch } = useContext(FgoContext);
   const router = useRouter();
 
-  const onFormSubmitHandler = () => {  
+  const onFormSubmitHandler = () => {
     const momentStart = moment(state.startDate, "YYYY-MM-DD");
-    const momentToday = moment();  
+    const momentToday = moment();
     if (linkTo === "/rolltarget") {
-      if (!state.startDate || !state.endDate || momentStart.diff(momentToday, "days") < 0) {
+      if (
+        !state.startDate ||
+        !state.endDate ||
+        momentStart.diff(momentToday, "days") < 0
+      ) {
         dispatch({ type: "SET_FORM_ERRORS", payload: true });
         if (document && document.body && document.documentElement) {
           document.body.scrollTop = 0; // For Safari
@@ -34,8 +38,8 @@ const Footer: React.FC<FooterProps> = ({
         dispatch({ type: "HANDLE_FORM_SUBMIT" });
         router.push(linkTo);
       }
-    } else if (linkTo ==="/probability") {
-      console.log(state.targetData.length)
+    } else if (linkTo === "/probability") {
+      console.log(state.targetData.length);
       if (state.targetData.length <= 0) {
         dispatch({ type: "SET_FORM_ERRORS", payload: true });
         if (document && document.body && document.documentElement) {
@@ -54,7 +58,11 @@ const Footer: React.FC<FooterProps> = ({
   return (
     <div className="footer">
       {stepNum > 1 && (
-        <Button variant="contained" color="secondary" onClick={() => router.push(linkBack)}>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={() => router.push(linkBack)}
+        >
           {copy["back"]}
         </Button>
       )}
@@ -65,7 +73,7 @@ const Footer: React.FC<FooterProps> = ({
             color="success"
             onClick={onFormSubmitHandler}
           >
-           {copy["next"]}
+            {copy["next"]}
           </Button>
           <div>{`Step ${stepNum} of 2`}</div>
         </div>

@@ -91,7 +91,8 @@ const copy = {
     "Add your current summon currency, your summon targets, and figure out how much you need to save for multiple summon targets at varying NP levels.",
   dateinvalid:
     "This servant doesn't have any banners during your savings timeframe.",
-  updates: "Updates: Uses JP data through 05/31/2024, which includes the Mahoyo collab."
+  updates:
+    "Updates: Uses JP data through 05/31/2024, which includes the Mahoyo collab."
 };
 
 export default copy;
