@@ -24,7 +24,7 @@ const EventSQData = {
   "2024-09": 47,
   "2024-10": 41,
   "2024-11": 46,
-  "2024-12": 106,  
+  "2024-12": 106
 } as TimeRangeType;
 
 export default EventSQData;
