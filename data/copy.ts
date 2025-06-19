@@ -28,7 +28,7 @@ const copy = {
   quest: "Quests, Maintenance, etc",
   event: {
     label: "Events",
-    detail: "Estimates SQ until 05/2026"
+    detail: "Estimates SQ until 04/2027"
   },
   login: {
     both: "Total and daily login sq",
