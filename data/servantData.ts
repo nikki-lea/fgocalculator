@@ -1,377 +1,451 @@
 const servantData = {
   "Altria Pendragon": [
-    ["MBTL Ushiwakamaru & Dantes Game Entry Campaign", "2024/12/17"],
     ["Valentines 2025", "2025/03/10"],
     ["Spring 2023 New Master Aid Campaign", "2025/04/07"],
     ["Evocation Festival Part 4", "2025/09/24"],
     ["Fate/stay night 20th Anniversary Celebration Campaign", "2026/02/06"],
-    ["Valentine 2026", "2026/03/16"]
+    ["Valentine 2026", "2026/03/16"],
+    ["Saber Weekly Summoning Campaign 1", "2027/01/13"]
   ],
-  "Altria Pendragon (Alter)": [["New Years 2026", "2026/01/10"]],
+  "Altria Pendragon (Alter)": [
+    ["New Years 2026", "2026/01/10"],
+    ["Saber Weekly Summoning Campaign 1", "2027/01/13"]
+  ],
   "Nero Claudius": [
-    ["Fate/EXTRA Last Encore BD & OST Release Campaign", "2024/12/21"],
-    ["Lilim Harlot Banner 4", "2025/05/12"]
+    ["Lilim Harlot Banner 4", "2025/05/12"],
+    ["Lilim Harlot Survey-Rerun Banner 4", "2026/06/28"],
+    ["Saber Weekly Summoning Campaign 1", "2027/01/13"]
   ],
   Siegfried: [
-    ["Chaldea Faerie Knight Cup Banner 3", "2024/11/21"],
-    ["Evocation Festival Part 4", "2025/09/24"]
+    ["Evocation Festival Part 4", "2025/09/24"],
+    ["Saber Weekly Summoning Campaign 1", "2027/01/13"]
+  ],
+  "Gaius Julius Caesar": [
+    ["Mystery House Crafters Banner 2", "2026/11/25"],
+    ["Saber Weekly Summoning Campaign 1", "2027/01/13"],
+    ["Saber Weekly Summoning Campaign 2", "2027/01/20"]
   ],
   Altera: [
-    ["Singularity Repair Summoning Campaign (2nd Singularity)", "2024/11/04"],
     ["Valentines 2025", "2025/03/10"],
-    ["Valentine 2026", "2026/03/16"]
+    ["Valentine 2026", "2026/03/16"],
+    ["Saber Weekly Summoning Campaign 1", "2027/01/13"]
   ],
   "Gilles de Rais (Saber)": [
-    ["Singularity Repair Summoning Campaign (1st Singularity)", "2024/10/31"],
-    ["Paper Moon Banner 2", "2025/07/05"]
+    ["Paper Moon Banner 2", "2025/07/05"],
+    ["Saber Weekly Summoning Campaign 1", "2027/01/13"],
+    ["Saber Weekly Summoning Campaign 2", "2027/01/20"],
+    ["Ordeal Call I Clear Support Campaign", "2027/01/20"]
+  ],
+  "Chevalier d'Eon": [
+    ["Christmas 2026 Banner 4", "2026/12/24"],
+    ["Saber Weekly Summoning Campaign 1", "2027/01/13"]
   ],
   "Okita Souji": [
-    ["KYOMAF 2022 Exhibit Commemoration Campaign", "2024/09/25"],
     ["Evocation Festival Part 2", "2025/05/21"],
-    ["GUDAGUDA Super Goryokaku Banner 2", "2025/12/10"]
+    ["GUDAGUDA Super Goryokaku Banner 2", "2025/12/10"],
+    ["Saber Weekly Summoning Campaign 1", "2027/01/13"]
+  ],
+  "Fergus mac Róich": [
+    ["Saber Weekly Summoning Campaign 1", "2027/01/13"],
+    ["Saber Weekly Summoning Campaign 2", "2027/01/20"]
   ],
   Mordred: [
-    ["Singularity Repair Summoning Campaign (4th Singularity)", "2024/11/10"],
     ["Valentines 2025", "2025/03/10"],
     ["Lilim Harlot Banner 4", "2025/05/12"],
-    ["Valentine 2026", "2026/03/16"]
+    ["Valentine 2026", "2026/03/16"],
+    ["Lilim Harlot Survey-Rerun Banner 4", "2026/06/28"],
+    ["Saber Weekly Summoning Campaign 1", "2027/01/13"]
   ],
   "Nero Claudius (Bride)": [
-    ["Fate/EXTRA Last Encore BD & OST Release Campaign", "2024/12/21"],
     ["Valentines 2018-2024 Banner Rerun", "2025/02/28"],
     ["Nero Fest & Battle in NY 2022 Summoning Campaign", "2025/06/07"],
-    ["Valentine 2026 Pre-Release", "2026/02/14"]
+    ["Valentine 2026 Pre-Release", "2026/02/14"],
+    ["30M Downloads Banner 2", "2026/11/01"],
+    ["Saber Weekly Summoning Campaign 1", "2027/01/13"]
   ],
   "Ryougi Shiki (Saber)": [
-    ["7th Anniversary Banner 2", "2024/08/11"],
     ["Evocation Festival Part 5", "2025/10/20"],
-    ["Witch on the Holy Night/After Night Banner 4", "2026/05/05"]
+    ["Witch on the Holy Night/After Night Banner 4", "2026/05/05"],
+    ["Saber Weekly Summoning Campaign 1", "2027/01/13"]
   ],
-  Rama: [["Road to 7: Lostbelt No. 4 Campaign", "2024/09/14"]],
-  "Lancelot (Saber)": [["Summer 2025 Banner 2", "2025/09/01"]],
+  Rama: [["Saber Weekly Summoning Campaign 1", "2027/01/13"]],
+  "Lancelot (Saber)": [
+    ["Summer 2025 Banner 2", "2025/09/01"],
+    ["Christmas 2026 Banner 4", "2026/12/24"],
+    ["Saber Weekly Summoning Campaign 1", "2027/01/13"]
+  ],
   Gawain: [
-    ["Singularity Repair Summoning Campaign (6th Singularity)", "2024/11/18"],
-    ["Summer 2025 Banner 2", "2025/09/01"]
+    ["Summer 2025 Banner 2", "2025/09/01"],
+    ["Saber Weekly Summoning Campaign 1", "2027/01/13"]
   ],
   Bedivere: [
-    ["Singularity Repair Summoning Campaign (6th Singularity)", "2024/11/18"]
+    ["Saber Weekly Summoning Campaign 1", "2027/01/13"],
+    ["Saber Weekly Summoning Campaign 2", "2027/01/20"]
   ],
   "Miyamoto Musashi": [
-    ["Singularity Repair Summoning Campaign (Pseudo-Singularity)", "2024/11/29"]
+    ["30M Downloads Banner 2", "2026/11/01"],
+    ["Saber Weekly Summoning Campaign 1", "2027/01/13"]
   ],
   "Arthur Pendragon (Prototype)": [
     ["White Day Memorial", "2025/03/31"],
-    ["White Day Memorial 2026", "2026/04/03"]
+    ["White Day Memorial 2026", "2026/04/03"],
+    ["30M Downloads Banner 2", "2026/11/01"],
+    ["Saber Weekly Summoning Campaign 1", "2027/01/13"]
   ],
+  "Suzuka Gozen": [["Saber Weekly Summoning Campaign 1", "2027/01/13"]],
   "Frankenstein (Saber)": [
-    ["Main Interlude: Imaginary Scramble Release Campaign", "2024/11/04"],
     ["8th Anniversary Banner 2", "2025/08/10"],
-    ["Evocation Festival Part 8", "2026/04/16"]
+    ["Evocation Festival Part 8", "2026/04/16"],
+    ["Saber Weekly Summoning Campaign 1", "2027/01/13"]
   ],
   "Yagyu Tajima-no-Kami Munenori": [
-    ["Halloween Rebellion of 108 People Banner 2", "2024/10/20"],
-    [
-      "Singularity Repair Summoning Campaign (Pseudo-Singularity)",
-      "2024/11/29"
-    ],
-    ["Wandjina World Tour! Banner 1", "2025/10/11"]
+    ["Wandjina World Tour! Banner 1", "2025/10/11"],
+    ["Faerie Sugoroku Banner 1", "2026/11/06"],
+    ["Saber Weekly Summoning Campaign 1", "2027/01/13"]
   ],
   Sigurd: [
-    ["Chaldea Faerie Knight Cup Banner 3", "2024/11/21"],
-    ["Ordeal Call New Mission Release Campaign Part 3", "2025/10/13"]
+    ["Ordeal Call New Mission Release Campaign Part 3", "2025/10/13"],
+    ["Saber Weekly Summoning Campaign 1", "2027/01/13"]
   ],
   "Queen Medb (Saber)": [
-    ["7th Anniversary Countdown Campaign", "2024/07/31"],
-    ["Evocation Festival Part 3", "2025/07/12"]
+    ["Evocation Festival Part 3", "2025/07/12"],
+    ["Celeb Summer Experience! Banner 3", "2026/08/30"],
+    ["Saber Weekly Summoning Campaign 1", "2027/01/13"]
+  ],
+  "Diarmuid Ua Duibhne (Saber)": [
+    ["Saber Weekly Summoning Campaign 1", "2027/01/13"]
   ],
   "Prince of Lan Ling": [
-    ["Road to 7: Lostbelt No. 3 Campaign (EN)", "2024/06/03"],
     ["Paper Moon Banner 2", "2025/07/05"],
-    ["Evocation Festival Part 8", "2026/04/16"]
+    ["Evocation Festival Part 8", "2026/04/16"],
+    ["Ordeal Call I Clear Support Campaign", "2027/01/20"],
+    ["Saber Weekly Summoning Campaign 2", "2027/01/20"]
   ],
   "Beni-Enma": [
-    ["New Years 2025", "2025/01/11"],
-    ["KYOMAF2023 Exhibit Summoning Campaign", "2025/09/28"]
+    ["KYOMAF2023 Exhibit Summoning Campaign", "2025/09/28"],
+    ["Lostbelt No.7 Clear Support Campaign", "2026/12/16"],
+    ["Saber Weekly Summoning Campaign 1", "2027/01/13"]
   ],
   "Lakshmi Bai": [
-    ["Road to 7: Lostbelt No. 4 Campaign", "2024/09/14"],
-    ["Ordeal Call New Mission Release Campaign Part 4", "2025/11/23"]
+    ["Ordeal Call New Mission Release Campaign Part 4", "2025/11/23"],
+    ["Lostbelt No.4 Clear Support Campaign", "2026/09/10"],
+    ["Saber Weekly Summoning Campaign 2", "2027/01/20"]
   ],
   "Astolfo (Saber)": [
-    ["New Years 2025", "2025/01/11"],
-    ["Chaldea Boys Collection 2026 Banner 3", "2026/03/27"]
+    ["Chaldea Boys Collection 2026 Banner 3", "2026/03/27"],
+    ["Archetype Inception Banner 2", "2026/09/24"],
+    ["Saber Weekly Summoning Campaign 2", "2027/01/20"]
   ],
   Dioscuri: [
-    ["Road to 7: Lostbelt No. 5 -Olympus Campaign", "2024/10/14"],
     ["Valentines 2025", "2025/03/10"],
     ["Chaldea Boys Collection 2025 Banner 2", "2025/04/07"],
     ["Valentine 2026", "2026/03/16"],
-    ["Chaldea Boys Collection 2026 Banner 2", "2026/03/20"]
+    ["Chaldea Boys Collection 2026 Banner 2", "2026/03/20"],
+    ["Lostbelt No.5 Clear Support Campaign", "2026/10/16"],
+    ["Saber Weekly Summoning Campaign 2", "2027/01/20"]
   ],
   "Tomoe Gozen (Saber)": [
-    ["7th Anniversary Countdown Campaign", "2024/07/31"],
-    ["Hunting Quest: Part 13 Summoning Campaign", "2025/09/16"]
+    ["Hunting Quest: Part 13 Summoning Campaign", "2025/09/16"],
+    ["Celeb Summer Experience! Banner 3", "2026/08/30"],
+    ["Saber Weekly Summoning Campaign 2", "2027/01/20"]
   ],
   "Saito Hajime": [
-    ["KYOMAF 2022 Exhibit Commemoration Campaign", "2024/09/25"],
     ["8th Anniversary Banner 2", "2025/08/10"],
-    ["GUDAGUDA Super Goryokaku Banner 2", "2025/12/10"]
+    ["GUDAGUDA Super Goryokaku Banner 2", "2025/12/10"],
+    ["KYOMAF2024 Exhibit Summoning Campaign", "2026/09/26"],
+    ["New Years 2027", "2027/01/15"],
+    ["Saber Weekly Summoning Campaign 2", "2027/01/20"]
   ],
-  "Watanabe-no-Tsuna": [["Evocation Festival Part 1 Banner 1", "2025/04/13"]],
+  "Watanabe-no-Tsuna": [
+    ["Evocation Festival Part 1 Banner 1", "2025/04/13"],
+    ["Saber Weekly Summoning Campaign 2", "2027/01/20"]
+  ],
   "Ibuki-Douji": [
-    ["26M Downloads Banner 2", "2024/09/12"],
     ["Evocation Festival Part 1 Banner 2", "2025/04/21"],
-    ["KYOMAF2023 Exhibit Summoning Campaign", "2025/09/28"]
+    ["KYOMAF2023 Exhibit Summoning Campaign", "2025/09/28"],
+    ["30M Downloads Banner 2", "2026/11/01"],
+    ["Saber Weekly Summoning Campaign 2", "2027/01/20"]
   ],
   "Senji Muramasa": [
-    ["Road to 7: Lostbelt No. 6 Campaign", "2024/12/23"],
     ["Ordeal Call New Mission Release Campaign Part 2", "2025/09/19"],
-    ["Witch on the Holy Night/After Night Banner 4", "2026/05/05"]
+    ["Witch on the Holy Night/After Night Banner 4", "2026/05/05"],
+    ["Saber Weekly Summoning Campaign 2", "2027/01/20"]
   ],
   Barghest: [
-    ["Chaldea Faerie Knight Cup Banner 1", "2024/11/23"],
-    ["29M Downloads", "2025/12/01"]
+    ["29M Downloads Banner", "2025/12/01"],
+    ["Lostbelt No.6 Clear Support Campaign", "2026/11/12"],
+    ["Saber Weekly Summoning Campaign 2", "2027/01/20"]
   ],
   "Okita Souji (Saber Alter)": [
-    ["Summer 2023 Banner Rerun", "2024/08/31"],
     ["Hunting Quest: Part 13 Summoning Campaign", "2025/09/16"],
-    ["Chaldea Summer Adventure Survey-Rerun Banner 1", "2026/06/07"]
+    ["Chaldea Summer Adventure Survey-Rerun Banner 1", "2026/06/07"],
+    ["Saber Weekly Summoning Campaign 2", "2027/01/20"]
   ],
-  "Hai Bà Trưng": [["8th Anniversary Banner 2", "2025/08/10"]],
+  "Hai Bà Trưng": [
+    ["8th Anniversary Banner 2", "2025/08/10"],
+    ["Interlude Campaign Part 21 Banner 1", "2026/12/05"],
+    ["Saber Weekly Summoning Campaign 2", "2027/01/20"]
+  ],
   Charlemagne: [
-    ["Chaldea Faerie Knight Cup Banner 2", "2024/11/16"],
-    ["Chaldea Boys Collection 2026 Banner 1", "2026/03/27"]
+    ["Chaldea Boys Collection 2026 Banner 1", "2026/03/27"],
+    ["Saber Weekly Summoning Campaign 2", "2027/01/20"]
   ],
   Roland: [
-    ["Chaldea Faerie Knight Cup Banner 2", "2024/11/16"],
-    ["Chaldea Boys Collection 2026 Banner 3", "2026/03/27"]
+    ["Chaldea Boys Collection 2026 Banner 3", "2026/03/27"],
+    ["Archetype Inception Banner 3", "2026/09/29"],
+    ["Saber Weekly Summoning Campaign 2", "2027/01/20"]
   ],
   "Gareth (Saber)": [
-    ["Summer 2024 Banner 1", "2024/08/31"],
-    ["Swimsuit 2024 Rerun Summoning Campaign", "2025/09/04"]
+    ["Swimsuit 2024 Rerun Summoning Campaign", "2025/09/04"],
+    ["9th Anniversary Banner 2", "2026/08/15"],
+    ["Saber Weekly Summoning Campaign 2", "2027/01/20"]
   ],
   "Yamanami Keisuke": [
-    ["GUDAGUDA Shin Yamatai-koku 2024", "2024/10/05"],
-    ["New Years 2026", "2026/01/10"]
+    ["New Years 2026", "2026/01/10"],
+    ["Saber Weekly Summoning Campaign 2", "2027/01/20"]
   ],
   "Medusa (Saber)": [
     ["Mystic Eyes Symphony Banner 1", "2025/07/26"],
-    ["Valentine 2026", "2026/03/16"]
+    ["Valentine 2026", "2026/03/16"],
+    ["Saber Weekly Summoning Campaign 2", "2027/01/20"],
+    ["My Little Dragon Banner 2", "2027/02/05"]
   ],
   Theseus: [
     ["White Castle by Day, Black Castle by Night Banner 2", "2025/11/11"],
-    ["White Castle by Day, Black Castle by Night Banner 3", "2025/11/15"]
+    ["White Castle by Day, Black Castle by Night Banner 3", "2025/11/15"],
+    ["Saber Weekly Summoning Campaign 1", "2027/01/13"],
+    ["Saber Weekly Summoning Campaign 2", "2027/01/20"]
   ],
-  "Yamato Takeru": [["New Years 2026", "2026/01/10"]],
+  "Yamato Takeru": [
+    ["New Years 2026", "2026/01/10"],
+    ["Saber Weekly Summoning Campaign 2", "2027/01/20"]
+  ],
+  "Richard I": [["New Years 2027", "2027/01/15"]],
+  Kurohime: [["My Little Dragon Banner 1", "2027/02/05"]],
   Emiya: [
     ["Spring 2023 New Master Aid Campaign", "2025/04/07"],
-    ["Fate/stay night 20th Anniversary Celebration Campaign", "2026/02/06"]
+    ["Fate/stay night 20th Anniversary Celebration Campaign", "2026/02/06"],
+    ["Faerie Sugoroku Banner 1", "2026/11/06"],
+    ["Archer Weekly Summoning Campaign 1", "2027/02/03"]
   ],
   Gilgamesh: [
-    ["New Years 2025", "2025/01/11"],
     ["Spring 2023 New Master Aid Campaign", "2025/04/07"],
-    ["Fate/strange Fake TV Special Anime Campaign", "2025/07/12"]
+    ["Fate/strange Fake TV Special Anime Campaign", "2025/07/12"],
+    ["30M Downloads Banner 2", "2026/11/01"],
+    ["Archer Weekly Summoning Campaign 1", "2027/02/03"]
   ],
-  "Robin Hood": [
-    ["Singularity Repair Summoning Campaign (5th Singularity)", "2024/11/16"]
+  "Robin Hood": [["Archer Weekly Summoning Campaign 1", "2027/02/03"]],
+  Atalante: [["Archer Weekly Summoning Campaign 1", "2027/02/03"]],
+  Euryale: [
+    ["Mystic Eyes Symphony Banner 4", "2025/07/23"],
+    ["Archer Weekly Summoning Campaign 1", "2027/02/03"]
   ],
-  Euryale: [["Mystic Eyes Symphony Banner 4", "2025/07/23"]],
   Orion: [
     ["Valentines 2025", "2025/03/10"],
-    ["Valentine 2026", "2026/03/16"]
+    ["Valentine 2026", "2026/03/16"],
+    ["Archer Weekly Summoning Campaign 1", "2027/02/03"]
   ],
-  David: [
-    ["Singularity Repair Summoning Campaign (3rd Singularity)", "2024/11/06"]
-  ],
+  David: [["Archer Weekly Summoning Campaign 1", "2027/02/03"]],
   "Nikola Tesla": [
     ["Chaldea Boys Collection 2025 Banner 2", "2025/04/07"],
     ["Nero Fest & Battle in NY 2022 Summoning Campaign", "2025/06/07"],
-    ["Chaldea Boys Collection 2026 Banner 2", "2026/03/20"]
+    ["Chaldea Boys Collection 2026 Banner 2", "2026/03/20"],
+    ["Archer Weekly Summoning Campaign 1", "2027/02/03"]
   ],
   Arjuna: [
-    ["Christmas 2022 Rerun", "2024/12/19"],
     ["Chaldea Boys Collection 2025 Banner 2", "2025/04/07"],
-    ["Chaldea Boys Collection 2026 Banner 2", "2026/03/20"]
+    ["Chaldea Boys Collection 2026 Banner 2", "2026/03/20"],
+    ["Lostbelt No.4 Clear Support Campaign", "2026/09/10"],
+    ["Archer Weekly Summoning Campaign 1", "2027/02/03"]
   ],
+  "Gilgamesh (Child)": [["Archer Weekly Summoning Campaign 1", "2027/02/03"]],
+  "Billy the Kid": [["Archer Weekly Summoning Campaign 1", "2027/02/03"]],
   Tristan: [
-    ["Singularity Repair Summoning Campaign (6th Singularity)", "2024/11/18"],
-    ["Summer 2025 Banner 2", "2025/09/01"]
+    ["Summer 2025 Banner 2", "2025/09/01"],
+    ["Lostbelt No.6 Clear Support Campaign", "2026/11/12"],
+    ["Archer Weekly Summoning Campaign 1", "2027/02/03"]
   ],
+  "Tawara Touta": [["Archer Weekly Summoning Campaign 1", "2027/02/03"]],
   "Altria Pendragon (Archer)": [
-    ["7th Anniversary Countdown Campaign", "2024/07/31"],
-    ["28M Downloads", "2025/07/12"]
+    ["28M Downloads Banner", "2025/07/12"],
+    ["Summer Event 2024 Support Campaign Part 2 Banner 3", "2026/08/03"],
+    ["30M Downloads Banner 2", "2026/11/01"],
+    ["Archer Weekly Summoning Campaign 1", "2027/02/03"]
+  ],
+  "Anne Bonny & Mary Read (Archer)": [
+    ["Summer Event 2024 Support Campaign Part 2 Banner 3", "2026/08/03"],
+    ["Archer Weekly Summoning Campaign 1", "2027/02/03"]
   ],
   Ishtar: [
-    ["26M Downloads Banner 2", "2024/09/12"],
-    ["Evocation Festival Part 7", "2026/02/11"]
+    ["Evocation Festival Part 7", "2026/02/11"],
+    ["30M Downloads Banner 2", "2026/11/01"],
+    ["Mystery House Crafters Pre-Release Campaign", "2026/11/15"],
+    ["Archer Weekly Summoning Campaign 1", "2027/02/03"]
   ],
   "James Moriarty": [
-    [
-      "Singularity Repair Summoning Campaign (Pseudo-Singularity)",
-      "2024/11/29"
-    ],
     ["White Day Memorial", "2025/03/31"],
     ["8th Anniversary Pre-Release Campaign", "2025/07/30"],
-    ["White Day Memorial 2026", "2026/04/03"]
+    ["White Day Memorial 2026", "2026/04/03"],
+    ["Archer Weekly Summoning Campaign 1", "2027/02/03"]
   ],
   "Emiya (Alter)": [
-    ["Singularity Repair Summoning Campaign (Pseudo-Singularity)", "2024/11/29"]
+    ["New Years 2027", "2027/01/15"],
+    ["Archer Weekly Summoning Campaign 1", "2027/02/03"]
   ],
-  "Helena Blavatsky (Archer)": [["New Years 2026", "2026/01/10"]],
+  "Helena Blavatsky (Archer)": [
+    ["New Years 2026", "2026/01/10"],
+    ["Archer Weekly Summoning Campaign 1", "2027/02/03"]
+  ],
+  "Tomoe Gozen": [["Archer Weekly Summoning Campaign 1", "2027/02/03"]],
   "Asagami Fujino": [
-    ["New Years 2025", "2025/01/11"],
     ["Evocation Festival Part 5", "2025/10/20"],
-    ["Witch on the Holy Night/After Night Banner 4", "2026/05/05"]
+    ["Witch on the Holy Night/After Night Banner 4", "2026/05/05"],
+    ["Archer Weekly Summoning Campaign 1", "2027/02/03"]
   ],
-  Chiron: [["Road to 7: Lostbelt No. 5 -Atlantis- Campaign", "2024/10/05"]],
+  Chiron: [["Archer Weekly Summoning Campaign 1", "2027/02/03"]],
   Napoleon: [
     ["Chaldea Boys Collection 2025 Banner 2", "2025/04/07"],
-    ["Chaldea Boys Collection 2026 Banner 2", "2026/03/20"]
+    ["Chaldea Boys Collection 2026 Banner 2", "2026/03/20"],
+    ["Archer Weekly Summoning Campaign 1", "2027/02/03"]
   ],
   "Jeanne d'Arc (Archer)": [
-    ["7th Anniversary Countdown Campaign", "2024/07/31"],
-    ["New Years 2026", "2026/01/10"]
+    ["New Years 2026", "2026/01/10"],
+    ["Summer Event 2024 Support Campaign Part 2 Banner 2", "2026/07/28"]
   ],
   "William Tell": [
-    ["Road to 7: Lostbelt No. 4 Campaign", "2024/09/14"],
-    ["Ordeal Call New Mission Release Campaign Part 4", "2025/11/23"]
+    ["Ordeal Call New Mission Release Campaign Part 4", "2025/11/23"],
+    ["Lostbelt No.4 Clear Support Campaign", "2026/09/10"],
+    ["Archer Weekly Summoning Campaign 1", "2027/02/03"]
   ],
   Aśvatthāman: [
-    ["Road to 7: Lostbelt No. 4 Campaign", "2024/09/14"],
-    ["Merry Christmas in the Snowy Fields 2025 Banner 1", "2025/12/31"],
-    ["Merry Christmas in the Snowy Fields 2025 Banner 1", "2025/12/31"]
+    ["Merry Christmas in the Snowy Fields 2025 Banner 3", "2025/12/31"],
+    ["Merry Christmas in the Snowy Fields 2025 Banner 4", "2025/12/31"],
+    ["Lostbelt No.4 Clear Support Campaign", "2026/09/10"]
   ],
-  "Osakabehime (Archer)": [["Evocation Festival Part 3", "2025/07/12"]],
+  "Osakabehime (Archer)": [
+    ["Evocation Festival Part 3", "2025/07/12"],
+    ["9th Anniversary Banner 2", "2026/08/15"]
+  ],
   "Calamity Jane": [
-    ["26M Downloads Banner 1", "2024/09/14"],
     ["8th Anniversary Banner 2", "2025/08/10"],
-    ["Witch on the Holy Night/After Night Banner 2", "2026/05/05"]
+    ["Witch on the Holy Night/After Night Banner 2", "2026/05/05"],
+    ["New Years 2027", "2027/01/15"]
   ],
-  "Super Orion": [
-    ["Road to 7: Lostbelt No. 5 -Atlantis- Campaign", "2024/10/05"]
-  ],
+  "Super Orion": [["Lostbelt No.5 Clear Support Campaign", "2026/10/16"]],
   "Sei Shounagon": [
-    ["Halloween Rebellion of 108 People Banner 2", "2024/10/20"],
     ["Valentines 2018-2024 Banner Rerun", "2025/02/28"],
-    ["Valentine 2026 Pre-Release", "2026/02/14"]
+    ["Valentine 2026 Pre-Release", "2026/02/14"],
+    ["Dancing Dragon Castle! Banner 3", "2026/07/19"]
   ],
   "Illyasviel von Einzbern (Archer)": [
-    ["7th Anniversary Countdown Campaign", "2024/07/31"],
-    ["Hunting Quest: Part 13 Summoning Campaign", "2025/09/16"]
+    ["Hunting Quest: Part 13 Summoning Campaign", "2025/09/16"],
+    ["Celeb Summer Experience! Banner 3", "2026/08/30"]
   ],
   "Oda Nobukatsu": [["GUDAGUDA Super Goryokaku Banner 1", "2025/12/19"]],
   "Baobhan Sith": [
-    ["Chaldea Faerie Knight Cup Banner 1", "2024/11/23"],
     ["Mystic Eyes Symphony Banner 4", "2025/07/23"],
-    ["New Years 2026", "2026/01/10"]
+    ["New Years 2026", "2026/01/10"],
+    ["Lostbelt No.6 Clear Support Campaign", "2026/11/12"]
   ],
   "Anastasia & Viy": [
-    ["Summer 2023 Banner Rerun", "2024/08/31"],
     ["Hunting Quest: Part 13 Summoning Campaign", "2025/09/16"],
     ["Chaldea Summer Adventure Survey-Rerun Banner 1", "2026/06/07"]
   ],
+  Zenobia: [
+    ["Interlude Campaign Part 21 Banner 1", "2026/12/05"],
+    ["Interlude Campaign Part 21 Banner 2", "2026/12/07"]
+  ],
   "Minamoto-no-Tametomo": [
-    ["Nanmei Yumihari Hakkenden Banner 2", "2024/07/20"],
     ["Chaldea Boys Collection 2025 Banner 2", "2025/04/07"],
     ["KYOMAF2023 Exhibit Summoning Campaign", "2025/09/28"],
     ["Chaldea Boys Collection 2026 Banner 2", "2026/03/20"]
   ],
   "Takasugi Shinsaku": [
     ["Chaldea Boys Collection 2025 Banner 1", "2025/04/07"],
-    ["White Day Memorial 2026", "2026/04/03"]
+    ["White Day Memorial 2026", "2026/04/03"],
+    ["New Years 2027", "2027/01/15"]
   ],
   Durga: [
     ["Paper Moon Banner 3", "2025/07/16"],
-    ["Valentine 2026", "2026/03/16"]
+    ["Valentine 2026", "2026/03/16"],
+    ["Interlude Campaign Part 21 Banner 2", "2026/12/07"]
   ],
-  "UDK-Barghest": [["Summer 2025 Banner 3", "2025/09/01"]],
+  "UDK-Barghest": [
+    ["Summer 2025 Banner 3", "2025/09/01"],
+    ["Summer Event 2024 Support Campaign Part 2 Banner 1", "2026/07/22"]
+  ],
   Ptolemaîos: [
-    ["White Castle by Day, Black Castle by Night Banner 1", "2025/11/15"]
+    ["White Castle by Day, Black Castle by Night Banner 1", "2025/11/15"],
+    ["9th Anniversary Banner 2", "2026/08/15"]
   ],
   "Sugitani Zenjubou": [
     ["White Castle by Day, Black Castle by Night Banner 1", "2025/11/15"],
     ["White Castle by Day, Black Castle by Night Banner 3", "2025/11/15"],
-    ["Witch on the Holy Night/After Night Banner 4", "2026/05/05"]
+    ["Witch on the Holy Night/After Night Banner 4", "2026/05/05"],
+    ["Interlude Campaign Part 21 Banner 2", "2026/12/07"],
+    ["Archer Weekly Summoning Campaign 1", "2027/02/03"]
   ],
-  Andromeda: [["Valentine 2026", "2026/03/16"]],
+  Tutankhamun: [["Mystery House Crafters Banner 1", "2026/12/04"]],
   Medea: [
     ["Fate/stay night 20th Anniversary Celebration Campaign", "2026/02/06"]
   ],
-  "Gilles de Rais (Caster)": [
-    ["Singularity Repair Summoning Campaign (1st Singularity)", "2024/10/31"],
-    ["Paper Moon Banner 2", "2025/07/05"]
-  ],
+  "Gilles de Rais (Caster)": [["Paper Moon Banner 2", "2025/07/05"]],
   "Zhuge Liang (Lord El-Melloi II)": [
-    ["Singularity Repair Summoning Campaign (2nd Singularity)", "2024/11/04"],
     ["White Day Memorial", "2025/03/31"],
     ["White Castle by Day, Black Castle by Night Banner 3", "2025/11/15"],
-    ["White Day Memorial 2026", "2026/04/03"]
+    ["White Day Memorial 2026", "2026/04/03"],
+    ["Dancing Dragon Castle! Banner 2", "2026/07/19"]
   ],
   "Cú Chulainn (Caster)": [
-    ["Road to 7: Lostbelt No. 6 Campaign", "2024/12/23"]
+    ["Lostbelt No.6 Clear Support Campaign", "2026/11/12"]
   ],
   "Tamamo-no-Mae": [
     ["Valentines 2025", "2025/03/10"],
     ["Valentine 2026", "2026/03/16"]
   ],
-  "Medea (Lily)": [
-    ["Singularity Repair Summoning Campaign (3rd Singularity)", "2024/11/06"]
-  ],
-  "Nursery Rhyme": [
-    ["Singularity Repair Summoning Campaign (4th Singularity)", "2024/11/10"],
-    ["Evocation Festival Part 6", "2025/12/03"]
-  ],
-  "Charles Babbage": [
-    ["Singularity Repair Summoning Campaign (4th Singularity)", "2024/11/10"]
-  ],
+  "Nursery Rhyme": [["Evocation Festival Part 6", "2025/12/03"]],
   "Thomas Edison": [
-    ["Singularity Repair Summoning Campaign (5th Singularity)", "2024/11/16"],
-    ["Nero Fest & Battle in NY 2022 Summoning Campaign", "2025/06/07"]
+    ["Nero Fest & Battle in NY 2022 Summoning Campaign", "2025/06/07"],
+    ["Archetype Inception Banner 2", "2026/09/24"]
   ],
-  Geronimo: [
-    ["Singularity Repair Summoning Campaign (5th Singularity)", "2024/11/16"]
-  ],
+  Geronimo: [["Faerie Sugoroku Banner 1", "2026/11/06"]],
   "Xuanzang Sanzang": [
     ["Valentines 2025", "2025/03/10"],
     ["Valentine 2026", "2026/03/16"]
   ],
   Nitocris: [
-    ["Lostbelt No. 7 Part 2 Pre-Release Campaign Banner 1", "2025/01/19"],
-    ["Spring 2024 New Master Aid Campaign", "2026/04/05"]
+    ["Spring 2024 New Master Aid Campaign", "2026/04/05"],
+    ["Lostbelt No.7 Clear Support Campaign", "2026/12/16"]
   ],
   "Leonardo da Vinci": [
-    ["FGO Arcade Collaboration Pre-Release Campaign", "2025/05/10"]
+    ["FGO Arcade Collaboration Pre-Release Campaign", "2025/05/10"],
+    ["30M Downloads Banner 2", "2026/11/01"]
+  ],
+  "Marie Antoinette (Caster)": [
+    ["Summer Event 2024 Support Campaign Part 2 Banner 3", "2026/08/03"]
   ],
   "Illyasviel von Einzbern": [
-    ["7th Anniversary Banner 2", "2024/08/11"],
     ["Fuun Karakuri Illya's Castle Banner 2", "2025/06/02"],
     ["Evocation Festival Part 4", "2025/09/24"],
     ["Witch on the Holy Night Pre-Release", "2026/04/28"]
   ],
-  "Gilgamesh (Caster)": [["Lilim Harlot Banner 2", "2025/05/13"]],
+  "Gilgamesh (Caster)": [
+    ["Lilim Harlot Banner 2", "2025/05/13"],
+    ["Lilim Harlot Survey-Rerun Banner 2", "2026/06/18"]
+  ],
   Merlin: [
     ["Spring 2023 New Master Aid Campaign", "2025/04/07"],
-    ["New Years 2026", "2026/01/10"]
+    ["New Years 2026", "2026/01/10"],
+    ["9th Anniversary Banner 2", "2026/08/15"],
+    ["30M Downloads Banner 2", "2026/11/01"]
   ],
   Scheherazade: [
-    ["Main Interlude: Ooku Release Campaign", "2024/07/20"],
-    [
-      "Singularity Repair Summoning Campaign (Pseudo-Singularity)",
-      "2024/11/29"
-    ],
     ["Valentines 2025", "2025/03/10"],
     ["Valentine 2026", "2026/03/16"]
   ],
   "Nero Claudius (Caster)": [
-    ["7th Anniversary Banner 2", "2024/08/11"],
     ["Nero Fest & Battle in NY 2022 Summoning Campaign", "2025/06/07"],
     ["Evocation Festival Part 8", "2026/04/16"]
-  ],
-  Circe: [
-    ["Singularity Repair Summoning Campaign (Pseudo-Singularity)", "2024/11/29"]
-  ],
-  "Queen of Sheba": [
-    ["Singularity Repair Summoning Campaign (Pseudo-Singularity)", "2024/11/29"]
   ],
   Anastasia: [
     ["Valentines 2025", "2025/03/10"],
@@ -381,84 +455,72 @@ const servantData = {
   Avicebron: [["Ordeal Call Pre-Release Campaign", "2025/05/26"]],
   "Scáthach-Skadi": [
     ["Evocation Festival Part 3", "2025/07/12"],
-    ["Merry Christmas in the Snowy Fields 2025 Banner 1", "2025/12/31"]
+    ["Merry Christmas in the Snowy Fields 2025 Banner 4", "2025/12/31"],
+    ["30M Downloads Banner 2", "2026/11/01"]
   ],
   "Miyu Edelfelt": [
-    ["New Years 2025", "2025/01/11"],
     ["Fuun Karakuri Illya's Castle Banner 2", "2025/06/02"],
     ["Fuun Karakuri Illya's Castle Banner 3", "2025/06/04"],
     ["Evocation Festival Part 4", "2025/09/24"],
-    ["Witch on the Holy Night Pre-Release", "2026/04/28"]
+    ["Witch on the Holy Night Pre-Release", "2026/04/28"],
+    ["New Years 2027", "2027/01/15"]
   ],
   "Murasaki Shikibu": [
-    ["Halloween Rebellion of 108 People Banner 2", "2024/10/20"],
     ["Valentines 2018-2024 Banner Rerun", "2025/02/28"],
-    ["Valentine 2026 Pre-Release", "2026/02/14"]
+    ["Valentine 2026 Pre-Release", "2026/02/14"],
+    ["30M Downloads Banner 2", "2026/11/01"]
   ],
   Asclepius: [
-    ["Summer 2024 Banner 2", "2024/08/31"],
-    ["Road to 7: Lostbelt No. 4 Campaign", "2024/09/14"],
-    ["Ordeal Call New Mission Release Campaign Part 4", "2025/11/23"]
+    ["Ordeal Call New Mission Release Campaign Part 4", "2025/11/23"],
+    ["Lostbelt No.4 Clear Support Campaign", "2026/09/10"],
+    ["My Little Dragon Banner 1", "2027/02/05"]
   ],
   "Altria Caster": [
-    ["Lostbelt No. 7 Pre-Release Support Campaign Part 1", "2024/12/05"],
     ["3000 Days Anniversary", "2025/10/25"],
-    ["Spring 2024 New Master Aid Campaign", "2026/04/05"]
+    ["Spring 2024 New Master Aid Campaign", "2026/04/05"],
+    ["30M Downloads Banner 2", "2026/11/01"]
   ],
-  "Miss Crane": [["Mystic Eyes Symphony Banner 4", "2025/07/23"]],
+  "Miss Crane": [
+    ["Mystic Eyes Symphony Banner 4", "2025/07/23"],
+    ["New Years 2027", "2027/01/15"]
+  ],
   "Charlotte Corday (Caster)": [
-    ["Summer 2023 Banner Rerun", "2024/08/31"],
     ["Hunting Quest: Part 13 Summoning Campaign", "2025/09/16"],
     ["Chaldea Summer Adventure Survey-Rerun Banner 1", "2026/06/07"]
   ],
-  "Izumo-no-Okuni": [
-    ["KYOMAF 2022 Exhibit Commemoration Campaign", "2024/09/25"],
-    ["GUDAGUDA Super Goryokaku Banner 4", "2025/12/19"]
-  ],
+  "Izumo-no-Okuni": [["GUDAGUDA Super Goryokaku Banner 4", "2025/12/19"]],
   Daikokuten: [["8th Anniversary Banner 2", "2025/08/10"]],
   "Wu Zetian (Caster)": [
-    ["Summer 2024 Banner 4", "2024/08/31"],
     ["Swimsuit 2024 Rerun Summoning Campaign", "2025/09/04"]
   ],
-  "Aesc the Savior": [["8th Anniversary Banner 1", "2025/08/09"]],
+  "Aesc the Savior": [
+    ["8th Anniversary Banner 1", "2025/08/09"],
+    ["Summer Event 2024 Support Campaign Part 2 Banner 1", "2026/07/22"]
+  ],
   "Yui Shousetsu": [
     ["Waxing Moon Clashing Swords Chronicles Banner 1", "2026/02/07"],
     ["Waxing Moon Clashing Swords Chronicles Banner 2", "2026/02/07"]
   ],
   "Kuonji Alice": [
-    ["Witch on the Holy Night/After Night Banner 3", "2026/05/17"]
+    ["Witch on the Holy Night/After Night Banner 3", "2026/05/17"],
+    ["New Years 2027", "2027/01/15"]
   ],
   Medusa: [
     ["Mystic Eyes Symphony Banner 4", "2025/07/23"],
-    ["Fate/stay night 20th Anniversary Celebration Campaign", "2026/02/06"]
+    ["Fate/stay night 20th Anniversary Celebration Campaign", "2026/02/06"],
+    ["My Little Dragon Banner 1", "2027/02/05"]
   ],
-  Boudica: [
-    ["Singularity Repair Summoning Campaign (2nd Singularity)", "2024/11/04"]
-  ],
-  Ushiwakamaru: [
-    ["Singularity Repair Summoning Campaign (7th Singularity)", "2024/11/22"],
-    ["MBTL Ushiwakamaru & Dantes Game Entry Campaign", "2024/12/17"],
-    ["8th Anniversary Banner 2", "2025/08/10"]
-  ],
-  Alexander: [
-    ["Singularity Repair Summoning Campaign (2nd Singularity)", "2024/11/04"]
-  ],
-  "Marie Antoinette": [
-    ["Singularity Repair Summoning Campaign (1st Singularity)", "2024/10/31"],
-    ["Id Banner 3", "2026/04/03"]
-  ],
-  Martha: [["Christmas 2022 Rerun", "2024/12/19"]],
+  Ushiwakamaru: [["8th Anniversary Banner 2", "2025/08/10"]],
+  "Marie Antoinette": [["Id Banner 3", "2026/04/03"]],
   "Francis Drake": [
-    ["Singularity Repair Summoning Campaign (3rd Singularity)", "2024/11/06"],
     ["Valentines 2025", "2025/03/10"],
     ["Valentine 2026", "2026/03/16"]
   ],
-  "Anne Bonny & Mary Read": [
-    ["Singularity Repair Summoning Campaign (3rd Singularity)", "2024/11/06"]
+  Astolfo: [
+    ["Spring 2023 New Master Aid Campaign", "2025/04/07"],
+    ["Archetype Inception Banner 2", "2026/09/24"]
   ],
-  Astolfo: [["Spring 2023 New Master Aid Campaign", "2025/04/07"]],
   "Queen Medb": [
-    ["Singularity Repair Summoning Campaign (5th Singularity)", "2024/11/16"],
     ["Valentines 2025", "2025/03/10"],
     ["Valentine 2026", "2026/03/16"]
   ],
@@ -466,253 +528,261 @@ const servantData = {
     ["White Castle by Day, Black Castle by Night Banner 3", "2025/11/15"]
   ],
   Ozymandias: [
-    ["Singularity Repair Summoning Campaign (6th Singularity)", "2024/11/18"],
     ["Chaldea Boys Collection 2025 Banner 2", "2025/04/07"],
     ["Wandjina World Tour! Banner 2", "2025/10/03"],
-    ["Chaldea Boys Collection 2026 Banner 2", "2026/03/20"]
+    ["Chaldea Boys Collection 2026 Banner 2", "2026/03/20"],
+    ["Mystery House Crafters Pre-Release Campaign", "2026/11/15"]
   ],
   "Mordred (Rider)": [
-    ["7th Anniversary Countdown Campaign", "2024/07/31"],
-    ["28M Downloads", "2025/07/12"]
+    ["28M Downloads Banner", "2025/07/12"],
+    ["Summer Event 2024 Support Campaign Part 2 Banner 3", "2026/08/03"]
   ],
   Quetzalcoatl: [
-    ["Singularity Repair Summoning Campaign (7th Singularity)", "2024/11/22"],
     ["Valentines 2025", "2025/03/10"],
     ["Evocation Festival Part 1 Banner 1", "2025/04/13"],
     ["Valentine 2026", "2026/03/16"],
     ["Evocation Festival Part 8", "2026/04/16"]
   ],
   "Altria Pendragon (Rider Alter)": [
-    ["7th Anniversary Countdown Campaign", "2024/07/31"],
-    ["28M Downloads", "2025/07/12"],
+    ["28M Downloads Banner", "2025/07/12"],
     ["Evocation Festival Part 7", "2026/02/11"]
   ],
   "Ivan the Terrible": [["Ordeal Call Pre-Release Campaign", "2025/05/26"]],
   Achilles: [
-    ["Road to 7: Lostbelt No. 5 -Atlantis- Campaign", "2024/10/05"],
     ["Chaldea Boys Collection 2025 Banner 2", "2025/04/07"],
     ["Chaldea Boys Collection 2026 Banner 2", "2026/03/20"],
     ["Chaldea Summer Adventure Survey-Rerun Banner 2", "2026/06/07"]
   ],
   "Red Hare": [
-    ["Road to 7: Lostbelt No. 3 Campaign (EN)", "2024/06/03"],
-    ["Road to 7: Lostbelt No. 6 Campaign", "2024/12/23"],
-    ["Ordeal Call New Mission Release Campaign Part 3", "2025/10/13"]
+    ["Ordeal Call New Mission Release Campaign Part 3", "2025/10/13"],
+    ["Lostbelt No.6 Clear Support Campaign", "2026/11/12"]
   ],
   "Sima Yi (Reines)": [
-    ["New Years 2025", "2025/01/11"],
-    ["Evocation Festival Part 5", "2025/10/20"]
+    ["Evocation Festival Part 5", "2025/10/20"],
+    ["Christmas 2026 Banner 3", "2026/12/22"]
   ],
   "Leonardo da Vinci (Rider)": [
-    ["Lostbelt No. 7 Pre-Release Support Campaign Part 1", "2024/12/05"],
-    ["8th Anniversary Pre-Release Campaign", "2025/07/30"]
+    ["8th Anniversary Pre-Release Campaign", "2025/07/30"],
+    ["Lostbelt No.6 Clear Support Campaign", "2026/11/12"]
   ],
-  "Carmilla (Rider)": [["7th Anniversary Countdown Campaign", "2024/07/31"]],
+  "Carmilla (Rider)": [["9th Anniversary Banner 2", "2026/08/15"]],
   Mandricardo: [
-    ["Road to 7: Lostbelt No. 5 -Atlantis- Campaign", "2024/10/05"],
-    ["Chaldea Summer Adventure Survey-Rerun Banner 2", "2026/06/07"]
+    ["Chaldea Summer Adventure Survey-Rerun Banner 2", "2026/06/07"],
+    ["Lostbelt No.5 Clear Support Campaign", "2026/10/16"],
+    ["Mystery House Crafters Banner 2", "2026/11/25"]
   ],
   Europa: [
-    ["Road to 7: Lostbelt No. 5 -Olympus Campaign", "2024/10/14"],
     ["Valentines 2025", "2025/03/10"],
-    ["Valentine 2026", "2026/03/16"]
+    ["Valentine 2026", "2026/03/16"],
+    ["Lostbelt No.5 Clear Support Campaign", "2026/10/16"]
   ],
   Odysseus: [
-    ["Road to 7: Lostbelt No. 5 -Atlantis- Campaign", "2024/10/05"],
     ["White Day Memorial", "2025/03/31"],
-    ["White Day Memorial 2026", "2026/04/03"]
+    ["White Day Memorial 2026", "2026/04/03"],
+    ["Lostbelt No.5 Clear Support Campaign", "2026/10/16"]
   ],
   "Murasaki Shikibu (Rider)": [
-    ["7th Anniversary Banner 2", "2024/08/11"],
-    ["Hunting Quest: Part 13 Summoning Campaign", "2025/09/16"]
+    ["Hunting Quest: Part 13 Summoning Campaign", "2025/09/16"],
+    ["Summer Event 2024 Support Campaign Part 2 Banner 2", "2026/07/28"]
   ],
   Nemo: [
-    ["Main Interlude: Imaginary Scramble Release Campaign", "2024/11/04"],
-    ["Lostbelt No. 7 Part 2 Pre-Release Campaign Banner 1", "2025/01/19"],
     ["Chaldea Boys Collection 2025 Banner 2", "2025/04/07"],
     ["Merry Christmas in the Snowy Fields 2025 Banner 1", "2025/12/31"],
     ["Chaldea Boys Collection 2026 Banner 2", "2026/03/20"]
   ],
   "Caenis (Rider)": [
-    ["Summer 2023 Banner Rerun", "2024/08/31"],
     ["Hunting Quest: Part 13 Summoning Campaign", "2025/09/16"],
     ["Chaldea Summer Adventure Survey-Rerun Banner 3", "2026/06/07"]
   ],
   "Taigong Wang": [
-    ["Halloween Rebellion of 108 People Banner 2", "2024/10/20"],
     ["Chaldea Boys Collection 2025 Banner 2", "2025/04/07"],
     ["White Castle by Day, Black Castle by Night Banner 2", "2025/11/11"],
-    ["Chaldea Boys Collection 2026 Banner 2", "2026/03/20"]
+    ["Chaldea Boys Collection 2026 Banner 2", "2026/03/20"],
+    ["Interlude Campaign Part 20", "2026/06/28"]
   ],
-  "Dobrynya Nikitich": [["Ordeal Call Pre-Release Campaign", "2025/05/26"]],
+  "Dobrynya Nikitich": [
+    ["Ordeal Call Pre-Release Campaign", "2025/05/26"],
+    ["Interlude Campaign Part 20", "2026/06/28"]
+  ],
   "Kōnstantînos XI": [
     ["8th Anniversary Banner 2", "2025/08/10"],
-    ["Interlude Campaign Part 19", "2026/07/07"]
+    ["Interlude Campaign Part 19", "2026/06/07"]
   ],
   "Kyokutei Bakin": [
-    ["Nanmei Yumihari Hakkenden Banner 1", "2024/07/20"],
-    ["Mystic Eyes Symphony Banner 2", "2025/07/14"]
+    ["Mystic Eyes Symphony Banner 2", "2025/07/14"],
+    ["New Years 2027", "2027/01/15"]
   ],
   "Huang Feihu": [
-    ["Halloween Rebellion of 108 People Banner 1", "2024/11/02"],
-    ["Mystic Eyes Symphony Banner 3", "2025/07/16"]
+    ["Mystic Eyes Symphony Banner 3", "2025/07/16"],
+    ["Faerie Sugoroku Banner 2", "2026/11/06"]
   ],
-  "Suzuka Gozen (Summer Vacation)": [["Summer 2025 Banner 1", "2025/09/01"]],
+  "Suzuka Gozen (Summer Vacation)": [
+    ["Summer 2025 Banner 1", "2025/09/01"],
+    ["Summer Event 2024 Support Campaign Part 2 Banner 1", "2026/07/22"]
+  ],
   "Takeda Shingen": [["GUDAGUDA Super Goryokaku Banner 1", "2025/12/19"]],
+  Andromeda: [["Valentine 2026", "2026/03/16"]],
   "Jeanne d'Arc": [
-    ["Singularity Repair Summoning Campaign (1st Singularity)", "2024/10/31"],
     ["Valentines 2025", "2025/03/10"],
     ["Evocation Festival Part 4", "2025/09/24"],
     ["Evocation Festival Part 4", "2025/09/24"],
     ["Valentine 2026", "2026/03/16"],
-    ["Spring 2024 New Master Aid Campaign", "2026/04/05"]
+    ["Spring 2024 New Master Aid Campaign", "2026/04/05"],
+    ["Ruler Weekly Summoning Campaign", "2027/01/27"]
   ],
   "Amakusa Shirou": [
-    ["26M Downloads Banner 2", "2024/09/12"],
     ["White Day Memorial", "2025/03/31"],
-    ["White Day Memorial 2026", "2026/04/03"]
+    ["White Day Memorial 2026", "2026/04/03"],
+    ["Ruler Weekly Summoning Campaign", "2027/01/27"]
   ],
   "Edmond Dantès": [
-    ["Singularity Repair Summoning Campaign (Prison Tower)", "2024/11/12"],
     ["White Day Memorial", "2025/03/31"],
     ["White Day Memorial 2026", "2026/04/03"]
   ],
   "Jeanne d'Arc (Alter)": [
-    ["Singularity Repair Summoning Campaign (1st Singularity)", "2024/10/31"],
     ["Evocation Festival Part 3", "2025/07/12"],
-    ["Id Banner 2", "2026/04/03"]
+    ["Id Banner 2", "2026/04/03"],
+    ["30M Downloads Banner 2", "2026/11/01"]
   ],
   "Martha (Ruler)": [
-    ["7th Anniversary Countdown Campaign", "2024/07/31"],
     ["Evocation Festival Part 1 Banner 1", "2025/04/13"],
-    ["Evocation Festival Part 1 Banner 2", "2025/04/21"]
+    ["Evocation Festival Part 1 Banner 2", "2025/04/21"],
+    ["Summer Event 2024 Support Campaign Part 2 Banner 3", "2026/08/03"],
+    ["Ruler Weekly Summoning Campaign", "2027/01/27"]
   ],
   Gorgon: [
-    ["Singularity Repair Summoning Campaign (7th Singularity)", "2024/11/22"],
-    ["Mystic Eyes Symphony Banner 4", "2025/07/23"]
+    ["Mystic Eyes Symphony Banner 4", "2025/07/23"],
+    ["My Little Dragon Banner 2", "2027/02/05"]
   ],
-  "Hessian Lobo": [
-    ["Nanmei Yumihari Hakkenden Banner 1", "2024/07/20"],
-    ["Nanmei Yumihari Hakkenden Banner 2", "2024/07/20"],
-    ["Nanmei Yumihari Hakkenden Banner 3", "2024/06/13"],
-    ["Halloween Rebellion of 108 People Banner 2", "2024/10/20"],
-    ["Mystic Eyes Symphony Banner 2", "2025/07/14"]
-  ],
+  "Hessian Lobo": [["Mystic Eyes Symphony Banner 2", "2025/07/14"]],
   Meltryllis: [
     ["New Years 2026", "2026/01/10"],
-    ["Evocation Festival Part 8", "2026/04/16"]
+    ["Evocation Festival Part 8", "2026/04/16"],
+    ["Faerie Sugoroku Banner 2", "2026/11/06"]
   ],
-  Passionlip: [["New Years 2025", "2025/01/11"]],
-  "Sessyoin Kiara": [["Main Interlude: Ooku Release Campaign", "2024/07/20"]],
+  Passionlip: [["Archetype Inception Banner 2", "2026/09/24"]],
+  "Sessyoin Kiara": [
+    ["Archetype Inception Banner 3", "2026/09/29"],
+    ["30M Downloads Banner 2", "2026/11/01"]
+  ],
+  "Sherlock Holmes": [
+    ["9th Anniversary Banner 2", "2026/08/15"],
+    ["Ruler Weekly Summoning Campaign", "2027/01/27"]
+  ],
   "Abigail Williams": [
-    ["Singularity Repair Summoning Campaign (Pseudo-Singularity)", "2024/11/29"]
+    ["30M Downloads Banner 2", "2026/11/01"],
+    ["Christmas 2026 Banner 4", "2026/12/24"]
   ],
   "Katsushika Hokusai": [
-    ["Nanmei Yumihari Hakkenden Banner 3", "2024/06/13"],
-    ["Evocation Festival Part 3", "2025/07/12"]
+    ["Evocation Festival Part 3", "2025/07/12"],
+    ["Christmas 2026 Banner 4", "2026/12/24"]
   ],
   "Antonio Salieri": [
     ["Ordeal Call Pre-Release Campaign", "2025/05/26"],
     ["Id Banner 2", "2026/04/03"]
   ],
-  "Okita Souji (Alter)": [
-    ["KYOMAF 2022 Exhibit Commemoration Campaign", "2024/09/25"],
-    ["GUDAGUDA Super Goryokaku Banner 4", "2025/12/19"]
-  ],
+  "Okita Souji (Alter)": [["GUDAGUDA Super Goryokaku Banner 4", "2025/12/19"]],
   "BB (Summer)": [
-    ["Holy Grail Front ~Moonsault Operation~ Banner 2 (EN)", "2024/06/03"],
     ["Hunting Quest: Part 13 Summoning Campaign", "2025/09/16"],
-    ["Merry Christmas in the Snowy Fields 2025 Banner 1", "2025/12/31"]
+    ["Merry Christmas in the Snowy Fields 2025 Banner 3", "2025/12/31"],
+    ["Celeb Summer Experience! Banner 3", "2026/08/30"]
   ],
   "Mysterious Heroine XX": [
-    ["New Years 2025", "2025/01/11"],
     ["Evocation Festival Part 2", "2025/05/21"],
-    ["28M Downloads", "2025/07/12"]
+    ["28M Downloads Banner", "2025/07/12"],
+    ["Celeb Summer Experience! Banner 3", "2026/08/30"]
   ],
   Sitonai: [
     ["Valentines 2025", "2025/03/10"],
     ["Fuun Karakuri Illya's Castle Banner 3", "2025/06/04"],
-    ["Valentine 2026", "2026/03/16"]
+    ["Valentine 2026", "2026/03/16"],
+    ["Christmas 2026 Banner 2", "2026/12/20"]
   ],
   "Qin Shi Huang": [
-    ["Road to 7: Lostbelt No. 3 Campaign (EN)", "2024/06/03"],
-    ["Ordeal Call New Mission Release Campaign Part 3", "2025/10/13"]
+    ["Ordeal Call New Mission Release Campaign Part 3", "2025/10/13"],
+    ["30M Downloads Banner 2", "2026/11/01"],
+    ["Ruler Weekly Summoning Campaign", "2027/01/27"]
   ],
-  Kingprotea: [["New Years 2025", "2025/01/11"]],
+  Kingprotea: [
+    ["22M Downloads Banner (EN)", "2025/02/06"],
+    ["Archetype Inception Banner 2", "2026/09/24"]
+  ],
   Astraea: [
-    ["Road to 7: Lostbelt No. 5 -Atlantis- Campaign", "2024/10/05"],
-    ["Spring 2024 New Master Aid Campaign", "2026/04/05"]
+    ["Spring 2024 New Master Aid Campaign", "2026/04/05"],
+    ["Ruler Weekly Summoning Campaign", "2027/01/27"]
   ],
   "Jinako Carigiri": [
-    ["Holy Grail Front ~Moonsault Operation~ Banner 1 (EN)", "2024/06/03"],
-    ["Road to 7: Lostbelt No. 4 Campaign", "2024/09/14"],
     ["Valentines 2025", "2025/03/10"],
     ["Valentines 2025", "2025/03/10"],
     ["Ordeal Call New Mission Release Campaign Part 4", "2025/11/23"],
-    ["Valentine 2026", "2026/03/16"]
+    ["Valentine 2026", "2026/03/16"],
+    ["Archetype Inception Banner 2", "2026/09/24"]
   ],
   "Demon King Nobunaga": [
-    ["KYOMAF 2022 Exhibit Commemoration Campaign", "2024/09/25"],
     ["Chaldea Boys Collection 2025 Banner 3", "2025/04/07"],
-    ["Evocation Festival Part 6", "2025/12/03"]
+    ["Evocation Festival Part 6", "2025/12/03"],
+    ["Mystery House Crafters Banner 2", "2026/11/25"]
   ],
   "Altria Pendragon (Ruler)": [
-    ["7th Anniversary Countdown Campaign", "2024/07/31"],
-    ["28M Downloads", "2025/07/12"]
+    ["28M Downloads Banner", "2025/07/12"],
+    ["Celeb Summer Experience! Banner 3", "2026/08/30"],
+    ["30M Downloads Banner 2", "2026/11/01"],
+    ["Ruler Weekly Summoning Campaign", "2027/01/27"]
   ],
   "Space Ishtar": [
-    ["26M Downloads Banner 1", "2024/09/14"],
     ["8th Anniversary Banner 2", "2025/08/10"],
-    ["Witch on the Holy Night/After Night Banner 2", "2026/05/05"]
+    ["Witch on the Holy Night/After Night Banner 2", "2026/05/05"],
+    ["30M Downloads Banner 2", "2026/11/01"]
   ],
+  "Yang Guifei": [["9th Anniversary Banner 2", "2026/08/15"]],
   Voyager: [
-    ["7th Anniversary Banner 2", "2024/08/11"],
     ["Wandjina World Tour! Banner 1", "2025/10/11"],
-    ["Witch on the Holy Night Pre-Release", "2026/04/28"]
+    ["Witch on the Holy Night Pre-Release", "2026/04/28"],
+    ["Evocation Festival Part 9", "2027/02/04"]
   ],
   "Sessyoin Kiara (Moon Cancer)": [
-    ["7th Anniversary Countdown Campaign", "2024/07/31"],
-    ["Hunting Quest: Part 13 Summoning Campaign", "2025/09/16"]
+    ["Hunting Quest: Part 13 Summoning Campaign", "2025/09/16"],
+    ["Celeb Summer Experience! Banner 3", "2026/08/30"]
   ],
   "Abigail Williams (Summer)": [
-    ["7th Anniversary Banner 2", "2024/08/11"],
-    ["Hunting Quest: Part 13 Summoning Campaign", "2025/09/16"]
+    ["Hunting Quest: Part 13 Summoning Campaign", "2025/09/16"],
+    ["Hunting Quest: Part 13 Summoning Campaign", "2025/09/16"],
+    ["Summer Event 2024 Support Campaign Part 2 Banner 2", "2026/07/28"]
   ],
   Himiko: [
-    ["KYOMAF 2022 Exhibit Commemoration Campaign", "2024/09/25"],
-    ["New Years 2026", "2026/01/10"]
+    ["New Years 2026", "2026/01/10"],
+    ["Ruler Weekly Summoning Campaign", "2027/01/27"]
   ],
   "Van Gogh": [
-    ["Main Interlude: Imaginary Scramble Release Campaign", "2024/11/04"],
-    ["8th Anniversary Banner 2", "2025/08/10"]
+    ["8th Anniversary Banner 2", "2025/08/10"],
+    ["Mystery House Crafters Banner 3", "2026/12/01"]
   ],
   "Ashiya Douman": [
-    ["Summer 2024 Banner 2", "2024/08/31"],
     ["Ordeal Call New Mission Release Campaign Part 2", "2025/09/19"]
   ],
   "Taira-no-Kagekiyo": [
     ["8th Anniversary Banner 2", "2025/08/10"],
-    ["Id Banner 3", "2026/04/03"]
+    ["Id Banner 3", "2026/04/03"],
+    ["Evocation Festival Part 9", "2027/02/04"]
   ],
   "Amor (Caren)": [
-    ["New Years 2025", "2025/01/11"],
     ["Valentines 2018-2024 Banner Rerun", "2025/02/28"],
-    ["Valentine 2026 Pre-Release", "2026/02/14"]
+    ["Valentine 2026 Pre-Release", "2026/02/14"],
+    ["Ruler Weekly Summoning Campaign", "2027/01/27"]
   ],
   Oberon: [
-    ["Road to 7: Lostbelt No. 6 Campaign", "2024/12/23"],
-    ["Summer 2025 Banner 2", "2025/09/01"]
+    ["Summer 2025 Banner 2", "2025/09/01"],
+    ["30M Downloads Banner 1", "2026/10/18"]
   ],
   "Kama (Avenger)": [
-    ["Summer 2023 Banner Rerun", "2024/08/31"],
     ["Hunting Quest: Part 13 Summoning Campaign", "2025/09/16"],
     ["Chaldea Summer Adventure Survey-Rerun Banner 3", "2026/06/07"]
   ],
   "Jacques de Molay": [
-    ["Halloween Rebellion of 108 People Banner 2", "2024/10/20"],
-    ["Lilim Harlot Banner 2", "2025/05/13"]
+    ["Lilim Harlot Banner 2", "2025/05/13"],
+    ["Lilim Harlot Survey-Rerun Banner 2", "2026/06/18"]
   ],
-  "Koyanskaya of Dark": [["New Years 2025", "2025/01/11"]],
+  "Koyanskaya of Dark": [["Archetype Inception Banner 2", "2026/09/24"]],
   Hephaistíon: [
     ["Evocation Festival Part 5", "2025/10/20"],
     ["Ordeal Call New Mission Release Campaign Part 6", "2026/04/20"]
@@ -723,74 +793,107 @@ const servantData = {
   ],
   "Super Bunyan": [
     ["8th Anniversary Banner 2", "2025/08/10"],
-    ["Witch on the Holy Night Pre-Release", "2026/04/28"]
+    ["Witch on the Holy Night Pre-Release", "2026/04/28"],
+    ["Mystery House Crafters Banner 3", "2026/12/01"]
   ],
-  "James Moriarty (Ruler)": [
-    ["FGO Winter Party Hokkaido Venue Campaign", "2024/12/31"]
-  ],
-  "Archetype: Earth": [["7th Anniversary Banner 1", "2024/08/10"]],
-  "Xu Fu": [
-    ["7th Anniversary Banner 1", "2024/08/10"],
-    ["7th Anniversary Banner 2", "2024/08/11"],
-    ["Evocation Festival Part 8", "2026/04/16"]
-  ],
+  "James Moriarty (Ruler)": [["Ruler Weekly Summoning Campaign", "2027/01/27"]],
+  "Archetype: Earth": [["Archetype Inception Banner 3", "2026/09/29"]],
+  "Xu Fu": [["Evocation Festival Part 8", "2026/04/16"]],
   "Lady Avalon": [
-    ["Summer 2024 Banner 1", "2024/08/31"],
     ["Lilim Harlot Banner 2", "2025/05/13"],
     ["Swimsuit 2024 Rerun Summoning Campaign", "2025/09/04"],
     ["Ordeal Call New Mission Release Campaign Part 6", "2026/04/20"]
   ],
   "Utsumi Erice (Avenger)": [
-    ["Summer 2024 Banner 3", "2024/08/31"],
     ["Swimsuit 2024 Rerun Summoning Campaign", "2025/09/04"]
   ],
   "Scáthach-Skadi (Ruler)": [
-    ["Summer 2024 Banner 4", "2024/08/31"],
-    ["Swimsuit 2024 Rerun Summoning Campaign", "2025/09/04"]
+    ["Swimsuit 2024 Rerun Summoning Campaign", "2025/09/04"],
+    ["Ruler Weekly Summoning Campaign", "2027/01/27"]
   ],
   "Grigori Rasputin": [
-    ["New Years 2025", "2025/01/11"],
-    ["Ordeal Call New Mission Release Campaign Part 2", "2025/09/19"]
+    ["Ordeal Call New Mission Release Campaign Part 2", "2025/09/19"],
+    ["Lostbelt No.7 Clear Support Campaign", "2026/12/16"]
   ],
   "Nitocris (Alter)": [
-    ["Lostbelt No. 7 Part 2 Pre-Release Campaign Banner 2", "2025/02/01"],
     ["Valentines 2025", "2025/03/10"],
     ["Paper Moon Pre-Release Campaign", "2025/06/18"],
     ["Valentine 2026", "2026/03/16"]
   ],
   Tenochtitlan: [
-    ["Lostbelt No. 7 Part 2 Release Banner 1", "2025/02/14"],
-    ["Lostbelt No. 7 Part 2 Release Banner 2", "2025/02/21"],
+    ["Lostbelt No. 7 Part 2 Release Banner 2 (EN)", "2025/02/04"],
     ["Paper Moon Pre-Release Campaign", "2025/06/18"],
-    ["Chaldea Satellite Station 2023-2024 Miyazaki Campaign", "2026/01/17"]
+    ["Chaldea Satellite Station 2023-2024 Miyazaki Campaign", "2026/01/17"],
+    ["Lostbelt No.7 Clear Support Campaign", "2026/12/16"]
   ],
   Kukulcan: [
-    ["Lostbelt No. 7 Part 2 Release Banner 2", "2025/02/21"],
-    ["Paper Moon Pre-Release Campaign", "2025/06/18"]
+    ["Lostbelt No. 7 Part 2 Release Banner 2 (EN)", "2025/02/04"],
+    ["Paper Moon Pre-Release Campaign", "2025/06/18"],
+    ["Lostbelt No.7 Clear Support Campaign", "2026/12/16"]
   ],
   "Pope Johanna": [
     ["Valentines 2025", "2025/03/10"],
-    ["Valentine 2026 Pre-Release", "2026/02/14"]
+    ["Valentine 2026 Pre-Release", "2026/02/14"],
+    ["Ruler Weekly Summoning Campaign", "2027/01/27"]
   ],
   "Larva/Tiamat": [
     ["FGO Arcade Collaboration Pre-Release Campaign", "2025/05/10"],
-    ["New Years 2026", "2026/01/10"]
+    ["New Years 2026", "2026/01/10"],
+    ["Lilim Harlot Survey-Rerun Banner 3", "2026/06/28"]
   ],
-  "Sodom's Beast/Draco": [["Lilim Harlot Banner 1", "2025/06/17"]],
-  "Chloe von Einzbern (Avenger)": [["Summer 2025 Banner 1", "2025/09/01"]],
-  "Mélusine (Ruler)": [["Summer 2025 Banner 3", "2025/09/01"]],
-  "Cait Cú Cerpriestess": [["Summer 2025 Banner 3", "2025/09/01"]],
+  "Sodom's Beast/Draco": [
+    ["Lilim Harlot Banner 1", "2025/05/17"],
+    ["Lilim Harlot Survey-Rerun Banner 1", "2026/06/28"]
+  ],
+  "Chloe von Einzbern (Avenger)": [
+    ["Summer 2025 Banner 1", "2025/09/01"],
+    ["Summer Event 2024 Support Campaign Part 2 Banner 1", "2026/07/22"],
+    ["New Years 2027", "2027/01/15"]
+  ],
+  "Mélusine (Ruler)": [
+    ["Summer 2025 Banner 3", "2025/09/01"],
+    ["Summer Event 2024 Support Campaign Part 2 Banner 1", "2026/07/22"],
+    ["Ruler Weekly Summoning Campaign", "2027/01/27"]
+  ],
+  "Cait Cú Cerpriestess": [
+    ["Summer 2025 Banner 3", "2025/09/01"],
+    ["Summer Event 2024 Support Campaign Part 2 Banner 1", "2026/07/22"]
+  ],
   Wandjina: [["Wandjina World Tour! Banner 1", "2025/10/11"]],
-  "Uesugi Kenshin": [["GUDAGUDA Super Goryokaku Banner 3", "2025/12/19"]],
+  "Uesugi Kenshin": [
+    ["GUDAGUDA Super Goryokaku Banner 3", "2025/12/19"],
+    ["9th Anniversary Banner 2", "2026/08/15"],
+    ["Ruler Weekly Summoning Campaign", "2027/01/27"]
+  ],
   "Minamoto-no-Raikou/Ushi Gozen": [
     ["Waxing Moon Clashing Swords Chronicles Banner 1", "2026/02/07"]
   ],
   "Marie Antoniette (Alter)": [["Id Banner 1", "2026/04/03"]],
   "The Count of Monte Cristo": [["Id Banner 4", "2026/04/17"]],
-  "Alessandro di Cagliostro": [["Id Banner 4", "2026/04/17"]],
-  "Aozaki Aoko": [
-    ["Witch on the Holy Night/After Night Banner 1", "2026/05/17"]
+  "Alessandro di Cagliostro": [
+    ["Id Banner 4", "2026/04/17"],
+    ["9th Anniversary Banner 2", "2026/08/15"]
   ],
+  "Aozaki Aoko": [
+    ["Witch on the Holy Night/After Night Banner 1", "2026/05/17"],
+    ["New Years 2027", "2027/01/15"]
+  ],
+  "Space Ereshkigal": [["9th Anniversary Banner 1", "2026/08/18"]],
+  "Mysterious Executor C.I.E.L": [
+    ["Celeb Summer Experience! Banner 1", "2026/10/02"]
+  ],
+  "Xu Fu (Avenger)": [["Celeb Summer Experience! Banner 1", "2026/10/02"]],
+  "BB Dubai": [["Archetype Inception Banner 1", "2026/10/09"]],
+  "Tenochtitlan (Moon Cancer)": [
+    ["Archetype Inception Banner 1", "2026/10/09"]
+  ],
+  "Mysterious Heroine XX (Alter)": [
+    ["Archetype Inception Banner 1", "2026/10/09"]
+  ],
+  "Kishinami Hakuno (Male)": [["Faerie Sugoroku FP Banner", "2026/11/06"]],
+  "Kishinami Hakuno (Female)": [["Faerie Sugoroku FP Banner", "2026/11/06"]],
+  Kazuradrop: [["Faerie Sugoroku Banner 1", "2026/11/06"]],
+  Phantasmoon: [["Space Phantasmoon", "2026/12/31"]],
   "Cú Chulainn": [
     ["Fate/stay night 20th Anniversary Celebration Campaign", "2026/02/06"]
   ],
@@ -798,221 +901,196 @@ const servantData = {
     ["Evocation Festival Part 2", "2025/05/21"],
     ["Evocation Festival Part 5", "2025/10/20"]
   ],
-  Hektor: [
-    ["Road to 7: Lostbelt No. 5 -Atlantis- Campaign", "2024/10/05"],
-    ["Chaldea Boys Collection 2025 Banner 1", "2025/04/07"]
+  Hektor: [["Chaldea Boys Collection 2025 Banner 1", "2025/04/07"]],
+  Scáthach: [
+    ["Lilim Harlot Banner 3", "2025/05/09"],
+    ["Lilim Harlot Survey-Rerun Banner 2", "2026/06/18"],
+    ["30M Downloads Banner 2", "2026/11/01"]
   ],
-  Scáthach: [["Lilim Harlot Banner 3", "2025/05/09"]],
   "Altria Pendragon (Lancer Alter)": [
-    ["Singularity Repair Summoning Campaign (4th Singularity)", "2024/11/10"],
-    ["Lilim Harlot Banner 4", "2025/05/12"]
+    ["Lilim Harlot Banner 4", "2025/05/12"],
+    ["Lilim Harlot Survey-Rerun Banner 4", "2026/06/28"]
   ],
   Karna: [
-    ["Road to 7: Lostbelt No. 4 Campaign", "2024/09/14"],
-    ["Christmas 2022 Rerun", "2024/12/19"],
     ["Chaldea Boys Collection 2025 Banner 2", "2025/04/07"],
-    ["Chaldea Boys Collection 2026 Banner 2", "2026/03/20"]
+    ["Chaldea Boys Collection 2026 Banner 2", "2026/03/20"],
+    ["Celeb Summer Experience! Banner 2", "2026/10/02"]
   ],
-  "Fionn mac Cumhaill": [
-    ["Singularity Repair Summoning Campaign (5th Singularity)", "2024/11/16"]
-  ],
-  Brynhild: [["Chaldea Faerie Knight Cup Banner 3", "2024/11/21"]],
+  Brynhild: [["30M Downloads Banner 2", "2026/11/01"]],
+  "Li Shuwen": [["New Years 2027", "2027/01/15"]],
   "Altria Pendragon (Lancer)": [
     ["Valentines 2025", "2025/03/10"],
     ["Valentine 2026", "2026/03/16"]
   ],
-  "Tamamo-no-Mae (Lancer)": [["8th Anniversary Banner 2", "2025/08/10"]],
+  "Tamamo-no-Mae (Lancer)": [
+    ["8th Anniversary Banner 2", "2025/08/10"],
+    ["Summer Event 2024 Support Campaign Part 2 Banner 3", "2026/08/03"],
+    ["30M Downloads Banner 2", "2026/11/01"]
+  ],
   "Kiyohime (Lancer)": [
-    ["7th Anniversary Countdown Campaign", "2024/07/31"],
-    ["Evocation Festival Part 3", "2025/07/12"]
+    ["Evocation Festival Part 3", "2025/07/12"],
+    ["Dancing Dragon Castle! Banner 1", "2026/07/19"],
+    ["Dancing Dragon Castle! Banner 2", "2026/07/19"],
+    ["Dancing Dragon Castle! Banner 3", "2026/07/19"]
   ],
   Enkidu: [
-    ["Singularity Repair Summoning Campaign (7th Singularity)", "2024/11/22"],
     ["Chaldea Boys Collection 2025 Banner 2", "2025/04/07"],
     ["Fate/strange Fake TV Special Anime Campaign", "2025/07/12"],
     ["Chaldea Boys Collection 2026 Banner 2", "2026/03/20"]
   ],
   "Medusa (Lancer)": [
-    ["Singularity Repair Summoning Campaign (7th Singularity)", "2024/11/22"],
-    ["Mystic Eyes Symphony Banner 4", "2025/07/23"]
+    ["Mystic Eyes Symphony Banner 4", "2025/07/23"],
+    ["My Little Dragon Banner 2", "2027/02/05"]
   ],
-  "Jaguar Warrior": [
-    ["Singularity Repair Summoning Campaign (7th Singularity)", "2024/11/22"]
-  ],
-  "Minamoto-no-Raikou (Lancer)": [
-    ["Main Interlude: Imaginary Scramble Release Campaign", "2024/11/04"],
-    ["New Years 2026", "2026/01/10"]
-  ],
-  Pārvatī: [
-    ["Main Interlude: Ooku Release Campaign", "2024/07/20"],
-    ["Christmas 2022 Rerun", "2024/12/19"]
-  ],
-  "Houzouin Inshun": [
-    ["Singularity Repair Summoning Campaign (Pseudo-Singularity)", "2024/11/29"]
-  ],
+  "Minamoto-no-Raikou (Lancer)": [["New Years 2026", "2026/01/10"]],
   Nezha: [
-    ["Road to 7: Lostbelt No. 4 Campaign", "2024/09/14"],
-    ["White Castle by Day, Black Castle by Night Banner 2", "2025/11/11"]
+    ["White Castle by Day, Black Castle by Night Banner 2", "2025/11/11"],
+    ["Mystery House Crafters Banner 2", "2026/11/25"]
   ],
   Ereshkigal: [
-    ["26M Downloads Banner 2", "2024/09/12"],
-    ["27M Downloads", "2025/02/20"],
-    ["Evocation Festival Part 7", "2026/02/11"]
+    ["22M Downloads Banner (EN)", "2025/02/06"],
+    ["Evocation Festival Part 7", "2026/02/11"],
+    ["30M Downloads Banner 2", "2026/11/01"],
+    ["Lostbelt No.7 Clear Support Campaign", "2026/12/16"]
   ],
   Valkyrie: [["Ordeal Call New Mission Release Campaign Part 3", "2025/10/13"]],
   "Ibaraki-Douji (Lancer)": [
-    ["7th Anniversary Countdown Campaign", "2024/07/31"],
-    ["Evocation Festival Part 1 Banner 2", "2025/04/21"]
-  ],
-  "Qin Liangyu": [
-    ["Road to 7: Lostbelt No. 3 Campaign (EN)", "2024/06/03"],
-    ["Halloween Rebellion of 108 People Banner 2", "2024/10/20"]
+    ["Evocation Festival Part 1 Banner 2", "2025/04/21"],
+    ["Summer Event 2024 Support Campaign Part 2 Banner 2", "2026/07/28"]
   ],
   Bradamante: [
-    ["Chaldea Faerie Knight Cup Banner 2", "2024/11/16"],
     ["Valentines 2025", "2025/03/10"],
     ["Evocation Festival Part 1 Banner 2", "2025/04/21"],
     ["Valentine 2026", "2026/03/16"]
   ],
   "Mysterious Alter Ego Λ": [
-    ["FGO Winter Party Hokkaido Venue Campaign", "2024/12/31"],
-    ["8th Anniversary Banner 2", "2025/08/10"]
+    ["8th Anniversary Banner 2", "2025/08/10"],
+    ["Celeb Summer Experience! Banner 3", "2026/08/30"]
   ],
   Caenis: [
-    ["Road to 7: Lostbelt No. 5 -Olympus Campaign", "2024/10/14"],
-    ["New Years 2026", "2026/01/10"]
+    ["New Years 2026", "2026/01/10"],
+    ["Lostbelt No.5 Clear Support Campaign", "2026/10/16"]
   ],
   "Romulus=Quirinus": [
-    ["Road to 7: Lostbelt No. 5 -Olympus Campaign", "2024/10/14"],
-    ["New Years 2026", "2026/01/10"]
+    ["New Years 2026", "2026/01/10"],
+    ["Lostbelt No.5 Clear Support Campaign", "2026/10/16"]
   ],
   Vritra: [
-    ["Christmas 2022 Rerun", "2024/12/19"],
     ["Valentines 2025", "2025/03/10"],
     ["Mystic Eyes Symphony Banner 4", "2025/07/23"],
     ["Evocation Festival Part 7", "2026/02/11"],
     ["Valentine 2026", "2026/03/16"]
   ],
   Mélusine: [
-    ["Road to 7: Lostbelt No. 6 Campaign", "2024/12/23"],
-    ["29M Downloads", "2025/12/01"]
+    ["29M Downloads Banner", "2025/12/01"],
+    ["30M Downloads Banner 2", "2026/11/01"],
+    ["Lostbelt No.6 Clear Support Campaign", "2026/11/12"]
   ],
-  Percival: [["Road to 7: Lostbelt No. 6 Campaign", "2024/12/23"]],
+  Percival: [["Celeb Summer Experience! Banner 2", "2026/10/02"]],
   "Sakamoto Ryouma (Lancer)": [
-    ["KYOMAF 2022 Exhibit Commemoration Campaign", "2024/09/25"],
     ["Chaldea Boys Collection 2025 Banner 4", "2025/04/07"],
-    ["Evocation Festival Part 6", "2025/12/03"]
+    ["Evocation Festival Part 6", "2025/12/03"],
+    ["New Years 2027", "2027/01/15"]
   ],
   "Mary Anning": [
     ["Merry Christmas in the Snowy Fields 2025 Banner 1", "2025/12/31"]
   ],
   "Don Quixote": [
-    ["New Years 2025", "2025/01/11"],
     ["Chaldea Boys Collection 2026 Banner 1", "2026/03/27"],
-    ["Interlude Campaign Part 19", "2026/07/07"]
+    ["Interlude Campaign Part 19", "2026/06/07"],
+    ["Christmas 2026 Banner 4", "2026/12/24"]
   ],
   Britomart: [
-    ["Chaldea Faerie Knight Cup Banner 1", "2024/11/23"],
-    ["Merry Christmas in the Snowy Fields 2025 Banner 2", "2025/12/31"]
+    ["Merry Christmas in the Snowy Fields 2025 Banner 2", "2025/12/31"],
+    ["Mystery House Crafters Banner 2", "2026/11/25"]
   ],
-  Bhima: [
+  Bhīma: [
     ["Paper Moon Banner 1", "2025/07/02"],
     ["Valentine 2026", "2026/03/16"],
-    ["Chaldea Boys Collection 2026 Banner 2", "2026/03/20"]
+    ["Chaldea Boys Collection 2026 Banner 2", "2026/03/20"],
+    ["Ordeal Call I Clear Support Campaign", "2027/01/20"]
   ],
+  "Dobrynya Nikitich (Lancer)": [
+    ["Celeb Summer Experience! Banner 1", "2026/10/02"]
+  ],
+  Biscione: [["My Little Dragon Banner 1", "2027/02/05"]],
   Heracles: [
-    ["Chaldea Faerie Knight Cup Banner 3", "2024/11/21"],
     ["Spring 2023 New Master Aid Campaign", "2025/04/07"],
     ["Fate/stay night 20th Anniversary Celebration Campaign", "2026/02/06"]
   ],
-  Lancelot: [
-    ["Singularity Repair Summoning Campaign (1st Singularity)", "2024/10/31"]
-  ],
+  Lancelot: [["Christmas 2026 Banner 4", "2026/12/24"]],
   "Sakata Kintoki": [
-    ["Chaldea Faerie Knight Cup Banner 3", "2024/11/21"],
-    ["Evocation Festival Part 1 Banner 1", "2025/04/13"]
+    ["Evocation Festival Part 1 Banner 1", "2025/04/13"],
+    ["9th Anniversary Banner 2", "2026/08/15"],
+    ["30M Downloads Banner 2", "2026/11/01"]
   ],
   "Vlad III": [
     ["Chaldea Boys Collection 2025 Banner 2", "2025/04/07"],
     ["Evocation Festival Part 2", "2025/05/21"],
     ["Chaldea Boys Collection 2026 Banner 2", "2026/03/20"]
   ],
-  "Tamamo Cat": [
-    ["Singularity Repair Summoning Campaign (2nd Singularity)", "2024/11/04"]
-  ],
-  Beowulf: [
-    ["Christmas 2022 Rerun", "2024/12/19"],
-    ["Christmas 2022 Rerun", "2024/12/19"]
+  Kiyohime: [
+    ["Dancing Dragon Castle! Banner 1", "2026/07/19"],
+    ["Dancing Dragon Castle! Banner 2", "2026/07/19"],
+    ["Dancing Dragon Castle! Banner 3", "2026/07/19"]
   ],
   "Florence Nightingale": [
     ["Valentines 2025", "2025/03/10"],
     ["Lilim Harlot Banner 3", "2025/05/09"],
     ["Evocation Festival Part 6", "2025/12/03"],
-    ["Valentine 2026", "2026/03/16"]
+    ["Valentine 2026", "2026/03/16"],
+    ["Lilim Harlot Survey-Rerun Banner 4", "2026/06/28"]
   ],
   "Cú Chulainn (Alter)": [
-    ["Singularity Repair Summoning Campaign (5th Singularity)", "2024/11/16"],
     ["Chaldea Boys Collection 2025 Banner 2", "2025/04/07"],
     ["Chaldea Boys Collection 2026 Banner 2", "2026/03/20"]
   ],
-  "Minamoto-no-Raikou": [
-    ["26M Downloads Banner 2", "2024/09/12"],
-    ["Evocation Festival Part 1 Banner 2", "2025/04/21"]
-  ],
+  "Minamoto-no-Raikou": [["Evocation Festival Part 1 Banner 2", "2025/04/21"]],
   "Ibaraki-Douji": [["Evocation Festival Part 1 Banner 1", "2025/04/13"]],
   "Mysterious Heroine X (Alter)": [
-    ["26M Downloads Banner 2", "2024/09/12"],
     ["Valentines 2018-2024 Banner Rerun", "2025/02/28"],
-    ["Valentine 2026 Pre-Release", "2026/02/14"]
+    ["Valentine 2026 Pre-Release", "2026/02/14"],
+    ["30M Downloads Banner 2", "2026/11/01"]
   ],
-  "Hijikata Toshizo": [
-    ["KYOMAF 2022 Exhibit Commemoration Campaign", "2024/09/25"],
-    ["GUDAGUDA Super Goryokaku Banner 2", "2025/12/10"]
-  ],
+  "Hijikata Toshizo": [["GUDAGUDA Super Goryokaku Banner 2", "2025/12/10"]],
   Penthesilea: [
-    [
-      "Singularity Repair Summoning Campaign (Pseudo-Singularity)",
-      "2024/11/29"
-    ],
     ["White Castle by Day, Black Castle by Night Banner 1", "2025/11/15"]
   ],
   "Oda Nobunaga (Berserker)": [
-    ["KYOMAF 2022 Exhibit Commemoration Campaign", "2024/09/25"],
     ["Evocation Festival Part 2", "2025/05/21"],
-    ["Evocation Festival Part 6", "2025/12/03"]
+    ["Evocation Festival Part 6", "2025/12/03"],
+    ["9th Anniversary Banner 2", "2026/08/15"]
   ],
   "Atalante (Alter)": [["Ordeal Call Pre-Release Campaign", "2025/05/26"]],
   "Xiang Yu": [
-    ["Road to 7: Lostbelt No. 3 Campaign (EN)", "2024/06/03"],
     ["Chaldea Boys Collection 2025 Banner 2", "2025/04/07"],
     ["Chaldea Boys Collection 2026 Banner 2", "2026/03/20"],
     ["Evocation Festival Part 8", "2026/04/16"]
   ],
   "Arjuna (Alter)": [
-    ["Road to 7: Lostbelt No. 4 Campaign", "2024/09/14"],
     ["White Day Memorial", "2025/03/31"],
     ["Ordeal Call New Mission Release Campaign Part 4", "2025/11/23"],
-    ["White Day Memorial 2026", "2026/04/03"]
+    ["White Day Memorial 2026", "2026/04/03"],
+    ["Lostbelt No.4 Clear Support Campaign", "2026/09/10"]
   ],
   "Mori Nagayoshi": [
-    ["GUDAGUDA Shin Yamatai-koku 2024", "2024/10/05"],
-    ["KYOMAF 2022 Exhibit Commemoration Campaign", "2024/09/25"],
     ["GUDAGUDA Super Goryokaku Banner 1", "2025/12/19"],
     ["GUDAGUDA Super Goryokaku Banner 2", "2025/12/10"],
     ["GUDAGUDA Super Goryokaku Banner 3", "2025/12/19"],
     ["GUDAGUDA Super Goryokaku Banner 4", "2025/12/19"]
   ],
   "Miyamoto Musashi (Berserker)": [
-    ["7th Anniversary Banner 2", "2024/08/11"],
-    ["Waxing Moon Clashing Swords Chronicles Banner 2", "2026/02/07"]
+    ["Waxing Moon Clashing Swords Chronicles Banner 2", "2026/02/07"],
+    ["New Years 2027", "2027/01/15"]
   ],
   "Kijyo Koyo": [
-    ["New Years 2025", "2025/01/11"],
-    ["Witch on the Holy Night Pre-Release", "2026/04/28"]
+    ["Witch on the Holy Night Pre-Release", "2026/04/28"],
+    ["Evocation Festival Part 9", "2027/02/04"]
   ],
   "Brynhild (Berserker)": [
-    ["7th Anniversary Countdown Campaign", "2024/07/31"],
-    ["Hunting Quest: Part 13 Summoning Campaign", "2025/09/16"]
+    ["Hunting Quest: Part 13 Summoning Campaign", "2025/09/16"],
+    ["Summer Event 2024 Support Campaign Part 2 Banner 2", "2026/07/28"],
+    ["Evocation Festival Part 9", "2027/02/04"]
   ],
   Galatea: [
     ["Valentines 2025", "2025/03/10"],
@@ -1020,84 +1098,67 @@ const servantData = {
     ["Valentine 2026", "2026/03/16"]
   ],
   Morgan: [
-    ["Chaldea Faerie Knight Cup Pre-Release Campaign", "2024/11/10"],
-    ["3000 Days Anniversary", "2025/10/25"]
+    ["3000 Days Anniversary", "2025/10/25"],
+    ["Lostbelt No.6 Clear Support Campaign", "2026/11/12"]
   ],
   "Sei Shonagon (Berserker)": [
-    ["Summer 2023 Banner Rerun", "2024/08/31"],
     ["8th Anniversary Banner 2", "2025/08/10"],
     ["Chaldea Summer Adventure Survey-Rerun Banner 3", "2026/06/07"]
   ],
-  Kriemhild: [
-    ["Chaldea Faerie Knight Cup Banner 3", "2024/11/21"],
-    ["Wandjina World Tour! Banner 1", "2025/10/11"]
-  ],
+  Kriemhild: [["Wandjina World Tour! Banner 1", "2025/10/11"]],
   "Ibuki-Douji (Berserker)": [
-    ["Summer 2024 Banner 3", "2024/08/31"],
     ["Swimsuit 2024 Rerun Summoning Campaign", "2025/09/04"]
   ],
   "Sen-no-Rikyu": [
-    ["GUDAGUDA Shin Yamatai-koku 2024", "2024/10/05"],
-    ["GUDAGUDA Super Goryokaku Banner 4", "2025/12/19"]
+    ["GUDAGUDA Super Goryokaku Banner 4", "2025/12/19"],
+    ["KYOMAF2024 Exhibit Summoning Campaign", "2026/09/26"]
   ],
   Duryodhana: [
     ["Paper Moon Banner 1", "2025/07/02"],
     ["Paper Moon Banner 3", "2025/07/16"],
-    ["Valentine 2026", "2026/03/16"]
+    ["Valentine 2026", "2026/03/16"],
+    ["Ordeal Call I Clear Support Campaign", "2027/01/20"]
   ],
-  "Altria Caster (Berserker)": [["Summer 2025 Banner 1", "2025/09/01"]],
+  "Altria Caster (Berserker)": [
+    ["Summer 2025 Banner 1", "2025/09/01"],
+    ["Summer Event 2024 Support Campaign Part 2 Banner 1", "2026/07/22"]
+  ],
   "Nagakura Shinpachi": [
     ["GUDAGUDA Super Goryokaku Banner 1", "2025/12/19"],
-    ["GUDAGUDA Super Goryokaku Banner 3", "2025/12/19"]
+    ["GUDAGUDA Super Goryokaku Banner 3", "2025/12/19"],
+    ["9th Anniversary Banner 2", "2026/08/15"]
   ],
-  Stheno: [
-    ["Singularity Repair Summoning Campaign (2nd Singularity)", "2024/11/04"],
-    ["Mystic Eyes Symphony Banner 4", "2025/07/23"]
-  ],
-  "Jing Ke": [["Road to 7: Lostbelt No. 3 Campaign (EN)", "2024/06/03"]],
+  Louhi: [["Christmas 2026 Banner 1", "2026/12/24"]],
+  Stheno: [["Mystic Eyes Symphony Banner 4", "2025/07/23"]],
   "Jack the Ripper": [
-    ["Singularity Repair Summoning Campaign (4th Singularity)", "2024/11/10"],
     ["Valentines 2025", "2025/03/10"],
     ["Lilim Harlot Banner 4", "2025/05/12"],
-    ["Valentine 2026", "2026/03/16"]
+    ["Valentine 2026", "2026/03/16"],
+    ["Lilim Harlot Survey-Rerun Banner 4", "2026/06/28"]
   ],
-  "Henry Jekyll & Hyde": [
-    ["Singularity Repair Summoning Campaign (4th Singularity)", "2024/11/10"]
-  ],
-  "Mysterious Heroine X": [
-    ["7th Anniversary Banner 2", "2024/08/11"],
-    ["Evocation Festival Part 2", "2025/05/21"]
-  ],
+  "Mysterious Heroine X": [["Evocation Festival Part 2", "2025/05/21"]],
   "Emiya (Assassin)": [["Evocation Festival Part 4", "2025/09/24"]],
   "Shuten-Douji": [["Evocation Festival Part 1 Banner 1", "2025/04/13"]],
-  "Fuuma Kotarou": [
+  "Fuuma “Evil-wind” Kotarou": [
     ["Fuun Karakuri Illya's Castle Banner 1", "2025/06/07"],
     ["Fuun Karakuri Illya's Castle Banner 2", "2025/06/02"]
   ],
   Cleopatra: [["Wandjina World Tour! Banner 2", "2025/10/03"]],
   "“First Hassan”": [
-    ["FGO Arcade Collaboration Pre-Release Campaign", "2025/05/10"]
+    ["FGO Arcade Collaboration Pre-Release Campaign", "2025/05/10"],
+    ["Lilim Harlot Survey-Rerun Banner 4", "2026/06/28"],
+    ["30M Downloads Banner 2", "2026/11/01"]
   ],
-  "Yan Qing": [
-    ["Summer 2024 Banner 2", "2024/08/31"],
-    ["Halloween Rebellion of 108 People Banner 2", "2024/10/20"]
-  ],
+  "Wu Zetian": [["Christmas 2026 Banner 3", "2026/12/22"]],
   "Nitocris (Assassin)": [
-    ["7th Anniversary Countdown Campaign", "2024/07/31"],
-    ["New Years 2025", "2025/01/11"],
-    ["Wandjina World Tour! Banner 2", "2025/10/03"]
+    ["Wandjina World Tour! Banner 2", "2025/10/03"],
+    ["9th Anniversary Banner 2", "2026/08/15"]
   ],
-  "Mochizuki Chiyome": [
-    ["Road to 7: Lostbelt No. 5 -Atlantis- Campaign", "2024/10/05"],
-    ["Evocation Festival Part 1 Banner 2", "2025/04/21"]
-  ],
-  "Katou Danzo": [
-    [
-      "Singularity Repair Summoning Campaign (Pseudo-Singularity)",
-      "2024/11/29"
-    ],
+  "Mochizuki Chiyome": [["Evocation Festival Part 1 Banner 2", "2025/04/21"]],
+  'Katou "Black Kite" Danzo': [
     ["Fuun Karakuri Illya's Castle Banner 1", "2025/06/07"],
-    ["Fuun Karakuri Illya's Castle Banner 3", "2025/06/04"]
+    ["Fuun Karakuri Illya's Castle Banner 3", "2025/06/04"],
+    ["New Years 2027", "2027/01/15"]
   ],
   Osakabehime: [
     ["Valentines 2025", "2025/03/10"],
@@ -1109,51 +1170,46 @@ const servantData = {
     ["Valentine 2026", "2026/03/16"]
   ],
   "Okada Izo": [
-    ["Nanmei Yumihari Hakkenden Banner 1", "2024/07/20"],
-    ["Nanmei Yumihari Hakkenden Banner 2", "2024/07/20"],
-    ["Nanmei Yumihari Hakkenden Banner 3", "2024/06/13"],
     ["Chaldea Boys Collection 2025 Banner 3", "2025/04/07"],
     ["Chaldea Boys Collection 2025 Banner 4", "2025/04/07"],
-    ["Evocation Festival Part 6", "2025/12/03"]
+    ["Evocation Festival Part 6", "2025/12/03"],
+    ["KYOMAF2024 Exhibit Summoning Campaign", "2026/09/26"]
   ],
   "Ushiwakamaru (Assassin)": [
-    ["7th Anniversary Banner 2", "2024/08/11"],
-    ["8th Anniversary Banner 2", "2025/08/10"]
+    ["8th Anniversary Banner 2", "2025/08/10"],
+    ["Summer Event 2024 Support Campaign Part 2 Banner 2", "2026/07/28"]
   ],
   "Yu Mei-ren": [
-    ["Road to 7: Lostbelt No. 3 Campaign (EN)", "2024/06/03"],
     ["Ordeal Call New Mission Release Campaign Part 3", "2025/10/13"]
   ],
   "Li Shuwen (Assassin)": [
-    ["Road to 7: Lostbelt No. 3 Campaign (EN)", "2024/06/03"],
     ["Chaldea Boys Collection 2025 Banner 2", "2025/04/07"],
     ["Chaldea Boys Collection 2026 Banner 2", "2026/03/20"],
     ["Evocation Festival Part 8", "2026/04/16"]
   ],
   Kama: [
-    ["Main Interlude: Ooku Release Campaign", "2024/07/20"],
-    ["Paper Moon Banner 2", "2025/07/05"]
+    ["Paper Moon Banner 2", "2025/07/05"],
+    ["9th Anniversary Banner 2", "2026/08/15"],
+    ["Ordeal Call I Clear Support Campaign", "2027/01/20"]
   ],
   "Okita J. Souji": [
-    ["KYOMAF 2022 Exhibit Commemoration Campaign", "2024/09/25"],
-    ["28M Downloads", "2025/07/12"]
+    ["28M Downloads Banner", "2025/07/12"],
+    ["Celeb Summer Experience! Banner 3", "2026/08/30"]
   ],
-  "Koyanskaya of Light": [
-    ["Lostbelt No. 7 Pre-Release Support Campaign Part 4", "2024/12/31"],
-    ["New Years 2026", "2026/01/10"]
-  ],
+  "Koyanskaya of Light": [["New Years 2026", "2026/01/10"]],
   "Huyan Zhuo": [
-    ["Halloween Rebellion of 108 People Banner 1", "2024/11/02"],
     ["Mystic Eyes Symphony Banner 3", "2025/07/16"],
     ["Chaldea Satellite Station 2023-2024 Miyazaki Campaign", "2026/01/17"]
   ],
   Tezcatlipoca: [
-    ["Lostbelt No. 7 Part 2 Release Banner 1", "2025/02/14"],
-    ["Summer 2025 Banner 4", "2025/09/01"]
+    ["Summer 2025 Banner 4", "2025/09/01"],
+    ["Lostbelt No.7 Clear Support Campaign", "2026/12/16"]
   ],
   Locusta: [
-    ["Lilim Harlot Banner 1", "2025/06/17"],
-    ["New Years 2026", "2026/01/10"]
+    ["Lilim Harlot Banner 1", "2025/05/17"],
+    ["New Years 2026", "2026/01/10"],
+    ["Lilim Harlot Survey-Rerun Banner 1", "2026/06/28"],
+    ["Lilim Harlot Survey-Rerun Banner 3", "2026/06/28"]
   ],
   "Kashin Koji": [
     ["Fuun Karakuri Illya's Castle Banner 1", "2025/06/07"],
