@@ -276,7 +276,7 @@ const SummonCurrency: NextPage = () => {
               label={copy["event"]["label"]}
             />
             <div style={{ display: "flex", alignItems: "center" }}>
-              Percent of Event SQ to Exclude:
+              {copy["percentexclusion"]}
               <TextField
                 id="standard-basic"
                 inputProps={{ type: "number" }}
@@ -284,13 +284,19 @@ const SummonCurrency: NextPage = () => {
                 variant="standard"
                 value={state.excludeScaling ? state.excludeScaling : undefined}
                 onChange={(e) => {
-                  dispatch({
-                    type: SET_EXCLUDE_SCALING,
-                    payload: parseInt(e.target.value)
-                  });
+                  if (
+                    parseInt(e.target.value) &&
+                    parseInt(e.target.value) <= 100 &&
+                    parseInt(e.target.value) >= 1
+                  )
+                    dispatch({
+                      type: SET_EXCLUDE_SCALING,
+                      payload: parseInt(e.target.value)
+                    });
                 }}
               />
             </div>
+            <div>{copy["exclusiondisclaimer"]}</div>
           </div>
         </div>
         <div className="form-column">

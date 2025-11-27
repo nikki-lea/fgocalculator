@@ -126,7 +126,7 @@ export const initialState = {
   targetData: hasParseableLocalStorageItem("targetData")
     ? JSON.parse(getLocalStorageItem("targetData"))
     : [],
-  excludeScaling: parseInt(getLocalStorageItem("excludeScaling") || "0")
+  excludeScaling: parseInt(getLocalStorageItem("excludeScaling") || "100")
 };
 
 const FgoContext = createContext<{
@@ -340,7 +340,7 @@ export const reducer = (
         targetData: listWithRemoval
       };
     case SET_EXCLUDE_SCALING:
-      const excludeScalingValue = action.payload ? action.payload : 0;
+      const excludeScalingValue = action.payload ? action.payload : 100;
       setLocalStorageItem("excludeScaling", excludeScalingValue.toString());
       return {
         ...state,
