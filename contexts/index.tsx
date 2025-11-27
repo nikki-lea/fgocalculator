@@ -340,7 +340,7 @@ export const reducer = (
         targetData: listWithRemoval
       };
     case SET_EXCLUDE_SCALING:
-      const excludeScalingValue = action.payload ? action.payload : 100;
+      const excludeScalingValue = action.payload ? action.payload : 0;
       setLocalStorageItem("excludeScaling", excludeScalingValue.toString());
       return {
         ...state,

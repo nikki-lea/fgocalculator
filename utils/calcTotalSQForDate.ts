@@ -47,8 +47,8 @@ const calcTotalSQForDate = ({
     questSQ +
     (excludeOptions?.has(ExcludeOptions.events)
       ? excludeScaling <= 100 && excludeScaling >= 1
-        ? eventSQ * (excludeScaling / 100)
-        : eventSQ
+        ? eventSQ * (1 - excludeScaling / 100)
+        : 0
       : eventSQ);
   return totalSQForBanner;
 };

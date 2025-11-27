@@ -75,7 +75,7 @@ const copy = {
   excludeoptions: "Exclude from SQ applied for campaign:",
   percentexclusion: "Percent of Event SQ to Exclude:",
   exclusiondisclaimer:
-    "Check the box and set the percent of maximum possible event + anniversary SQ you DO NOT plan to acquire.",
+    "Check the box and set a percent from 1 to 100 of maximum possible event + anniversary SQ you DO NOT plan to acquire.",
   servantname: "Servant Name",
   bannerlist: "Upcoming Banners based on JP",
   totalspent: "Total SQ Spent",

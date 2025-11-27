@@ -284,15 +284,10 @@ const SummonCurrency: NextPage = () => {
                 variant="standard"
                 value={state.excludeScaling ? state.excludeScaling : undefined}
                 onChange={(e) => {
-                  if (
-                    parseInt(e.target.value) &&
-                    parseInt(e.target.value) <= 100 &&
-                    parseInt(e.target.value) >= 1
-                  )
-                    dispatch({
-                      type: SET_EXCLUDE_SCALING,
-                      payload: parseInt(e.target.value)
-                    });
+                  dispatch({
+                    type: SET_EXCLUDE_SCALING,
+                    payload: parseInt(e.target.value)
+                  });
                 }}
               />
             </div>
