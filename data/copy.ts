@@ -28,7 +28,7 @@ const copy = {
   quest: "Quests, Maintenance, etc",
   event: {
     label: "Events",
-    detail: "Estimates SQ until 04/2027"
+    detail: "Estimates SQ until 08/2027"
   },
   login: {
     both: "Total and daily login sq",
@@ -91,7 +91,8 @@ const copy = {
     "Add your current summon currency, your summon targets, and figure out how much you need to save for multiple summon targets at varying NP levels.",
   dateinvalid:
     "This servant doesn't have any banners during your savings timeframe.",
-  updates: "Updates: Uses JP data through 01/29/2025."
+  updates:
+    "Updates: Uses JP data through 08/2025. Keep in mind that the 1000 event SQ in 08/2027 assumes completion of OC4."
 };
 
 export default copy;
