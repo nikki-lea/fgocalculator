@@ -46,6 +46,7 @@ export const ADD_EXCLUDE_OPTION = "ADD_EXCLUDE_OPTION";
 export const REMOVE_EXCLUDE_OPTION = "REMOVE_EXCLUDE_OPTION";
 export const ADD_TARGET_DATA = "ADD_TARGET_DATA";
 export const REMOVE_TARGET_DATA = "REMOVE_TARGET_DATA";
+export const SET_EXCLUDE_SCALING = "SET_EXCLUDE_SCALING";
 
 export const AppActions = {
   setCurrentSQ: createActionPayload<typeof SET_CURRENT_SQ, number>(
@@ -83,6 +84,9 @@ export const AppActions = {
   ),
   removeTargetData: createActionPayload<typeof REMOVE_TARGET_DATA, number>(
     REMOVE_TARGET_DATA
+  ),
+  setExcludeScaling: createActionPayload<typeof SET_EXCLUDE_SCALING, number>(
+    SET_EXCLUDE_SCALING
   )
 };
 
@@ -121,7 +125,8 @@ export const initialState = {
     : new Set(""),
   targetData: hasParseableLocalStorageItem("targetData")
     ? JSON.parse(getLocalStorageItem("targetData"))
-    : []
+    : [],
+  excludeScaling: parseInt(getLocalStorageItem("excludeScaling") || "100")
 };
 
 const FgoContext = createContext<{
@@ -270,7 +275,8 @@ export const reducer = (
         excludeOptions,
         currentTickets,
         currentSQ,
-        questSQ
+        questSQ,
+        excludeScaling
       } = state;
       const cumulativeLoginsSQ = calcCumulativeLoginSQ(
         cumulativeLoginsCount,
@@ -284,7 +290,8 @@ export const reducer = (
         startDate,
         endDate,
         questSQ,
-        currentSQ
+        currentSQ,
+        excludeScaling
       });
       setLocalStorageItem("cumulativeLoginsSQ", cumulativeLoginsSQ.toString());
       setLocalStorageItem("totalSQForBanner", totalSQForBanner.toString());
@@ -331,6 +338,13 @@ export const reducer = (
       return {
         ...state,
         targetData: listWithRemoval
+      };
+    case SET_EXCLUDE_SCALING:
+      const excludeScalingValue = action.payload ? action.payload : 0;
+      setLocalStorageItem("excludeScaling", excludeScalingValue.toString());
+      return {
+        ...state,
+        excludeScaling: excludeScalingValue
       };
     default:
       return state;

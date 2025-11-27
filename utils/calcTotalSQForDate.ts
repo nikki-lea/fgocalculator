@@ -6,6 +6,7 @@ import calcShopTicketSQ from "./calcShopTicketSQ";
 
 const calcTotalSQForDate = ({
   excludeOptions,
+  excludeScaling,
   cumulativeLoginsCount,
   currentTickets,
   monthlyShopTickets,
@@ -44,7 +45,11 @@ const calcTotalSQForDate = ({
       : 0) +
     (excludeOptions?.has(ExcludeOptions.tickets) ? 0 : shopTicketSQ) +
     questSQ +
-    (excludeOptions?.has(ExcludeOptions.events) ? 0 : eventSQ);
+    (excludeOptions?.has(ExcludeOptions.events)
+      ? excludeScaling <= 100 && excludeScaling >= 1
+        ? eventSQ * (1 - excludeScaling / 100)
+        : 0
+      : eventSQ);
   return totalSQForBanner;
 };
 

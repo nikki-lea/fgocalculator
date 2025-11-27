@@ -1,12 +1,6 @@
 import type { NextPage } from "next";
 import React, { useContext, useEffect, useState } from "react";
-import {
-  TextField,
-  FormControlLabel,
-  Checkbox,
-  Alert,
-  IconButton
-} from "@mui/material";
+import { TextField, FormControlLabel, Checkbox, Alert } from "@mui/material";
 import Footer from "./components/footer";
 import {
   ADD_EXCLUDE_OPTION,
@@ -16,6 +10,7 @@ import {
   SET_CURRENT_SQ,
   SET_CURRENT_TICKETS,
   SET_END_DATE,
+  SET_EXCLUDE_SCALING,
   SET_MONTHLY_SHOP_TICKETS,
   SET_QUEST_SQ,
   SET_START_DATE
@@ -280,6 +275,23 @@ const SummonCurrency: NextPage = () => {
               }
               label={copy["event"]["label"]}
             />
+            <div style={{ display: "flex", alignItems: "center" }}>
+              {copy["percentexclusion"]}
+              <TextField
+                id="standard-basic"
+                inputProps={{ type: "number" }}
+                sx={{ marginInlineStart: "10px", width: "100px" }}
+                variant="standard"
+                value={state.excludeScaling ? state.excludeScaling : undefined}
+                onChange={(e) => {
+                  dispatch({
+                    type: SET_EXCLUDE_SCALING,
+                    payload: parseInt(e.target.value)
+                  });
+                }}
+              />
+            </div>
+            <div>{copy["exclusiondisclaimer"]}</div>
           </div>
         </div>
         <div className="form-column">

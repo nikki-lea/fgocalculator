@@ -27,6 +27,7 @@ export interface StateType {
   totalSQForBanner: number;
   excludeOptions: Set<any>;
   targetData: TargetDataType[];
+  excludeScaling: number;
 }
 
 export function createActionPayload<TypeAction, TypePayload>(
