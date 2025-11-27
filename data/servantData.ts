@@ -1850,7 +1850,6 @@ const servantData = {
     ["Chaldea U-Summer Island Banner 3", "2027/09/03"],
     ["Grand Duel Lancer and Extra Summoning Campaign", "2027/11/13"]
   ],
-  "Elisabeth Báthory": [["Halloween 2027 Banner 1", "2027/11/13"]],
   Heracles: [
     ["Berserker Weekly Summoning Campaign 1", "2027/04/21"],
     ["Berserker Weekly Summoning Campaign 2", "2027/04/28"],
