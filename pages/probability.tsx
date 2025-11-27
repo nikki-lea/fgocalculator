@@ -26,7 +26,8 @@ const Probability: NextPage = () => {
     startDate,
     endDate,
     questSQ,
-    currentSQ
+    currentSQ,
+    excludeScaling
   } = state;
   const startingBudget = Math.floor(totalSQForBanner / targetData.length);
   const initialProbability: number[] = [];
@@ -128,7 +129,8 @@ const Probability: NextPage = () => {
                   monthlyShopTickets,
                   startDate,
                   endDate: targetBannerDate,
-                  questSQ
+                  questSQ,
+                  excludeScaling
                 })
               : 0;
           }

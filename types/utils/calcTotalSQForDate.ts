@@ -10,4 +10,5 @@ export type TotalSQProps = {
   masterMissions?: number;
   dailyLoginTickets?: number;
   eventSQ?: number;
+  excludeScaling: number;
 };
