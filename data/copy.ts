@@ -29,7 +29,7 @@ const copy = {
   event: {
     label: "Events",
     detail:
-      "Estimates SQ until 08/2027 based on maximum possible SQ acquisition"
+      "Estimates SQ until 02/2028 based on maximum possible SQ acquisition"
   },
   login: {
     both: "Total and daily login sq",
@@ -96,7 +96,7 @@ const copy = {
   dateinvalid:
     "This servant doesn't have any banners during your savings timeframe.",
   updates:
-    "Updates: Uses JP data through 08/2025. Note that the 1000 event SQ in estimates after 08/2027 assume completion of OC4. Functionality has been added to scale the amount of event SQ based on what you plan to acquire, otherwise estimates will use maximum attainable SQ from JP events"
+    "Updates: Uses JP data through 02/2026. Note that the 1000 event SQ in estimates after 08/2027 assume completion of OC4. Functionality has been added to scale the amount of event SQ based on what you plan to acquire, otherwise estimates will use maximum attainable SQ from JP events"
 };
 
 export default copy;
