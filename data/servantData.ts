@@ -370,7 +370,6 @@ const servantData = {
     ["All Servants Summoning Campaign", "2027/12/31"]
   ],
   "Lord Logres": [["New Years Campaign 2028", "2028/01/14"]],
-  "Jacques de Molay": [["My Kind of Abduction Banner 1", "2028/03/25"]],
   Emiya: [
     ["Faerie Sugoroku Banner 1", "2026/11/06"],
     ["Archer Weekly Summoning Campaign 1", "2027/02/03"],
@@ -2276,10 +2275,6 @@ const servantData = {
   "Miyu Edelfelt (Lancer)": [
     ["Chaldea U-Summer Island Banner 3", "2027/09/03"],
     ["Grand Duel Lancer and Extra Summoning Campaign", "2027/11/13"],
-    ["All Servants Summoning Campaign", "2027/12/31"]
-  ],
-  "Elisabeth Báthory": [
-    ["Halloween 2027 Banner 1", "2027/11/13"],
     ["All Servants Summoning Campaign", "2027/12/31"]
   ],
   Demeter: [["Valentine 2028", "2028/03/06"]],
